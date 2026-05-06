@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop Navbar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Üst Kampanya Barı -->
+    <div class="top-banner">
+        <span>Pet Shop Mobil Uygulamamız Yenilendi! <strong>Hemen İndir</strong></span>
+        <button class="close-banner">&times;</button>
+    </div>
+
+    <!-- Ana Header -->
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo">PAWCO</div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Ürün, marka veya kategori ara...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="user-actions">
+                <a href="#"><i class="far fa-user"></i> Giriş Yap</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Sepetim</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Kategori Menüsü (Mega Menu) -->
+    <nav class="nav-menu">
+        <div class="container">
+            <ul class="nav-list">
+                <li class="has-mega">
+                    <a href="#">Kedi Ürünleri</a>
+                    <div class="mega-menu">
+                        <div class="mega-content">
+                            <div class="mega-sidebar">
+                                <ul>
+                                    <li class="active">Kedi Maması <i class="fas fa-chevron-right"></i></li>
+                                    <li>Kedi Kumu <i class="fas fa-chevron-right"></i></li>
+                                    <li>Kedi Oyuncakları <i class="fas fa-chevron-right"></i></li>
+                                </ul>
+                            </div>
+                            <div class="mega-main">
+                                <h3>Kedi Maması Kategorileri</h3>
+                                <div class="product-grid">
+                                    <div class="product-item">
+                                        <img src="https://picsum.photos/100/100?random=1" alt="Mama">
+                                        <p>Yetişkin Kedi Maması</p>
+                                    </div>
+                                    <div class="product-item">
+                                        <img src="https://picsum.photos/100/100?random=2" alt="Mama">
+                                        <p>Yavru Kedi Maması</p>
+                                    </div>
+                                    <div class="product-item">
+                                        <img src="https://picsum.photos/100/100?random=3" alt="Mama">
+                                        <p>Kısırlaştırılmış Mama</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#">Köpek Ürünleri</a></li>
+                <li><a href="#">Kuş Ürünleri</a></li>
+                <li><a href="#">Kampanyalar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
