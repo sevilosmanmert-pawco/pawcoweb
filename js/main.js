@@ -21,16 +21,12 @@ function loadData() {
 
 // ── INIT ───────────────────────────────────────────────────
 function init() {
-  renderTopBar();
-  renderHeader();
   renderNavbar();
-  renderHero();
   renderAnimalPicks();
   renderFeaturedSection();
-  renderCampaigns();
-  renderFooter();
   renderMobileNav();
   setupEventListeners();
+  renderHero();
 }
 
 // ── TOP BAR ────────────────────────────────────────────────
@@ -81,8 +77,8 @@ function renderNavbar() {
     const animalAttr = hasDropdown ? `data-animal="${item.id}"` : '';
     html += `
       <div class="nav-item" id="nav-${item.id}" ${animalAttr}>
-        <button class="nav-btn" data-id="${item.id}" onclick="handleNavClick('${item.id}', ${hasDropdown})">
-          <span class="nav-icon">${item.icon}</span>
+        <button class="nav-btn" data-id="${item.id}" onClick="handleNavClick('${item.id}', ${hasDropdown})">
+      
           ${item.label}
           ${hasDropdown ? '<span class="nav-arrow">▼</span>' : ''}
         </button>
@@ -211,21 +207,7 @@ function handleCategoryClick(label) {
   alert(`"${label}" kategorisi açılıyor...`);
 }
 
-// ── HERO ───────────────────────────────────────────────────
-function renderHero() {
-  const hero = document.getElementById('hero');
-  hero.innerHTML = `
-    <div class="hero-inner">
-      <div class="hero-badge">🎉 Yeni Üyelere %15 İndirim!</div>
-      <h1>Evcil Dostların <span>En İyi Adresi</span></h1>
-      <p>Kedi, köpek, kuş ve kemirgenler için binlerce ürün. Hızlı teslimat, güvenli alışveriş.</p>
-      <div class="hero-btns">
-        <button class="btn-primary" onclick="scrollToSection()">Alışverişe Başla 🛒</button>
-        <button class="btn-outline" onclick="alert('Kampanyalar sayfası açılıyor...')">Kampanyaları Gör 🏷️</button>
-      </div>
-    </div>
-  `;
-}
+
 
 function scrollToSection() {
   document.getElementById('main-section').scrollIntoView({ behavior: 'smooth' });
@@ -277,62 +259,97 @@ function renderFeatured() {
 }
 
 // ── CAMPAIGNS ──────────────────────────────────────────────
-function renderCampaigns() {
-  const container = document.getElementById('campaigns');
-  container.innerHTML = `
-    <div class="campaigns-text">
-      <h3>🎁 Haftanın Fırsatları Başladı!</h3>
-      <p>Seçili ürünlerde %30'a varan indirim. Kaçırmayın!</p>
-    </div>
-    <button class="campaigns-btn" onclick="alert('Kampanyalar sayfası açılıyor...')">Fırsatları Keşfet →</button>
-  `;
-}
+
 
 // ── FOOTER ─────────────────────────────────────────────────
-function renderFooter() {
-  const footer = document.getElementById('footer');
-  footer.innerHTML = `
-    <div class="footer-inner">
-      <div class="footer-col footer-brand">
-        <div class="logo">
-          <span style="font-size:28px">🐾</span>
-          <span class="logo-text" style="color:#fff">paw<span style="color:var(--accent)">co</span></span>
+
+
+// hero
+
+// ── HERO / SLIDER ──────────────────────────────────────────
+let currentSlide = 0;
+let heroAutoplayTimer = null;
+
+const slides = [
+  {
+    badge: "Yeni Sezon",
+    title: "Dostlarınız İçin <br> <span>En Sağlıklı</span> Seçimler",
+    desc: "Özenle seçilmiş içeriklerle hazırlanan mamalar şimdi %20 indirimle.",
+    image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=800",
+    bgColor: "#F3F5F7"
+  },
+  {
+    badge: "Popüler",
+    title: "Konforlu Bir <br> <span>Uyku</span> Deneyimi",
+    desc: "Yumuşacık yataklar ve dinlenme alanlarında büyük fırsatları kaçırmayın.",
+    image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&q=80&w=800",
+    bgColor: "#E9F0F4"
+  },
+  {
+    badge: "Pawco Güvencesi",
+    title: "Oyun Zamanı <br> <span>Eğlence</span> Garantili",
+    desc: "En sevilen oyuncaklar ve aksesuarlar tek adreste, hızlı teslimatla kapınızda.",
+    image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800",
+    bgColor: "#EDF5F0"
+  }
+];
+
+function renderHero() {
+  const hero = document.getElementById('hero');
+  if (!hero) return;
+
+  const slide = slides[currentSlide];
+
+  hero.innerHTML = `
+    <div class="hero-slider">
+      <div class="slider-container" style="background-color: ${slide.bgColor}">
+
+        <button class="slider-arrow prev" onclick="changeSlide(-1)" aria-label="Önceki">&#8592;</button>
+
+        <div class="slider-content">
+          <span class="badge">${slide.badge}</span>
+          <h1>${slide.title}</h1>
+          <p>${slide.desc}</p>
+          <div class="slider-actions">
+            <a href="#" class="btn-primary">Hemen İncele</a>
+          </div>
         </div>
-        <p>Evcil hayvanlarınız için en kaliteli ürünleri güvenle satın alın. Binlerce marka, hızlı teslimat.</p>
+
+        <div class="slider-image">
+          <img src="${slide.image}" alt="Slider Görseli">
+        </div>
+
+        <button class="slider-arrow next" onclick="changeSlide(1)" aria-label="Sonraki">&#8594;</button>
+
       </div>
-      <div class="footer-col">
-        <h4>Kurumsal</h4>
-        <ul>
-          <li><a href="#">Hakkımızda</a></li>
-          <li><a href="#">Kariyer</a></li>
-          <li><a href="#">Basın</a></li>
-          <li><a href="#">Blog</a></li>
-        </ul>
+
+      <div class="slider-dots">
+        ${slides.map((_, index) => `
+          <span class="dot ${index === currentSlide ? 'active' : ''}" onclick="goToSlide(${index})"></span>
+        `).join('')}
       </div>
-      <div class="footer-col">
-        <h4>Yardım</h4>
-        <ul>
-          <li><a href="#">Sipariş Takibi</a></li>
-          <li><a href="#">İade & Değişim</a></li>
-          <li><a href="#">Kargo Bilgisi</a></li>
-          <li><a href="#">İletişim</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Kategoriler</h4>
-        <ul>
-          <li><a href="#">Kedi Ürünleri</a></li>
-          <li><a href="#">Köpek Ürünleri</a></li>
-          <li><a href="#">Kuş Ürünleri</a></li>
-          <li><a href="#">Kemirgen Ürünleri</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2025 Pawco. Tüm hakları saklıdır.</span>
-      <span>Güvenli ödeme: 💳 Visa • Mastercard • iyzico</span>
     </div>
   `;
+
+  startHeroAutoplay();
+}
+
+function changeSlide(direction) {
+  currentSlide = (currentSlide + direction + slides.length) % slides.length;
+  renderHero();
+}
+
+function goToSlide(index) {
+  currentSlide = index;
+  renderHero();
+}
+
+function startHeroAutoplay() {
+  if (heroAutoplayTimer) clearInterval(heroAutoplayTimer);
+  heroAutoplayTimer = setInterval(function() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    renderHero();
+  }, 4500);
 }
 
 // ── MOBILE NAV ─────────────────────────────────────────────
@@ -428,6 +445,131 @@ function handleSearch() {
 // PAWCO - Site Verisi (JSON gömülü, fetch gerekmez)
 // ============================================================
 
+// ════════════════════════════════════════
+// PAWCO — section.js
+// main.js'in SONUNA ekle.
+// Mevcut init() ile çakışmaz.
+// ════════════════════════════════════════
+
+// ── YILDIZ RENDER ──────────────────────
+// Her .product-rating[data-score][data-count] elemanını doldurur.
+function renderProductRatings() {
+  document.querySelectorAll('.product-rating').forEach(function(el) {
+    var score = parseFloat(el.dataset.score) || 0;
+    var count = parseInt(el.dataset.count)   || 0;
+    if (score === 0) return;
+
+    var starsHtml = '<span class="product-rating__stars">';
+    for (var i = 1; i <= 5; i++) {
+      if (score >= i) {
+        starsHtml += '<span class="product-rating__star">★</span>';
+      } else if (score >= i - 0.5) {
+        starsHtml += '<span class="product-rating__star" style="opacity:.4">★</span>';
+      } else {
+        starsHtml += '<span class="product-rating__star product-rating__star--empty">★</span>';
+      }
+    }
+    starsHtml += '</span>';
+    starsHtml += '<span class="product-rating__score">' + score.toFixed(1).replace('.', ',') + '</span>';
+    if (count > 0) {
+      starsHtml += '<span class="product-rating__count">(' + count + ')</span>';
+    }
+    el.innerHTML = starsHtml;
+  });
+}
+
+// ── SLIDER FACTORY ─────────────────────
+// trackId, prevId, nextId ve gap (px) alır.
+function initSlider(trackId, prevId, nextId, gap) {
+  var track   = document.getElementById(trackId);
+  var prevBtn = document.getElementById(prevId);
+  var nextBtn = document.getElementById(nextId);
+  if (!track || !prevBtn || !nextBtn) return;
+  if (!track.children.length) return;
+
+  var index = 0;
+
+  function cardWidth() {
+    var firstCard = track.children[0];
+    return firstCard.offsetWidth + gap;
+  }
+  function visibleCount() {
+    var wrapWidth = track.parentElement.offsetWidth;
+    if (!wrapWidth) return 1;
+    var cw = cardWidth();
+    if (!cw) return 1;
+    return Math.max(1, Math.floor(wrapWidth / cw));
+  }
+  function totalCount() {
+    return track.children.length;
+  }
+  function maxIndex() {
+    return Math.max(0, totalCount() - visibleCount());
+  }
+  function update() {
+    var capped = Math.min(index, maxIndex());
+    if (capped !== index) index = capped;
+    track.style.transform = 'translateX(-' + (index * cardWidth()) + 'px)';
+    prevBtn.disabled = index <= 0;
+    nextBtn.disabled = index >= maxIndex();
+  }
+
+  prevBtn.addEventListener('click', function() {
+    index = Math.max(0, index - 1);
+    update();
+  });
+  nextBtn.addEventListener('click', function() {
+    index = Math.min(maxIndex(), index + 1);
+    update();
+  });
+  window.addEventListener('resize', function() { index = 0; update(); });
+
+  update();
+}
+
+// ── FAVORİ TOGGLE ──────────────────────
+function initFavButtons() {
+  document.querySelectorAll('.product-fav-btn').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var on = btn.classList.toggle('active');
+      btn.textContent = on ? '♥' : '♡';
+    });
+  });
+}
+
+// ── SEPETE EKLE ────────────────────────
+function initCartButtons() {
+  document.querySelectorAll('.product-cart-btn').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (btn.classList.contains('added')) return;
+      btn.classList.add('added');
+      btn.textContent = '✓';
+      setTimeout(function() {
+        btn.classList.remove('added');
+        btn.textContent = '🛒';
+      }, 1400);
+    });
+  });
+}
+
+// ── INIT ───────────────────────────────
+// DOMContentLoaded zaten main.js tarafından bekleniyor.
+// loadData → init() zinciri bitmeden bu da çalışabilsin diye
+// ayrı bir listener açıyoruz.
+document.addEventListener('DOMContentLoaded', function() {
+  renderProductRatings();
+  initSlider('brandsTrack',                 'brandPrev',        'brandNext',             12);
+  initSlider('productsTrack',               'prodPrev',         'prodNext',              16);
+  initSlider('viewedProductsTrack',         'viewedPrev',       'viewedNext',            16);
+  initSlider('viewedProductsTrack2',        'viewedPrev2',      'viewedNext2',           16);
+  initSlider('viewedProductsTrackBunu',     'viewedPrevBunu',   'viewedNextBunu',        16);
+  initSlider('viewedProductsTrackGuvence',  'viewedPrevGuvence','viewedNextGuvence',     16);
+  initFavButtons();
+  initCartButtons();
+});
+
 const PAWCO_DATA = {
   "site": {
     "name": "Pawco",
@@ -440,7 +582,8 @@ const PAWCO_DATA = {
     { "id": "bird", "label": "Kuş Ürünleri", "icon": "" },
     { "id": "rodent", "label": "Kemirgen Ürünleri", "icon": "" },
     { "id": "campaigns", "label": "Kampanyalar", "icon": "" },
-    { "id": "club", "label": "Pati Kulüp", "icon": "" }
+    { "id": "club", "label": "Pawco Salon", "icon": "" },
+     { "id": "Rezervation", "label": "Randevu", "icon": "" },
   ],
   "animals": {
     "cat": {

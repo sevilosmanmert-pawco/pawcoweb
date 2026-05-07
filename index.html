@@ -11,35 +11,1348 @@
 <body>
 
   <!-- TOP BAR -->
-  <div id="top-bar" class="top-bar"></div>
+  <div class="top-bar">
+    <span>🚚 <strong>150 TL ve üzeri</strong> ücretsiz kargo &nbsp;|&nbsp; 📞 Müşteri Hizmetleri: <strong>0850 123 45 67</strong></span>
+  </div>
 
   <!-- HEADER -->
-  <header class="header" id="header"></header>
+  <header class="header">
+    <div class="header-inner">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
+      <a href="#" class="logo">
+        <span class="logo-icon">🐾</span>
+        <span class="logo-text">paw<span>co</span></span>
+      </a>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Ne aramıştınız?..." autocomplete="off"/>
+        <button class="search-btn" onclick="handleSearch()">🔍</button>
+      </div>
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="alert('Yardım sayfası açılıyor...')">
+          <span class="btn-icon">🎧</span><span>Yardım</span>
+        </button>
+        <button class="header-action-btn" onclick="alert('Hesabınıza yönlendiriliyorsunuz...')">
+          <span class="btn-icon">👤</span><span>Hesabım</span>
+        </button>
+        <button class="header-action-btn cart-btn" onclick="alert('Sepetiniz açılıyor...')">
+          <span class="btn-icon">🛒</span><span>Sepetim</span>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR (JS'den beslenir) -->
   <nav class="navbar" id="navbar"></nav>
 
   <!-- HERO -->
-  <section class="hero" id="hero"></section>
+  <section class="hero" id="hero">
+</section>
 
-  <!-- ANIMAL QUICK PICKS -->
+  <!-- ANIMAL QUICK PICKS (JS'den beslenir) -->
   <div class="animal-picks" id="animal-picks"></div>
 
-  <!-- MAIN SECTION -->
+  <!-- MAIN SECTION (JS'den beslenir) -->
   <main class="main-section" id="main-section"></main>
 
-  <!-- CAMPAIGNS BANNER -->
-  <div style="max-width:1300px;margin:0 auto 40px;padding:0 20px">
-    <div class="campaigns" id="campaigns"></div>
+  <!-- CAMPAIGNS BANNER --><!-- ════════════════════════════════════════
+     PAWCO — Promo + Markalar + Ürünler
+════════════════════════════════════════ -->
+
+<div style="max-width:1300px; margin:0 auto 60px; padding:0 20px; display:flex; flex-direction:column; gap:40px;">
+
+  <!-- ── PROMO BANNERS ── -->
+  <div class="promo-banners">
+
+    <div class="promo-banner-card">
+      <div class="promo-banner-img promo-banner-img--orange">
+        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1200&auto=format&fit=crop" alt="Pet Ürünleri"/>
+      </div>
+      <div class="promo-banner-body">
+        <h3>Yüksek Kalite, Güvenilir İçerik</h3>
+        <p>Özenle geliştirilmiş premium pet ürünlerini <strong>keşfedin!</strong></p>
+      </div>
+    </div>
+
+    <div class="promo-banner-card">
+      <div class="promo-banner-img promo-banner-img--blue">
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop" alt="Köpek Maması"/>
+      </div>
+      <div class="promo-banner-body">
+        <h3>Veteriner Tavsiyeli Mamalar</h3>
+        <p>Sağlıklı dostlarınız için özel içerikli mamaları <strong>şimdi incele!</strong></p>
+      </div>
+    </div>
+
+    <div class="promo-banner-card">
+      <div class="promo-banner-img promo-banner-img--yellow">
+        <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=1200&auto=format&fit=crop" alt="Kedi Ürünleri"/>
+      </div>
+      <div class="promo-banner-body">
+        <h3>Daha Mutlu Patiler</h3>
+        <p>Kedi ve köpek dostlarınız için özel ürünleri <strong>hemen keşfet!</strong></p>
+      </div>
+    </div>
+
   </div>
 
+
+  <!-- ── MARKALAR ── -->
+  <div>
+    <div class="section-header">
+      <h2 class="section-title">Popüler Markalar</h2> <h2 class="section-title">Popüler Markalar</h2>
+    <span class="see-all">Tümünü Gör ›</span>
+  </div>
+
+  <div class="brands-slider-outer">
+
+    <button class="brands-slider-btn brands-slider-btn--prev" id="brandPrev">‹</button>
+
+    <div class="brands-slider-wrap">
+
+      <div class="brands-track" id="brandsTrack">
+
+        <div class="brand-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Royal_Canin_logo.svg/512px-Royal_Canin_logo.svg.png" alt="Royal Canin">
+        </div>
+
+        <div class="brand-card">
+          <img src="https://seeklogo.com/images/H/hill-s-pet-nutrition-logo-2A2A4E0A79-seeklogo.com.png" alt="Hill's">
+        </div>
+
+        <div class="brand-card">
+          <img src="https://seeklogo.com/images/P/purina-pro-plan-logo-7F0A4EAF2B-seeklogo.com.png" alt="Pro Plan">
+        </div>
+
+        <div class="brand-card">
+          <img src="https://seeklogo.com/images/O/orijen-logo-7F8DCEAB43-seeklogo.com.png" alt="Orijen">
+        </div>
+
+        <div class="brand-card">
+          <img src="https://seeklogo.com/images/A/acana-logo-B9C5D7E93D-seeklogo.com.png" alt="Acana">
+        </div>
+
+        <div class="brand-card">
+          <img src="https://seeklogo.com/images/B/brit-care-logo-3C5E50F7A2-seeklogo.com.png" alt="Brit">
+        </div>
+
+        <div class="brand-card">
+          <img src="https://seeklogo.com/images/F/farmina-logo-9A4A02B1FA-seeklogo.com.png" alt="Farmina">
+        </div>
+
+        <div class="brand-card">
+          <img src="https://seeklogo.com/images/R/reflex-logo-45AFA4C8D0-seeklogo.com.png" alt="Reflex">
+        </div>
+
+        <div class="brand-card">
+          <img src="https://seeklogo.com/images/N/nd-logo-7D7E6B3E39-seeklogo.com.png" alt="ND">
+        </div>
+
+        <div class="brand-card">
+          <img src="https://seeklogo.com/images/W/whiskas-logo-92B7A2EAFB-seeklogo.com.png" alt="Whiskas">
+        </div>
+
+        <div class="brand-card">
+          <img src="https://seeklogo.com/images/P/pedigree-logo-4F2DB1C7F5-seeklogo.com.png" alt="Pedigree">
+        </div>
+
+      </div>
+
+    </div>
+
+    <button class="brands-slider-btn brands-slider-btn--next" id="brandNext">›</button>
+
+  </div>
+  </div>
+
+
+  <!-- ── ÜRÜNLER ── -->
+  <div>
+
+    <div class="section-header">
+      <h2 class="section-title">Sizin İçin Seçtiklerimiz</h2>
+    </div>
+
+    <div class="products-slider-outer">
+
+      <button class="products-slider-btn products-slider-btn--prev" id="prodPrev">‹</button>
+
+      <div class="products-slider-wrap">
+        <div class="products-track" id="productsTrack">
+
+          <!-- PRODUCT 1 -->
+          <div class="product-card">
+
+            <button class="product-fav-btn">♡</button>
+
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?q=80&w=500&auto=format&fit=crop" alt="Köpek Maması"/>
+            </div>
+
+            <div class="product-card-info">
+
+              <p class="product-card-name">
+                Premium Kuzulu Yavru Köpek Maması 3kg
+              </p>
+
+              <div class="product-rating" data-score="5" data-count="24"></div>
+
+              <div class="product-card-bottom">
+
+                <div class="product-card-prices">
+                  <span class="product-card-price">819 TL</span>
+                </div>
+
+                <button class="product-cart-btn">🛒</button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- PRODUCT 2 -->
+          <div class="product-card">
+
+            <button class="product-fav-btn">♡</button>
+
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=500&auto=format&fit=crop" alt="Köpek Oyuncağı"/>
+            </div>
+
+            <div class="product-card-info">
+
+              <p class="product-card-name">
+                Dayanıklı Diş Kaşıma Köpek Oyuncağı
+              </p>
+
+              <div class="product-rating" data-score="4" data-count="11"></div>
+
+              <div class="product-card-bottom">
+
+                <div class="product-card-prices">
+                  <span class="product-card-price">249 TL</span>
+                </div>
+
+                <button class="product-cart-btn">🛒</button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- PRODUCT 3 -->
+          <div class="product-card">
+
+            <button class="product-fav-btn">♡</button>
+
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?q=80&w=500&auto=format&fit=crop" alt="Kedi Maması"/>
+            </div>
+
+            <div class="product-card-info">
+
+              <p class="product-card-name">
+                Tavuk Etli Yetişkin Kedi Maması 2kg
+              </p>
+
+              <div class="product-rating" data-score="5" data-count="42"></div>
+
+              <div class="product-card-bottom">
+
+                <div class="product-card-prices">
+                  <span class="product-card-price-old">1.120 TL</span>
+                  <span class="product-card-price">899 TL</span>
+                </div>
+
+                <button class="product-cart-btn">🛒</button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- PRODUCT 4 -->
+          <div class="product-card">
+
+            <button class="product-fav-btn">♡</button>
+
+            <span class="product-card-badge">YENİ</span>
+
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=1000&auto=format&fit=crop" alt="Kedi Oyuncağı"/>
+            </div>
+
+            <div class="product-card-info">
+
+              <p class="product-card-name">
+                İnteraktif Kedi Oyun Topu
+              </p>
+
+              <div class="product-rating" data-score="4.8" data-count="19"></div>
+
+              <div class="product-card-bottom">
+
+                <div class="product-card-prices">
+                  <span class="product-card-price">179 TL</span>
+                </div>
+
+                <button class="product-cart-btn">🛒</button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- PRODUCT 5 -->
+          <div class="product-card">
+
+            <button class="product-fav-btn">♡</button>
+
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?q=80&w=1000&auto=format&fit=crop" alt="Kedi Yatağı"/>
+            </div>
+
+            <div class="product-card-info">
+
+              <p class="product-card-name">
+                Ultra Yumuşak Peluş Kedi Yatağı
+              </p>
+
+              <div class="product-rating" data-score="5" data-count="8"></div>
+
+              <div class="product-card-bottom">
+
+                <div class="product-card-prices">
+                  <span class="product-card-price">529 TL</span>
+                </div>
+
+                <button class="product-cart-btn">🛒</button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- PRODUCT 6 -->
+          <div class="product-card">
+
+            <button class="product-fav-btn">♡</button>
+
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1000&auto=format&fit=crop" alt="Köpek Tasması"/>
+            </div>
+
+            <div class="product-card-info">
+
+              <p class="product-card-name">
+                Ayarlanabilir Premium Köpek Tasması
+              </p>
+
+              <div class="product-rating" data-score="4.7" data-count="33"></div>
+
+              <div class="product-card-bottom">
+
+                <div class="product-card-prices">
+                  <span class="product-card-price">319 TL</span>
+                </div>
+
+                <button class="product-cart-btn">🛒</button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <button class="products-slider-btn products-slider-btn--next" id="prodNext">›</button>
+
+    </div>
+
+  </div>
+  
+   <!-- Önceden Gezdiğiniz o -->
+
+
+
+
+<div>
+
+  <div class="section-header">
+    <h2 class="section-title">Önceden Gezdiğiniz Ürünler</h2>
+  </div>
+
+  <div class="products-slider-outer">
+
+    <button class="products-slider-btn products-slider-btn--prev" id="viewedPrev">‹</button>
+
+    <div class="products-slider-wrap">
+
+      <div class="products-track" id="viewedProductsTrack">
+
+        <!-- PRODUCT 1 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">POPÜLER</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=500&auto=format&fit=crop" alt="Köpek Maması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Somonlu Hassas Sindirim Köpek Maması 12kg
+            </p>
+
+            <div class="product-rating" data-score="4.9" data-count="87"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price-old">2.199 TL</span>
+                <span class="product-card-price">1.899 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?q=80&w=500&auto=format&fit=crop" alt="Kedi Oyuncağı"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Tüylü İnteraktif Kedi Oltası Oyuncağı
+            </p>
+
+            <div class="product-rating" data-score="4.5" data-count="21"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">149 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">%20</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=500&auto=format&fit=crop" alt="Kedi Kumu"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Topaklanan Bentonit Kedi Kumu 10L
+            </p>
+
+            <div class="product-rating" data-score="4.7" data-count="63"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price-old">389 TL</span>
+                <span class="product-card-price">309 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=500&auto=format&fit=crop" alt="Köpek Tasması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Reflektörlü Ayarlanabilir Köpek Tasması
+            </p>
+
+            <div class="product-rating" data-score="4.6" data-count="14"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">259 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">YENİ</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=500&auto=format&fit=crop" alt="Kedi Yatağı"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Ortopedik Peluş Kedi ve Köpek Yatağı
+            </p>
+
+            <div class="product-rating" data-score="5" data-count="41"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">699 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=500&auto=format&fit=crop" alt="Köpek Ödül Maması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Dana Etli Eğitim Ödül Çubukları 100gr
+            </p>
+
+            <div class="product-rating" data-score="4.8" data-count="52"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">119 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <button class="products-slider-btn products-slider-btn--next" id="viewedNext">›</button>
+
+  </div>
+
+</div>
+
+
+
+   <!-- Önceden Gezdiğiniz o -->
+
+
+
+
+<div>
+
+  <div class="section-header">
+    <h2 class="section-title">Önceden Gezdiğiniz Ürünler</h2>
+  </div>
+
+  <div class="products-slider-outer">
+
+    <button class="products-slider-btn products-slider-btn--prev" id="viewedPrev2">‹</button>
+
+    <div class="products-slider-wrap">
+
+      <div class="products-track" id="viewedProductsTrack2">
+
+        <!-- PRODUCT 1 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">POPÜLER</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=500&auto=format&fit=crop" alt="Köpek Maması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Somonlu Hassas Sindirim Köpek Maması 12kg
+            </p>
+
+            <div class="product-rating" data-score="4.9" data-count="87"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price-old">2.199 TL</span>
+                <span class="product-card-price">1.899 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?q=80&w=500&auto=format&fit=crop" alt="Kedi Oyuncağı"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Tüylü İnteraktif Kedi Oltası Oyuncağı
+            </p>
+
+            <div class="product-rating" data-score="4.5" data-count="21"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">149 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">%20</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=500&auto=format&fit=crop" alt="Kedi Kumu"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Topaklanan Bentonit Kedi Kumu 10L
+            </p>
+
+            <div class="product-rating" data-score="4.7" data-count="63"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price-old">389 TL</span>
+                <span class="product-card-price">309 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=500&auto=format&fit=crop" alt="Köpek Tasması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Reflektörlü Ayarlanabilir Köpek Tasması
+            </p>
+
+            <div class="product-rating" data-score="4.6" data-count="14"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">259 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">YENİ</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=500&auto=format&fit=crop" alt="Kedi Yatağı"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Ortopedik Peluş Kedi ve Köpek Yatağı
+            </p>
+
+            <div class="product-rating" data-score="5" data-count="41"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">699 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=500&auto=format&fit=crop" alt="Köpek Ödül Maması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Dana Etli Eğitim Ödül Çubukları 100gr
+            </p>
+
+            <div class="product-rating" data-score="4.8" data-count="52"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">119 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <button class="products-slider-btn products-slider-btn--next" id="viewedNext2">›</button>
+
+  </div>
+
+</div>
+
+
+   <!-- Bunumu aramıstınız -->
+
+
+
+
+<div>
+
+  <div class="section-header">
+    <h2 class="section-title">Bunu Mu Aramıştınız?</h2>
+  </div>
+
+  <div class="products-slider-outer">
+
+    <button class="products-slider-btn products-slider-btn--prev" id="viewedPrevBunu">‹</button>
+
+    <div class="products-slider-wrap">
+
+      <div class="products-track" id="viewedProductsTrackBunu">
+
+        <!-- PRODUCT 1 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">POPÜLER</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=500&auto=format&fit=crop" alt="Köpek Maması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Somonlu Hassas Sindirim Köpek Maması 12kg
+            </p>
+
+            <div class="product-rating" data-score="4.9" data-count="87"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price-old">2.199 TL</span>
+                <span class="product-card-price">1.899 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?q=80&w=500&auto=format&fit=crop" alt="Kedi Oyuncağı"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Tüylü İnteraktif Kedi Oltası Oyuncağı
+            </p>
+
+            <div class="product-rating" data-score="4.5" data-count="21"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">149 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">%20</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=500&auto=format&fit=crop" alt="Kedi Kumu"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Topaklanan Bentonit Kedi Kumu 10L
+            </p>
+
+            <div class="product-rating" data-score="4.7" data-count="63"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price-old">389 TL</span>
+                <span class="product-card-price">309 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=500&auto=format&fit=crop" alt="Köpek Tasması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Reflektörlü Ayarlanabilir Köpek Tasması
+            </p>
+
+            <div class="product-rating" data-score="4.6" data-count="14"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">259 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">YENİ</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=500&auto=format&fit=crop" alt="Kedi Yatağı"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Ortopedik Peluş Kedi ve Köpek Yatağı
+            </p>
+
+            <div class="product-rating" data-score="5" data-count="41"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">699 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=500&auto=format&fit=crop" alt="Köpek Ödül Maması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Dana Etli Eğitim Ödül Çubukları 100gr
+            </p>
+
+            <div class="product-rating" data-score="4.8" data-count="52"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">119 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <button class="products-slider-btn products-slider-btn--next" id="viewedNextBunu">›</button>
+
+  </div>
+
+</div>
+
+
+
+   <!-- Bunumu aramıstınız -->
+
+
+
+
+<div>
+
+  <div class="section-header">
+    <h2 class="section-title">Pawco Güvencesiyle</h2>
+  </div>
+
+  <div class="products-slider-outer">
+
+    <button class="products-slider-btn products-slider-btn--prev" id="viewedPrevGuvence">‹</button>
+
+    <div class="products-slider-wrap">
+
+      <div class="products-track" id="viewedProductsTrackGuvence">
+
+        <!-- PRODUCT 1 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">POPÜLER</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=500&auto=format&fit=crop" alt="Köpek Maması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Somonlu Hassas Sindirim Köpek Maması 12kg
+            </p>
+
+            <div class="product-rating" data-score="4.9" data-count="87"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price-old">2.199 TL</span>
+                <span class="product-card-price">1.899 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?q=80&w=500&auto=format&fit=crop" alt="Kedi Oyuncağı"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Tüylü İnteraktif Kedi Oltası Oyuncağı
+            </p>
+
+            <div class="product-rating" data-score="4.5" data-count="21"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">149 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">%20</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=500&auto=format&fit=crop" alt="Kedi Kumu"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Topaklanan Bentonit Kedi Kumu 10L
+            </p>
+
+            <div class="product-rating" data-score="4.7" data-count="63"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price-old">389 TL</span>
+                <span class="product-card-price">309 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=500&auto=format&fit=crop" alt="Köpek Tasması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Reflektörlü Ayarlanabilir Köpek Tasması
+            </p>
+
+            <div class="product-rating" data-score="4.6" data-count="14"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">259 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">YENİ</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=500&auto=format&fit=crop" alt="Kedi Yatağı"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Ortopedik Peluş Kedi ve Köpek Yatağı
+            </p>
+
+            <div class="product-rating" data-score="5" data-count="41"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">699 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=500&auto=format&fit=crop" alt="Köpek Ödül Maması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Dana Etli Eğitim Ödül Çubukları 100gr
+            </p>
+
+            <div class="product-rating" data-score="4.8" data-count="52"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">119 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <button class="products-slider-btn products-slider-btn--next" id="viewedNextGuvence">›</button>
+
+  </div>
+
+</div>
+
+
+
+
+</div>
+
   <!-- FOOTER -->
-  <footer class="footer" id="footer"></footer>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col footer-brand">
+        <div class="logo">
+          <span style="font-size:28px">🐾</span>
+          <span class="logo-text" style="color:#fff">paw<span style="color:var(--accent)">co</span></span>
+        </div>
+        <p>Evcil hayvanlarınız için en kaliteli ürünleri güvenle satın alın. Binlerce marka, hızlı teslimat.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Kurumsal</h4>
+        <ul>
+          <li><a href="#">Hakkımızda</a></li>
+          <li><a href="#">Kariyer</a></li>
+          <li><a href="#">Basın</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Yardım</h4>
+        <ul>
+          <li><a href="#">Sipariş Takibi</a></li>
+          <li><a href="#">İade & Değişim</a></li>
+          <li><a href="#">Kargo Bilgisi</a></li>
+          <li><a href="#">İletişim</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kategoriler</h4>
+        <ul>
+          <li><a href="#">Kedi Ürünleri</a></li>
+          <li><a href="#">Köpek Ürünleri</a></li>
+          <li><a href="#">Kuş Ürünleri</a></li>
+          <li><a href="#">Kemirgen Ürünleri</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Pawco. Tüm hakları saklıdır.</span>
+      <span>Güvenli ödeme: 💳 Visa • Mastercard • iyzico</span>
+    </div>
+  </footer>
 
   <!-- MOBILE OVERLAY -->
   <div class="mobile-overlay" id="mobile-overlay"></div>
 
-  <!-- MOBILE NAV DRAWER -->
+  <!-- MOBILE NAV DRAWER (JS'den beslenir) -->
   <nav class="mobile-nav" id="mobile-nav"></nav>
 
   <script src="js/main.js"></script>
