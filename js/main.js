@@ -435,17 +435,17 @@ const PAWCO_DATA = {
     "logo": "🐾"
   },
   "nav": [
-    { "id": "cat", "label": "Kedi Ürünleri", "icon": "🐱" },
-    { "id": "dog", "label": "Köpek Ürünleri", "icon": "🐶" },
-    { "id": "bird", "label": "Kuş Ürünleri", "icon": "🐦" },
-    { "id": "rodent", "label": "Kemirgen Ürünleri", "icon": "🐹" },
-    { "id": "campaigns", "label": "Kampanyalar", "icon": "🏷️" },
-    { "id": "club", "label": "Pati Kulüp", "icon": "⭐" }
+    { "id": "cat", "label": "Kedi Ürünleri", "icon": "" },
+    { "id": "dog", "label": "Köpek Ürünleri", "icon": "" },
+    { "id": "bird", "label": "Kuş Ürünleri", "icon": "" },
+    { "id": "rodent", "label": "Kemirgen Ürünleri", "icon": "" },
+    { "id": "campaigns", "label": "Kampanyalar", "icon": "" },
+    { "id": "club", "label": "Pati Kulüp", "icon": "" }
   ],
   "animals": {
     "cat": {
       "label": "Kedi",
-      "icon": "🐱",
+      "icon": "",
       "color": "#FF6B6B",
       "banner": "Kediniz İçin En İyi Ürünler",
       "sidebar": [
@@ -667,7 +667,7 @@ const PAWCO_DATA = {
     },
     "dog": {
       "label": "Köpek",
-      "icon": "🐶",
+      "icon": "",
       "color": "#4ECDC4",
       "banner": "Köpeğiniz İçin En İyi Ürünler",
       "sidebar": [
@@ -815,7 +815,7 @@ const PAWCO_DATA = {
     },
     "bird": {
       "label": "Kuş",
-      "icon": "🐦",
+      "icon": "",
       "color": "#45B7D1",
       "banner": "Kuşunuz İçin En İyi Ürünler",
       "sidebar": [
@@ -923,7 +923,7 @@ const PAWCO_DATA = {
     },
     "rodent": {
       "label": "Kemirgen",
-      "icon": "🐹",
+      "icon": "",
       "color": "#96CEB4",
       "banner": "Kemirgenlerin Dünyası",
       "sidebar": [

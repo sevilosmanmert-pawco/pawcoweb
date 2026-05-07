@@ -5,11 +5,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-  --primary: #FF6B35;
-  --primary-light: #FF8C5A;
+ --primary: #1A1A2E;        /* Ana metin ve ikonlar için koyu lacivert/siyah */
+  --primary-light: #F8F9FA;  
   --primary-dark: #E5531A;
   --secondary: #2C3E50;
-  --accent: #FFD166;
+  --accent: #E5531A;
   --cat-color: #FF6B6B;
   --dog-color: #4ECDC4;
   --bird-color: #45B7D1;
