@@ -1,80 +1,47 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Shop Navbar</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Pawco - Evcil Dostların En İyi Alışveriş Sitesi"/>
+  <title>Pawco 🐾 - Evcil Hayvan Ürünleri</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>"/>
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 
-    <!-- Üst Kampanya Barı -->
-    <div class="top-banner">
-        <span>Pet Shop Mobil Uygulamamız Yenilendi! <strong>Hemen İndir</strong></span>
-        <button class="close-banner">&times;</button>
-    </div>
+  <!-- TOP BAR -->
+  <div id="top-bar" class="top-bar"></div>
 
-    <!-- Ana Header -->
-    <header class="main-header">
-        <div class="container header-content">
-            <div class="logo">PAWCO</div>
-            
-            <div class="search-bar">
-                <input type="text" placeholder="Ürün, marka veya kategori ara...">
-                <button><i class="fas fa-search"></i></button>
-            </div>
+  <!-- HEADER -->
+  <header class="header" id="header"></header>
 
-            <div class="user-actions">
-                <a href="#"><i class="far fa-user"></i> Giriş Yap</a>
-                <a href="#"><i class="fas fa-shopping-cart"></i> Sepetim</a>
-            </div>
-        </div>
-    </header>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar"></nav>
 
-    <!-- Kategori Menüsü (Mega Menu) -->
-    <nav class="nav-menu">
-        <div class="container">
-            <ul class="nav-list">
-                <li class="has-mega">
-                    <a href="#">Kedi Ürünleri</a>
-                    <div class="mega-menu">
-                        <div class="mega-content">
-                            <div class="mega-sidebar">
-                                <ul>
-                                    <li class="active">Kedi Maması <i class="fas fa-chevron-right"></i></li>
-                                    <li>Kedi Kumu <i class="fas fa-chevron-right"></i></li>
-                                    <li>Kedi Oyuncakları <i class="fas fa-chevron-right"></i></li>
-                                </ul>
-                            </div>
-                            <div class="mega-main">
-                                <h3>Kedi Maması Kategorileri</h3>
-                                <div class="product-grid">
-                                    <div class="product-item">
-                                        <img src="https://picsum.photos/100/100?random=1" alt="Mama">
-                                        <p>Yetişkin Kedi Maması</p>
-                                    </div>
-                                    <div class="product-item">
-                                        <img src="https://picsum.photos/100/100?random=2" alt="Mama">
-                                        <p>Yavru Kedi Maması</p>
-                                    </div>
-                                    <div class="product-item">
-                                        <img src="https://picsum.photos/100/100?random=3" alt="Mama">
-                                        <p>Kısırlaştırılmış Mama</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="#">Köpek Ürünleri</a></li>
-                <li><a href="#">Kuş Ürünleri</a></li>
-                <li><a href="#">Kampanyalar</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- HERO -->
+  <section class="hero" id="hero"></section>
 
-    <script src="js/main.js"></script>
+  <!-- ANIMAL QUICK PICKS -->
+  <div class="animal-picks" id="animal-picks"></div>
+
+  <!-- MAIN SECTION -->
+  <main class="main-section" id="main-section"></main>
+
+  <!-- CAMPAIGNS BANNER -->
+  <div style="max-width:1300px;margin:0 auto 40px;padding:0 20px">
+    <div class="campaigns" id="campaigns"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer"></footer>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+
+  <!-- MOBILE NAV DRAWER -->
+  <nav class="mobile-nav" id="mobile-nav"></nav>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,272 @@
+{
+  "site": {
+    "name": "Pawco",
+    "tagline": "Evcil Dostların Dünyası",
+    "logo": "🐾"
+  },
+  "nav": [
+    { "id": "cat", "label": "Kedi Ürünleri", "icon": "🐱" },
+    { "id": "dog", "label": "Köpek Ürünleri", "icon": "🐶" },
+    { "id": "bird", "label": "Kuş Ürünleri", "icon": "🐦" },
+    { "id": "rodent", "label": "Kemirgen Ürünleri", "icon": "🐹" },
+    { "id": "campaigns", "label": "Kampanyalar", "icon": "🏷️" },
+    { "id": "club", "label": "Pati Kulüp", "icon": "⭐" }
+  ],
+  "animals": {
+    "cat": {
+      "label": "Kedi",
+      "icon": "🐱",
+      "color": "#FF6B6B",
+      "banner": "Kediniz İçin En İyi Ürünler",
+      "sidebar": [
+        { "id": "cat-food", "label": "Kedi Maması", "icon": "🥣", "hasChildren": true },
+        { "id": "cat-wet", "label": "Kedi Konserve Maması", "icon": "🥫", "hasChildren": true },
+        { "id": "cat-treat", "label": "Kedi Ödül Maması", "icon": "🎁", "hasChildren": true },
+        { "id": "cat-litter", "label": "Kedi Kumu", "icon": "🪣", "hasChildren": false },
+        { "id": "cat-vitamin", "label": "Vitaminler ve Ek Besinler", "icon": "💊", "hasChildren": true },
+        { "id": "cat-toy", "label": "Kedi Oyuncağı", "icon": "🧶", "hasChildren": true },
+        { "id": "cat-care", "label": "Bakım ve Temizlik", "icon": "✂️", "hasChildren": true },
+        { "id": "cat-bowl", "label": "Kedi Mama ve Su Kabı", "icon": "🍽️", "hasChildren": true },
+        { "id": "cat-toilet", "label": "Kedi Tuvaletleri ve Ekipmanları", "icon": "🚽", "hasChildren": true },
+        { "id": "cat-brush", "label": "Kedi Tarağı ve Fırçası", "icon": "🪮", "hasChildren": false },
+        { "id": "cat-scratch", "label": "Tırmalama Tahtası", "icon": "🪵", "hasChildren": false },
+        { "id": "cat-collar", "label": "Kedi Tasması", "icon": "📿", "hasChildren": true },
+        { "id": "cat-carrier", "label": "Kedi Taşıma Ekipmanları", "icon": "👜", "hasChildren": true },
+        { "id": "cat-bed", "label": "Kedi Evleri ve Yatakları", "icon": "🏠", "hasChildren": true },
+        { "id": "cat-door", "label": "Kedi Kapıları ve Güvenlik Ürünleri", "icon": "🚪", "hasChildren": true }
+      ],
+      "mainCategories": {
+        "cat-food": {
+          "title": "Kedi Maması Kategorileri",
+          "items": [
+            { "id": "cf-all", "label": "Tümünü Gör", "icon": "🔢", "color": "#f0f0f0" },
+            { "id": "cf-neutered", "label": "Kısırlaştırılmış Kedi Maması", "icon": "🐱", "color": "#fff3cd" },
+            { "id": "cf-adult", "label": "Yetişkin Kedi Maması", "icon": "🐈", "color": "#d4edda" },
+            { "id": "cf-kitten", "label": "Yavru Kedi Maması", "icon": "🐱", "color": "#cce5ff" },
+            { "id": "cf-light", "label": "Light Kedi Maması", "icon": "💚", "color": "#d1ecf1" },
+            { "id": "cf-vet", "label": "Veteriner Diyet Maması", "icon": "🏥", "color": "#f8d7da" },
+            { "id": "cf-senior", "label": "Yaşlı Kedi Maması", "icon": "🧓🐱", "color": "#e2e3e5" },
+            { "id": "cf-breed", "label": "Özel Irk Kedi Maması", "icon": "🏆", "color": "#fff3cd" },
+            { "id": "cf-tester", "label": "Tester Kedi Mamaları", "icon": "🧪", "color": "#d4edda" }
+          ],
+          "related": [
+            { "id": "cr-wet", "label": "Kedi Konserve Maması", "icon": "🥫" },
+            { "id": "cr-vitamin", "label": "Vitaminler ve Ek Besinler", "icon": "💊" },
+            { "id": "cr-treat", "label": "Kedi Ödül Maması", "icon": "🎁" },
+            { "id": "cr-bowl", "label": "Kedi Mama ve Su Kabı", "icon": "🍽️" }
+          ]
+        },
+        "cat-wet": {
+          "title": "Kedi Konserve Kategorileri",
+          "items": [
+            { "id": "cw-all", "label": "Tümünü Gör", "icon": "🔢", "color": "#f0f0f0" },
+            { "id": "cw-adult", "label": "Yetişkin Konserve", "icon": "🐈", "color": "#d4edda" },
+            { "id": "cw-kitten", "label": "Yavru Konserve", "icon": "🐱", "color": "#cce5ff" },
+            { "id": "cw-senior", "label": "Yaşlı Konserve", "icon": "🧓", "color": "#e2e3e5" },
+            { "id": "cw-vet", "label": "Veteriner Diyet", "icon": "🏥", "color": "#f8d7da" },
+            { "id": "cw-tuna", "label": "Ton Balıklı", "icon": "🐟", "color": "#d1ecf1" },
+            { "id": "cw-chicken", "label": "Tavuklu", "icon": "🍗", "color": "#fff3cd" }
+          ],
+          "related": [
+            { "id": "cr-food", "label": "Kedi Maması", "icon": "🥣" },
+            { "id": "cr-treat", "label": "Kedi Ödül Maması", "icon": "🎁" },
+            { "id": "cr-bowl", "label": "Kedi Mama ve Su Kabı", "icon": "🍽️" }
+          ]
+        },
+        "cat-toy": {
+          "title": "Kedi Oyuncağı Kategorileri",
+          "items": [
+            { "id": "ct-all", "label": "Tümünü Gör", "icon": "🔢", "color": "#f0f0f0" },
+            { "id": "ct-feather", "label": "Tüylü Oyuncaklar", "icon": "🪶", "color": "#fff3cd" },
+            { "id": "ct-laser", "label": "Lazer Oyuncaklar", "icon": "🔴", "color": "#f8d7da" },
+            { "id": "ct-tunnel", "label": "Tünel ve Çadırlar", "icon": "🎪", "color": "#d4edda" },
+            { "id": "ct-mouse", "label": "Fare Oyuncaklar", "icon": "🐭", "color": "#cce5ff" },
+            { "id": "ct-ball", "label": "Top Oyuncaklar", "icon": "⚽", "color": "#d1ecf1" },
+            { "id": "ct-wand", "label": "Olta Oyuncaklar", "icon": "🎣", "color": "#e2e3e5" }
+          ],
+          "related": [
+            { "id": "cr-scratch", "label": "Tırmalama Tahtası", "icon": "🪵" },
+            { "id": "cr-bed", "label": "Kedi Evleri ve Yatakları", "icon": "🏠" }
+          ]
+        },
+        "cat-litter": {
+          "title": "Kedi Kumu Kategorileri",
+          "items": [
+            { "id": "cl-all", "label": "Tümünü Gör", "icon": "🔢", "color": "#f0f0f0" },
+            { "id": "cl-clump", "label": "Topaklanan Kum", "icon": "🪨", "color": "#d4edda" },
+            { "id": "cl-crystal", "label": "Kristal Kum", "icon": "💎", "color": "#cce5ff" },
+            { "id": "cl-plant", "label": "Bitkisel Kum", "icon": "🌿", "color": "#d4edda" },
+            { "id": "cl-pine", "label": "Çam Pellet", "icon": "🌲", "color": "#d4edda" },
+            { "id": "cl-scented", "label": "Kokulu Kum", "icon": "🌸", "color": "#f8d7da" }
+          ],
+          "related": [
+            { "id": "cr-toilet", "label": "Kedi Tuvaletleri", "icon": "🚽" },
+            { "id": "cr-care", "label": "Bakım ve Temizlik", "icon": "✂️" }
+          ]
+        }
+      }
+    },
+    "dog": {
+      "label": "Köpek",
+      "icon": "🐶",
+      "color": "#4ECDC4",
+      "banner": "Köpeğiniz İçin En İyi Ürünler",
+      "sidebar": [
+        { "id": "dog-food", "label": "Köpek Maması", "icon": "🥣", "hasChildren": true },
+        { "id": "dog-wet", "label": "Köpek Konserve Maması", "icon": "🥫", "hasChildren": true },
+        { "id": "dog-treat", "label": "Köpek Ödül Maması", "icon": "🦴", "hasChildren": true },
+        { "id": "dog-vitamin", "label": "Vitaminler ve Ek Besinler", "icon": "💊", "hasChildren": true },
+        { "id": "dog-toy", "label": "Köpek Oyuncağı", "icon": "🎾", "hasChildren": true },
+        { "id": "dog-care", "label": "Bakım ve Temizlik", "icon": "✂️", "hasChildren": true },
+        { "id": "dog-bowl", "label": "Köpek Mama ve Su Kabı", "icon": "🍽️", "hasChildren": true },
+        { "id": "dog-brush", "label": "Köpek Tarağı ve Fırçası", "icon": "🪮", "hasChildren": false },
+        { "id": "dog-collar", "label": "Köpek Tasması ve Gezdirme", "icon": "📿", "hasChildren": true },
+        { "id": "dog-carrier", "label": "Köpek Taşıma Ekipmanları", "icon": "👜", "hasChildren": true },
+        { "id": "dog-bed", "label": "Köpek Yatakları ve Evleri", "icon": "🏠", "hasChildren": true },
+        { "id": "dog-clothes", "label": "Köpek Kıyafetleri", "icon": "👕", "hasChildren": true },
+        { "id": "dog-health", "label": "Sağlık ve Hijyen", "icon": "🏥", "hasChildren": true }
+      ],
+      "mainCategories": {
+        "dog-food": {
+          "title": "Köpek Maması Kategorileri",
+          "items": [
+            { "id": "df-all", "label": "Tümünü Gör", "icon": "🔢", "color": "#f0f0f0" },
+            { "id": "df-adult", "label": "Yetişkin Köpek Maması", "icon": "🐕", "color": "#d4edda" },
+            { "id": "df-puppy", "label": "Yavru Köpek Maması", "icon": "🐶", "color": "#cce5ff" },
+            { "id": "df-senior", "label": "Yaşlı Köpek Maması", "icon": "🧓", "color": "#e2e3e5" },
+            { "id": "df-small", "label": "Küçük Irk Maması", "icon": "🐩", "color": "#fff3cd" },
+            { "id": "df-large", "label": "Büyük Irk Maması", "icon": "🦮", "color": "#d1ecf1" },
+            { "id": "df-vet", "label": "Veteriner Diyet Maması", "icon": "🏥", "color": "#f8d7da" },
+            { "id": "df-light", "label": "Light Köpek Maması", "icon": "💚", "color": "#d1ecf1" },
+            { "id": "df-grain", "label": "Tahılsız Mama", "icon": "🌾", "color": "#fff3cd" }
+          ],
+          "related": [
+            { "id": "dr-wet", "label": "Köpek Konserve Maması", "icon": "🥫" },
+            { "id": "dr-treat", "label": "Köpek Ödül Maması", "icon": "🦴" },
+            { "id": "dr-vitamin", "label": "Vitaminler ve Ek Besinler", "icon": "💊" },
+            { "id": "dr-bowl", "label": "Köpek Mama ve Su Kabı", "icon": "🍽️" }
+          ]
+        },
+        "dog-toy": {
+          "title": "Köpek Oyuncağı Kategorileri",
+          "items": [
+            { "id": "dt-all", "label": "Tümünü Gör", "icon": "🔢", "color": "#f0f0f0" },
+            { "id": "dt-ball", "label": "Top Oyuncaklar", "icon": "🎾", "color": "#fff3cd" },
+            { "id": "dt-rope", "label": "İp Oyuncaklar", "icon": "🧵", "color": "#d4edda" },
+            { "id": "dt-chew", "label": "Çiğneme Oyuncakları", "icon": "🦴", "color": "#cce5ff" },
+            { "id": "dt-squeaky", "label": "Sesli Oyuncaklar", "icon": "🔊", "color": "#f8d7da" },
+            { "id": "dt-fetch", "label": "Getir Oyuncakları", "icon": "🥏", "color": "#d1ecf1" }
+          ],
+          "related": [
+            { "id": "dr-collar", "label": "Köpek Tasması ve Gezdirme", "icon": "📿" },
+            { "id": "dr-care", "label": "Bakım ve Temizlik", "icon": "✂️" }
+          ]
+        }
+      }
+    },
+    "bird": {
+      "label": "Kuş",
+      "icon": "🐦",
+      "color": "#45B7D1",
+      "banner": "Kuşunuz İçin En İyi Ürünler",
+      "sidebar": [
+        { "id": "bird-food", "label": "Kuş Yemi", "icon": "🌾", "hasChildren": true },
+        { "id": "bird-treat", "label": "Kuş Ödül Yemi", "icon": "🎁", "hasChildren": true },
+        { "id": "bird-cage", "label": "Kafes ve Aksesuarlar", "icon": "🏠", "hasChildren": true },
+        { "id": "bird-toy", "label": "Kuş Oyuncağı", "icon": "🎠", "hasChildren": true },
+        { "id": "bird-vitamin", "label": "Vitamin ve Mineraller", "icon": "💊", "hasChildren": true },
+        { "id": "bird-perch", "label": "Tünek ve Duraklar", "icon": "🎋", "hasChildren": false },
+        { "id": "bird-bath", "label": "Kuş Banyosu", "icon": "🛁", "hasChildren": false },
+        { "id": "bird-care", "label": "Bakım Ürünleri", "icon": "✂️", "hasChildren": true },
+        { "id": "bird-nest", "label": "Yuva ve Barınak", "icon": "🪺", "hasChildren": false },
+        { "id": "bird-sand", "label": "Kum ve Zemin Malzemeleri", "icon": "🪨", "hasChildren": false }
+      ],
+      "mainCategories": {
+        "bird-food": {
+          "title": "Kuş Yemi Kategorileri",
+          "items": [
+            { "id": "bf-all", "label": "Tümünü Gör", "icon": "🔢", "color": "#f0f0f0" },
+            { "id": "bf-canary", "label": "Kanarya Yemi", "icon": "🐤", "color": "#fff3cd" },
+            { "id": "bf-budgie", "label": "Muhabbet Kuşu Yemi", "icon": "🐦", "color": "#d4edda" },
+            { "id": "bf-parrot", "label": "Papağan Yemi", "icon": "🦜", "color": "#cce5ff" },
+            { "id": "bf-finch", "label": "İspinoz Yemi", "icon": "🐦", "color": "#d1ecf1" },
+            { "id": "bf-mixed", "label": "Karışık Yem", "icon": "🌾", "color": "#e2e3e5" },
+            { "id": "bf-pellet", "label": "Pelet Yem", "icon": "⚫", "color": "#f8d7da" }
+          ],
+          "related": [
+            { "id": "br-treat", "label": "Kuş Ödül Yemi", "icon": "🎁" },
+            { "id": "br-vitamin", "label": "Vitamin ve Mineraller", "icon": "💊" },
+            { "id": "br-cage", "label": "Kafes ve Aksesuarlar", "icon": "🏠" }
+          ]
+        },
+        "bird-cage": {
+          "title": "Kafes ve Aksesuar Kategorileri",
+          "items": [
+            { "id": "bc-all", "label": "Tümünü Gör", "icon": "🔢", "color": "#f0f0f0" },
+            { "id": "bc-small", "label": "Küçük Kafesler", "icon": "🏠", "color": "#cce5ff" },
+            { "id": "bc-large", "label": "Büyük Kafesler", "icon": "🏛️", "color": "#d4edda" },
+            { "id": "bc-feeder", "label": "Yemlik ve Suluklar", "icon": "🍽️", "color": "#fff3cd" },
+            { "id": "bc-cover", "label": "Kafes Örtüleri", "icon": "🛏️", "color": "#e2e3e5" },
+            { "id": "bc-stand", "label": "Kafes Ayakları", "icon": "🪑", "color": "#d1ecf1" }
+          ],
+          "related": [
+            { "id": "br-perch", "label": "Tünek ve Duraklar", "icon": "🎋" },
+            { "id": "br-toy", "label": "Kuş Oyuncağı", "icon": "🎠" }
+          ]
+        }
+      }
+    },
+    "rodent": {
+      "label": "Kemirgen",
+      "icon": "🐹",
+      "color": "#96CEB4",
+      "banner": "Kemirgenlerin Dünyası",
+      "sidebar": [
+        { "id": "rod-food", "label": "Kemirgen Yemi", "icon": "🌾", "hasChildren": true },
+        { "id": "rod-treat", "label": "Ödül Yemi", "icon": "🎁", "hasChildren": true },
+        { "id": "rod-cage", "label": "Kafes ve Teraryum", "icon": "🏠", "hasChildren": true },
+        { "id": "rod-toy", "label": "Oyuncak ve Aktivite", "icon": "🎡", "hasChildren": true },
+        { "id": "rod-bedding", "label": "Altlık ve Talaş", "icon": "🪵", "hasChildren": true },
+        { "id": "rod-vitamin", "label": "Vitamin ve Mineral", "icon": "💊", "hasChildren": true },
+        { "id": "rod-wheel", "label": "Koşu Tekeri", "icon": "⭕", "hasChildren": false },
+        { "id": "rod-nest", "label": "Yuva ve Barınak", "icon": "🪺", "hasChildren": false },
+        { "id": "rod-tube", "label": "Tünel ve Borular", "icon": "🔄", "hasChildren": false },
+        { "id": "rod-water", "label": "Su Şişesi ve Besleyici", "icon": "💧", "hasChildren": false }
+      ],
+      "mainCategories": {
+        "rod-food": {
+          "title": "Kemirgen Yemi Kategorileri",
+          "items": [
+            { "id": "rf-all", "label": "Tümünü Gör", "icon": "🔢", "color": "#f0f0f0" },
+            { "id": "rf-hamster", "label": "Hamster Yemi", "icon": "🐹", "color": "#fff3cd" },
+            { "id": "rf-rabbit", "label": "Tavşan Yemi", "icon": "🐰", "color": "#f8d7da" },
+            { "id": "rf-guinea", "label": "Guinea Pig Yemi", "icon": "🐾", "color": "#d4edda" },
+            { "id": "rf-rat", "label": "Rat ve Fare Yemi", "icon": "🐭", "color": "#e2e3e5" },
+            { "id": "rf-chinchilla", "label": "Çinçilla Yemi", "icon": "🦔", "color": "#cce5ff" },
+            { "id": "rf-hay", "label": "Saman ve Ot", "icon": "🌿", "color": "#d4edda" }
+          ],
+          "related": [
+            { "id": "rr-treat", "label": "Ödül Yemi", "icon": "🎁" },
+            { "id": "rr-bedding", "label": "Altlık ve Talaş", "icon": "🪵" },
+            { "id": "rr-vitamin", "label": "Vitamin ve Mineral", "icon": "💊" }
+          ]
+        },
+        "rod-cage": {
+          "title": "Kafes ve Teraryum Kategorileri",
+          "items": [
+            { "id": "rc-all", "label": "Tümünü Gör", "icon": "🔢", "color": "#f0f0f0" },
+            { "id": "rc-hamster", "label": "Hamster Kafesi", "icon": "🏠", "color": "#fff3cd" },
+            { "id": "rc-rabbit", "label": "Tavşan Kafesi", "icon": "🐰", "color": "#f8d7da" },
+            { "id": "rc-guinea", "label": "Guinea Pig Kafesi", "icon": "🐾", "color": "#d4edda" },
+            { "id": "rc-terrarium", "label": "Teraryum", "icon": "🌿", "color": "#cce5ff" },
+            { "id": "rc-starter", "label": "Başlangıç Kitleri", "icon": "📦", "color": "#d1ecf1" }
+          ],
+          "related": [
+            { "id": "rr-wheel", "label": "Koşu Tekeri", "icon": "⭕" },
+            { "id": "rr-toy", "label": "Oyuncak ve Aktivite", "icon": "🎡" }
+          ]
+        }
+      }
+    }
+  }
+}
