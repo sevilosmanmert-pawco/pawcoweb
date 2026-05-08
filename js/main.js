@@ -77,7 +77,7 @@ function renderNavbar() {
     const animalAttr = hasDropdown ? `data-animal="${item.id}"` : '';
     html += `
       <div class="nav-item" id="nav-${item.id}" ${animalAttr}>
-        <button class="nav-btn" data-id="${item.id}" onClick="handleNavClick('${item.id}', ${hasDropdown})">
+        <button class="nav-btn" data-id="${item.id}">
       
           ${item.label}
           ${hasDropdown ? '<span class="nav-arrow">▼</span>' : ''}
@@ -261,7 +261,126 @@ function renderFeatured() {
 // ── CAMPAIGNS ──────────────────────────────────────────────
 
 
-// ── FOOTER ─────────────────────────────────────────────────
+/* ===========================
+   PAWCO - JAVASCRIPT
+   =========================== */
+
+(function () {
+  'use strict';
+
+  // ===== SLIDER FACTORY =====
+  function initSlider(sliderId, prevId, nextId, visibleCount) {
+    var slider = document.getElementById(sliderId);
+    var prevBtn = document.getElementById(prevId);
+    var nextBtn = document.getElementById(nextId);
+
+    if (!slider || !prevBtn || !nextBtn) return;
+
+    var items = slider.children;
+    var total = items.length;
+    var current = 0;
+
+    function getVisible() {
+      var w = window.innerWidth;
+      if (w <= 480) return 1;
+      if (w <= 768) return 2;
+      if (w <= 1024) return 3;
+      return visibleCount || 4;
+    }
+
+    function getItemWidth() {
+      if (total === 0) return 0;
+      var gap = 16;
+      var visible = getVisible();
+      var wrapperWidth = slider.parentElement.offsetWidth;
+      return (wrapperWidth - gap * (visible - 1)) / visible;
+    }
+
+    function updateSlider() {
+      var itemW = getItemWidth();
+      var gap = 16;
+      var offset = current * (itemW + gap);
+      slider.style.transform = 'translateX(-' + offset + 'px)';
+
+      // Update button visibility
+      prevBtn.style.opacity = current === 0 ? '0.3' : '1';
+      prevBtn.style.pointerEvents = current === 0 ? 'none' : 'auto';
+
+      var maxIndex = total - getVisible();
+      nextBtn.style.opacity = current >= maxIndex ? '0.3' : '1';
+      nextBtn.style.pointerEvents = current >= maxIndex ? 'none' : 'auto';
+    }
+
+    function next() {
+      var maxIndex = total - getVisible();
+      if (current < maxIndex) {
+        current++;
+        updateSlider();
+      }
+    }
+
+    function prev() {
+      if (current > 0) {
+        current--;
+        updateSlider();
+      }
+    }
+
+    nextBtn.addEventListener('click', next);
+    prevBtn.addEventListener('click', prev);
+
+    // Touch/swipe support
+    var startX = 0;
+    var isDragging = false;
+
+    slider.addEventListener('touchstart', function (e) {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    }, { passive: true });
+
+    slider.addEventListener('touchend', function (e) {
+      if (!isDragging) return;
+      var diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) next();
+        else prev();
+      }
+      isDragging = false;
+    }, { passive: true });
+
+    window.addEventListener('resize', updateSlider);
+    updateSlider();
+  }
+
+  // ===== SEO EXPAND =====
+  function initExpand() {
+    var btn = document.getElementById('expandBtn');
+    var content = document.getElementById('seoExpand');
+    if (!btn || !content) return;
+
+    var expanded = false;
+
+    btn.addEventListener('click', function () {
+      expanded = !expanded;
+      content.classList.toggle('open', expanded);
+      btn.textContent = expanded ? 'Daha Az Göster ▴' : 'Devamını Göster ▾';
+    });
+  }
+
+  // ===== INIT =====
+  function init() {
+    initSlider('blogSlider', 'blogPrev', 'blogNext', 4);
+    initSlider('qaSlider', 'qaPrev', 'qaNext', 4);
+    initExpand();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
 
 
 // hero
@@ -411,6 +530,26 @@ function setupEventListeners() {
       closeAllDropdowns();
     }
   });
+
+  document.querySelectorAll('.nav-item[data-animal]').forEach(item => {
+  const animalId = item.dataset.animal;
+
+  item.addEventListener('mouseenter', () => {
+    closeAllDropdowns();
+
+    activeAnimal = animalId;
+    activeSidebarItem = null;
+
+    item.classList.add('active');
+
+    const dropdown = document.getElementById(`dropdown-${animalId}`);
+    renderDropdown(animalId, dropdown);
+  });
+
+  item.addEventListener('mouseleave', () => {
+    closeAllDropdowns();
+  });
+});
 
   // Mobile menu open
   document.getElementById('mobileMenuBtn').addEventListener('click', openMobileNav);
@@ -1176,6 +1315,5 @@ const PAWCO_DATA = {
   }
 };
 
-// ── START ──────────────────────────────────────────────────
 // ── START ──────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', loadData);
