@@ -1,0 +1,292 @@
+/* ============================================================
+   PAWCO — kedi-urunleri.css
+   Sadece kedi-urunleri.html'e özgü stiller.
+   Genel stiller (header, navbar, footer vs.) css/style.css'te.
+   ============================================================ */
+
+/* ── BREADCRUMB ─────────────────────────────────────────── */
+.breadcrumb-bar {
+  background: #f7f7f7;
+  border-bottom: 1px solid #eee;
+}
+.breadcrumb-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #555;
+}
+.breadcrumb-inner a {
+  color: #555;
+  text-decoration: none;
+}
+.breadcrumb-inner a:hover { color: var(--primary, #e05d5d); }
+.bc-sep { color: #aaa; }
+.bc-current { color: #222; font-weight: 600; }
+
+/* ── PAGE TITLE ─────────────────────────────────────────── */
+.page-title-bar {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.page-title-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 14px 20px;
+}
+.page-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* ── HERO BANNER ────────────────────────────────────────── */
+.cat-hero-banner {
+  
+  margin-bottom: 0;
+}
+.cat-hero-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+.cat-hero-slides {
+  display: flex;
+  transition: none;
+}
+.cat-hero-slide {
+  display: none;
+  width: 100%;
+  flex-shrink: 0;
+  align-items: center;
+ justify-content: center;
+  padding: 24px 60px;
+  gap: 30px;
+  background: #f0f4f8;
+  border-radius: 12px;
+  margin: 16px 0;
+}
+.cat-hero-slide.active {
+  display: flex;
+  
+}
+.cat-hero-img {
+  flex: 0 0 520px;
+  max-width: 520px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.cat-hero-img img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+.cat-hero-text {
+ /* flex: 1;*/
+ display: flex;
+ flex-direction: column;
+  /*text-align: right;*/
+}
+.cat-hero-brand {
+  font-size: 32px;
+  font-weight: 900;
+  color: #2a3a5c;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+.cat-hero-sub {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 8px;
+}
+.cat-hero-deal {
+  font-size: 22px;
+  color: #c0392b;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+.cat-hero-deal strong {
+  font-size: 30px;
+  display: block;
+}
+.cat-hero-btn {
+  display: inline-block;
+  background: var(--primary, #e05d5d);
+  color: #fff;
+  padding: 10px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+.cat-hero-btn:hover { background: #c94444; }
+
+.cat-hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #ddd;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.cat-hero-arrow:hover { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+.cat-hero-prev { left: 24px; }
+.cat-hero-next { right: 24px; }
+
+.cat-hero-dots {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 0 0 10px;
+}
+.cat-hero-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: none;
+}
+.cat-hero-dots .dot.active { background: var(--primary, #e05d5d); }
+
+/* ── KATEGORİ HIZLI GEZİNME ─────────────────────────────── */
+.cat-categories-section {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 24px 0;
+}
+.cat-categories-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.cat-cat-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.cat-cat-row::-webkit-scrollbar { display: none; }
+
+.cat-cat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #222;
+  flex: 0 0 auto;
+  width: 108px;
+  text-align: center;
+}
+.cat-cat-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  background: #f8f8f8;
+}
+.cat-cat-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.2s;
+}
+.cat-cat-card:hover .cat-cat-img img { transform: scale(1.06); }
+.cat-cat-card span {
+  font-size: 11.5px;
+  line-height: 1.35;
+  font-weight: 500;
+  color: #333;
+}
+.cat-cat-card:hover span { color: var(--primary, #e05d5d); }
+
+/* ── BRANDS (sayfa içi override) ────────────────────────── */
+.cat-brands-section {
+  background: #fff;
+  padding: 28px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+.cat-brands-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── BLOG ───────────────────────────────────────────────── */
+.cat-blog-section {
+  background: #fff;
+  padding: 28px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+.cat-blog-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── SORU CEVAP ─────────────────────────────────────────── */
+.cat-qa-section {
+  background: #fff;
+  padding: 28px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+.cat-qa-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── SEO ────────────────────────────────────────────────── */
+.cat-seo-section {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 32px 20px 16px;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .cat-hero-slide.active {
+    flex-direction: column-reverse;
+    padding: 20px 40px;
+    text-align: left;
+  }
+  .cat-hero-text { text-align: left; }
+  .cat-hero-img { flex: none; max-width: 100%; width: 100%; }
+  .cat-hero-img img { height: 180px; }
+}
+
+@media (max-width: 600px) {
+  .cat-hero-slide.active { padding: 16px 28px; }
+  .cat-hero-brand { font-size: 22px; }
+  .cat-hero-deal { font-size: 16px; }
+  .cat-hero-deal strong { font-size: 22px; }
+  .cat-cat-card { width: 88px; }
+  .cat-cat-img { width: 72px; height: 72px; }
+  .page-title { font-size: 18px; }
+}

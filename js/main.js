@@ -75,8 +75,9 @@ function renderNavbar() {
   items.forEach(item => {
     const hasDropdown = animalsWithDropdown.includes(item.id);
     const animalAttr = hasDropdown ? `data-animal="${item.id}"` : '';
+    
     html += `
-      <div class="nav-item" id="nav-${item.id}" ${animalAttr}>
+      <div class="nav-item" id="nav-${item.id}" ${animalAttr} onclick="window.location.href='kediurunler.html'">
         <button class="nav-btn" data-id="${item.id}">
       
           ${item.label}
