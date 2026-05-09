@@ -578,7 +578,7 @@ function closeMobileNav() {
 
 function handleSearch() {
   const q = document.getElementById('searchInput').value.trim();
-  if (q) alert(`"${q}" için arama sonuçları yükleniyor...`);
+  if (q) window.location.href = `search.html?q=${encodeURIComponent(q)}`;
 }
 
 // ============================================================

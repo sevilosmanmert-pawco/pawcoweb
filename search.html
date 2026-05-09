@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Pawco - Arama Sonuçları"/>
+  <title>Pawco 🐾 - Arama Sonuçları</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/search.css"/>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <span>🚚 <strong>150 TL ve üzeri</strong> ücretsiz kargo &nbsp;|&nbsp; 📞 Müşteri Hizmetleri: <strong>0850 123 45 67</strong></span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🐾</span>
+        <span class="logo-text">paw<span>co</span></span>
+      </a>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Ne aramıştınız?..." autocomplete="off"/>
+        <button class="search-btn" onclick="handleSearch()">🔍</button>
+        <div class="search-suggestions" id="searchSuggestions"></div>
+      </div>
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="alert('Yardım sayfası açılıyor...')">
+          <span class="btn-icon">🎧</span><span>Yardım</span>
+        </button>
+        <button class="header-action-btn" onclick="alert('Hesabınıza yönlendiriliyorsunuz...')">
+          <span class="btn-icon">👤</span><span>Hesabım</span>
+        </button>
+        <button class="header-action-btn cart-btn" onclick="alert('Sepetiniz açılıyor...')">
+          <span class="btn-icon">🛒</span><span>Sepetim</span>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar"></nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Ana Sayfa</a>
+      <span class="bc-sep">›</span>
+      <span id="breadcrumbQuery">Arama Sonuçları</span>
+    </div>
+  </div>
+
+  <!-- SEARCH PAGE MAIN -->
+  <div class="search-page">
+
+    <!-- MOBİL FİLTRE TOGGLE -->
+    <button class="mobile-filter-toggle" id="mobileFilterToggle">
+      <span>⚙️ Filtrele</span>
+      <span class="active-filter-count" id="activeFilterCount" style="display:none"></span>
+    </button>
+
+    <!-- SOL: FİLTRE PANELİ -->
+    <aside class="filter-panel" id="filterPanel">
+      <div class="filter-panel-header">
+        <h3>Filtrele</h3>
+        <button class="filter-close-btn" id="filterCloseBtn">✕</button>
+        <button class="clear-all-filters" id="clearAllFilters">Temizle</button>
+      </div>
+
+      <!-- Hayvan Türü -->
+      <div class="filter-group" id="fg-animal">
+        <div class="filter-group-title" data-group="animal">
+          Hayvan Türü <span class="fg-arrow">▾</span>
+        </div>
+        <div class="filter-group-body">
+          <label class="filter-check"><input type="checkbox" value="kedi" data-filter="animal"> <span>🐱 Kedi</span></label>
+          <label class="filter-check"><input type="checkbox" value="kopek" data-filter="animal"> <span>🐶 Köpek</span></label>
+          <label class="filter-check"><input type="checkbox" value="kus" data-filter="animal"> <span>🐦 Kuş</span></label>
+          <label class="filter-check"><input type="checkbox" value="balik" data-filter="animal"> <span>🐟 Balık</span></label>
+          <label class="filter-check"><input type="checkbox" value="kemirgen" data-filter="animal"> <span>🐹 Kemirgen</span></label>
+        </div>
+      </div>
+
+      <!-- Marka -->
+      <div class="filter-group" id="fg-brand">
+        <div class="filter-group-title" data-group="brand">
+          Marka <span class="fg-arrow">▾</span>
+        </div>
+        <div class="filter-group-body">
+          <div class="filter-search-mini">
+            <input type="text" id="brandSearch" placeholder="Marka ara..." />
+          </div>
+          <div class="filter-brand-list" id="brandList">
+            <label class="filter-check"><input type="checkbox" value="royal-canin" data-filter="brand"> <span>Royal Canin</span></label>
+            <label class="filter-check"><input type="checkbox" value="hills" data-filter="brand"> <span>Hill's</span></label>
+            <label class="filter-check"><input type="checkbox" value="pro-plan" data-filter="brand"> <span>Pro Plan</span></label>
+            <label class="filter-check"><input type="checkbox" value="orijen" data-filter="brand"> <span>Orijen</span></label>
+            <label class="filter-check"><input type="checkbox" value="acana" data-filter="brand"> <span>Acana</span></label>
+            <label class="filter-check"><input type="checkbox" value="brit-care" data-filter="brand"> <span>Brit Care</span></label>
+            <label class="filter-check"><input type="checkbox" value="farmina" data-filter="brand"> <span>Farmina N&D</span></label>
+            <label class="filter-check"><input type="checkbox" value="reflex" data-filter="brand"> <span>Reflex</span></label>
+            <label class="filter-check"><input type="checkbox" value="whiskas" data-filter="brand"> <span>Whiskas</span></label>
+            <label class="filter-check"><input type="checkbox" value="pedigree" data-filter="brand"> <span>Pedigree</span></label>
+            <label class="filter-check"><input type="checkbox" value="wanpy" data-filter="brand"> <span>Wanpy</span></label>
+            <label class="filter-check"><input type="checkbox" value="felix" data-filter="brand"> <span>Felix</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fiyat Aralığı -->
+      <div class="filter-group" id="fg-price">
+        <div class="filter-group-title" data-group="price">
+          Fiyat Aralığı <span class="fg-arrow">▾</span>
+        </div>
+        <div class="filter-group-body">
+          <div class="price-range-inputs">
+            <input type="number" id="priceMin" placeholder="Min ₺" min="0"/>
+            <span class="price-sep">—</span>
+            <input type="number" id="priceMax" placeholder="Max ₺" min="0"/>
+          </div>
+          <div class="price-slider-wrap">
+            <div class="price-track">
+              <div class="price-fill" id="priceFill"></div>
+              <input type="range" id="rangeMin" min="0" max="5000" value="0" class="range-input range-min"/>
+              <input type="range" id="rangeMax" min="0" max="5000" value="5000" class="range-input range-max"/>
+            </div>
+          </div>
+          <div class="price-presets">
+            <button class="price-preset-btn" data-min="0" data-max="200">₺0 – ₺200</button>
+            <button class="price-preset-btn" data-min="200" data-max="500">₺200 – ₺500</button>
+            <button class="price-preset-btn" data-min="500" data-max="1000">₺500 – ₺1.000</button>
+            <button class="price-preset-btn" data-min="1000" data-max="5000">₺1.000+</button>
+          </div>
+          <button class="apply-price-btn" id="applyPriceBtn">Uygula</button>
+        </div>
+      </div>
+
+      <!-- Ürün Türü -->
+      <div class="filter-group" id="fg-type">
+        <div class="filter-group-title" data-group="type">
+          Ürün Türü <span class="fg-arrow">▾</span>
+        </div>
+        <div class="filter-group-body">
+          <label class="filter-check"><input type="checkbox" value="kuru-mama" data-filter="type"> <span>Kuru Mama</span></label>
+          <label class="filter-check"><input type="checkbox" value="yas-mama" data-filter="type"> <span>Yaş Mama / Konserve</span></label>
+          <label class="filter-check"><input type="checkbox" value="odul" data-filter="type"> <span>Ödül & Atıştırmalık</span></label>
+          <label class="filter-check"><input type="checkbox" value="vitamin" data-filter="type"> <span>Vitamin & Takviye</span></label>
+          <label class="filter-check"><input type="checkbox" value="oyuncak" data-filter="type"> <span>Oyuncak</span></label>
+          <label class="filter-check"><input type="checkbox" value="aksesuar" data-filter="type"> <span>Aksesuar & Ekipman</span></label>
+          <label class="filter-check"><input type="checkbox" value="bakim" data-filter="type"> <span>Bakım & Hijyen</span></label>
+          <label class="filter-check"><input type="checkbox" value="kum" data-filter="type"> <span>Kedi Kumu</span></label>
+        </div>
+      </div>
+
+      <!-- Değerlendirme -->
+      <div class="filter-group" id="fg-rating">
+        <div class="filter-group-title" data-group="rating">
+          Değerlendirme <span class="fg-arrow">▾</span>
+        </div>
+        <div class="filter-group-body">
+          <label class="filter-check filter-stars"><input type="checkbox" value="5" data-filter="rating"> <span>★★★★★ ve üzeri</span></label>
+          <label class="filter-check filter-stars"><input type="checkbox" value="4" data-filter="rating"> <span>★★★★☆ ve üzeri</span></label>
+          <label class="filter-check filter-stars"><input type="checkbox" value="3" data-filter="rating"> <span>★★★☆☆ ve üzeri</span></label>
+        </div>
+      </div>
+
+      <!-- Kampanya -->
+      <div class="filter-group" id="fg-campaign">
+        <div class="filter-group-title" data-group="campaign">
+          Kampanya <span class="fg-arrow">▾</span>
+        </div>
+        <div class="filter-group-body">
+          <label class="filter-check"><input type="checkbox" value="indirimli" data-filter="campaign"> <span>🏷️ İndirimli Ürünler</span></label>
+          <label class="filter-check"><input type="checkbox" value="ucretsiz-kargo" data-filter="campaign"> <span>🚚 Ücretsiz Kargo</span></label>
+          <label class="filter-check"><input type="checkbox" value="yeni" data-filter="campaign"> <span>🆕 Yeni Ürünler</span></label>
+          <label class="filter-check"><input type="checkbox" value="cok-satan" data-filter="campaign"> <span>🔥 Çok Satanlar</span></label>
+        </div>
+      </div>
+
+      <button class="apply-filters-btn" id="applyFiltersMobile">Filtreleri Uygula</button>
+    </aside>
+
+    <!-- SAĞ: SONUÇLAR -->
+    <div class="search-results-area">
+
+      <!-- SONUÇ BAŞLIĞI & SIRALAMA -->
+      <div class="results-header">
+        <div class="results-info">
+          <span id="resultsTitle">Arama Sonuçları</span>
+          <span class="results-count" id="resultsCount"></span>
+        </div>
+        <div class="sort-bar">
+          <label for="sortSelect">Sırala:</label>
+          <select id="sortSelect" onchange="handleSort(this.value)">
+            <option value="relevance">En İlgili</option>
+            <option value="price-asc">Fiyat: Düşükten Yükseğe</option>
+            <option value="price-desc">Fiyat: Yüksekten Düşüğe</option>
+            <option value="rating">En Yüksek Puan</option>
+            <option value="newest">En Yeni</option>
+            <option value="bestseller">Çok Satanlar</option>
+          </select>
+          <div class="view-toggle">
+            <button class="view-btn active" id="gridViewBtn" title="Grid Görünüm" onclick="setView('grid')">⊞</button>
+            <button class="view-btn" id="listViewBtn" title="Liste Görünüm" onclick="setView('list')">☰</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- AKTİF FİLTRELER ÇIPLARI -->
+      <div class="active-filters" id="activeFilters"></div>
+
+      <!-- ÜRÜN GRID / LİSTE -->
+      <div class="products-grid" id="productsGrid">
+        <!-- JS tarafından doldurulur -->
+      </div>
+
+      <!-- SAYFALAMA -->
+      <div class="pagination" id="pagination"></div>
+
+    </div>
+  </div>
+
+  <!-- MOBİL OVERLAY -->
+  <div class="filter-overlay" id="filterOverlay"></div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4 class="footer-heading">Kurumsal</h4>
+        <ul>
+          <li><a href="#">Hakkımızda</a></li>
+          <li><a href="#">Orijinal Ürün Garantisi</a></li>
+          <li><a href="#">İletişim</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Yardım Merkezi</h4>
+        <ul>
+          <li><a href="#">Sık Sorulan Sorular</a></li>
+          <li><a href="#">Teslimat Koşulları</a></li>
+          <li><a href="#">Garanti ve İade</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Müşteri Hizmetleri</h4>
+        <div class="footer-phone">0850 255 10 01</div>
+        <div class="footer-hours">Pazartesi - Cumartesi 09:00 - 18:00</div>
+      </div>
+    </div>
+    <div class="footer-legal-search">
+      <p>2014-2026 © pawco.com | Bursa'da sevgiyle yapıldı. ❤</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/search.js" defer></script>
+</body>
+</html>
