@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pawco 🐾 - Üyelik Paneli</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/account.css"/>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <span>🚚 <strong>150 TL ve üzeri</strong> ücretsiz kargo &nbsp;|&nbsp; 📞 Müşteri Hizmetleri: <strong>0850 123 45 67</strong></span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🐾</span>
+        <span class="logo-text">paw<span>co</span></span>
+      </a>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Ne aramıştınız?..." autocomplete="off"/>
+        <button class="search-btn" onclick="window.location.href='search.html?q='+document.getElementById('searchInput').value">🔍</button>
+      </div>
+      <div class="header-actions">
+        <button class="header-action-btn"><span class="btn-icon">🎧</span><span>Yardım</span></button>
+        <button class="header-action-btn active-account"><span class="btn-icon">👤</span><span>Hesabım</span></button>
+        <button class="header-action-btn cart-btn"><span class="btn-icon">🛒</span><span>Sepetim</span><span class="cart-count">2</span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar"></nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Ana Sayfa</a>
+      <span class="bc-sep">›</span>
+      <a href="#">Üyelik Paneli</a>
+      <span class="bc-sep">›</span>
+      <span id="bcActive">Siparişlerim</span>
+    </div>
+  </div>
+
+  <!-- PANEL LAYOUT -->
+  <div class="panel-layout">
+
+    <!-- ── SOL SIDEBAR ── -->
+    <aside class="panel-sidebar">
+
+      <div class="sidebar-user-card">
+        <div class="sidebar-avatar">AY</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-username">Ahmet Yılmaz</div>
+          <div class="sidebar-email">ahmet@email.com</div>
+        </div>
+      </div>
+
+      <!-- ALIŞVERİŞLERİM -->
+      <div class="sidebar-section-title">ALIŞVERİŞLERİM</div>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="#" class="sidebar-link active" data-tab="orders">
+            <span class="sl-icon">📦</span>
+            <span>Siparişlerim</span>
+            <span class="sl-badge">3</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-tab="favorites">
+            <span class="sl-icon">❤️</span>
+            <span>Favorilerim</span>
+            <span class="sl-badge">5</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-tab="addresses">
+            <span class="sl-icon">📍</span>
+            <span>Teslimat Adreslerim</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-tab="cards">
+            <span class="sl-icon">💳</span>
+            <span>Kayıtlı Kartlarım</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-tab="points">
+            <span class="sl-icon">🪙</span>
+            <span>ParaPuanlarım</span>
+            <span class="sl-badge sl-badge--gold">248</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- ÜYELİĞİM -->
+      <div class="sidebar-section-title">ÜYELİĞİM</div>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="#" class="sidebar-link" data-tab="notifications">
+            <span class="sl-icon">🔔</span>
+            <span>Bildirimlerim</span>
+            <span class="sl-badge sl-badge--red">2</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-tab="messages">
+            <span class="sl-icon">✉️</span>
+            <span>Mesajlarım</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-tab="badges">
+            <span class="sl-icon">🏅</span>
+            <span>Rozetlerim</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-tab="pets">
+            <span class="sl-icon">🐾</span>
+            <span>Petlerim</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-tab="listings">
+            <span class="sl-icon">📋</span>
+            <span>Sahiplendirme İlanlarım</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="sidebar-link" data-tab="profile">
+            <span class="sl-icon">👤</span>
+            <span>Üyelik Bilgilerim</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-logout">
+        <a href="#" class="logout-btn">🚪 Çıkış Yap</a>
+      </div>
+    </aside>
+
+    <!-- ── SAĞ İÇERİK ── -->
+    <main class="panel-content">
+
+      <!-- ════════ SİPARİŞLERİM ════════ -->
+      <section class="tab-section" id="tab-orders">
+        <div class="tab-header">
+          <h2 class="tab-title">Siparişlerim</h2>
+          <div class="tab-header-actions">
+            <select class="filter-select">
+              <option>Tüm Siparişler</option>
+              <option>Teslim Edildi</option>
+              <option>Kargoda</option>
+              <option>İptal Edildi</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Sipariş 1 -->
+        <div class="order-card">
+          <div class="order-card-head">
+            <div class="order-meta">
+              <span class="order-no">Sipariş #PW-20240518-001</span>
+              <span class="order-date">18 Mayıs 2024</span>
+            </div>
+            <span class="order-status status-delivered">✓ Teslim Edildi</span>
+          </div>
+          <div class="order-items">
+            <div class="order-item">
+              <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=80&auto=format&fit=crop" alt="Ürün"/>
+              <div class="order-item-info">
+                <div class="order-item-name">Pro Plan Sterilised Kedi Maması Somon 10kg</div>
+                <div class="order-item-brand">Pro Plan</div>
+                <div class="order-item-qty">1 adet</div>
+              </div>
+              <div class="order-item-price">649,90 ₺</div>
+            </div>
+            <div class="order-item">
+              <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=80&auto=format&fit=crop" alt="Ürün"/>
+              <div class="order-item-info">
+                <div class="order-item-name">Royal Canin Indoor Kedi Maması 4kg</div>
+                <div class="order-item-brand">Royal Canin</div>
+                <div class="order-item-qty">2 adet</div>
+              </div>
+              <div class="order-item-price">2 × 389,00 ₺</div>
+            </div>
+          </div>
+          <div class="order-card-foot">
+            <div class="order-total">Toplam: <strong>1.427,90 ₺</strong></div>
+            <div class="order-actions">
+              <button class="btn-outline">Fatura</button>
+              <button class="btn-outline">Tekrar Sipariş Ver</button>
+              <button class="btn-primary">Kargo Takibi</button>
+            </div>
+          </div>
+          <div class="order-track-bar">
+            <div class="track-step done"><div class="track-dot"></div><div class="track-label">Sipariş Alındı</div></div>
+            <div class="track-line done"></div>
+            <div class="track-step done"><div class="track-dot"></div><div class="track-label">Hazırlanıyor</div></div>
+            <div class="track-line done"></div>
+            <div class="track-step done"><div class="track-dot"></div><div class="track-label">Kargoya Verildi</div></div>
+            <div class="track-line done"></div>
+            <div class="track-step done"><div class="track-dot"></div><div class="track-label">Teslim Edildi</div></div>
+          </div>
+        </div>
+
+        <!-- Sipariş 2 -->
+        <div class="order-card">
+          <div class="order-card-head">
+            <div class="order-meta">
+              <span class="order-no">Sipariş #PW-20240601-002</span>
+              <span class="order-date">1 Haziran 2024</span>
+            </div>
+            <span class="order-status status-shipping">🚚 Kargoda</span>
+          </div>
+          <div class="order-items">
+            <div class="order-item">
+              <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=80&auto=format&fit=crop" alt="Ürün"/>
+              <div class="order-item-info">
+                <div class="order-item-name">Hill's Science Plan Yetişkin Köpek Maması Tavuklu 14kg</div>
+                <div class="order-item-brand">Hill's</div>
+                <div class="order-item-qty">1 adet</div>
+              </div>
+              <div class="order-item-price">1.249,00 ₺</div>
+            </div>
+          </div>
+          <div class="order-card-foot">
+            <div class="order-total">Toplam: <strong>1.249,00 ₺</strong></div>
+            <div class="order-actions">
+              <button class="btn-outline">Fatura</button>
+              <button class="btn-primary">Kargo Takibi</button>
+            </div>
+          </div>
+          <div class="order-track-bar">
+            <div class="track-step done"><div class="track-dot"></div><div class="track-label">Sipariş Alındı</div></div>
+            <div class="track-line done"></div>
+            <div class="track-step done"><div class="track-dot"></div><div class="track-label">Hazırlanıyor</div></div>
+            <div class="track-line done"></div>
+            <div class="track-step active"><div class="track-dot"></div><div class="track-label">Kargoya Verildi</div></div>
+            <div class="track-line"></div>
+            <div class="track-step"><div class="track-dot"></div><div class="track-label">Teslim Edildi</div></div>
+          </div>
+          <div class="cargo-info-box">
+            <span class="cargo-carrier">🏢 Yurtiçi Kargo</span>
+            <span class="cargo-tracking">Takip No: <strong>7823459012</strong></span>
+            <span class="cargo-estimate">Tahmini Teslimat: <strong>3 Haziran 2024</strong></span>
+          </div>
+        </div>
+
+        <!-- Sipariş 3 -->
+        <div class="order-card">
+          <div class="order-card-head">
+            <div class="order-meta">
+              <span class="order-no">Sipariş #PW-20240610-003</span>
+              <span class="order-date">10 Haziran 2024</span>
+            </div>
+            <span class="order-status status-preparing">⏳ Hazırlanıyor</span>
+          </div>
+          <div class="order-items">
+            <div class="order-item">
+              <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=80&auto=format&fit=crop" alt="Ürün"/>
+              <div class="order-item-info">
+                <div class="order-item-name">Orijen Original Tahılsız Köpek Maması 6kg</div>
+                <div class="order-item-brand">Orijen</div>
+                <div class="order-item-qty">1 adet</div>
+              </div>
+              <div class="order-item-price">1.890,00 ₺</div>
+            </div>
+            <div class="order-item">
+              <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=80&auto=format&fit=crop" alt="Ürün"/>
+              <div class="order-item-info">
+                <div class="order-item-name">Wanpy Kedi Krema Ödülü Ton Balıklı 5x14g</div>
+                <div class="order-item-brand">Wanpy</div>
+                <div class="order-item-qty">3 adet</div>
+              </div>
+              <div class="order-item-price">3 × 89,90 ₺</div>
+            </div>
+          </div>
+          <div class="order-card-foot">
+            <div class="order-total">Toplam: <strong>2.159,70 ₺</strong></div>
+            <div class="order-actions">
+              <button class="btn-outline btn-cancel">Siparişi İptal Et</button>
+              <button class="btn-outline">Fatura</button>
+            </div>
+          </div>
+          <div class="order-track-bar">
+            <div class="track-step done"><div class="track-dot"></div><div class="track-label">Sipariş Alındı</div></div>
+            <div class="track-line done"></div>
+            <div class="track-step active"><div class="track-dot"></div><div class="track-label">Hazırlanıyor</div></div>
+            <div class="track-line"></div>
+            <div class="track-step"><div class="track-dot"></div><div class="track-label">Kargoya Verildi</div></div>
+            <div class="track-line"></div>
+            <div class="track-step"><div class="track-dot"></div><div class="track-label">Teslim Edildi</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════ FAVORİLERİM ════════ -->
+      <section class="tab-section hidden" id="tab-favorites">
+        <div class="tab-header">
+          <h2 class="tab-title">Favorilerim</h2>
+          <span class="tab-subtitle">5 ürün favorilendi</span>
+        </div>
+        <div class="favorites-grid">
+
+          <div class="fav-card">
+            <button class="fav-remove-btn" title="Favoriden Çıkar">✕</button>
+            <div class="fav-img-wrap">
+              <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=300&auto=format&fit=crop" alt="Ürün"/>
+              <span class="fav-badge">-%15</span>
+            </div>
+            <div class="fav-info">
+              <div class="fav-brand">Pro Plan</div>
+              <div class="fav-name">Sterilised Kedi Maması Somon 10kg</div>
+              <div class="fav-price-row">
+                <span class="fav-price">649,90 ₺</span>
+                <span class="fav-old-price">764,00 ₺</span>
+              </div>
+              <button class="btn-primary fav-cart-btn">🛒 Sepete Ekle</button>
+            </div>
+          </div>
+
+          <div class="fav-card">
+            <button class="fav-remove-btn" title="Favoriden Çıkar">✕</button>
+            <div class="fav-img-wrap">
+              <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=300&auto=format&fit=crop" alt="Ürün"/>
+            </div>
+            <div class="fav-info">
+              <div class="fav-brand">Royal Canin</div>
+              <div class="fav-name">Indoor Adult Kedi Maması 4kg</div>
+              <div class="fav-price-row">
+                <span class="fav-price">389,00 ₺</span>
+              </div>
+              <button class="btn-primary fav-cart-btn">🛒 Sepete Ekle</button>
+            </div>
+          </div>
+
+          <div class="fav-card">
+            <button class="fav-remove-btn" title="Favoriden Çıkar">✕</button>
+            <div class="fav-img-wrap">
+              <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=300&auto=format&fit=crop" alt="Ürün"/>
+              <span class="fav-badge fav-badge--new">Yeni</span>
+            </div>
+            <div class="fav-info">
+              <div class="fav-brand">Orijen</div>
+              <div class="fav-name">Six Fish Balıklı Tahılsız Kedi Maması 5.4kg</div>
+              <div class="fav-price-row">
+                <span class="fav-price">1.190,00 ₺</span>
+              </div>
+              <button class="btn-primary fav-cart-btn">🛒 Sepete Ekle</button>
+            </div>
+          </div>
+
+          <div class="fav-card">
+            <button class="fav-remove-btn" title="Favoriden Çıkar">✕</button>
+            <div class="fav-img-wrap">
+              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=300&auto=format&fit=crop" alt="Ürün"/>
+            </div>
+            <div class="fav-info">
+              <div class="fav-brand">Hill's</div>
+              <div class="fav-name">Science Plan Kitten Yavru Kedi Maması Tavuklu 3kg</div>
+              <div class="fav-price-row">
+                <span class="fav-price">429,00 ₺</span>
+              </div>
+              <button class="btn-primary fav-cart-btn">🛒 Sepete Ekle</button>
+            </div>
+          </div>
+
+          <div class="fav-card">
+            <button class="fav-remove-btn" title="Favoriden Çıkar">✕</button>
+            <div class="fav-img-wrap">
+              <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=300&auto=format&fit=crop" alt="Ürün"/>
+              <span class="fav-badge">-%20</span>
+            </div>
+            <div class="fav-info">
+              <div class="fav-brand">Brit Care</div>
+              <div class="fav-name">Grain Free Köpek Maması Kuzu & Patates 12kg</div>
+              <div class="fav-price-row">
+                <span class="fav-price">879,00 ₺</span>
+                <span class="fav-old-price">1.099,00 ₺</span>
+              </div>
+              <button class="btn-primary fav-cart-btn">🛒 Sepete Ekle</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ════════ TESLİMAT ADRESLERİM ════════ -->
+      <section class="tab-section hidden" id="tab-addresses">
+        <div class="tab-header">
+          <h2 class="tab-title">Teslimat Adreslerim</h2>
+          <button class="btn-primary">+ Yeni Adres Ekle</button>
+        </div>
+        <div class="addresses-grid">
+
+          <div class="address-card address-card--default">
+            <div class="address-card-head">
+              <div class="address-type-badge">🏠 Ev</div>
+              <span class="default-badge">Varsayılan</span>
+            </div>
+            <div class="address-name">Ahmet Yılmaz</div>
+            <div class="address-phone">0532 123 45 67</div>
+            <div class="address-text">Atatürk Mah. Cumhuriyet Cad. No:12 D:5, Osmangazi / Bursa</div>
+            <div class="address-card-actions">
+              <button class="btn-outline btn-sm">✏️ Düzenle</button>
+              <button class="btn-outline btn-sm btn-del">🗑️ Sil</button>
+            </div>
+          </div>
+
+          <div class="address-card">
+            <div class="address-card-head">
+              <div class="address-type-badge">💼 İş</div>
+            </div>
+            <div class="address-name">Ahmet Yılmaz</div>
+            <div class="address-phone">0224 456 78 90</div>
+            <div class="address-text">Organize Sanayi Bölgesi, Teknokent A Blok Kat:3 No:14, Nilüfer / Bursa</div>
+            <div class="address-card-actions">
+              <button class="btn-outline btn-sm">✏️ Düzenle</button>
+              <button class="btn-outline btn-sm btn-del">🗑️ Sil</button>
+              <button class="btn-outline btn-sm">⭐ Varsayılan Yap</button>
+            </div>
+          </div>
+
+          <div class="address-card address-card--add">
+            <div class="add-address-inner">
+              <div class="add-icon">+</div>
+              <div class="add-text">Yeni Adres Ekle</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ════════ KAYITLI KARTLARIM ════════ -->
+      <section class="tab-section hidden" id="tab-cards">
+        <div class="tab-header">
+          <h2 class="tab-title">Kayıtlı Kartlarım</h2>
+          <button class="btn-primary">+ Yeni Kart Ekle</button>
+        </div>
+        <div class="cards-list">
+
+          <div class="saved-card">
+            <div class="card-visual card-visual--visa">
+              <div class="card-chip">▪▪▪</div>
+              <div class="card-number">•••• •••• •••• 4521</div>
+              <div class="card-footer-row">
+                <div>
+                  <div class="card-label">Kart Sahibi</div>
+                  <div class="card-value">AHMET YILMAZ</div>
+                </div>
+                <div>
+                  <div class="card-label">Son Kullanma</div>
+                  <div class="card-value">08/27</div>
+                </div>
+                <div class="card-brand-logo">VISA</div>
+              </div>
+            </div>
+            <div class="saved-card-meta">
+              <span class="default-badge">Varsayılan</span>
+              <div class="saved-card-actions">
+                <button class="btn-outline btn-sm btn-del">🗑️ Sil</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="saved-card">
+            <div class="card-visual card-visual--mc">
+              <div class="card-chip">▪▪▪</div>
+              <div class="card-number">•••• •••• •••• 8834</div>
+              <div class="card-footer-row">
+                <div>
+                  <div class="card-label">Kart Sahibi</div>
+                  <div class="card-value">AHMET YILMAZ</div>
+                </div>
+                <div>
+                  <div class="card-label">Son Kullanma</div>
+                  <div class="card-value">03/26</div>
+                </div>
+                <div class="card-brand-logo mc-logo">MC</div>
+              </div>
+            </div>
+            <div class="saved-card-meta">
+              <div class="saved-card-actions">
+                <button class="btn-outline btn-sm">⭐ Varsayılan Yap</button>
+                <button class="btn-outline btn-sm btn-del">🗑️ Sil</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ════════ PARAPUANLARIM ════════ -->
+      <section class="tab-section hidden" id="tab-points">
+        <div class="tab-header">
+          <h2 class="tab-title">ParaPuanlarım</h2>
+        </div>
+
+        <div class="points-summary-cards">
+          <div class="points-summary-card points-summary-card--main">
+            <div class="points-icon">🪙</div>
+            <div class="points-amount">248,50 ₺</div>
+            <div class="points-label">Kullanılabilir ParaPuan</div>
+          </div>
+          <div class="points-summary-card">
+            <div class="points-amount points-amount--sm">1.840,00 ₺</div>
+            <div class="points-label">Toplam Kazanılan</div>
+          </div>
+          <div class="points-summary-card">
+            <div class="points-amount points-amount--sm points-amount--used">1.591,50 ₺</div>
+            <div class="points-label">Toplam Kullanılan</div>
+          </div>
+        </div>
+
+        <div class="points-info-box">
+          💡 Her alışverişinizde sipariş tutarının <strong>%2'si</strong> kadar ParaPuan kazanırsınız. Kazandığınız puanları bir sonraki alışverişinizde kullanabilirsiniz.
+        </div>
+
+        <h3 class="section-sub-title">Son İşlemler</h3>
+        <div class="points-table-wrap">
+          <table class="points-table">
+            <thead>
+              <tr>
+                <th>Tarih</th>
+                <th>Açıklama</th>
+                <th>İşlem</th>
+                <th>Puan</th>
+                <th>Durum</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10 Haz 2024</td>
+                <td>Sipariş #PW-20240610-003</td>
+                <td class="tr-earn">Kazanıldı</td>
+                <td class="tr-earn">+43,19 ₺</td>
+                <td><span class="point-status status-pending">Beklemede</span></td>
+              </tr>
+              <tr>
+                <td>01 Haz 2024</td>
+                <td>Sipariş #PW-20240601-002</td>
+                <td class="tr-earn">Kazanıldı</td>
+                <td class="tr-earn">+24,98 ₺</td>
+                <td><span class="point-status status-pending">Beklemede</span></td>
+              </tr>
+              <tr>
+                <td>25 May 2024</td>
+                <td>Sipariş #PW-20240522-Alış</td>
+                <td class="tr-used">Kullanıldı</td>
+                <td class="tr-used">-50,00 ₺</td>
+                <td><span class="point-status status-done">Tamamlandı</span></td>
+              </tr>
+              <tr>
+                <td>18 May 2024</td>
+                <td>Sipariş #PW-20240518-001</td>
+                <td class="tr-earn">Kazanıldı</td>
+                <td class="tr-earn">+28,56 ₺</td>
+                <td><span class="point-status status-done">Tamamlandı</span></td>
+              </tr>
+              <tr>
+                <td>10 May 2024</td>
+                <td>Hoş Geldin Bonusu</td>
+                <td class="tr-earn">Kazanıldı</td>
+                <td class="tr-earn">+50,00 ₺</td>
+                <td><span class="point-status status-done">Tamamlandı</span></td>
+              </tr>
+              <tr>
+                <td>02 May 2024</td>
+                <td>Doğum Günü Hediyesi</td>
+                <td class="tr-earn">Kazanıldı</td>
+                <td class="tr-earn">+20,00 ₺</td>
+                <td><span class="point-status status-done">Tamamlandı</span></td>
+              </tr>
+              <tr>
+                <td>28 Nis 2024</td>
+                <td>Sipariş #PW-20240426-Alış</td>
+                <td class="tr-used">Kullanıldı</td>
+                <td class="tr-used">-120,00 ₺</td>
+                <td><span class="point-status status-done">Tamamlandı</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ════════ BİLDİRİMLERİM ════════ -->
+      <section class="tab-section hidden" id="tab-notifications">
+        <div class="tab-header">
+          <h2 class="tab-title">Bildirimlerim</h2>
+          <button class="btn-outline btn-sm">Tümünü Okundu İşaretle</button>
+        </div>
+        <div class="notifications-list">
+
+          <div class="notif-item notif-unread">
+            <div class="notif-icon notif-icon--ship">🚚</div>
+            <div class="notif-body">
+              <div class="notif-title">Siparişiniz kargoya verildi!</div>
+              <div class="notif-text">Hill's Science Plan siparişiniz (#PW-20240601-002) Yurtiçi Kargo'ya teslim edildi. Takip no: 7823459012</div>
+              <div class="notif-time">2 saat önce</div>
+            </div>
+            <div class="notif-unread-dot"></div>
+          </div>
+
+          <div class="notif-item notif-unread">
+            <div class="notif-icon notif-icon--point">🪙</div>
+            <div class="notif-body">
+              <div class="notif-title">ParaPuan kazandınız!</div>
+              <div class="notif-text">Son alışverişinizden 43,19 ₺ ParaPuan hesabınıza tanımlandı. Toplam bakiyeniz: 248,50 ₺</div>
+              <div class="notif-time">1 gün önce</div>
+            </div>
+            <div class="notif-unread-dot"></div>
+          </div>
+
+          <div class="notif-item">
+            <div class="notif-icon notif-icon--campaign">🏷️</div>
+            <div class="notif-body">
+              <div class="notif-title">Favorilediğiniz ürün indirime girdi!</div>
+              <div class="notif-text">Brit Care Grain Free Köpek Maması favorilerinizde %20 indirime girdi. Kaçırmayın!</div>
+              <div class="notif-time">3 gün önce</div>
+            </div>
+          </div>
+
+          <div class="notif-item">
+            <div class="notif-icon notif-icon--delivered">✅</div>
+            <div class="notif-body">
+              <div class="notif-title">Siparişiniz teslim edildi</div>
+              <div class="notif-text">Pro Plan ve Royal Canin siparişiniz (#PW-20240518-001) başarıyla teslim edildi. Nasıl buldunuz?</div>
+              <div class="notif-time">23 Mayıs 2024</div>
+            </div>
+          </div>
+
+          <div class="notif-item">
+            <div class="notif-icon notif-icon--campaign">🎁</div>
+            <div class="notif-body">
+              <div class="notif-title">Doğum günün kutlu olsun! 🎂</div>
+              <div class="notif-text">Doğum günün için hesabına 20 ₺ ParaPuan hediye ettik. İyi alışverişler!</div>
+              <div class="notif-time">02 Mayıs 2024</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ════════ MESAJLARIM ════════ -->
+      <section class="tab-section hidden" id="tab-messages">
+        <div class="tab-header">
+          <h2 class="tab-title">Mesajlarım</h2>
+          <button class="btn-primary">+ Yeni Destek Talebi</button>
+        </div>
+        <div class="messages-list">
+
+          <div class="message-thread message-thread--open">
+            <div class="message-thread-head">
+              <div class="message-subject">Sipariş #PW-20240518-001 - Kargo gecikmesi hakkında</div>
+              <span class="message-status-badge badge-open">Açık</span>
+            </div>
+            <div class="message-preview">Merhaba, siparişimin kargo takibinde bir güncelleme göremedim, yardımcı olabilir misiniz?</div>
+            <div class="message-meta">
+              <span>Destek ID: #SUP-4412</span>
+              <span>Son yanıt: 2 gün önce</span>
+            </div>
+            <div class="message-chat">
+              <div class="chat-bubble chat-bubble--user">
+                <div class="chat-sender">Ahmet Yılmaz</div>
+                <div class="chat-text">Merhaba, siparişimin kargo takibinde bir güncelleme göremedim, yardımcı olabilir misiniz?</div>
+                <div class="chat-time">18 Mayıs 2024 — 14:32</div>
+              </div>
+              <div class="chat-bubble chat-bubble--support">
+                <div class="chat-sender">Pawco Destek</div>
+                <div class="chat-text">Merhaba Ahmet Bey, durumu inceledik. Kargocu firmadan kaynaklı 1 günlük gecikme yaşandı, yarın teslim edilecek. İyi günler dileriz.</div>
+                <div class="chat-time">19 Mayıs 2024 — 09:15</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="message-thread">
+            <div class="message-thread-head">
+              <div class="message-subject">İade talebi - Royal Canin 4kg</div>
+              <span class="message-status-badge badge-closed">Kapatıldı</span>
+            </div>
+            <div class="message-preview">İade işlemim tamamlandı, teşekkür ederim.</div>
+            <div class="message-meta">
+              <span>Destek ID: #SUP-3987</span>
+              <span>Kapatılma: 10 Mayıs 2024</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ════════ ROZETLERİM ════════ -->
+      <section class="tab-section hidden" id="tab-badges">
+        <div class="tab-header">
+          <h2 class="tab-title">Rozetlerim</h2>
+          <span class="tab-subtitle">3 / 12 rozet kazanıldı</span>
+        </div>
+        <div class="badges-progress-bar-wrap">
+          <div class="badges-progress-label">İlerleme</div>
+          <div class="badges-progress-track">
+            <div class="badges-progress-fill" style="width:25%"></div>
+          </div>
+          <span class="badges-progress-pct">%25</span>
+        </div>
+        <div class="badges-grid">
+          <div class="badge-item badge-item--earned">
+            <div class="badge-emoji">🐾</div>
+            <div class="badge-name">Hoş Geldin</div>
+            <div class="badge-desc">İlk kaydını tamamladın</div>
+            <div class="badge-earned-date">10 Mayıs 2024</div>
+          </div>
+          <div class="badge-item badge-item--earned">
+            <div class="badge-emoji">🛒</div>
+            <div class="badge-name">İlk Alışveriş</div>
+            <div class="badge-desc">İlk siparişini verdin</div>
+            <div class="badge-earned-date">18 Mayıs 2024</div>
+          </div>
+          <div class="badge-item badge-item--earned">
+            <div class="badge-emoji">🔥</div>
+            <div class="badge-name">Alışveriş Tutkunu</div>
+            <div class="badge-desc">3 sipariş verdin</div>
+            <div class="badge-earned-date">10 Haziran 2024</div>
+          </div>
+          <div class="badge-item badge-item--locked">
+            <div class="badge-emoji">⭐</div>
+            <div class="badge-name">VIP Üye</div>
+            <div class="badge-desc">5 sipariş ver</div>
+            <div class="badge-progress">3/5</div>
+          </div>
+          <div class="badge-item badge-item--locked">
+            <div class="badge-emoji">💎</div>
+            <div class="badge-name">Diamond Üye</div>
+            <div class="badge-desc">10.000 ₺ harcama yap</div>
+            <div class="badge-progress">4.837/10.000 ₺</div>
+          </div>
+          <div class="badge-item badge-item--locked">
+            <div class="badge-emoji">❤️</div>
+            <div class="badge-name">Favori Aşığı</div>
+            <div class="badge-desc">10 ürün favorile</div>
+            <div class="badge-progress">5/10</div>
+          </div>
+          <div class="badge-item badge-item--locked">
+            <div class="badge-emoji">🌟</div>
+            <div class="badge-name">Yorum Ustası</div>
+            <div class="badge-desc">5 ürün değerlendir</div>
+            <div class="badge-progress">0/5</div>
+          </div>
+          <div class="badge-item badge-item--locked">
+            <div class="badge-emoji">🎂</div>
+            <div class="badge-name">Doğum Günü</div>
+            <div class="badge-desc">Doğum günün gelsin</div>
+            <div class="badge-progress">Yakında</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════ PETLERİM ════════ -->
+      <section class="tab-section hidden" id="tab-pets">
+        <div class="tab-header">
+          <h2 class="tab-title">Petlerim</h2>
+          <button class="btn-primary">+ Pet Ekle</button>
+        </div>
+        <div class="pets-grid">
+
+          <div class="pet-card">
+            <div class="pet-avatar pet-avatar--cat">🐱</div>
+            <div class="pet-info">
+              <div class="pet-name">Pamuk</div>
+              <div class="pet-detail"><span>Tür:</span> Kedi</div>
+              <div class="pet-detail"><span>Irk:</span> Van Kedisi</div>
+              <div class="pet-detail"><span>Yaş:</span> 3 yaş</div>
+              <div class="pet-detail"><span>Cinsiyet:</span> Dişi ♀</div>
+              <div class="pet-detail"><span>Kısırlaştırıldı:</span> Evet ✓</div>
+            </div>
+            <div class="pet-actions">
+              <button class="btn-outline btn-sm">✏️ Düzenle</button>
+              <button class="btn-outline btn-sm btn-del">🗑️ Sil</button>
+            </div>
+          </div>
+
+          <div class="pet-card">
+            <div class="pet-avatar pet-avatar--dog">🐶</div>
+            <div class="pet-info">
+              <div class="pet-name">Karamel</div>
+              <div class="pet-detail"><span>Tür:</span> Köpek</div>
+              <div class="pet-detail"><span>Irk:</span> Golden Retriever</div>
+              <div class="pet-detail"><span>Yaş:</span> 5 yaş</div>
+              <div class="pet-detail"><span>Cinsiyet:</span> Erkek ♂</div>
+              <div class="pet-detail"><span>Kısırlaştırıldı:</span> Evet ✓</div>
+            </div>
+            <div class="pet-actions">
+              <button class="btn-outline btn-sm">✏️ Düzenle</button>
+              <button class="btn-outline btn-sm btn-del">🗑️ Sil</button>
+            </div>
+          </div>
+
+          <div class="pet-card pet-card--add">
+            <div class="add-pet-inner">
+              <div class="add-icon">+</div>
+              <div class="add-text">Yeni Pet Ekle</div>
+              <div class="add-sub">Evcil hayvanınızı ekleyerek kişiselleştirilmiş öneriler alın</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ════════ SAHİPLENDİRME İLANLARIM ════════ -->
+      <section class="tab-section hidden" id="tab-listings">
+        <div class="tab-header">
+          <h2 class="tab-title">Sahiplendirme İlanlarım</h2>
+          <button class="btn-primary">+ Yeni İlan Ver</button>
+        </div>
+        <div class="listings-list">
+
+          <div class="listing-card">
+            <div class="listing-img-wrap">
+              <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=200&auto=format&fit=crop" alt="Kedi"/>
+              <span class="listing-status-badge badge-active">Aktif</span>
+            </div>
+            <div class="listing-info">
+              <div class="listing-title">Yavru Kedi Sahiplendirme — İstanbul / Kadıköy</div>
+              <div class="listing-detail">Irk: Tekir &nbsp;|&nbsp; Yaş: 3 aylık &nbsp;|&nbsp; Cinsiyet: Dişi</div>
+              <div class="listing-detail">Aşıları yapıldı ✓ &nbsp;|&nbsp; Kısırlaştırılmadı</div>
+              <div class="listing-desc">Üç aylık yavru kedicik, evcil hayvan dostu ve çocuklu ailelere uygundur. Sağlık kontrollerinden geçti.</div>
+              <div class="listing-meta">İlan tarihi: 5 Haziran 2024 &nbsp;|&nbsp; 47 görüntülenme</div>
+            </div>
+            <div class="listing-actions">
+              <button class="btn-outline btn-sm">✏️ Düzenle</button>
+              <button class="btn-outline btn-sm btn-del">🗑️ İlanı Kaldır</button>
+            </div>
+          </div>
+
+          <div class="listing-card">
+            <div class="listing-img-wrap">
+              <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=200&auto=format&fit=crop" alt="Köpek"/>
+              <span class="listing-status-badge badge-closed">Kapandı</span>
+            </div>
+            <div class="listing-info">
+              <div class="listing-title">Labrador Sahiplendirme — Bursa / Osmangazi</div>
+              <div class="listing-detail">Irk: Labrador &nbsp;|&nbsp; Yaş: 1 yaşında &nbsp;|&nbsp; Cinsiyet: Erkek</div>
+              <div class="listing-detail">Aşıları yapıldı ✓ &nbsp;|&nbsp; Kısırlaştırıldı ✓</div>
+              <div class="listing-desc">Sahibi şehir dışına taşındığı için sahiplendirilecek, çok sevimli ve eğitilmiş Labrador.</div>
+              <div class="listing-meta">İlan tarihi: 12 Nisan 2024 &nbsp;|&nbsp; 128 görüntülenme &nbsp;|&nbsp; Sahiplendirildi ✓</div>
+            </div>
+            <div class="listing-actions">
+              <button class="btn-outline btn-sm">Tekrar Yayınla</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ════════ ÜYELİK BİLGİLERİM ════════ -->
+      <section class="tab-section hidden" id="tab-profile">
+        <div class="tab-header">
+          <h2 class="tab-title">Üyelik Bilgilerim</h2>
+        </div>
+
+        <div class="profile-grid">
+
+          <div class="profile-section-card">
+            <div class="profile-section-title">Kişisel Bilgiler</div>
+            <div class="profile-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Ad</label>
+                  <input type="text" value="Ahmet" class="form-input"/>
+                </div>
+                <div class="form-group">
+                  <label>Soyad</label>
+                  <input type="text" value="Yılmaz" class="form-input"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>E-posta</label>
+                <input type="email" value="ahmet@email.com" class="form-input"/>
+              </div>
+              <div class="form-group">
+                <label>Telefon</label>
+                <input type="tel" value="0532 123 45 67" class="form-input"/>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Doğum Tarihi</label>
+                  <input type="date" value="1990-05-02" class="form-input"/>
+                </div>
+                <div class="form-group">
+                  <label>Cinsiyet</label>
+                  <select class="form-input">
+                    <option selected>Erkek</option>
+                    <option>Kadın</option>
+                    <option>Belirtmek istemiyorum</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn-primary">Bilgileri Kaydet</button>
+            </div>
+          </div>
+
+          <div class="profile-section-card">
+            <div class="profile-section-title">Şifre Değiştir</div>
+            <div class="profile-form">
+              <div class="form-group">
+                <label>Mevcut Şifre</label>
+                <input type="password" placeholder="••••••••" class="form-input"/>
+              </div>
+              <div class="form-group">
+                <label>Yeni Şifre</label>
+                <input type="password" placeholder="••••••••" class="form-input"/>
+              </div>
+              <div class="form-group">
+                <label>Yeni Şifre Tekrar</label>
+                <input type="password" placeholder="••••••••" class="form-input"/>
+              </div>
+              <button class="btn-primary">Şifreyi Güncelle</button>
+            </div>
+          </div>
+
+          <div class="profile-section-card">
+            <div class="profile-section-title">İletişim Tercihleri</div>
+            <div class="pref-list">
+              <label class="pref-row">
+                <div class="pref-info">
+                  <div class="pref-title">E-posta Bildirimleri</div>
+                  <div class="pref-desc">Sipariş güncellemeleri, kampanyalar ve öneriler</div>
+                </div>
+                <input type="checkbox" class="toggle-input" checked/>
+                <span class="toggle-slider"></span>
+              </label>
+              <label class="pref-row">
+                <div class="pref-info">
+                  <div class="pref-title">SMS Bildirimleri</div>
+                  <div class="pref-desc">Kargo ve teslimat bilgileri</div>
+                </div>
+                <input type="checkbox" class="toggle-input" checked/>
+                <span class="toggle-slider"></span>
+              </label>
+              <label class="pref-row">
+                <div class="pref-info">
+                  <div class="pref-title">Push Bildirimleri</div>
+                  <div class="pref-desc">Mobil uygulama bildirimleri</div>
+                </div>
+                <input type="checkbox" class="toggle-input"/>
+                <span class="toggle-slider"></span>
+              </label>
+              <label class="pref-row">
+                <div class="pref-info">
+                  <div class="pref-title">Kampanya ve Duyurular</div>
+                  <div class="pref-desc">Özel indirim ve fırsatlar</div>
+                </div>
+                <input type="checkbox" class="toggle-input" checked/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <button class="btn-primary" style="margin-top:16px">Tercihleri Kaydet</button>
+          </div>
+
+          <div class="profile-section-card profile-danger-zone">
+            <div class="profile-section-title danger-title">Hesap İşlemleri</div>
+            <p class="danger-desc">Hesabınızı silmek geri alınamaz bir işlemdir. Tüm siparişleriniz, favorileriniz ve puan geçmişiniz kalıcı olarak silinir.</p>
+            <button class="btn-danger">Hesabımı Sil</button>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- FOOTER (kısa) -->
+  <footer class="site-footer" style="margin-top:40px">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4 class="footer-heading">Kurumsal</h4>
+        <ul><li><a href="#">Hakkımızda</a></li><li><a href="#">İletişim</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Yardım Merkezi</h4>
+        <ul><li><a href="#">SSS</a></li><li><a href="#">İade Koşulları</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Müşteri Hizmetleri</h4>
+        <div class="footer-phone">0850 255 10 01</div>
+        <div class="footer-hours">Pzt-Cmt 09:00 - 18:00</div>
+      </div>
+    </div>
+    <div class="footer-legal-search">
+      <p>2014-2026 © pawco.com | Bursa'da sevgiyle yapıldı. ❤</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/account.js" defer></script>
+</body>
+</html>
