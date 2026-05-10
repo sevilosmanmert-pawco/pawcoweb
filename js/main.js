@@ -8,26 +8,22 @@ let activeSidebarItem = null;
 let mobileActiveAnimal = null;
 
 // ── LOAD DATA ──────────────────────────────────────────────
-
 function loadData() {
-  // fetch yerine doğrudan js içindeki PAWCO_DATA değişkenini kullanıyoruz
-  siteData = PAWCO_DATA; 
+  siteData = (typeof PAWCO_DATA !== 'undefined') ? PAWCO_DATA : null;
+
+  initNavbarEvents();
+  setupEventListeners();
+
   if (siteData) {
-    init();
-  } else {
-    console.error('Veri bulunamadı! PAWCO_DATA değişkenini kontrol edin.');
+    if (document.getElementById('animal-picks'))  renderAnimalPicks();
+    if (document.getElementById('main-section'))  renderFeaturedSection();
+    if (document.getElementById('mobile-nav'))    renderMobileNav();
+    if (document.getElementById('hero'))          renderHero();
   }
 }
 
-// ── INIT ───────────────────────────────────────────────────
-function init() {
-  renderNavbar();
-  renderAnimalPicks();
-  renderFeaturedSection();
-  renderMobileNav();
-  setupEventListeners();
-  renderHero();
-}
+// ── INIT (eski — artık kullanılmıyor, silinebilir) ──────────
+function init() { loadData(); }
 
 // ── TOP BAR ────────────────────────────────────────────────
 function renderTopBar() {
@@ -66,50 +62,93 @@ function renderHeader() {
 }
 
 // ── NAVBAR ─────────────────────────────────────────────────
-function renderNavbar() {
-  const navbar = document.getElementById('navbar');
-  const items = siteData.nav;
-  const animalsWithDropdown = ['cat', 'dog', 'bird', 'rodent'];
+// Navbar HTML'de yazılıdır. Bu fonksiyon yalnızca
+// mouseenter/mouseleave ve dışarı-tıklama event'lerini bağlar.
+// ── NAVBAR EVENT BINDING ────────────────────────────────────
+// HTML'deki .nav-item[data-animal] elemanlarına bir kez bağlanır.
+// Guard: zaten bağlandıysa tekrar bağlamaz.
+function initNavbarEvents() {
+  // Dışarı tıklayınca kapat (bir kez)
+  if (!document._navOutsideClick) {
+    document._navOutsideClick = true;
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-item')) closeAllDropdowns();
+    });
+  }
 
-  let html = '<div class="navbar-inner">';
-  items.forEach(item => {
-    const hasDropdown = animalsWithDropdown.includes(item.id);
-    const animalAttr = hasDropdown ? `data-animal="${item.id}"` : '';
-    
-    html += `
-      <div class="nav-item" id="nav-${item.id}" ${animalAttr} onclick="window.location.href='kediurunler.html'">
-        <button class="nav-btn" data-id="${item.id}">
-      
-          ${item.label}
-          ${hasDropdown ? '<span class="nav-arrow">▼</span>' : ''}
-        </button>
-        ${hasDropdown ? `<div class="mega-dropdown" id="dropdown-${item.id}"></div>` : ''}
-      </div>
-    `;
+  document.querySelectorAll('.nav-item[data-animal]').forEach(navItem => {
+    if (navItem._navBound) return;   // çift bağlamayı önle
+    navItem._navBound = true;
+
+    const animalId = navItem.dataset.animal;
+    const dropdown = document.getElementById('dropdown-' + animalId);
+
+    navItem.addEventListener('mouseenter', () => {
+      closeAllDropdowns();
+      activeAnimal = animalId;
+      navItem.classList.add('active');
+      initDropdownPanels(animalId);
+    });
+
+    // nav-item ya da dropdown dışına çıkınca kapat
+    navItem.addEventListener('mouseleave', (e) => {
+      if (dropdown && dropdown.contains(e.relatedTarget)) return;
+      closeAllDropdowns();
+    });
+
+    if (dropdown) {
+      dropdown.addEventListener('mouseleave', (e) => {
+        if (navItem.contains(e.relatedTarget)) return;
+        closeAllDropdowns();
+      });
+    }
   });
-  html += '</div>';
-  navbar.innerHTML = html;
 }
 
-function handleNavClick(id, hasDropdown) {
-  if (!hasDropdown) {
-    // campaigns, club etc.
-    alert(`"${id}" sayfasına yönlendiriliyorsunuz...`);
+// Eski adı koruyalım — bazı çağrılar hâlâ renderNavbar() diyebilir
+function renderNavbar() { initNavbarEvents(); }
+
+// Sidebar item mouseenter → panel geçişi
+// HTML'de yazılı dropdown için. Her dropdown için bir kez çalışır.
+function initDropdownPanels(animalId) {
+  const sidebar = document.getElementById('sidebar-' + animalId);
+
+  if (!sidebar) {
+    // index.html gibi data-driven sayfa — eski yöntem
+    const dropdown = document.getElementById('dropdown-' + animalId);
+    if (dropdown) renderDropdown(animalId, dropdown);
     return;
   }
-  if (activeAnimal === id) {
-    closeAllDropdowns();
-    return;
+
+  // İlk açılışta aktif paneli göster
+  const activeItem = sidebar.querySelector('.sidebar-item.active')
+                  || sidebar.querySelector('.sidebar-item');
+  if (activeItem) {
+    sidebar.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('active'));
+    activeItem.classList.add('active');
+    showPanel(animalId, activeItem.dataset.id);
   }
-  closeAllDropdowns();
-  activeAnimal = id;
-  activeSidebarItem = null;
 
-  const navItem = document.getElementById(`nav-${id}`);
-  navItem.classList.add('active');
+  // Daha önce bağlandıysa tekrar bağlama
+  if (sidebar._panelsBound) return;
+  sidebar._panelsBound = true;
 
-  const dropdown = document.getElementById(`dropdown-${id}`);
-  renderDropdown(id, dropdown);
+  sidebar.querySelectorAll('.sidebar-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      sidebar.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('active'));
+      item.classList.add('active');
+      showPanel(animalId, item.dataset.id);
+    });
+  });
+}
+
+// HTML'deki .cat-panel'ler arasında geçiş — hidden attribute ile
+function showPanel(animalId, panelId) {
+  const contentArea = document.getElementById('content-' + animalId);
+  if (!contentArea || !panelId) return;
+  contentArea.querySelectorAll('.cat-panel').forEach(panel => {
+    panel.hidden = (panel.dataset.panel !== panelId);
+  });
 }
 
 function closeAllDropdowns() {
@@ -132,7 +171,7 @@ function renderDropdown(animalId, container) {
       ${animal.sidebar.map(s => `
         <div class="sidebar-item ${s.id === activeSidebarItem ? 'active' : ''}"
              data-id="${s.id}" data-animal="${animalId}"
-             onclick="handleSidebarClick('${animalId}', '${s.id}', this)">
+             onmouseenter="handleSidebarClick('${animalId}', '${s.id}', this)">
           <div class="sidebar-item-left">
             <span class="sidebar-icon">${s.icon}</span>
             <span>${s.label}</span>
@@ -525,41 +564,14 @@ function switchMobileAnimal(animalId, btn) {
 
 // ── EVENT LISTENERS ────────────────────────────────────────
 function setupEventListeners() {
-  // Close dropdown when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.nav-item') && !e.target.closest('.mega-dropdown')) {
-      closeAllDropdowns();
-    }
-  });
-
-  document.querySelectorAll('.nav-item[data-animal]').forEach(item => {
-  const animalId = item.dataset.animal;
-
-  item.addEventListener('mouseenter', () => {
-    closeAllDropdowns();
-
-    activeAnimal = animalId;
-    activeSidebarItem = null;
-
-    item.classList.add('active');
-
-    const dropdown = document.getElementById(`dropdown-${animalId}`);
-    renderDropdown(animalId, dropdown);
-  });
-
-  item.addEventListener('mouseleave', () => {
-    closeAllDropdowns();
-  });
-});
-
   // Mobile menu open
-  document.getElementById('mobileMenuBtn').addEventListener('click', openMobileNav);
+  document.getElementById('mobileMenuBtn')?.addEventListener('click', openMobileNav);
 
   // Overlay click to close
-  document.getElementById('mobile-overlay').addEventListener('click', closeMobileNav);
+  document.getElementById('mobile-overlay')?.addEventListener('click', closeMobileNav);
 
   // Search on Enter
-  document.getElementById('searchInput').addEventListener('keydown', (e) => {
+  document.getElementById('searchInput')?.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') handleSearch();
   });
 }

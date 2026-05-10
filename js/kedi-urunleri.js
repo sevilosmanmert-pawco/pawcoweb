@@ -111,6 +111,86 @@
     });
   }
 
+
+
+
+
+    /* ── NAVBAR: kediurunler.html'e özgü, main.js'ten bağımsız ── */
+    document.addEventListener('DOMContentLoaded', function () {
+      var activeAnimal = null;
+
+      function closeAll() {
+        document.querySelectorAll('.nav-item[data-animal]').forEach(function (ni) {
+          ni.classList.remove('active');
+        });
+        activeAnimal = null;
+      }
+
+      function showPanel(animalId, panelId) {
+        var content = document.getElementById('content-' + animalId);
+        if (!content) return;
+        content.querySelectorAll('.cat-panel').forEach(function (p) {
+          p.hidden = p.dataset.panel !== panelId;
+        });
+      }
+
+      document.querySelectorAll('.nav-item[data-animal]').forEach(function (navItem) {
+        var animalId = navItem.dataset.animal;
+        var dropdown = document.getElementById('dropdown-' + animalId);
+        var sidebar  = document.getElementById('sidebar-' + animalId);
+
+        /* Hover → aç */
+        navItem.addEventListener('mouseenter', function () {
+          closeAll();
+          activeAnimal = animalId;
+          navItem.classList.add('active');
+
+          /* Sidebar: ilk item aktif, panel göster */
+          if (sidebar) {
+            var items = sidebar.querySelectorAll('.sidebar-item');
+            var first = sidebar.querySelector('.sidebar-item.active') || items[0];
+            items.forEach(function (s) { s.classList.remove('active'); });
+            if (first) {
+              first.classList.add('active');
+              showPanel(animalId, first.dataset.id);
+            }
+
+            /* Sidebar satırına hover → panel değiştir */
+            items.forEach(function (item) {
+              item.addEventListener('mouseenter', function () {
+                items.forEach(function (s) { s.classList.remove('active'); });
+                item.classList.add('active');
+                showPanel(animalId, item.dataset.id);
+              });
+            });
+          }
+        });
+
+        /* nav-item'dan dropdown'a geçince kapanmasın */
+        navItem.addEventListener('mouseleave', function (e) {
+          if (dropdown && dropdown.contains(e.relatedTarget)) return;
+          closeAll();
+        });
+        if (dropdown) {
+          dropdown.addEventListener('mouseleave', function (e) {
+            if (navItem.contains(e.relatedTarget)) return;
+            closeAll();
+          });
+        }
+      });
+
+      /* Dışarı tıklayınca kapat */
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.nav-item')) closeAll();
+      });
+    });
+
+
+
+
+
+
+
   // ── INIT ──────────────────────────────────────────────────
   function init() {
     initSlider('catBrandsTrack', 'catBrandPrev',  'catBrandNext',  12);
