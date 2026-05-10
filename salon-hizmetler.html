@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pawco Salon ✂️ - Hizmet Listesi</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/salon.css"/>
+  <link rel="stylesheet" href="css/salon-hizmetler.css"/>
+</head>
+<body class="salon-page">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <span>🚚 <strong>150 TL ve üzeri</strong> ücretsiz kargo &nbsp;|&nbsp; 📞 Müşteri Hizmetleri: <strong>0850 123 45 67</strong></span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🐾</span>
+        <span class="logo-text">paw<span>co</span></span>
+      </a>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Ne aramıştınız?..." autocomplete="off"/>
+        <button class="search-btn" onclick="window.location.href='search.html?q='+document.getElementById('searchInput').value">🔍</button>
+      </div>
+      <div class="header-actions">
+        <button class="header-action-btn"><span class="btn-icon">🎧</span><span>Yardım</span></button>
+        <button class="header-action-btn" onclick="window.location.href='account.html'"><span class="btn-icon">👤</span><span>Hesabım</span></button>
+        <button class="header-action-btn cart-btn"><span class="btn-icon">🛒</span><span>Sepetim</span><span class="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SALON ALT NAVBAR -->
+  <nav class="salon-subnav">
+    <div class="salon-subnav-inner">
+      <a href="salon.html" class="salon-subnav-link">Ana Sayfa</a>
+      <a href="salon.html#hizmetler" class="salon-subnav-link">Hizmetler</a>
+      <a href="salon.html#magazalar" class="salon-subnav-link">Mağazalar</a>
+      <a href="salon-hizmetler.html" class="salon-subnav-link active">Randevu Al</a>
+      <a href="salon.html#galeri" class="salon-subnav-link">Galeri</a>
+      <a href="salon.html#reels" class="salon-subnav-link">Videolar</a>
+      <a href="salon.html#neden" class="salon-subnav-link">Neden Pawco Salon?</a>
+    </div>
+  </nav>
+
+  <!-- ═══ RANDEVU ADIM ÇUBUĞU ═══ -->
+  <div class="appt-wizard-bar" id="wizardBar">
+    <div class="appt-wizard-inner">
+      <button class="appt-back-btn" id="wizBackBtn" onclick="wizBack()">← Geri Dön</button>
+
+      <div class="appt-steps">
+        <div class="appt-step appt-step--active" id="wiz-step-dot-0">
+          <div class="appt-step-num">1</div>
+          <div class="appt-step-label">Evcil Dost</div>
+        </div>
+        <div class="appt-step-arrow">→</div>
+        <div class="appt-step" id="wiz-step-dot-1">
+          <div class="appt-step-num">2</div>
+          <div class="appt-step-label">Hizmet</div>
+        </div>
+        <div class="appt-step-arrow">→</div>
+        <div class="appt-step" id="wiz-step-dot-2">
+          <div class="appt-step-num">3</div>
+          <div class="appt-step-label">Lokasyon</div>
+        </div>
+        <div class="appt-step-arrow">→</div>
+        <div class="appt-step" id="wiz-step-dot-3">
+          <div class="appt-step-num">4</div>
+          <div class="appt-step-label">Zaman</div>
+        </div>
+        <div class="appt-step-arrow">→</div>
+        <div class="appt-step" id="wiz-step-dot-4">
+          <div class="appt-step-num">5</div>
+          <div class="appt-step-label">Onay</div>
+        </div>
+      </div>
+
+      <button class="appt-continue-btn" id="continueBtn" onclick="wizNext()" disabled>Devam Et →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SAYFA GÖVDE ═══ -->
+  <div class="hizmet-page">
+
+  <!-- ══════════════════════════════════════════════════
+       ADIM 0 — EVCİL DOST BİLGİLERİ
+  ══════════════════════════════════════════════════ -->
+  <div id="step-0" class="wizard-step">
+    <div class="hizmet-page-header">
+      <h1 class="hizmet-page-title">Dostunuzu Tanıtalım</h1>
+      <p class="hizmet-quick-note">Randevu için evcil dostunuzun bilgilerini girin.</p>
+    </div>
+
+    <div class="wizard-pet-wrap">
+
+      <!-- ── KAYITLI EVCIL HAYVAN SEÇİCİ ── -->
+      <div class="saved-pet-selector" id="savedPetSelector">
+        <div class="saved-pet-label">
+          <span class="saved-pet-label-icon">🐾</span>
+          <span>Kayıtlı Dostlarım</span>
+          <span class="saved-pet-count" id="savedPetCount">2 dost</span>
+        </div>
+
+        <!-- Özel Dropdown -->
+        <div class="pet-dropdown-wrap" id="petDropdownWrap">
+          <button class="pet-dropdown-trigger" id="petDropdownTrigger" onclick="togglePetDropdown()" type="button">
+            <span class="pet-dropdown-trigger-icon" id="petDropdownIcon">🐾</span>
+            <span class="pet-dropdown-trigger-text" id="petDropdownText">Kayıtlı bir dost seçin veya yeni ekleyin…</span>
+            <span class="pet-dropdown-arrow" id="petDropdownArrow">▾</span>
+          </button>
+
+          <div class="pet-dropdown-menu" id="petDropdownMenu">
+            <!-- "Yeni Ekle" her zaman en üstte -->
+            <button class="pet-dropdown-item pet-dropdown-item--new" onclick="selectSavedPet('__new__')" type="button">
+              <span class="pdi-icon">➕</span>
+              <div class="pdi-info">
+                <span class="pdi-name">Yeni Dost Ekle</span>
+                <span class="pdi-sub">Formu doldurarak yeni kayıt oluştur</span>
+              </div>
+            </button>
+
+            <div class="pet-dropdown-divider"></div>
+
+            <!-- Kayıtlı hayvanlar JS tarafından buraya render edilir -->
+            <div id="savedPetList"></div>
+          </div>
+        </div>
+      </div>
+      <!-- / saved-pet-selector -->
+
+      <!-- ── PET FORMU ── -->
+      <div class="wiz-pet-form wiz-pet-form--standalone" id="petFormCard">
+        <!-- Seçili hayvan bannerı -->
+        <div class="selected-pet-banner" id="selectedPetBanner" style="display:none">
+          <div class="spb-avatar" id="spbAvatar">🐱</div>
+          <div class="spb-info">
+            <div class="spb-name" id="spbName">Pamuk</div>
+            <div class="spb-sub" id="spbSub">Kedi · Van · 2 yaş</div>
+          </div>
+          <button class="spb-change-btn" onclick="clearSelectedPet()" type="button">Değiştir</button>
+        </div>
+
+        <div class="wiz-pet-fields" id="petFormFields">
+
+          <div class="wiz-field">
+            <label>Hayvan Türü</label>
+            <div class="wiz-pet-type-tabs">
+              <button class="wiz-pet-type active" data-pet="kedi" onclick="selectPetType(this,'kedi')">🐱 Kedi</button>
+              <button class="wiz-pet-type" data-pet="kopek" onclick="selectPetType(this,'kopek')">🐶 Köpek</button>
+            </div>
+          </div>
+
+          <div class="wiz-field">
+            <label for="petName0">Dostunuzun Adı <span class="wiz-required">*</span></label>
+            <input type="text" id="petName0" class="wiz-input" placeholder="örn. Pamuk" oninput="onPetFormInput()"/>
+          </div>
+
+          <div class="wiz-field">
+            <label for="petBreed0">Cinsi</label>
+            <input type="text" id="petBreed0" class="wiz-input" placeholder="örn. Golden Retriever"/>
+          </div>
+
+          <div class="wiz-field">
+            <label for="petAge0">Yaşı</label>
+            <input type="text" id="petAge0" class="wiz-input" placeholder="örn. 3 yaş"/>
+          </div>
+
+          <div class="wiz-field">
+            <label for="petWeight0">Ağırlığı (kg)</label>
+            <input type="number" id="petWeight0" class="wiz-input" placeholder="örn. 4.5" min="0.1" max="120" step="0.1"/>
+          </div>
+
+          <div class="wiz-field wiz-field--full">
+            <label for="ownerPhone0">İletişim Numaranız <span class="wiz-required">*</span></label>
+            <input type="tel" id="ownerPhone0" class="wiz-input" placeholder="05xx xxx xx xx" oninput="onPetFormInput()"/>
+          </div>
+
+          <div class="wiz-field wiz-field--full">
+            <label for="petNote0">Özel Not <span style="font-weight:400;color:#888">(isteğe bağlı)</span></label>
+            <textarea id="petNote0" class="wiz-input wiz-textarea" rows="3" placeholder="Alerjisi, korkusu veya dikkat edilmesini istediğiniz bir şey var mı?"></textarea>
+          </div>
+
+          <!-- Kaydet checkbox'ı — sadece yeni eklemede göster -->
+          <div class="wiz-field wiz-field--full" id="savePetRow" style="display:none">
+            <label class="wiz-save-check">
+              <input type="checkbox" id="savePetCheck" checked/>
+              <span>Bu dostu hesabıma kaydet (bir dahakine hızlıca seç)</span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div><!-- / #step-0 -->
+
+  <!-- ══════════════════════════════════════════════════
+       ADIM 1 — HİZMET SEÇİMİ
+  ══════════════════════════════════════════════════ -->
+  <div id="step-1" class="wizard-step">
+
+    <!-- ── BAŞLIK ── -->
+    <div class="hizmet-page-header">
+      <h1 class="hizmet-page-title">Hizmet Listesi</h1>
+      <div class="hizmet-quick-note">
+        Daha hızlı randevu almak için hızlı randevu seçeneğini kullanabilirsiniz.
+        <a href="salon.html#randevu" class="hizmet-quick-link">Buraya Tıklayın.</a>
+      </div>
+    </div>
+
+    <!-- ── SOL FİLTRE + SAĞ İÇERİK ── -->
+    <div class="hizmet-layout">
+
+      <!-- SOL: FİLTRE PANELİ -->
+      <aside class="hizmet-filter-panel">
+        <div class="hizmet-filter-title">Filtreler</div>
+
+        <!-- Banyo & Fön -->
+        <div class="hf-group hf-group--open" data-cat="banyo">
+          <div class="hf-group-head" onclick="toggleFilterGroup(this)">
+            <span>Banyo & Fön</span>
+            <span class="hf-arrow">▾</span>
+          </div>
+          <div class="hf-group-body">
+            <label class="hf-check"><input type="checkbox" value="banyo-temel" data-cat="banyo"> <span>Temel Banyo & Fön</span></label>
+            <label class="hf-check"><input type="checkbox" value="banyo-premium" data-cat="banyo"> <span>Premium Banyo & Fön</span></label>
+            <label class="hf-check"><input type="checkbox" value="banyo-kedi" data-cat="banyo"> <span>Kedi Özel Banyo</span></label>
+            <label class="hf-check"><input type="checkbox" value="banyo-koku" data-cat="banyo"> <span>Koku Giderici Banyo</span></label>
+          </div>
+        </div>
+
+        <!-- Tırnak Bakımı -->
+        <div class="hf-group" data-cat="tirnak">
+          <div class="hf-group-head" onclick="toggleFilterGroup(this)">
+            <span>Tırnak Bakımı</span>
+            <span class="hf-arrow">›</span>
+          </div>
+          <div class="hf-group-body" style="display:none">
+            <label class="hf-check"><input type="checkbox" value="tirnak-kesim" data-cat="tirnak"> <span>Tırnak Kesimi</span></label>
+            <label class="hf-check"><input type="checkbox" value="tirnak-torpü" data-cat="tirnak"> <span>Tırnak Törpüleme</span></label>
+            <label class="hf-check"><input type="checkbox" value="tirnak-siyah" data-cat="tirnak"> <span>Siyah Tırnak Bakımı</span></label>
+          </div>
+        </div>
+
+        <!-- Saç Kesimi & Tıraş -->
+        <div class="hf-group" data-cat="sac">
+          <div class="hf-group-head" onclick="toggleFilterGroup(this)">
+            <span>Saç Kesimi & Tıraş</span>
+            <span class="hf-arrow">›</span>
+          </div>
+          <div class="hf-group-body" style="display:none">
+            <label class="hf-check"><input type="checkbox" value="sac-kisa-iri" data-cat="sac"> <span>Küçük Irk Kesim</span></label>
+            <label class="hf-check"><input type="checkbox" value="sac-orta-iri" data-cat="sac"> <span>Orta Irk Kesim</span></label>
+            <label class="hf-check"><input type="checkbox" value="sac-buyuk-iri" data-cat="sac"> <span>Büyük Irk Kesim</span></label>
+            <label class="hf-check"><input type="checkbox" value="sac-model" data-cat="sac"> <span>Irka Özel Model Kesim</span></label>
+            <label class="hf-check"><input type="checkbox" value="sac-kedi" data-cat="sac"> <span>Kedi Tıraşı</span></label>
+          </div>
+        </div>
+
+        <!-- Kulak & Göz Temizliği -->
+        <div class="hf-group" data-cat="kulak">
+          <div class="hf-group-head" onclick="toggleFilterGroup(this)">
+            <span>Kulak & Göz Temizliği</span>
+            <span class="hf-arrow">›</span>
+          </div>
+          <div class="hf-group-body" style="display:none">
+            <label class="hf-check"><input type="checkbox" value="kulak-temiz" data-cat="kulak"> <span>Kulak Temizliği</span></label>
+            <label class="hf-check"><input type="checkbox" value="goz-temiz" data-cat="kulak"> <span>Göz Çevresi Temizliği</span></label>
+            <label class="hf-check"><input type="checkbox" value="kulak-goz" data-cat="kulak"> <span>Kulak + Göz Kombo</span></label>
+          </div>
+        </div>
+
+        <!-- Diş Bakımı -->
+        <div class="hf-group" data-cat="dis">
+          <div class="hf-group-head" onclick="toggleFilterGroup(this)">
+            <span>Diş Bakımı</span>
+            <span class="hf-arrow">›</span>
+          </div>
+          <div class="hf-group-body" style="display:none">
+            <label class="hf-check"><input type="checkbox" value="dis-fircalama" data-cat="dis"> <span>Diş Fırçalama</span></label>
+            <label class="hf-check"><input type="checkbox" value="dis-tarti" data-cat="dis"> <span>Diş Taşı Önleyici Bakım</span></label>
+          </div>
+        </div>
+
+        <!-- Tüy Bakımı -->
+        <div class="hf-group" data-cat="tuy">
+          <div class="hf-group-head" onclick="toggleFilterGroup(this)">
+            <span>Tüy Bakımı</span>
+            <span class="hf-arrow">›</span>
+          </div>
+          <div class="hf-group-body" style="display:none">
+            <label class="hf-check"><input type="checkbox" value="tuy-tarama" data-cat="tuy"> <span>Tüy Tarama & Fırçalama</span></label>
+            <label class="hf-check"><input type="checkbox" value="tuy-dokülme" data-cat="tuy"> <span>Dökülme Önleyici Bakım</span></label>
+            <label class="hf-check"><input type="checkbox" value="tuy-parlatma" data-cat="tuy"> <span>Tüy Parlatma Maskesi</span></label>
+          </div>
+        </div>
+
+        <!-- Full Paketler -->
+        <div class="hf-group" data-cat="paket">
+          <div class="hf-group-head" onclick="toggleFilterGroup(this)">
+            <span>Full Paketler</span>
+            <span class="hf-arrow">›</span>
+          </div>
+          <div class="hf-group-body" style="display:none">
+            <label class="hf-check"><input type="checkbox" value="paket-temel" data-cat="paket"> <span>Temel Bakım Paketi</span></label>
+            <label class="hf-check"><input type="checkbox" value="paket-full" data-cat="paket"> <span>Full Bakım Paketi</span></label>
+            <label class="hf-check"><input type="checkbox" value="paket-vip" data-cat="paket"> <span>VIP Şımartma Paketi</span></label>
+            <label class="hf-check"><input type="checkbox" value="paket-yavru" data-cat="paket"> <span>Yavru Bakım Paketi</span></label>
+          </div>
+        </div>
+
+        <!-- Özel Bakımlar -->
+        <div class="hf-group" data-cat="ozel">
+          <div class="hf-group-head" onclick="toggleFilterGroup(this)">
+            <span>Özel Bakımlar</span>
+            <span class="hf-arrow">›</span>
+          </div>
+          <div class="hf-group-body" style="display:none">
+            <label class="hf-check"><input type="checkbox" value="ozel-kaplama" data-cat="ozel"> <span>Tırnak Kaplama (Softpaw)</span></label>
+            <label class="hf-check"><input type="checkbox" value="ozel-koku-kolon" data-cat="ozel"> <span>Parfüm & Kolonya Uygulaması</span></label>
+            <label class="hf-check"><input type="checkbox" value="ozel-masaj" data-cat="ozel"> <span>Rahatlatıcı Masaj</span></label>
+            <label class="hf-check"><input type="checkbox" value="ozel-spa" data-cat="ozel"> <span>Spa & Dinlendirici Banyo</span></label>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- SAĞ: HİZMET KATEGORİ KARTLARI -->
+      <div class="hizmet-content">
+        <div class="hizmet-grid" id="hizmetGrid">
+
+          <!-- BANYO & FÖN -->
+          <div class="hizmet-card" data-cat="banyo" onclick="selectCategory(this, 'banyo')">
+            <div class="hizmet-card-img">
+              <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=340&auto=format&fit=crop" alt="Banyo & Fön"/>
+              <div class="hizmet-card-badge">🐶 🐱</div>
+            </div>
+            <div class="hizmet-card-body">
+              <div class="hizmet-card-icon">🚿</div>
+              <h3 class="hizmet-card-title">Banyo & Fön</h3>
+              <p class="hizmet-card-desc">Kedi ve köpeğinize özel şampuanlarla derin temizlik, tam kurulama ve fön uygulaması. Stressiz ortamda, ılık suyla uzman ellerde.</p>
+              <div class="hizmet-card-tags">
+                <span>Temel Banyo</span>
+                <span>Premium Banyo</span>
+                <span>Kedi Özel</span>
+                <span>Koku Giderici</span>
+              </div>
+              <button class="hizmet-select-btn">Kategoriyi Seç</button>
+            </div>
+          </div>
+
+          <!-- TIRNAK KESİMİ -->
+          <div class="hizmet-card" data-cat="tirnak" onclick="selectCategory(this, 'tirnak')">
+            <div class="hizmet-card-img">
+              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&h=340&auto=format&fit=crop" alt="Tırnak Kesimi"/>
+              <div class="hizmet-card-badge">🐶 🐱</div>
+            </div>
+            <div class="hizmet-card-body">
+              <div class="hizmet-card-icon">✂️</div>
+              <h3 class="hizmet-card-title">Tırnak Bakımı</h3>
+              <p class="hizmet-card-desc">Hassas aletlerle güvenli tırnak kesimi, törpüleme ve bakımı. Siyah tırnak uzmanlarımızla korkulan işlemi kolayca geçin.</p>
+              <div class="hizmet-card-tags">
+                <span>Tırnak Kesimi</span>
+                <span>Törpüleme</span>
+                <span>Siyah Tırnak</span>
+              </div>
+              <button class="hizmet-select-btn">Kategoriyi Seç</button>
+            </div>
+          </div>
+
+          <!-- SAÇ KESİMİ & TIRAŞ -->
+          <div class="hizmet-card" data-cat="sac" onclick="selectCategory(this, 'sac')">
+            <div class="hizmet-card-img">
+              <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=340&auto=format&fit=crop" alt="Saç Kesimi"/>
+              <div class="hizmet-card-badge">🐶 🐱</div>
+            </div>
+            <div class="hizmet-card-body">
+              <div class="hizmet-card-icon">💈</div>
+              <h3 class="hizmet-card-title">Saç Kesimi & Tıraş</h3>
+              <p class="hizmet-card-desc">Irka özel kesim modelleri, küçük-orta-büyük ırk ayrımıyla uygulamalar ve uzun tüylü dostlar için özel tasarım tıraş.</p>
+              <div class="hizmet-card-tags">
+                <span>Küçük Irk</span>
+                <span>Orta Irk</span>
+                <span>Büyük Irk</span>
+                <span>Model Kesim</span>
+              </div>
+              <button class="hizmet-select-btn">Kategoriyi Seç</button>
+            </div>
+          </div>
+
+          <!-- KULAK & GÖZ TEMİZLİĞİ -->
+          <div class="hizmet-card" data-cat="kulak" onclick="selectCategory(this, 'kulak')">
+            <div class="hizmet-card-img">
+              <img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=600&h=340&auto=format&fit=crop" alt="Kulak Göz Temizliği"/>
+              <div class="hizmet-card-badge">🐶 🐱</div>
+            </div>
+            <div class="hizmet-card-body">
+              <div class="hizmet-card-icon">👂</div>
+              <h3 class="hizmet-card-title">Kulak & Göz Temizliği</h3>
+              <p class="hizmet-card-desc">Özel solüsyonlarla kulak kanalı ve göz çevresi temizliği. Enfeksiyon önleyici, nazik ve stressiz profesyonel uygulama.</p>
+              <div class="hizmet-card-tags">
+                <span>Kulak Temizliği</span>
+                <span>Göz Çevresi</span>
+                <span>Kombo Bakım</span>
+              </div>
+              <button class="hizmet-select-btn">Kategoriyi Seç</button>
+            </div>
+          </div>
+
+          <!-- DİŞ BAKIMI -->
+          <div class="hizmet-card" data-cat="dis" onclick="selectCategory(this, 'dis')">
+            <div class="hizmet-card-img">
+              <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&h=340&auto=format&fit=crop" alt="Diş Bakımı"/>
+              <div class="hizmet-card-badge">🐶 🐱</div>
+            </div>
+            <div class="hizmet-card-body">
+              <div class="hizmet-card-icon">🦷</div>
+              <h3 class="hizmet-card-title">Diş Bakımı</h3>
+              <p class="hizmet-card-desc">Pet dostu macunlarla diş fırçalama ve ağız hijyeni bakımı. Diş taşı oluşumunu önleyici düzenli uygulamalarla sağlıklı ağız.</p>
+              <div class="hizmet-card-tags">
+                <span>Diş Fırçalama</span>
+                <span>Taş Önleyici</span>
+              </div>
+              <button class="hizmet-select-btn">Kategoriyi Seç</button>
+            </div>
+          </div>
+
+          <!-- TÜY BAKIMI -->
+          <div class="hizmet-card" data-cat="tuy" onclick="selectCategory(this, 'tuy')">
+            <div class="hizmet-card-img">
+              <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=340&auto=format&fit=crop" alt="Tüy Bakımı"/>
+              <div class="hizmet-card-badge">🐶 🐱</div>
+            </div>
+            <div class="hizmet-card-body">
+              <div class="hizmet-card-icon">🪮</div>
+              <h3 class="hizmet-card-title">Tüy Bakımı</h3>
+              <p class="hizmet-card-desc">Dökülme önleyici derin tarama ve fırçalama, tüy parlatma maskesi. Uzun tüylü ırklar için özellikle tavsiye edilir.</p>
+              <div class="hizmet-card-tags">
+                <span>Tüy Tarama</span>
+                <span>Dökülme Önleyici</span>
+                <span>Tüy Parlatma</span>
+              </div>
+              <button class="hizmet-select-btn">Kategoriyi Seç</button>
+            </div>
+          </div>
+
+          <!-- FULL PAKETLER -->
+          <div class="hizmet-card" data-cat="paket" onclick="selectCategory(this, 'paket')">
+            <div class="hizmet-card-img">
+              <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&h=340&auto=format&fit=crop" alt="Full Paket"/>
+              <div class="hizmet-card-badge hizmet-card-badge--gold">⭐ Önerilen</div>
+            </div>
+            <div class="hizmet-card-body">
+              <div class="hizmet-card-icon">🎀</div>
+              <h3 class="hizmet-card-title">Full Bakım Paketleri</h3>
+              <p class="hizmet-card-desc">Banyo, tırnak, kulak, göz, tüy tarama ve fön — hepsi bir arada! Temel, Full ve VIP seçenekleriyle dostunuza en uygun paketi seçin.</p>
+              <div class="hizmet-card-tags">
+                <span>Temel Paket</span>
+                <span>Full Paket</span>
+                <span>VIP Paket</span>
+                <span>Yavru Paketi</span>
+              </div>
+              <button class="hizmet-select-btn">Kategoriyi Seç</button>
+            </div>
+          </div>
+
+          <!-- ÖZEL BAKIMLAR -->
+          <div class="hizmet-card" data-cat="ozel" onclick="selectCategory(this, 'ozel')">
+            <div class="hizmet-card-img">
+              <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&h=340&auto=format&fit=crop" alt="Özel Bakım"/>
+              <div class="hizmet-card-badge">✨ Özel</div>
+            </div>
+            <div class="hizmet-card-body">
+              <div class="hizmet-card-icon">💆</div>
+              <h3 class="hizmet-card-title">Özel Bakımlar</h3>
+              <p class="hizmet-card-desc">Softpaw tırnak kaplama, parfüm & kolonya uygulaması, rahatlatıcı masaj ve spa banyosu. Dostunuzu gerçekten şımartmak için.</p>
+              <div class="hizmet-card-tags">
+                <span>Softpaw Kaplama</span>
+                <span>Parfüm</span>
+                <span>Masaj</span>
+                <span>Spa Banyo</span>
+              </div>
+              <button class="hizmet-select-btn">Kategoriyi Seç</button>
+            </div>
+          </div>
+
+        </div><!-- / hizmet-grid -->
+
+        <!-- SEÇİM BİLGİ SATIRI -->
+        <div class="hizmet-selection-info" id="selectionInfo" style="display:none">
+          <span class="sel-icon">✓</span>
+          <span id="selectionText">1 hizmet kategorisi seçildi</span>
+          <button class="sel-clear-btn" onclick="clearSelection()">Temizle</button>
+        </div>
+
+      </div><!-- / hizmet-content -->
+    </div><!-- / hizmet-layout -->
+  </div><!-- / #step-1 -->
+
+
+  <!-- ══════════════════════════════════════════════════
+       ADIM 2 — LOKASYON SEÇİMİ
+  ══════════════════════════════════════════════════ -->
+  <div id="step-2" class="wizard-step" style="display:none">
+    <div class="hizmet-page-header">
+      <h1 class="hizmet-page-title">Mağaza Seçin</h1>
+      <p class="hizmet-quick-note">Randevunuzu almak istediğiniz Pawco Salon şubesini seçin.</p>
+    </div>
+
+    <div class="wizard-location-wrap">
+      <div class="wiz-city-tabs" id="cityTabs">
+        <button class="wiz-city-tab active" data-city="all" onclick="filterCity(this,'all')">Tümü</button>
+        <button class="wiz-city-tab" data-city="istanbul" onclick="filterCity(this,'istanbul')">İstanbul</button>
+        
+      </div>
+
+      <div class="wiz-location-grid" id="locationGrid">
+
+        <div class="wiz-loc-card" data-city="istanbul" onclick="selectLocation(this,'İstanbul — Kadıköy')">
+          <div class="wiz-loc-icon">📍</div>
+          <div class="wiz-loc-info">
+            <div class="wiz-loc-name">Pawco Salon — Sahrayıcedit</div>
+            <div class="wiz-loc-addr">Sahrayıcedit Cad. No:14, Kadıköy / İstanbul</div>
+            <div class="wiz-loc-meta">
+              <span class="wiz-loc-badge wiz-loc-badge--open">🟢 Açık</span>
+              <span>Pzt–Paz 09:00–20:00</span>
+            </div>
+          </div>
+          <span class="wiz-loc-check">✓</span>
+        </div>
+
+        <div class="wiz-loc-card" data-city="istanbul" onclick="selectLocation(this,'İstanbul — Şişli')">
+          <div class="wiz-loc-icon">📍</div>
+          <div class="wiz-loc-info">
+            <div class="wiz-loc-name">Pawco Salon — Acıbadem</div>
+            <div class="wiz-loc-addr">Acıbadem Cad. No:92, Kadıköy / İstanbul</div>
+            <div class="wiz-loc-meta">
+              <span class="wiz-loc-badge wiz-loc-badge--open">🟢 Açık</span>
+              <span>Pzt–Paz 09:00–20:00</span>
+            </div>
+          </div>
+          <span class="wiz-loc-check">✓</span>
+        </div>
+
+        
+
+      </div><!-- / wiz-location-grid -->
+    </div><!-- / wizard-location-wrap -->
+  </div><!-- / #step-2 -->
+
+
+  <!-- ══════════════════════════════════════════════════
+       ADIM 3 — TARİH & SAAT
+  ══════════════════════════════════════════════════ -->
+  <div id="step-3" class="wizard-step" style="display:none">
+    <div class="hizmet-page-header">
+      <h1 class="hizmet-page-title">Tarih & Saat Seçin</h1>
+      <p class="hizmet-quick-note">Uygun olduğunuz gün ve saati seçin.</p>
+    </div>
+
+    <div class="wizard-time-wrap">
+
+      <div class="wiz-calendar">
+        <div class="wiz-cal-header">
+          <button class="wiz-cal-nav" id="calPrev" onclick="calShift(-1)">‹</button>
+          <span class="wiz-cal-month" id="calMonthLabel"></span>
+          <button class="wiz-cal-nav" id="calNext" onclick="calShift(1)">›</button>
+        </div>
+        <div class="wiz-cal-days-row">
+          <span>Pzt</span><span>Sal</span><span>Çar</span>
+          <span>Per</span><span>Cum</span><span>Cmt</span><span>Paz</span>
+        </div>
+        <div class="wiz-cal-grid" id="calGrid"></div>
+      </div>
+
+      <div class="wiz-time-slots">
+        <div class="wiz-time-label" id="timeSlotsLabel">Lütfen önce bir gün seçin</div>
+        <div class="wiz-slots-grid" id="slotsGrid"></div>
+      </div>
+
+    </div><!-- / wizard-time-wrap -->
+  </div><!-- / #step-3 -->
+
+
+  <!-- ══════════════════════════════════════════════════
+       ADIM 4 — RANDEVU ONAY
+  ══════════════════════════════════════════════════ -->
+  <div id="step-4" class="wizard-step" style="display:none">
+    <div class="hizmet-page-header">
+      <h1 class="hizmet-page-title">Randevunuzu Onaylayın</h1>
+      <p class="hizmet-quick-note">Bilgileri kontrol edip onaylayın.</p>
+    </div>
+
+    <div class="wizard-confirm-wrap">
+
+      <div class="wiz-summary-card">
+        <div class="wiz-summary-row">
+          <span class="wiz-summary-icon">🐾</span>
+          <div>
+            <div class="wiz-summary-label">Evcil Dost</div>
+            <div class="wiz-summary-val" id="sumPet">—</div>
+          </div>
+        </div>
+        <div class="wiz-summary-row">
+          <span class="wiz-summary-icon">✂️</span>
+          <div>
+            <div class="wiz-summary-label">Seçilen Hizmetler</div>
+            <div class="wiz-summary-val" id="sumServices">—</div>
+          </div>
+        </div>
+        <div class="wiz-summary-row">
+          <span class="wiz-summary-icon">📍</span>
+          <div>
+            <div class="wiz-summary-label">Mağaza</div>
+            <div class="wiz-summary-val" id="sumLocation">—</div>
+          </div>
+        </div>
+        <div class="wiz-summary-row">
+          <span class="wiz-summary-icon">📅</span>
+          <div>
+            <div class="wiz-summary-label">Tarih & Saat</div>
+            <div class="wiz-summary-val" id="sumDateTime">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wiz-confirm-note">
+        <label class="wiz-kvkk">
+          <input type="checkbox" id="kvkkCheck"/>
+          <span><a href="#" target="_blank">KVKK Aydınlatma Metni</a>'ni okudum ve kabul ediyorum.</span>
+        </label>
+      </div>
+
+      <button class="wiz-confirm-btn" id="confirmBtn" onclick="confirmAppointment()">
+        🎉 Randevuyu Onayla
+      </button>
+
+      <div class="wiz-success" id="wizSuccess" style="display:none">
+        <div class="wiz-success-icon">🐾</div>
+        <h2>Randevunuz Alındı!</h2>
+        <p id="wizSuccessDetail"></p>
+        <a href="salon.html" class="wiz-success-btn">Salon Ana Sayfasına Dön</a>
+      </div>
+
+    </div><!-- / wizard-confirm-wrap -->
+  </div><!-- / #step-4 -->
+
+  </div><!-- / hizmet-page -->
+
+  <!-- MOBİL FİLTRE OVERLAY -->
+  <div class="hizmet-filter-overlay" id="hizmetFilterOverlay" onclick="closeMobileFilter()"></div>
+  <button class="hizmet-mobile-filter-btn" onclick="openMobileFilter()">⚙️ Filtrele</button>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4 class="footer-heading">İletişim Bilgileri</h4>
+        <ul>
+          <li><a href="#">📍 Pawco Mağazacılık</a></li>
+          <li><a href="#">✉️ info@pawco.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Banyo & Fön</h4>
+        <ul>
+          <li><a href="#">Temel Banyo</a></li>
+          <li><a href="#">Premium Banyo</a></li>
+          <li><a href="#">Kedi Özel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Tırnak Bakımı</h4>
+        <ul>
+          <li><a href="#">Tırnak Kesimi</a></li>
+          <li><a href="#">Törpüleme</a></li>
+          <li><a href="#">Softpaw Kaplama</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Saç Kesimi & Tıraş</h4>
+        <ul>
+          <li><a href="#">Küçük Irk</a></li>
+          <li><a href="#">Orta Irk</a></li>
+          <li><a href="#">Büyük Irk</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Kulak & Göz</h4>
+        <ul>
+          <li><a href="#">Kulak Temizliği</a></li>
+          <li><a href="#">Göz Çevresi</a></li>
+          <li><a href="#">Kombo Bakım</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Diş Bakımı</h4>
+        <ul>
+          <li><a href="#">Diş Fırçalama</a></li>
+          <li><a href="#">Taş Önleyici</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Tüy Bakımı</h4>
+        <ul>
+          <li><a href="#">Tüy Tarama</a></li>
+          <li><a href="#">Dökülme Önleyici</a></li>
+          <li><a href="#">Parlatma Maskesi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Full Paketler</h4>
+        <ul>
+          <li><a href="#">Temel Paket</a></li>
+          <li><a href="#">Full Paket</a></li>
+          <li><a href="#">VIP Paket</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Özel Bakımlar</h4>
+        <ul>
+          <li><a href="#">Softpaw</a></li>
+          <li><a href="#">Spa & Masaj</a></li>
+          <li><a href="#">Parfüm</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-col" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+        <a href="#" style="color:#888;font-size:13px;text-decoration:none">Gizlilik ve Çerez</a>
+        <a href="#" style="color:#888;font-size:13px;text-decoration:none">Üyelik Sözleşmesi</a>
+        <a href="#" style="color:#888;font-size:13px;text-decoration:none">Aydınlatma Metni</a>
+      </div>
+      <div class="footer-bottom-col">
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">X</a>
+          <a href="#">YouTube</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="footer-legal">
+    <p>PAWCO EVCİL HAYVAN ÜRÜNLERİ PAZ. SAN. TİC. LTD. ŞTİ. Alaşehir Mah. 1. Alaşar Cad. No: 9 Osmangazi/Bursa</p>
+    <p>2014-2026 © pawco.com &nbsp;|&nbsp; Bursa'da sevgiyle yapıldı. ❤</p>
+  </div>
+
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav"></nav>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/salon-hizmetler.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Pawco Kedi Ürünleri - Kedi Maması, Kedi Kumu, Kedi Oyuncakları ve Daha Fazlası"/>
+  <title>Kedi Ürünleri | Pawco 🐾</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/kedi-urunleri.css"/>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <span>🚚 <strong>150 TL ve üzeri</strong> ücretsiz kargo &nbsp;|&nbsp; 📞 Müşteri Hizmetleri: <strong>0262 444 2 795</strong></span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🐾</span>
+        <span class="logo-text">paw<span>co</span></span>
+      </a>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Ne aramıştınız?..." autocomplete="off"/>
+        <button class="search-btn" id="searchBtn">🔍</button>
+      </div>
+      <div class="header-actions">
+        <button class="header-action-btn">
+          <span class="btn-icon">🎧</span><span>Yardım</span>
+        </button>
+        <button class="header-action-btn">
+          <span class="btn-icon">👤</span><span>Hesabım</span>
+        </button>
+        <button class="header-action-btn cart-btn">
+          <span class="btn-icon">🛒</span><span>Sepetim</span>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVBAR: Veri odaklı, JS'den beslenir -->
+  <nav class="navbar" id="navbar"></nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+      <a href="index.html">🏠</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">Köpek Ürünleri</span>
+    </div>
+  </div>
+
+  <!-- PAGE TITLE -->
+  <div class="page-title-bar">
+    <div class="page-title-inner">
+      <h1 class="page-title">Köpek Ürünleri</h1>
+    </div>
+  </div>
+
+  <!-- HERO BANNER -->
+  <div class="cat-hero-banner">
+    <div class="cat-hero-inner">
+      <button class="cat-hero-arrow cat-hero-prev" id="catHeroPrev" aria-label="Önceki">&#8592;</button>
+      <div class="cat-hero-slides" id="catHeroSlides">
+
+        <div class="cat-hero-slide active">
+          <div class="cat-hero-img">
+            <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=900&auto=format&fit=crop" alt="Kedi Ürünleri"/>
+          </div>
+          <div class="cat-hero-text">
+            <div class="cat-hero-brand">Hill's</div>
+            <div class="cat-hero-sub">Kedi ve Köpek Mamalarında</div>
+            <div class="cat-hero-deal">%13'E VARAN<br><strong>İNDİRİM!</strong></div>
+            <a href="#" class="cat-hero-btn">İncele</a>
+          </div>
+        </div>
+
+        <div class="cat-hero-slide">
+          <div class="cat-hero-img">
+            <img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?q=80&w=900&auto=format&fit=crop" alt="Royal Canin Kedi"/>
+          </div>
+          <div class="cat-hero-text">
+            <div class="cat-hero-brand">Royal Canin</div>
+            <div class="cat-hero-sub">Irka Özel Kedi Mamalarında</div>
+            <div class="cat-hero-deal">%10'A VARAN<br><strong>İNDİRİM!</strong></div>
+            <a href="#" class="cat-hero-btn">İncele</a>
+          </div>
+        </div>
+
+        <div class="cat-hero-slide">
+          <div class="cat-hero-img">
+            <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=900&auto=format&fit=crop" alt="Pro Plan Kedi"/>
+          </div>
+          <div class="cat-hero-text">
+            <div class="cat-hero-brand">Pro Plan</div>
+            <div class="cat-hero-sub">Yavru & Yetişkin Kedi Mamalarında</div>
+            <div class="cat-hero-deal">%15'E VARAN<br><strong>İNDİRİM!</strong></div>
+            <a href="#" class="cat-hero-btn">İncele</a>
+          </div>
+        </div>
+
+      </div>
+      <button class="cat-hero-arrow cat-hero-next" id="catHeroNext" aria-label="Sonraki">&#8594;</button>
+      <div class="cat-hero-dots" id="catHeroDots"></div>
+    </div>
+  </div>
+
+  <!-- KATEGORİ HIZLI GEZİNME: Satır 1 -->
+  <section class="cat-categories-section">
+    <div class="cat-categories-inner">
+
+      <div class="cat-cat-row">
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?q=80&w=200&auto=format&fit=crop" alt="Kedi Maması"/></div>
+          <span>Kedi Maması</span>
+        </a>
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=200&auto=format&fit=crop" alt="Kedi Konserve Maması"/></div>
+          <span>Kedi Konserve Maması</span>
+        </a>
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=200&auto=format&fit=crop" alt="Kedi Ödül Maması"/></div>
+          <span>Kedi Ödül Maması</span>
+        </a>
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=200&auto=format&fit=crop" alt="Kedi Kumu"/></div>
+          <span>Kedi Kumu</span>
+        </a>
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=200&auto=format&fit=crop" alt="Vitaminler ve Ek Besinler"/></div>
+          <span>Vitaminler ve Ek Besinler</span>
+        </a>
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=200&auto=format&fit=crop" alt="Kedi Oyuncağı"/></div>
+          <span>Kedi Oyuncağı</span>
+        </a>
+      </div>
+
+      <!-- Satır 2 -->
+      <div class="cat-cat-row">
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?q=80&w=200&auto=format&fit=crop" alt="Bakım ve Temizlik"/></div>
+          <span>Bakım ve Temizlik</span>
+        </a>
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1455615565674-e6ce52d4e04e?q=80&w=200&auto=format&fit=crop" alt="Kedi Mama ve Su Kabı"/></div>
+          <span>Kedi Mama ve Su Kabı</span>
+        </a>
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?q=80&w=200&auto=format&fit=crop" alt="Kedi Tuvaletleri ve Ekipmanları"/></div>
+          <span>Kedi Tuvaletleri ve Ekipmanları</span>
+        </a>
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?q=80&w=200&auto=format&fit=crop" alt="Kedi Tarağı ve Fırçası"/></div>
+          <span>Kedi Tarağı ve Fırçası</span>
+        </a>
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=200&auto=format&fit=crop" alt="Tırmalama Tahtası"/></div>
+          <span>Tırmalama Tahtası</span>
+        </a>
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?q=80&w=200&auto=format&fit=crop" alt="Kedi Tasması"/></div>
+          <span>Kedi Tasması</span>
+        </a>
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=200&auto=format&fit=crop" alt="Kedi Taşıma Ekipmanları"/></div>
+          <span>Kedi Taşıma Ekipmanları</span>
+        </a>
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=200&auto=format&fit=crop" alt="Kedi Evleri ve Yatakları"/></div>
+          <span>Kedi Evleri ve Yatakları</span>
+        </a>
+        <a href="#" class="cat-cat-card">
+          <div class="cat-cat-img"><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=200&auto=format&fit=crop" alt="Kedi Kapıları ve Güvenlik Ürünleri"/></div>
+          <span>Kedi Kapıları ve Güvenlik Ürünleri</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+
+<div style="max-width: 1300px; display: flex; max-width: 1300px ;flex-direction: column;overflow: hidden;margin: 0 auto;">
+  <div class="section-header">
+    <h2 class="section-title">Bunu Mu Aramıştınız?</h2>
+  </div>
+
+  <div class="products-slider-outer">
+
+    <button class="products-slider-btn products-slider-btn--prev" id="viewedPrevBunu">‹</button>
+
+    <div class="products-slider-wrap">
+
+      <div class="products-track" id="viewedProductsTrackBunu">
+
+        <!-- PRODUCT 1 -->
+        <div class="product-card" onclick="window.location.href='kediurundetay.html'">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">POPÜLER</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=500&auto=format&fit=crop" alt="Köpek Maması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Somonlu Hassas Sindirim Köpek Maması 12kg
+            </p>
+
+            <div class="product-rating" data-score="4.9" data-count="87"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price-old">2.199 TL</span>
+                <span class="product-card-price">1.899 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?q=80&w=500&auto=format&fit=crop" alt="Kedi Oyuncağı"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Tüylü İnteraktif Kedi Oltası Oyuncağı
+            </p>
+
+            <div class="product-rating" data-score="4.5" data-count="21"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">149 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">%20</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=500&auto=format&fit=crop" alt="Kedi Kumu"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Topaklanan Bentonit Kedi Kumu 10L
+            </p>
+
+            <div class="product-rating" data-score="4.7" data-count="63"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price-old">389 TL</span>
+                <span class="product-card-price">309 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=500&auto=format&fit=crop" alt="Köpek Tasması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Reflektörlü Ayarlanabilir Köpek Tasması
+            </p>
+
+            <div class="product-rating" data-score="4.6" data-count="14"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">259 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <span class="product-card-badge">YENİ</span>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=500&auto=format&fit=crop" alt="Kedi Yatağı"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Ortopedik Peluş Kedi ve Köpek Yatağı
+            </p>
+
+            <div class="product-rating" data-score="5" data-count="41"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">699 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+        <div class="product-card">
+
+          <button class="product-fav-btn">♡</button>
+
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=500&auto=format&fit=crop" alt="Köpek Ödül Maması"/>
+          </div>
+
+          <div class="product-card-info">
+
+            <p class="product-card-name">
+              Dana Etli Eğitim Ödül Çubukları 100gr
+            </p>
+
+            <div class="product-rating" data-score="4.8" data-count="52"></div>
+
+            <div class="product-card-bottom">
+
+              <div class="product-card-prices">
+                <span class="product-card-price">119 TL</span>
+              </div>
+
+              <button class="product-cart-btn">🛒</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <button class="products-slider-btn products-slider-btn--next" id="viewedNextBunu">›</button>
+
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+  <!-- POPÜLER MARKALAR -->
+  <section class="cat-brands-section">
+    <div class="cat-brands-inner">
+      <div class="section-header">
+        <h2 class="section-title">Popüler Markalar</h2>
+        <span class="see-all">Tümünü Gör ›</span>
+      </div>
+      <div class="brands-slider-outer">
+        <button class="brands-slider-btn brands-slider-btn--prev" id="catBrandPrev">‹</button>
+        <div class="brands-slider-wrap">
+          <div class="brands-track" id="catBrandsTrack">
+            <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Royal_Canin_logo.svg/512px-Royal_Canin_logo.svg.png" alt="Royal Canin"/></div>
+            <div class="brand-card"><img src="https://seeklogo.com/images/H/hill-s-pet-nutrition-logo-2A2A4E0A79-seeklogo.com.png" alt="Hill's"/></div>
+            <div class="brand-card"><img src="https://seeklogo.com/images/P/purina-pro-plan-logo-7F0A4EAF2B-seeklogo.com.png" alt="Pro Plan"/></div>
+            <div class="brand-card"><img src="https://seeklogo.com/images/O/orijen-logo-7F8DCEAB43-seeklogo.com.png" alt="Orijen"/></div>
+            <div class="brand-card"><img src="https://seeklogo.com/images/A/acana-logo-B9C5D7E93D-seeklogo.com.png" alt="Acana"/></div>
+            <div class="brand-card"><img src="https://seeklogo.com/images/B/brit-care-logo-3C5E50F7A2-seeklogo.com.png" alt="Brit"/></div>
+            <div class="brand-card"><img src="https://seeklogo.com/images/F/farmina-logo-9A4A02B1FA-seeklogo.com.png" alt="Farmina"/></div>
+            <div class="brand-card"><img src="https://seeklogo.com/images/R/reflex-logo-45AFA4C8D0-seeklogo.com.png" alt="Reflex"/></div>
+            <div class="brand-card"><img src="https://seeklogo.com/images/W/whiskas-logo-92B7A2EAFB-seeklogo.com.png" alt="Whiskas"/></div>
+          </div>
+        </div>
+        <button class="brands-slider-btn brands-slider-btn--next" id="catBrandNext">›</button>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- KAT BİLGİ & İPUÇLARI (Blog) -->
+  <section class="cat-blog-section">
+    <div class="cat-blog-inner">
+      <div class="section-header">
+        <h2 class="section-title">Kediniz İçin Faydalı Bilgiler ve İpuçları</h2>
+        <a href="#" class="see-all">Tümünü Gör ›</a>
+      </div>
+      <div class="blog-slider-wrapper">
+        <div class="blog-slider" id="catBlogSlider">
+          <div class="blog-card">
+            <div class="blog-img"><img src="https://placehold.co/280x160/e8f4f8/555?text=Blog" alt="Blog"/></div>
+            <div class="blog-meta">Veteriner Hekim Uğurcan Yılmaz | 01.05.2026</div>
+            <div class="blog-title">DL-Metiyoninin Kedilerde Önemi</div>
+            <div class="blog-desc">Bu yazıda DL-metiyonin nedir, kullanımının bilimsel temeli hakkında bilgi bulabilirsiniz.</div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-img"><img src="https://placehold.co/280x160/1a1a2e/ccc?text=Kedi" alt="Blog"/></div>
+            <div class="blog-meta">Deniz Öz | 01.05.2026</div>
+            <div class="blog-title">Rüyada Kedi Görmek: Siyah, Beyaz Kediler ve Kediyle İlgili...</div>
+            <div class="blog-desc">Rüyada kedi görmek ne anlama gelir? Rüyanın anlamı kedinin rengine göre değişir mi?</div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-img"><img src="https://placehold.co/280x160/e8f4f8/555?text=Beslenme" alt="Blog"/></div>
+            <div class="blog-meta">Veteriner Hekim Uğurcan | 27.04.2026</div>
+            <div class="blog-title">Evcil Hayvan Beslenmesinde Omega Yağ Asitleri</div>
+            <div class="blog-desc">Bu yazıda omega yağ asitlerinin ne olduğunu, omega-3 ile omega-6 arasındaki farkı öğrenin.</div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-img"><img src="https://placehold.co/280x160/2d4a3e/ccc?text=Bob" alt="Blog"/></div>
+            <div class="blog-meta">Deniz Öz | 15.04.2026</div>
+            <div class="blog-title">Sokak Kedisi Bob: Gerçek Hikâyesi, Kitapları ve...</div>
+            <div class="blog-desc">Bir kedi insanın hayatını ne kadar değiştirebilir? Sokak Kedisi Bob ve...</div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-img"><img src="https://placehold.co/280x160/f0e6d3/555?text=Davranış" alt="Blog"/></div>
+            <div class="blog-meta">Deniz Öz | 20.04.2026</div>
+            <div class="blog-title">Kedi Davranışları Hakkında Bilmeniz Gerekenler</div>
+            <div class="blog-desc">Kedilerin davranışlarını anlamak, onlarla daha sağlıklı bir ilişki kurmanızı sağlar.</div>
+          </div>
+        </div>
+        <button class="slider-btn slider-prev" id="catBlogPrev" aria-label="Önceki">‹</button>
+        <button class="slider-btn slider-next" id="catBlogNext" aria-label="Sonraki">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SORU CEVAP -->
+  <section class="cat-qa-section">
+    <div class="cat-qa-inner">
+      <div class="section-header">
+        <h2 class="section-title">Kedi Dostları Birbirine Soruyor</h2>
+        <a href="#" class="see-all">Tümünü Gör ›</a>
+      </div>
+      <div class="blog-slider-wrapper">
+        <div class="blog-slider" id="catQaSlider">
+          <div class="qa-card">
+            <div class="qa-top">
+              <img src="https://placehold.co/40x40/e8f4f8/555?text=K" alt="Avatar" class="qa-avatar"/>
+              <div class="qa-question">Mamanın içeriği mi bilir var mı kedisinizi bu mama...</div>
+            </div>
+            <div class="qa-stats"><span>👁 1</span><span>👁 35</span><span>💬 2</span></div>
+            <div class="qa-user">aylardonmeysordu.</div>
+            <div class="qa-answer">↳ Pawlebi cevap verdi. Bugün 0...</div>
+          </div>
+          <div class="qa-card">
+            <div class="qa-top">
+              <img src="https://placehold.co/40x40/fef3e2/555?text=S" alt="Avatar" class="qa-avatar"/>
+              <div class="qa-question">Sokak travması hakkında</div>
+            </div>
+            <div class="qa-stats"><span>👁 4</span></div>
+            <div class="qa-user">ninette sordu.</div>
+            <div class="qa-answer">↳ ninette cevap verdi. E</div>
+          </div>
+          <div class="qa-card">
+            <div class="qa-top">
+              <img src="https://placehold.co/40x40/e8f4e8/555?text=K" alt="Avatar" class="qa-avatar"/>
+              <div class="qa-question">Kedim Saldırganlaştı</div>
+            </div>
+            <div class="qa-stats"><span>👁 139</span><span>💬 7</span></div>
+            <div class="qa-user">revowa sordu.</div>
+            <div class="qa-answer">↳ Blue_hpood cevap verdi. Dün...</div>
+          </div>
+          <div class="qa-card">
+            <div class="qa-top">
+              <img src="https://placehold.co/40x40/f0e6f0/555?text=K" alt="Avatar" class="qa-avatar"/>
+              <div class="qa-question">Kedimi koltuktan nasıl uzak tutabilirim</div>
+            </div>
+            <div class="qa-stats"><span>👁 56</span><span>💬 4</span></div>
+            <div class="qa-user">sevcan sordu.</div>
+            <div class="qa-answer">↳ Blue_hpood cevap verdi. Dün...</div>
+          </div>
+        </div>
+        <button class="slider-btn slider-prev" id="catQaPrev" aria-label="Önceki">‹</button>
+        <button class="slider-btn slider-next" id="catQaNext" aria-label="Sonraki">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO METİN -->
+  <section class="seo-section cat-seo-section">
+    <h2 class="seo-title">Kedi Ürünleri ve Malzemeleri</h2>
+    <p>Kedinize sağlık, konfor ve eğlenceli bir yaşam sunmak için ihtiyacınız olabilecek tüm kedi ürünü ve malzemeleri en uygun fiyatlarla Pawco'da! Güvenilir içerik, kapıda ödeme imkânı, kredi kartına taksit gibi bir çok alışveriş avantajıyla hizmetinizdeyiz.</p>
+
+    <h3 class="seo-subtitle">Kedi Maması, Kedi Kumu, Kedi Tuvaleti ve Diğer Her Şey</h3>
+    <p>Kedinize sağlıklı ve dengeli beslenme için kedi maması, yaş ve konserve mama, kedi kumu gibi temel ihtiyaçları tedarik edebilirsiniz. Eğlenceli ve konforlu günler geçirmesi için kedi oyuncakları çeşitleri, yataklar, tırmalama tahtaları ve ev sütleri de buluyor.</p>
+
+    <h3 class="seo-subtitle">Kedinizin Tüm İhtiyaçlarını Karşılayan Kedi Pet Shop Ürünleri</h3>
+    <p>Sağlıklı ve dengeli beslenme için dünyaca ünlü markalardan <a href="#">kedi mamaları</a>, <a href="#">ödül mamaları</a> ve vitaminleri; hijyen ve rahatlık için <a href="#">kedi kumları</a>, <a href="#">tuvaletleri</a>, <a href="#">tırmalama tahtaları</a> ve yatakları; bakım ve sağlık için <a href="#">kedi şampuanları</a> ve tarakları gibi ürünler Pawco'da!</p>
+
+    <div class="seo-expand" id="catSeoExpand">
+      <p>Pawco'nun kedi kategorisinde 300'den fazla marka, 10.000'den fazla ürün seçeneği ile kedinizin ihtiyaç duyabileceği her ürün mevcuttur. Mama ve su kapları, eğlenceli kedi oyuncakları ve kedi taşıma çantaları da Pawco ayrıcalıkları ile bir tık uzağınızda.</p>
+    </div>
+    <button class="expand-btn" id="catExpandBtn">Devamını Göster ▾</button>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section">
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">✓</div>
+        <div class="feature-title">%100 Orijinal Ürünler</div>
+        <div class="feature-desc">Ürünlerimizi resmi tedarikçilerden alıyoruz. Güvenle kullanın!</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">↩</div>
+        <div class="feature-title">Ücretsiz Kolay İade</div>
+        <div class="feature-desc">15 gün içinde iade edin, kargo ücreti yok!</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">◻</div>
+        <div class="feature-title">Özenli Paketleme</div>
+        <div class="feature-desc">Siparişlerinizi sağlam Pawco kutularına yerleştiriyoruz.</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🚚</div>
+        <div class="feature-title">Ücretsiz Hızlı Kargo</div>
+        <div class="feature-desc">799 TL ve üzeri tüm siparişlerde Türkiye'nin her yerine kargo BEDAVA!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POPÜLER KATEGORİLER & MARKALAR -->
+  <section class="popular-section">
+    <div class="popular-cols">
+      <div class="popular-col">
+        <h2 class="section-title">Popüler Kategoriler</h2>
+        <div class="popular-links">
+          <a href="#">Kedi Maması</a><a href="#">Yavru Kedi Maması</a><a href="#">Kısırlaştırılmış Kedi Maması</a>
+          <a href="#">Yetişkin Kedi Maması</a><a href="#">Kedi Kumu</a><a href="#">Kedi Konservesi &amp; Yaş Mama</a>
+          <a href="#">Kedi Ödül Maması</a><a href="#">Kedi Taşıma Çantası</a><a href="#">Kedi Oyuncakları</a>
+          <a href="#">Kedi Tuvaleti</a><a href="#">Kedi Tırmalama Tahtası</a><a href="#">Kedi Su Pınarı</a>
+          <a href="#">Bentonit Kedi Kumu</a><a href="#">Kedi Krema Ödülü</a><a href="#">Kedi Mama ve Su Kabı</a>
+          <a href="#">Kedi Kumu Koku Giderici</a><a href="#">Kedi Vitamini</a><a href="#">Kedi Tasması</a>
+          <a href="#">Kedi Yatağı</a><a href="#">Kedi Tarağı</a><a href="#">Kedi Otu</a><a href="#">Kedi Evi</a>
+          <a href="#">Kedi Şampuanı</a><a href="#">Kedi Malti</a><a href="#">Buharlı Kedi Tarağı</a>
+          <a href="#">Yaşlı Kedi Maması</a><a href="#">Veteriner Kedi Maması</a><a href="#">Kedi Lolipop Ödülü</a>
+        </div>
+      </div>
+      <div class="popular-col">
+        <h2 class="section-title">Popüler Markalar</h2>
+        <div class="popular-links">
+          <a href="#">Pro Plan</a><a href="#">Royal Canin</a><a href="#">Hill's</a><a href="#">N&amp;D</a>
+          <a href="#">Acana</a><a href="#">Brit Care</a><a href="#">Felicia</a><a href="#">Reflex</a>
+          <a href="#">Advance</a><a href="#">Orijen</a><a href="#">Wanpy</a><a href="#">Me-O</a>
+          <a href="#">Ever Clean</a><a href="#">Prolife</a><a href="#">Felix</a>
+          <a href="#">Pro Plan Kedi Maması</a><a href="#">Royal Canin Kedi Maması</a><a href="#">Hill's Kedi Maması</a>
+          <a href="#">N&amp;D Kedi Maması</a><a href="#">Acana Kedi Maması</a><a href="#">Brit Care Kedi Maması</a>
+          <a href="#">Felicia Kedi Maması</a><a href="#">Reflex Kedi Maması</a><a href="#">Orijen Kedi Maması</a>
+          <a href="#">Pro Plan Kısırlaştırılmış Kedi Maması</a><a href="#">Royal Canin Kısırlaştırılmış Kedi Maması</a>
+          <a href="#">Hill's Kısırlaştırılmış Kedi Maması</a><a href="#">N&amp;D Kısırlaştırılmış Kedi Maması</a>
+          <a href="#">Wanpy Kedi Ödülü</a><a href="#">Felix Yaş Kedi Maması</a><a href="#">Pro Choice Kedi Maması</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4 class="footer-heading">Kurumsal</h4>
+        <ul>
+          <li><a href="#">Hakkımızda</a></li>
+          <li><a href="#">Orijinal Ürün Garantisi</a></li>
+          <li><a href="#">Pawco Partner Fırsatları</a></li>
+          <li><a href="#">İletişim</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Pati Kulüp</h4>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Soru Cevap</a></li>
+          <li><a href="#">Kedi Irkları</a></li>
+          <li><a href="#">Köpek Irkları</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Yardım Merkezi</h4>
+        <ul>
+          <li><a href="#">Sık Sorulan Sorular</a></li>
+          <li><a href="#">Mesafeli Satış Sözleşmesi</a></li>
+          <li><a href="#">Teslimat Koşulları</a></li>
+          <li><a href="#">Garanti ve İade Süreci</a></li>
+          <li><a href="#">Kişisel Verilerin Korunması</a></li>
+          <li><a href="#">Gizlilik ve Çerez Politikası</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Müşteri Hizmetleri</h4>
+        <div class="footer-phone">0262 444 2 795</div>
+        <div class="footer-hours">Pazartesi - Cumartesi 09:00 - 18:00</div>
+        <div class="footer-support-label">Yardıma mı ihtiyacınız var?</div>
+        <a href="#" class="support-btn">Destek Talebi Oluştur</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Mobil Uygulamalar</h4>
+        <a href="#" class="app-btn">Google Play'den İndirin</a>
+        <a href="#" class="app-btn">App Store'dan İndirin</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-col">
+        <h5 class="footer-sub-heading">Güvenli Alışveriş</h5>
+        <div class="payment-logos">
+          <span class="pay-logo">VISA</span>
+          <span class="pay-logo">MC</span>
+          <span class="pay-logo">troy</span>
+        </div>
+      </div>
+      <div class="footer-bottom-col">
+        <h5 class="footer-sub-heading">Güvenlik Sertifikası</h5>
+        <div class="cert-logos">
+          <span class="cert-badge">TR<br>GÜ</span>
+        </div>
+      </div>
+      <div class="footer-bottom-col">
+        <h5 class="footer-sub-heading">Bizi Takip Edin</h5>
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">X</a>
+          <a href="#">Youtube</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="footer-legal">
+    <p>PAWCO EVCİL HAYVAN ÜRÜNLERİ PAZ. SAN. TİC. LTD. ŞTİ. Alaşehir Mah. 1. Alaşar Cad. No: 9 Osmangazi/Bursa</p>
+    <p>2014-2026 © pawco.com | Bursa'da sevgiyle yapıldı. ❤</p>
+  </div>
+
+  <!-- MOBILE OVERLAY & NAV -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav"></nav>
+
+  <script src="js/main.js"></script>
+  <script src="js/kedi-urunleri.js"></script>
+</body>
+</html>

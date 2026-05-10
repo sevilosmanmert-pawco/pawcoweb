@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pawco Salon 🐾✂️ - Pet Kuaför & Bakım</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/salon.css"/>
+</head>
+<body class="salon-page">
+
+  <!-- ═══ PAWCO ANA TOP BAR ═══ -->
+  <div class="top-bar">
+    <span>🚚 <strong>150 TL ve üzeri</strong> ücretsiz kargo &nbsp;|&nbsp; 📞 Müşteri Hizmetleri: <strong>0850 123 45 67</strong></span>
+  </div>
+
+  <!-- ═══ PAWCO ANA HEADER ═══ -->
+  <header class="header">
+    <div class="header-inner">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🐾</span>
+        <span class="logo-text">paw<span>co</span></span>
+      </a>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Ne aramıştınız?..." autocomplete="off"/>
+        <button class="search-btn" onclick="window.location.href='search.html?q='+document.getElementById('searchInput').value">🔍</button>
+      </div>
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="alert('Yardım sayfası açılıyor...')">
+          <span class="btn-icon">🎧</span><span>Yardım</span>
+        </button>
+        <button class="header-action-btn" onclick="window.location.href='account.html'">
+          <span class="btn-icon">👤</span><span>Hesabım</span>
+        </button>
+        <button class="header-action-btn cart-btn">
+          <span class="btn-icon">🛒</span><span>Sepetim</span>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ PAWCO ANA NAVBAR ═══ -->
+  <nav class="navbar" id="navbar"></nav>
+
+  <!-- ═══ SALON ALT NAVBAR ═══ -->
+  <nav class="salon-subnav">
+    <div class="salon-subnav-inner">
+      <a href="#" class="salon-subnav-link active" data-section="hero">Ana Sayfa</a>
+      <a href="#hizmetler" class="salon-subnav-link" data-section="hizmetler">Hizmetler</a>
+      <a href="#magazalar" class="salon-subnav-link" data-section="magazalar">Mağazalar</a>
+      <a href="salon-hizmetler.html" class="salon-subnav-link" data-section="randevu">Randevu Al</a>
+      <a href="#galeri" class="salon-subnav-link" data-section="galeri">Galeri</a>
+      <a href="#reels" class="salon-subnav-link" data-section="reels">Videolar</a>
+      <a href="#neden" class="salon-subnav-link" data-section="neden">Neden Pawco Salon?</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO BANNER (KAMPANYA)
+  ═══════════════════════════════════════ -->
+  <section class="salon-hero" id="hero">
+    <div class="salon-hero-bg"></div>
+    <div class="salon-hero-content">
+      <div class="salon-hero-left">
+        <div class="salon-hero-date">6-10 Mayıs'ta</div>
+        <h1 class="salon-hero-title">Dostunuzun<br>Tercihi<br><span>Pawco Salon</span><br>Güzelliği!</h1>
+      </div>
+      <div class="salon-hero-right">
+        <div class="salon-hero-offer">
+          <div class="salon-hero-offer-title">Annelik Bakım Molası</div>
+          <div class="salon-hero-offer-sub">(Banyo, Tırnak Kesimi, Tarama, Fön)</div>
+          <div class="salon-hero-offer-note">Pawco Kart'a Özel</div>
+          <div class="salon-hero-offer-price">499<span>TL</span></div>
+        </div>
+        <div class="salon-hero-offer salon-hero-offer--big">
+          <div class="salon-hero-offer-title">Full Bakım Paketi</div>
+          <div class="salon-hero-offer-sub">(Banyo, Tırnak, Tarama, Fön, Kulak, Göz Temizliği)</div>
+          <div class="salon-hero-offer-note">Pawco Kart'a Özel</div>
+          <div class="salon-hero-offer-price">899<span>TL</span></div>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       HAKKIMIZDA
+  ═══════════════════════════════════════ -->
+  <section class="salon-about">
+    <div class="salon-about-inner">
+      <div class="salon-about-imgs">
+        <div class="salon-about-img-wrap salon-about-img-wrap--tl">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=300&auto=format&fit=crop" alt="Köpek Bakım"/>
+        </div>
+        <div class="salon-about-img-wrap salon-about-img-wrap--tr">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=300&auto=format&fit=crop" alt="Köpek"/>
+        </div>
+        <div class="salon-about-img-wrap salon-about-img-wrap--bl">
+          <img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=300&auto=format&fit=crop" alt="Kedi"/>
+        </div>
+        <div class="salon-about-img-wrap salon-about-img-wrap--br">
+          <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=300&auto=format&fit=crop" alt="Kedi Bakım"/>
+        </div>
+      </div>
+      <div class="salon-about-text">
+        <div class="salon-about-logo">
+          <span class="logo-icon">🐾</span>
+          <span class="logo-text">paw<span>co</span> <em>salon</em></span>
+        </div>
+        <h2 class="salon-about-title">Uzman Petgroomers ile<br>Dostunuzu Şımartın</h2>
+        <p class="salon-about-desc">Pawco Salon, sertifikalı ve deneyimli petgroomer uzmanları ile bakım yolculuğunuzda yanınızda. Teslim ettiğiniz her dosta özenli, stressiz ve sevgi dolu bir bakım deneyimi sunuyoruz. Profesyonel ekibimizle randevu almak için sadece bir tık uzakta!</p>
+        <a href="#randevu" class="salon-cta-btn">Randevu Al →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       HİZMETLERİMİZ
+  ═══════════════════════════════════════ -->
+  <section class="salon-services" id="hizmetler">
+    <div class="salon-section-inner">
+      <div class="salon-services-left">
+        <h2 class="salon-section-title">Hizmetlerimiz</h2>
+        <p class="salon-section-desc">Pawco Salon, kedi ve köpeğinize özel tüm bakım hizmetlerini sunar. Banyo & fön, tırnak kesimi, kulak temizliği, saç kesimi, tıraş, göz temizliği, diş bakımı ve daha fazlası için bize gelin.</p>
+        <a href="#hizmetler" class="salon-text-link">İncele →</a>
+      </div>
+      <div class="salon-services-slider-wrap">
+        <button class="salon-slider-btn salon-slider-btn--prev" id="servPrev">‹</button>
+        <div class="salon-services-track-outer">
+          <div class="salon-services-track" id="servicesTrack">
+
+            <div class="service-card">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&auto=format&fit=crop" alt="Banyo & Fön"/>
+              </div>
+              <div class="service-card-body">
+                <div class="service-icon">🚿</div>
+                <h3>Banyo & Fön</h3>
+                <p>Kedi & köpeğe özel şampuanlarla derin temizlik, tam kurulama.</p>
+                <div class="service-price">199 ₺'den başlar</div>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&auto=format&fit=crop" alt="Tırnak Kesimi"/>
+              </div>
+              <div class="service-card-body">
+                <div class="service-icon">✂️</div>
+                <h3>Tırnak Kesimi</h3>
+                <p>Hassas aletlerle güvenli tırnak kesimi, törpüleme ve bakımı.</p>
+                <div class="service-price">79 ₺'den başlar</div>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&auto=format&fit=crop" alt="Saç Kesimi & Tıraş"/>
+              </div>
+              <div class="service-card-body">
+                <div class="service-icon">💈</div>
+                <h3>Saç Kesimi & Tıraş</h3>
+                <p>Irka özel kesim modelleri, uzun tüylü dostlar için özel tasarım tıraş.</p>
+                <div class="service-price">249 ₺'den başlar</div>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=400&auto=format&fit=crop" alt="Kulak Temizliği"/>
+              </div>
+              <div class="service-card-body">
+                <div class="service-icon">👂</div>
+                <h3>Kulak Temizliği</h3>
+                <p>Özel solüsyonlarla kulak kanalı temizliği, enfeksiyon önleyici bakım.</p>
+                <div class="service-price">59 ₺'den başlar</div>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&auto=format&fit=crop" alt="Göz Temizliği"/>
+              </div>
+              <div class="service-card-body">
+                <div class="service-icon">👁️</div>
+                <h3>Göz Temizliği</h3>
+                <p>Göz çevresi akıntı ve leke temizliği, nazik ve stressiz uygulama.</p>
+                <div class="service-price">49 ₺'den başlar</div>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&auto=format&fit=crop" alt="Tüy Tarama & Fırçalama"/>
+              </div>
+              <div class="service-card-body">
+                <div class="service-icon">🪮</div>
+                <h3>Tüy Tarama & Fırçalama</h3>
+                <p>Dökülme önleyici derin tarama ve tüy bakımı, düzgünleştirme.</p>
+                <div class="service-price">99 ₺'den başlar</div>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&auto=format&fit=crop" alt="Diş Fırçalama"/>
+              </div>
+              <div class="service-card-body">
+                <div class="service-icon">🦷</div>
+                <h3>Diş Fırçalama</h3>
+                <p>Pet dostu macunlarla diş fırçalama ve ağız hijyeni bakımı.</p>
+                <div class="service-price">69 ₺'den başlar</div>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-card-img">
+                <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400&auto=format&fit=crop" alt="Full Paket"/>
+              </div>
+              <div class="service-card-body">
+                <div class="service-icon">⭐</div>
+                <h3>Full Bakım Paketi</h3>
+                <p>Banyo, tırnak, kulak, göz, tarama, fön — hepsi bir arada!</p>
+                <div class="service-price">499 ₺'den başlar</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <button class="salon-slider-btn salon-slider-btn--next" id="servNext">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       MAĞAZALARIMIZ
+  ═══════════════════════════════════════ -->
+  <section class="salon-stores" id="magazalar">
+    <div class="salon-section-inner">
+      <h2 class="salon-section-title salon-section-title--center">Mağazalarımız</h2>
+      <p class="salon-section-desc salon-section-desc--center">Pawco Salon mağazaları, güvenilir ve kapsamlı bakım hizmetleri sunar. Türkiye genelinde büyüyen mağaza ağımızdan size en yakın şubeyi bulun.</p>
+      <a href="#magazalar" class="salon-text-link salon-text-link--center">Tüm Mağazalar →</a>
+
+      <div class="stores-grid">
+        <div class="store-card">
+          <div class="store-img">
+            <img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=500&auto=format&fit=crop" alt="Sahrayı Cedit Şubesi"/>
+          </div>
+          <div class="store-info">
+            <div class="store-city">Kadıköy</div>
+            <div class="store-name">Pawco Salon — Sahrayı Cedit</div>
+            <div class="store-addr">📍 Sahrayıcedit Cad. No:45, Kadıköy/İstanbul</div>
+            <div class="store-hours">⏰ Pzt-Cmt: 09:00–19:00 &nbsp;|&nbsp; Paz: 10:00–17:00</div>
+            <div class="store-phone">📞 0224 123 45 67</div>
+            <div class="store-tags"><span>Kedi ✓</span><span>Köpek ✓</span><span>Randevu ✓</span></div>
+          </div>
+        </div>
+        <div class="store-card">
+          <div class="store-img">
+            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=500&auto=format&fit=crop" alt="İstanbul Şubesi"/>
+          </div>
+          <div class="store-info">
+            <div class="store-city">Kadıköy</div>
+            <div class="store-name">Pawco Salon — Kadıköy</div>
+            <div class="store-addr">📍 Acıbadem Cad. No:112, Kadıköy/İstanbul</div>
+            <div class="store-hours">⏰ Pzt-Cmt: 10:00–20:00 &nbsp;|&nbsp; Paz: 11:00–18:00</div>
+            <div class="store-phone">📞 0216 456 78 90</div>
+            <div class="store-tags"><span>Kedi ✓</span><span>Köpek ✓</span><span>Randevu ✓</span></div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       RANDEVU AL
+  ═══════════════════════════════════════ -->
+  <section class="salon-appointment" id="randevu">
+    <div class="salon-appointment-inner">
+      <div class="salon-appointment-img">
+        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=700&auto=format&fit=crop" alt="Bakım"/>
+      </div>
+      <div class="salon-appointment-body">
+        <h2 class="salon-appointment-title">Güzellik Yolculuğuna<br>Başlamak İçin Hemen<br>Randevu Alın!</h2>
+        <p class="salon-appointment-desc">Dostunuzun ihtiyaçlarına göre kişiselleştirilmiş bakım için Pawco Salon'a randevu oluşturun. Randevunuzu mağazalarımızdan, web sitemizden ya da <strong>0 850 210 6 900</strong> telefon numaramızdan kolayca alabilirsiniz.</p>
+        <a href="#" class="salon-cta-btn" onclick="openAppointmentForm(); return false;">Randevu Oluştur →</a>
+
+        <!-- RANDEVU FORM -->
+        <div class="appointment-form" id="appointmentForm" style="display:none">
+          <div class="appt-form-grid">
+            <div class="appt-form-group">
+              <label>Evcil Hayvan Türü</label>
+              <select class="appt-input">
+                <option>Köpek</option>
+                <option>Kedi</option>
+              </select>
+            </div>
+            <div class="appt-form-group">
+              <label>Irk / Boyut</label>
+              <select class="appt-input">
+                <option>Küçük Irk (0–10 kg)</option>
+                <option>Orta Irk (10–25 kg)</option>
+                <option>Büyük Irk (25+ kg)</option>
+                <option>Kedi</option>
+              </select>
+            </div>
+            <div class="appt-form-group">
+              <label>Hizmet</label>
+              <select class="appt-input">
+                <option>Full Bakım Paketi</option>
+                <option>Banyo & Fön</option>
+                <option>Tırnak Kesimi</option>
+                <option>Saç Kesimi & Tıraş</option>
+                <option>Kulak Temizliği</option>
+                <option>Göz Temizliği</option>
+                <option>Tüy Tarama</option>
+                <option>Diş Fırçalama</option>
+              </select>
+            </div>
+            <div class="appt-form-group">
+              <label>Mağaza</label>
+              <select class="appt-input">
+                <option>Bursa — Osmangazi</option>
+                <option>İstanbul — Kadıköy</option>
+                <option>Ankara — Çankaya</option>
+              </select>
+            </div>
+            <div class="appt-form-group">
+              <label>Tarih</label>
+              <input type="date" class="appt-input"/>
+            </div>
+            <div class="appt-form-group">
+              <label>Saat</label>
+              <select class="appt-input">
+                <option>09:00</option><option>10:00</option><option>11:00</option>
+                <option>12:00</option><option>13:00</option><option>14:00</option>
+                <option>15:00</option><option>16:00</option><option>17:00</option>
+              </select>
+            </div>
+            <div class="appt-form-group appt-full">
+              <label>Ad Soyad</label>
+              <input type="text" class="appt-input" placeholder="Ahmet Yılmaz"/>
+            </div>
+            <div class="appt-form-group appt-full">
+              <label>Telefon</label>
+              <input type="tel" class="appt-input" placeholder="0532 123 45 67"/>
+            </div>
+            <div class="appt-form-group appt-full">
+              <label>Notlar (isteğe bağlı)</label>
+              <textarea class="appt-input appt-textarea" placeholder="Dostunuzla ilgili özel notlar..."></textarea>
+            </div>
+          </div>
+          <button class="salon-cta-btn appt-submit-btn" onclick="submitAppointment()">Randevuyu Onayla ✓</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       GALERİ
+  ═══════════════════════════════════════ -->
+  <section class="salon-gallery" id="galeri">
+    <div class="salon-section-inner">
+      <h2 class="salon-section-title salon-section-title--center">Bakım Galerimiz</h2>
+      <p class="salon-section-desc salon-section-desc--center">Uzman petgroomer'larımızın elinden çıkan mutlu dostlarımızın fotoğraflarına göz atın.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item gallery-item--large">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=700&h=500&auto=format&fit=crop" alt="Bakım"/>
+          <div class="gallery-overlay"><span>Köpek Bakımı</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=400&h=300&auto=format&fit=crop" alt="Kedi"/>
+          <div class="gallery-overlay"><span>Kedi Tıraşı</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&auto=format&fit=crop" alt="Bakım"/>
+          <div class="gallery-overlay"><span>Banyo & Fön</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&h=300&auto=format&fit=crop" alt="Köpek"/>
+          <div class="gallery-overlay"><span>Tüy Tarama</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=300&auto=format&fit=crop" alt="Kedi"/>
+          <div class="gallery-overlay"><span>Göz Temizliği</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=300&auto=format&fit=crop" alt="Kedi"/>
+          <div class="gallery-overlay"><span>Tırnak Kesimi</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       REELS / VİDEOLAR
+  ═══════════════════════════════════════ -->
+  <section class="salon-reels" id="reels">
+    <div class="salon-section-inner">
+      <h2 class="salon-section-title salon-section-title--center">Reels Videolarımız</h2>
+      <p class="salon-section-desc salon-section-desc--center">Doğal güzelliklerini açığa çıkarmak, bakım deneyimini görmek için Pawco Salon Reels videolarımıza göz atın!</p>
+      <div class="reels-slider-outer">
+        <button class="salon-slider-btn salon-slider-btn--prev" id="reelPrev">‹</button>
+        <div class="reels-track-outer">
+          <div class="reels-track" id="reelsTrack">
+
+            <div class="reel-card">
+              <div class="reel-thumb">
+                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=300&h=500&auto=format&fit=crop" alt="Reel"/>
+                <button class="reel-play-btn">▶</button>
+                <div class="reel-logo-badge">🐾 pawco salon</div>
+              </div>
+              <div class="reel-caption">PAWCO SALON İLE DOSTUN IŞIL IŞIL!</div>
+            </div>
+
+            <div class="reel-card">
+              <div class="reel-thumb">
+                <img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=300&h=500&auto=format&fit=crop" alt="Reel"/>
+                <button class="reel-play-btn">▶</button>
+                <div class="reel-logo-badge">🐾 pawco salon</div>
+              </div>
+              <div class="reel-caption">BANYO KEYFI PAWCO SALON'DA!</div>
+            </div>
+
+            <div class="reel-card">
+              <div class="reel-thumb">
+                <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=300&h=500&auto=format&fit=crop" alt="Reel"/>
+                <button class="reel-play-btn">▶</button>
+                <div class="reel-logo-badge">🐾 pawco salon</div>
+              </div>
+              <div class="reel-caption">TIRAŞSIZ HİSSETME, HER AN PAWCO SALON YANINDA!</div>
+            </div>
+
+            <div class="reel-card">
+              <div class="reel-thumb">
+                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=300&h=500&auto=format&fit=crop" alt="Reel"/>
+                <button class="reel-play-btn">▶</button>
+                <div class="reel-logo-badge">🐾 pawco salon</div>
+              </div>
+              <div class="reel-caption">PAWCO SALON'DA BAHARA MERHABA!</div>
+            </div>
+
+            <div class="reel-card">
+              <div class="reel-thumb">
+                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=300&h=500&auto=format&fit=crop" alt="Reel"/>
+                <button class="reel-play-btn">▶</button>
+                <div class="reel-logo-badge">🐾 pawco salon</div>
+              </div>
+              <div class="reel-caption">TERAPI OLARAK PAWCO SALON'A GİDİYORUZ!</div>
+            </div>
+
+            <div class="reel-card">
+              <div class="reel-thumb">
+                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=300&h=500&auto=format&fit=crop" alt="Reel"/>
+                <button class="reel-play-btn">▶</button>
+                <div class="reel-logo-badge">🐾 pawco salon</div>
+              </div>
+              <div class="reel-caption">TERAPI OLARAK PAWCO SALON'A GİDİYORUZ!</div>
+            </div>
+
+            <div class="reel-card">
+              <div class="reel-thumb">
+                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=300&h=500&auto=format&fit=crop" alt="Reel"/>
+                <button class="reel-play-btn">▶</button>
+                <div class="reel-logo-badge">🐾 pawco salon</div>
+              </div>
+              <div class="reel-caption">TERAPI OLARAK PAWCO SALON'A GİDİYORUZ!</div>
+            </div>
+
+            <div class="reel-card">
+              <div class="reel-thumb">
+                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=300&h=500&auto=format&fit=crop" alt="Reel"/>
+                <button class="reel-play-btn">▶</button>
+                <div class="reel-logo-badge">🐾 pawco salon</div>
+              </div>
+              <div class="reel-caption">TERAPI OLARAK PAWCO SALON'A GİDİYORUZ!</div>
+            </div>
+
+          </div>
+        </div>
+        <button class="salon-slider-btn salon-slider-btn--next" id="reelNext">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       NEDEN PAWCO SALON?
+  ═══════════════════════════════════════ -->
+  <section class="salon-why" id="neden">
+    <div class="salon-why-inner">
+      <div class="salon-why-gallery">
+        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=800&auto=format&fit=crop" alt="Bakım"/>
+        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=800&auto=format&fit=crop" alt="Bakım"/>
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=800&auto=format&fit=crop" alt="Bakım"/>
+        <div class="salon-why-hashtag">#PawcoSalon</div>
+      </div>
+      <div class="salon-why-body">
+        <h2 class="salon-why-title">Neden Pawco Salon?</h2>
+        <p class="salon-why-desc">Pawco Salon, kişisel bakım hedeflerinize yönelik profesyonel uygulamalar sunar. Uzman ekip en yeni grooming trendlerini takip ederken, mağazalarıyla yüksek kaliteli hizmet sağlar. Dostunuzu koruçmak için biz buradayız.</p>
+        <div class="salon-why-points">
+          <div class="salon-why-point">
+            <div class="salon-why-point-icon">🏆</div>
+            <div>
+              <div class="salon-why-point-title">Sertifikalı Petgroomer'lar</div>
+              <div class="salon-why-point-desc">Tüm uzmanlarımız uluslararası petgrooming sertifikasına sahip.</div>
+            </div>
+          </div>
+          <div class="salon-why-point">
+            <div class="salon-why-point-icon">💚</div>
+            <div>
+              <div class="salon-why-point-title">Stressiz Bakım Ortamı</div>
+              <div class="salon-why-point-desc">Sakinleştirici müzik, ılık su, yumuşak dokunuş — dostunuz için tasarlandı.</div>
+            </div>
+          </div>
+          <div class="salon-why-point">
+            <div class="salon-why-point-icon">🧴</div>
+            <div>
+              <div class="salon-why-point-title">Premium & Doğal Ürünler</div>
+              <div class="salon-why-point-desc">Yalnızca veteriner onaylı, cilt dostu şampuan ve bakım ürünleri kullanıyoruz.</div>
+            </div>
+          </div>
+          <div class="salon-why-point">
+            <div class="salon-why-point-icon">📱</div>
+            <div>
+              <div class="salon-why-point-title">Kolay Online Randevu</div>
+              <div class="salon-why-point-desc">Web sitemizden ya da telefondan dakikalar içinde randevu oluşturun.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ÖZELLİKLER (features bar)
+  ═══════════════════════════════════════ -->
+  <section class="features-section">
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">🏅</div>
+        <div class="feature-title">Sertifikalı Uzmanlar</div>
+        <div class="feature-desc">Deneyimli ve sertifikalı petgroomer ekibimizle güvende!</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🧸</div>
+        <div class="feature-title">Stressiz Ortam</div>
+        <div class="feature-desc">Dostunuz için sakin ve sevgi dolu bir bakım alanı.</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🪄</div>
+        <div class="feature-title">Premium Ürünler</div>
+        <div class="feature-desc">Yalnızca veteriner onaylı, doğal bakım ürünleri.</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📅</div>
+        <div class="feature-title">Kolay Randevu</div>
+        <div class="feature-desc">Online ya da telefonla hızlıca randevu alın.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4 class="footer-heading">Pawco Salon</h4>
+        <ul>
+          <li><a href="#">Hizmetlerimiz</a></li>
+          <li><a href="#">Mağazalar</a></li>
+          <li><a href="#randevu">Randevu Al</a></li>
+          <li><a href="#">Fiyat Listesi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Hizmetler</h4>
+        <ul>
+          <li><a href="#">Banyo & Fön</a></li>
+          <li><a href="#">Tırnak Kesimi</a></li>
+          <li><a href="#">Saç Kesimi & Tıraş</a></li>
+          <li><a href="#">Kulak & Göz Temizliği</a></li>
+          <li><a href="#">Diş Fırçalama</a></li>
+          <li><a href="#">Full Bakım Paketi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Kurumsal</h4>
+        <ul>
+          <li><a href="index.html">Pawco Ana Sayfa</a></li>
+          <li><a href="#">Hakkımızda</a></li>
+          <li><a href="#">Gizlilik Politikası</a></li>
+          <li><a href="#">İletişim</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Müşteri Hizmetleri</h4>
+        <div class="footer-phone">0850 255 10 01</div>
+        <div class="footer-hours">Pazartesi - Cumartesi 09:00 - 18:00</div>
+        <div class="footer-support-label">Yardıma mı ihtiyacınız var?</div>
+        <a href="#" class="support-btn">Destek Talebi Oluştur</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Bizi Takip Edin</h4>
+        <div class="social-links" style="display:flex;flex-direction:column;gap:6px;margin-top:8px">
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">YouTube</a>
+          <a href="#">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-col">
+        <h5 class="footer-sub-heading">Güvenli Ödeme</h5>
+        <div class="payment-logos">
+          <span class="pay-logo">VISA</span>
+          <span class="pay-logo">MC</span>
+          <span class="pay-logo">troy</span>
+        </div>
+      </div>
+      <div class="footer-bottom-col">
+        <h5 class="footer-sub-heading">Bizi Takip Edin</h5>
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="footer-legal">
+    <p>PAWCO EVCİL HAYVAN ÜRÜNLERİ PAZ. SAN. TİC. LTD. ŞTİ. Alaşehir Mah. 1. Alaşar Cad. No: 9 Osmangazi/Bursa</p>
+    <p>2014-2026 © pawco.com &nbsp;|&nbsp; Bursa'da sevgiyle yapıldı. ❤</p>
+  </div>
+
+  <!-- MOBILE OVERLAY & NAV -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav"></nav>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/salon.js" defer></script>
+</body>
+</html>
