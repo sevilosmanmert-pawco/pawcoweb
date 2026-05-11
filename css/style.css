@@ -1483,7 +1483,7 @@ body {
 }
 .brand-card img {
   max-width: 100%;
- /* max-height: 36px;*/
+ 
   object-fit: contain;
   filter: grayscale(20%);
   transition: var(--transition);
