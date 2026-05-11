@@ -3,44 +3,40 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Pawco - Evcil Dostların En İyi Alışveriş Sitesi"/>
-  <title>Pawco 🐾 - Evcil Hayvan Ürünleri</title>
+  <meta name="description" content="Pawco Kampanyalar — Evcil dostlarınız için en iyi fırsatlar"/>
+  <title>Pawco 🐾 — Kampanyalar</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>"/>
+   <link rel="stylesheet" href="css/kampanyalar.css"/>
   <link rel="stylesheet" href="css/style.css"/>
+ 
 </head>
 <body>
 
   <!-- TOP BAR -->
   <div class="top-bar">
-    <span>🚚 <strong>150 TL ve üzeri</strong> ücretsiz kargo &nbsp;|&nbsp; 📞 Müşteri Hizmetleri: <strong>0262 444 2 795</strong></span>
+    <span>🚚 <strong>150 TL ve üzeri</strong> ücretsiz kargo &nbsp;|&nbsp; 📞 Müşteri Hizmetleri: <strong>0850 123 45 67</strong></span>
   </div>
 
   <!-- HEADER -->
   <header class="header">
     <div class="header-inner">
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
+      <button class="mobile-menu-btn" aria-label="Menü">☰</button>
       <a href="index.html" class="logo">
         <span class="logo-icon">🐾</span>
         <span class="logo-text">paw<span>co</span></span>
       </a>
       <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Ne aramıştınız?..." autocomplete="off"/>
-        <button class="search-btn" id="searchBtn">🔍</button>
+        <input type="text" placeholder="Ne aramıştınız?..." autocomplete="off"/>
+        <button class="search-btn">🔍</button>
       </div>
       <div class="header-actions">
-        <button class="header-action-btn" id="helpBtn">
+        <button class="header-action-btn">
           <span class="btn-icon">🎧</span><span>Yardım</span>
         </button>
-        <button class="header-action-btn" onclick="window.location.href='account.html'">
+        <button class="header-action-btn">
           <span class="btn-icon">👤</span><span>Hesabım</span>
         </button>
-         <button class="header-action-btn" onclick="window.location.href='giris.html#giris'">
-          <span>Giriş Yap</span>
-        </button>
-          <button class="header-action-btn" onclick="window.location.href='giris.html'">
-          <span>Üye Ol</span>
-        </button>
-        <button class="header-action-btn cart-btn" id="cartBtn" onclick="window.location.href='sepet.html'">
+        <button class="header-action-btn cart-btn">
           <span class="btn-icon">🛒</span><span>Sepetim</span>
           <span class="cart-count">0</span>
         </button>
@@ -48,6 +44,9 @@
     </div>
   </header>
 
+
+
+  
   <!-- ═══════════════════════════════════════════════════════
        NAVBAR 
   ═══════════════════════════════════════════════════════ -->
@@ -755,7 +754,7 @@
 
       <!-- ── STATIK LINKLER (dropdown yok) ── -->
       <div class="nav-item" id="nav-campaigns">
-        <button class="nav-btn" data-id="campaigns" onclick="window.location.href='kampanya.html'">Kampanyalar</button>
+        <button class="nav-btn" data-id="campaigns">Kampanyalar</button>
       </div>
       <div class="nav-item" id="nav-club">
         <button class="nav-btn" data-id="club" onclick="window.location.href='salon.html'">Pawco Salon</button>
@@ -767,1564 +766,533 @@
     </div><!-- /navbar-inner -->
   </nav>
   <!-- /NAVBAR -->
-
-
-  <!-- ═══ HERO SLIDER ═══ -->
-  <section class="hero" id="hero">
-    <div class="hero-slider">
-
-      <div class="slide active" id="slide-0" style="background-color:#F3F5F7">
-        <div class="slider-container">
-          <button class="slider-arrow prev" onclick="changeSlide(-1)" aria-label="Önceki">&#8592;</button>
-          <div class="slider-content">
-            <span class="badge">Yeni Sezon</span>
-            <h1>Dostlarınız İçin <br><span>En Sağlıklı</span> Seçimler</h1>
-            <p>Özenle seçilmiş içeriklerle hazırlanan mamalar şimdi %20 indirimle.</p>
-            <div class="slider-actions"><a href="#" class="btn-primary">Hemen İncele</a></div>
-          </div>
-          <div class="slider-image">
-            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=800" alt="Sağlıklı mama">
-          </div>
-          <button class="slider-arrow next" onclick="changeSlide(1)" aria-label="Sonraki">&#8594;</button>
-        </div>
-      </div>
-
-      <div class="slide" id="slide-1" style="background-color:#E9F0F4; display:none">
-        <div class="slider-container">
-          <button class="slider-arrow prev" onclick="changeSlide(-1)" aria-label="Önceki">&#8592;</button>
-          <div class="slider-content">
-            <span class="badge">Popüler</span>
-            <h1>Konforlu Bir <br><span>Uyku</span> Deneyimi</h1>
-            <p>Yumuşacık yataklar ve dinlenme alanlarında büyük fırsatları kaçırmayın.</p>
-            <div class="slider-actions"><a href="#" class="btn-primary">Hemen İncele</a></div>
-          </div>
-          <div class="slider-image">
-            <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&q=80&w=800" alt="Evcil hayvan yatağı">
-          </div>
-          <button class="slider-arrow next" onclick="changeSlide(1)" aria-label="Sonraki">&#8594;</button>
-        </div>
-      </div>
-
-      <div class="slide" id="slide-2" style="background-color:#EDF5F0; display:none">
-        <div class="slider-container">
-          <button class="slider-arrow prev" onclick="changeSlide(-1)" aria-label="Önceki">&#8592;</button>
-          <div class="slider-content">
-            <span class="badge">Pawco Güvencesi</span>
-            <h1>Oyun Zamanı <br><span>Eğlence</span> Garantili</h1>
-            <p>En sevilen oyuncaklar ve aksesuarlar tek adreste, hızlı teslimatla kapınızda.</p>
-            <div class="slider-actions"><a href="#" class="btn-primary">Hemen İncele</a></div>
-          </div>
-          <div class="slider-image">
-            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800" alt="Köpek oyuncağı">
-          </div>
-          <button class="slider-arrow next" onclick="changeSlide(1)" aria-label="Sonraki">&#8594;</button>
-        </div>
-      </div>
-
-      <div class="slider-dots">
-        <span class="dot active" onclick="goToSlide(0)"></span>
-        <span class="dot"       onclick="goToSlide(1)"></span>
-        <span class="dot"       onclick="goToSlide(2)"></span>
-      </div>
-
+  <!-- ══════════════════════════════════════════
+       HERO BANNER
+  ══════════════════════════════════════════════ -->
+  <section class="kamp-hero">
+    <div class="kamp-hero-paws">🐾</div>
+    <h1 class="kamp-hero-title">
+      En İyi <span>Fırsatlar</span><br>Evcil Dostlarınız İçin
+    </h1>
+    <p class="kamp-hero-sub">
+      Seçili markalarda büyük indirimler, hediye ürünler ve özel kampanyalar sizi bekliyor.
+    </p>
+    <div class="kamp-hero-tags">
+      <button class="kamp-hero-tag active" data-filter="tumu"   onclick="filterFromHero(this,'tumu')">🏷️ Tümü</button>
+      <button class="kamp-hero-tag"        data-filter="indirim" onclick="filterFromHero(this,'indirim')">🔥 İndirimler</button>
+      <button class="kamp-hero-tag"        data-filter="hediye"  onclick="filterFromHero(this,'hediye')">🎁 Hediyeli</button>
+      <button class="kamp-hero-tag"        data-filter="kedi"    onclick="filterFromHero(this,'kedi')">🐱 Kedi</button>
+      <button class="kamp-hero-tag"        data-filter="kopek"   onclick="filterFromHero(this,'kopek')">🐶 Köpek</button>
+      <button class="kamp-hero-tag"        data-filter="kus"     onclick="filterFromHero(this,'kus')">🐦 Kuş</button>
     </div>
   </section>
 
-  <!-- ═══ ANIMAL QUICK PICKS ═══ -->
-  <div class="animal-picks" id="animal-picks">
-
-    <div class="animal-pick-card" data-animal="cat" onclick="window.location.href='kediurunler.html'">
-      <div class="animal-pick-emoji"></div>
-      <div class="animal-pick-info">
-        <div class="animal-pick-label">Kedi Ürünleri</div>
-        <div class="animal-pick-sub">15 kategori</div>
-      </div>
-      <div class="animal-pick-arrow">›</div>
-    </div>
-
-    <div class="animal-pick-card" data-animal="dog" onclick="window.location.href='kopekurunleri.html'">
-      <div class="animal-pick-emoji"></div>
-      <div class="animal-pick-info">
-        <div class="animal-pick-label">Köpek Ürünleri</div>
-        <div class="animal-pick-sub">13 kategori</div>
-      </div>
-      <div class="animal-pick-arrow">›</div>
-    </div>
-
-    <div class="animal-pick-card" data-animal="bird" onclick="window.location.href='kusurunleri.html'">
-      <div class="animal-pick-emoji"></div>
-      <div class="animal-pick-info">
-        <div class="animal-pick-label">Kuş Ürünleri</div>
-        <div class="animal-pick-sub">10 kategori</div>
-      </div>
-      <div class="animal-pick-arrow">›</div>
-    </div>
-
-    <div class="animal-pick-card" data-animal="rodent" onclick="window.location.href='kemirgen.html'">
-      <div class="animal-pick-emoji"></div>
-      <div class="animal-pick-info">
-        <div class="animal-pick-label">Kemirgen Ürünleri</div>
-        <div class="animal-pick-sub">10 kategori</div>
-      </div>
-      <div class="animal-pick-arrow">›</div>
-    </div>
-
+  <!-- BREADCRUMB -->
+  <div class="kamp-breadcrumb">
+    <a href="index.html">Ana Sayfa</a>
+    <span>›</span>
+    <span>Kampanyalar</span>
   </div>
 
-  <!-- ═══ POPÜLER KATEGORİLER ═══ -->
-  <main class="main-section" id="main-section">
-    <div class="section-header">
-      <h2 class="section-title">🔥 Popüler <span>Kategoriler</span></h2>
-      <span class="see-all">Tümü ›</span>
-    </div>
-    <div class="featured-grid">
-      <div class="featured-card" onclick="window.location.href='kediurunler.html'"><span class="featured-emoji">🥣</span><span class="featured-name">Kedi Maması</span></div>
-      <div class="featured-card" onclick="window.location.href='kediurunler.html'"><span class="featured-emoji">🥫</span><span class="featured-name">Kedi Konserve Maması</span></div>
-      <div class="featured-card" onclick="window.location.href='kediurunler.html'"><span class="featured-emoji">🎁</span><span class="featured-name">Kedi Ödül Maması</span></div>
-      <div class="featured-card" onclick="window.location.href='kediurunler.html'"><span class="featured-emoji">🪣</span><span class="featured-name">Kedi Kumu</span></div>
-      <div class="featured-card" onclick="window.location.href='kopekurunleri.html'"><span class="featured-emoji">🥣</span><span class="featured-name">Köpek Maması</span></div>
-      <div class="featured-card" onclick="window.location.href='kopekurunleri.html'"><span class="featured-emoji">🥫</span><span class="featured-name">Köpek Konserve Maması</span></div>
-      <div class="featured-card" onclick="window.location.href='kopekurunleri.html'"><span class="featured-emoji">🦴</span><span class="featured-name">Köpek Ödül Maması</span></div>
-      <div class="featured-card" onclick="window.location.href='kopekurunleri.html'"><span class="featured-emoji">💊</span><span class="featured-name">Vitaminler ve Ek Besinler</span></div>
-      <div class="featured-card" onclick="window.location.href='kusurunleri.html'"><span class="featured-emoji">🌾</span><span class="featured-name">Kuş Yemi</span></div>
-      <div class="featured-card" onclick="window.location.href='kusurunleri.html'"><span class="featured-emoji">🎁</span><span class="featured-name">Kuş Ödül Yemi</span></div>
-      <div class="featured-card" onclick="window.location.href='kusurunleri.html'"><span class="featured-emoji">🏠</span><span class="featured-name">Kafes ve Aksesuarlar</span></div>
-      <div class="featured-card" onclick="window.location.href='kusurunleri.html'"><span class="featured-emoji">🎠</span><span class="featured-name">Kuş Oyuncağı</span></div>
-      <div class="featured-card" onclick="window.location.href='kemirgen.html'"><span class="featured-emoji">🌾</span><span class="featured-name">Kemirgen Yemi</span></div>
-      <div class="featured-card" onclick="window.location.href='kemirgen.html'"><span class="featured-emoji">🎁</span><span class="featured-name">Ödül Yemi</span></div>
-      <div class="featured-card" onclick="window.location.href='kemirgen.html'"><span class="featured-emoji">🏠</span><span class="featured-name">Kafes ve Teraryum</span></div>
-      <div class="featured-card" onclick="window.location.href='kemirgen.html'"><span class="featured-emoji">🎡</span><span class="featured-name">Oyuncak ve Aktivite</span></div>
-    </div>
-  </main>
+  <!-- ══════════════════════════════════════════
+       ANA İÇERİK
+  ══════════════════════════════════════════════ -->
+  <div class="kamp-page">
 
+    <!-- TOOLBAR -->
+    <div class="kamp-toolbar">
+      <div class="kamp-toolbar-left">
+        <span class="kamp-count"><span id="kampCount">18</span> kampanya listeleniyor</span>
 
-  <!-- CAMPAIGNS BANNER -->
-  <div style="max-width:1500px; margin:0 auto 60px; padding:0 20px; display:flex; flex-direction:column; gap:40px;">
-
-  <!-- ── PROMO BANNERS ── -->
-  <div class="promo-banners">
-    <div class="promo-banner-card">
-      <div class="promo-banner-img promo-banner-img--orange">
-        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1200&auto=format&fit=crop" alt="Pet Ürünleri"/>
+        <button class="kamp-filter-chip active" data-filter="tumu"    onclick="filterKampanya(this,'tumu')">
+          <span class="chip-dot"></span>🏷️ Tümü
+        </button>
+        <button class="kamp-filter-chip" data-filter="indirim" onclick="filterKampanya(this,'indirim')">
+          <span class="chip-dot"></span>🔥 İndirim
+        </button>
+        <button class="kamp-filter-chip" data-filter="hediye"  onclick="filterKampanya(this,'hediye')">
+          <span class="chip-dot"></span>🎁 Hediyeli
+        </button>
+        <button class="kamp-filter-chip" data-filter="kedi"    onclick="filterKampanya(this,'kedi')">
+          <span class="chip-dot"></span>🐱 Kedi
+        </button>
+        <button class="kamp-filter-chip" data-filter="kopek"   onclick="filterKampanya(this,'kopek')">
+          <span class="chip-dot"></span>🐶 Köpek
+        </button>
+        <button class="kamp-filter-chip" data-filter="kus"     onclick="filterKampanya(this,'kus')">
+          <span class="chip-dot"></span>🐦 Kuş
+        </button>
       </div>
-      <div class="promo-banner-body">
-        <h3>Yüksek Kalite, Güvenilir İçerik</h3>
-        <p>Özenle geliştirilmiş premium pet ürünlerini <strong>keşfedin!</strong></p>
+      <div class="kamp-sort">
+        <span class="kamp-sort-label">Sırala:</span>
+        <select onchange="sortKampanya(this)">
+          <option value="varsayilan">Önerilen</option>
+          <option value="indirim-yuksek">En Yüksek İndirim</option>
+          <option value="indirim-dusuk">En Düşük İndirim</option>
+          <option value="sure-bitiyor">Süresi Dolmak Üzere</option>
+        </select>
       </div>
     </div>
-    <div class="promo-banner-card">
-      <div class="promo-banner-img promo-banner-img--blue">
-        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop" alt="Köpek Maması"/>
-      </div>
-      <div class="promo-banner-body">
-        <h3>Veteriner Tavsiyeli Mamalar</h3>
-        <p>Sağlıklı dostlarınız için özel içerikli mamaları <strong>şimdi incele!</strong></p>
-      </div>
-    </div>
-    <div class="promo-banner-card">
-      <div class="promo-banner-img promo-banner-img--yellow">
-        <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=1200&auto=format&fit=crop" alt="Kedi Ürünleri"/>
-      </div>
-      <div class="promo-banner-body">
-        <h3>Daha Mutlu Patiler</h3>
-        <p>Kedi ve köpek dostlarınız için özel ürünleri <strong>hemen keşfet!</strong></p>
-      </div>
-    </div>
-  </div>
 
-  <!-- ── MARKALAR ── -->
-  <div>
-    <div class="section-header">
-      <h2 class="section-title">Popüler Markalar</h2>
-      <span class="see-all">Tümünü Gör ›</span>
-    </div>
-    <div class="brands-slider-outer">
-      <button class="brands-slider-btn brands-slider-btn--prev" id="brandPrev">‹</button>
-      <div class="brands-slider-wrap">
-        <div class="brands-track" id="brandsTrack">
-          <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Royal_Canin_logo.svg/512px-Royal_Canin_logo.svg.png" alt="Royal Canin"></div>
-          <div class="brand-card"><img src="https://seeklogo.com/images/H/hill-s-pet-nutrition-logo-2A2A4E0A79-seeklogo.com.png" alt="Hill's"></div>
-          <div class="brand-card"><img src="https://seeklogo.com/images/P/purina-pro-plan-logo-7F0A4EAF2B-seeklogo.com.png" alt="Pro Plan"></div>
-          <div class="brand-card"><img src="https://seeklogo.com/images/O/orijen-logo-7F8DCEAB43-seeklogo.com.png" alt="Orijen"></div>
-          <div class="brand-card"><img src="https://seeklogo.com/images/A/acana-logo-B9C5D7E93D-seeklogo.com.png" alt="Acana"></div>
-          <div class="brand-card"><img src="https://seeklogo.com/images/B/brit-care-logo-3C5E50F7A2-seeklogo.com.png" alt="Brit"></div>
-          <div class="brand-card"><img src="https://seeklogo.com/images/F/farmina-logo-9A4A02B1FA-seeklogo.com.png" alt="Farmina"></div>
-          <div class="brand-card"><img src="https://seeklogo.com/images/R/reflex-logo-45AFA4C8D0-seeklogo.com.png" alt="Reflex"></div>
-          <div class="brand-card"><img src="https://seeklogo.com/images/N/nd-logo-7D7E6B3E39-seeklogo.com.png" alt="ND"></div>
-          <div class="brand-card"><img src="https://seeklogo.com/images/W/whiskas-logo-92B7A2EAFB-seeklogo.com.png" alt="Whiskas"></div>
-          <div class="brand-card"><img src="https://seeklogo.com/images/P/pedigree-logo-4F2DB1C7F5-seeklogo.com.png" alt="Pedigree"></div>
+    <!-- KAMPANYA GRID -->
+    <div class="kamp-grid" id="kampGrid">
+
+      <!-- ══ 1 — ROYAL CANIN featured ══ -->
+      <div class="kamp-card kamp-card--featured" data-type="indirim kedi kopek" data-discount="20" data-days="5" data-order="1" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=900&h=400&auto=format&fit=crop" alt="Royal Canin"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--indirim">🔥 %20'YE VARAN İNDİRİM</span>
+            <span class="kamp-badge kamp-badge--yeni">YENİ SEZON</span>
+          </div>
+          <span class="kamp-badge kamp-badge--sure">⏱ 5 gün kaldı</span>
+          <span class="kamp-brand-logo">Royal Canin</span>
         </div>
-      </div>
-      <button class="brands-slider-btn brands-slider-btn--next" id="brandNext">›</button>
-    </div>
-  </div>
-
-
-
-
-  <!-- ── ÜRÜNLER ── -->
-  <div>
-
-    <div class="section-header">
-      <h2 class="section-title">Sizin İçin Seçtiklerimiz</h2>
-    </div>
-
-    <div class="products-slider-outer">
-
-      <button class="products-slider-btn products-slider-btn--prev" id="prodPrev">‹</button>
-
-      <div class="products-slider-wrap">
-        <div class="products-track" id="productsTrack">
-
-          <!-- PRODUCT 1 -->
-          <div class="product-card">
-
-            <button class="product-fav-btn">♡</button>
-
-            <div class="product-card-img">
-              <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?q=80&w=500&auto=format&fit=crop" alt="Köpek Maması"/>
-            </div>
-
-            <div class="product-card-info">
-
-              <p class="product-card-name">
-                Premium Kuzulu Yavru Köpek Maması 3kg
-              </p>
-
-              <div class="product-rating" data-score="5" data-count="24"></div>
-
-              <div class="product-card-bottom">
-
-                <div class="product-card-prices">
-                  <span class="product-card-price">819 TL</span>
-                </div>
-
-                <button class="product-cart-btn">🛒</button>
-
-              </div>
-
-            </div>
-
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">İndirim</span>
+            <span class="kamp-card-animal">🐱 Kedi &amp; 🐶 Köpek</span>
           </div>
-
-
-          <!-- PRODUCT 2 -->
-          <div class="product-card">
-
-            <button class="product-fav-btn">♡</button>
-
-            <div class="product-card-img">
-              <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=500&auto=format&fit=crop" alt="Köpek Oyuncağı"/>
-            </div>
-
-            <div class="product-card-info">
-
-              <p class="product-card-name">
-                Dayanıklı Diş Kaşıma Köpek Oyuncağı
-              </p>
-
-              <div class="product-rating" data-score="4" data-count="11"></div>
-
-              <div class="product-card-bottom">
-
-                <div class="product-card-prices">
-                  <span class="product-card-price">249 TL</span>
-                </div>
-
-                <button class="product-cart-btn">🛒</button>
-
-              </div>
-
-            </div>
-
+          <h3 class="kamp-card-title">Royal Canin Kedi ve Köpek Mamalarında %20'ye Varan İndirim!</h3>
+          <p class="kamp-card-desc">Veteriner tavsiyeli premium mamalarda sezon sonu büyük fırsat. Seçili ürünlerde geçerli, stoklar sınırlıdır.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--red">🔥 %20'ye varan</span>
+            <button class="kamp-cta-btn">Kampanyayı İncele →</button>
           </div>
-
-
-          <!-- PRODUCT 3 -->
-          <div class="product-card">
-
-            <button class="product-fav-btn">♡</button>
-
-            <div class="product-card-img">
-              <img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?q=80&w=500&auto=format&fit=crop" alt="Kedi Maması"/>
-            </div>
-
-            <div class="product-card-info">
-
-              <p class="product-card-name">
-                Tavuk Etli Yetişkin Kedi Maması 2kg
-              </p>
-
-              <div class="product-rating" data-score="5" data-count="42"></div>
-
-              <div class="product-card-bottom">
-
-                <div class="product-card-prices">
-                  <span class="product-card-price-old">1.120 TL</span>
-                  <span class="product-card-price">899 TL</span>
-                </div>
-
-                <button class="product-cart-btn">🛒</button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- PRODUCT 4 -->
-          <div class="product-card">
-
-            <button class="product-fav-btn">♡</button>
-
-            <span class="product-card-badge">YENİ</span>
-
-            <div class="product-card-img">
-              <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=1000&auto=format&fit=crop" alt="Kedi Oyuncağı"/>
-            </div>
-
-            <div class="product-card-info">
-
-              <p class="product-card-name">
-                İnteraktif Kedi Oyun Topu
-              </p>
-
-              <div class="product-rating" data-score="4.8" data-count="19"></div>
-
-              <div class="product-card-bottom">
-
-                <div class="product-card-prices">
-                  <span class="product-card-price">179 TL</span>
-                </div>
-
-                <button class="product-cart-btn">🛒</button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- PRODUCT 5 -->
-          <div class="product-card">
-
-            <button class="product-fav-btn">♡</button>
-
-            <div class="product-card-img">
-              <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?q=80&w=1000&auto=format&fit=crop" alt="Kedi Yatağı"/>
-            </div>
-
-            <div class="product-card-info">
-
-              <p class="product-card-name">
-                Ultra Yumuşak Peluş Kedi Yatağı
-              </p>
-
-              <div class="product-rating" data-score="5" data-count="8"></div>
-
-              <div class="product-card-bottom">
-
-                <div class="product-card-prices">
-                  <span class="product-card-price">529 TL</span>
-                </div>
-
-                <button class="product-cart-btn">🛒</button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- PRODUCT 6 -->
-          <div class="product-card">
-
-            <button class="product-fav-btn">♡</button>
-
-            <div class="product-card-img">
-              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1000&auto=format&fit=crop" alt="Köpek Tasması"/>
-            </div>
-
-            <div class="product-card-info">
-
-              <p class="product-card-name">
-                Ayarlanabilir Premium Köpek Tasması
-              </p>
-
-              <div class="product-rating" data-score="4.7" data-count="33"></div>
-
-              <div class="product-card-bottom">
-
-                <div class="product-card-prices">
-                  <span class="product-card-price">319 TL</span>
-                </div>
-
-                <button class="product-cart-btn">🛒</button>
-
-              </div>
-
-            </div>
-
-          </div>
-
         </div>
       </div>
 
-      <button class="products-slider-btn products-slider-btn--next" id="prodNext">›</button>
-
-    </div>
-
-  </div>
-  
-   <!-- Önceden Gezdiğiniz o -->
-
-
-
-
-<div>
-
-  <div class="section-header">
-    <h2 class="section-title">Önceden Gezdiğiniz Ürünler</h2>
-  </div>
-
-  <div class="products-slider-outer">
-
-    <button class="products-slider-btn products-slider-btn--prev" id="viewedPrev">‹</button>
-
-    <div class="products-slider-wrap">
-
-      <div class="products-track" id="viewedProductsTrack">
-
-        <!-- PRODUCT 1 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <span class="product-card-badge">POPÜLER</span>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=500&auto=format&fit=crop" alt="Köpek Maması"/>
+      <!-- ══ 2 — Hill's ══ -->
+      <div class="kamp-card" data-type="indirim kedi" data-discount="30" data-days="8" data-order="2" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&h=340&auto=format&fit=crop" alt="Hill's"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--indirim">🔥 %30'A VARAN İNDİRİM</span>
           </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Somonlu Hassas Sindirim Köpek Maması 12kg
-            </p>
-
-            <div class="product-rating" data-score="4.9" data-count="87"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price-old">2.199 TL</span>
-                <span class="product-card-price">1.899 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
+          <span class="kamp-badge kamp-badge--sure">⏱ 8 gün kaldı</span>
+          <span class="kamp-brand-logo">Hill's</span>
         </div>
-
-
-        <!-- PRODUCT 2 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?q=80&w=500&auto=format&fit=crop" alt="Kedi Oyuncağı"/>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">İndirim</span>
+            <span class="kamp-card-animal">🐱 Kedi</span>
           </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Tüylü İnteraktif Kedi Oltası Oyuncağı
-            </p>
-
-            <div class="product-rating" data-score="4.5" data-count="21"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">149 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
+          <h3 class="kamp-card-title">Hill's Kedi Mamalarında %30'a Varan İndirim!</h3>
+          <p class="kamp-card-desc">Sağlık odaklı Science Plan ve Prescription Diet serilerinde büyük fırsat.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--red">🔥 %30'a varan</span>
+            <button class="kamp-cta-btn">İncele →</button>
           </div>
-
         </div>
-
-
-        <!-- PRODUCT 3 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <span class="product-card-badge">%20</span>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=500&auto=format&fit=crop" alt="Kedi Kumu"/>
-          </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Topaklanan Bentonit Kedi Kumu 10L
-            </p>
-
-            <div class="product-rating" data-score="4.7" data-count="63"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price-old">389 TL</span>
-                <span class="product-card-price">309 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- PRODUCT 4 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=500&auto=format&fit=crop" alt="Köpek Tasması"/>
-          </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Reflektörlü Ayarlanabilir Köpek Tasması
-            </p>
-
-            <div class="product-rating" data-score="4.6" data-count="14"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">259 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- PRODUCT 5 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <span class="product-card-badge">YENİ</span>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=500&auto=format&fit=crop" alt="Kedi Yatağı"/>
-          </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Ortopedik Peluş Kedi ve Köpek Yatağı
-            </p>
-
-            <div class="product-rating" data-score="5" data-count="41"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">699 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- PRODUCT 6 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=500&auto=format&fit=crop" alt="Köpek Ödül Maması"/>
-          </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Dana Etli Eğitim Ödül Çubukları 100gr
-            </p>
-
-            <div class="product-rating" data-score="4.8" data-count="52"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">119 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
       </div>
 
-    </div>
-
-    <button class="products-slider-btn products-slider-btn--next" id="viewedNext">›</button>
-
-  </div>
-
-</div>
-
-
-
-   <!-- Önceden Gezdiğiniz o -->
-
-
-
-
-<div>
-
-  <div class="section-header">
-    <h2 class="section-title">Önceden Gezdiğiniz Ürünler</h2>
-  </div>
-
-  <div class="products-slider-outer">
-
-    <button class="products-slider-btn products-slider-btn--prev" id="viewedPrev2">‹</button>
-
-    <div class="products-slider-wrap">
-
-      <div class="products-track" id="viewedProductsTrack2">
-
-        <!-- PRODUCT 1 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <span class="product-card-badge">POPÜLER</span>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=500&auto=format&fit=crop" alt="Köpek Maması"/>
+      <!-- ══ 3 — Petlebi Kedi Hediye ══ -->
+      <div class="kamp-card" data-type="hediye kedi" data-discount="0" data-days="3" data-order="3" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=340&auto=format&fit=crop" alt="Pawco Kedi"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--hediye">🎁 HEDİYE</span>
           </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Somonlu Hassas Sindirim Köpek Maması 12kg
-            </p>
-
-            <div class="product-rating" data-score="4.9" data-count="87"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price-old">2.199 TL</span>
-                <span class="product-card-price">1.899 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
+          <span class="kamp-badge kamp-badge--sure">⏱ 3 gün kaldı</span>
+          <span class="kamp-brand-logo">Pawco Özel</span>
         </div>
-
-
-        <!-- PRODUCT 2 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?q=80&w=500&auto=format&fit=crop" alt="Kedi Oyuncağı"/>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">Hediyeli</span>
+            <span class="kamp-card-animal">🐱 Kedi</span>
           </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Tüylü İnteraktif Kedi Oltası Oyuncağı
-            </p>
-
-            <div class="product-rating" data-score="4.5" data-count="21"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">149 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
+          <h3 class="kamp-card-title">Kedi Mamalarında Özel Hediye Fırsatı!</h3>
+          <p class="kamp-card-desc">Seçili kedi mamalarında alışverişe özel çeşitli hediyeler kazanın.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--green">🎁 Hediyeli</span>
+            <button class="kamp-cta-btn">İncele →</button>
           </div>
-
         </div>
-
-
-        <!-- PRODUCT 3 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <span class="product-card-badge">%20</span>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=500&auto=format&fit=crop" alt="Kedi Kumu"/>
-          </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Topaklanan Bentonit Kedi Kumu 10L
-            </p>
-
-            <div class="product-rating" data-score="4.7" data-count="63"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price-old">389 TL</span>
-                <span class="product-card-price">309 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- PRODUCT 4 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=500&auto=format&fit=crop" alt="Köpek Tasması"/>
-          </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Reflektörlü Ayarlanabilir Köpek Tasması
-            </p>
-
-            <div class="product-rating" data-score="4.6" data-count="14"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">259 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- PRODUCT 5 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <span class="product-card-badge">YENİ</span>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=500&auto=format&fit=crop" alt="Kedi Yatağı"/>
-          </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Ortopedik Peluş Kedi ve Köpek Yatağı
-            </p>
-
-            <div class="product-rating" data-score="5" data-count="41"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">699 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- PRODUCT 6 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=500&auto=format&fit=crop" alt="Köpek Ödül Maması"/>
-          </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Dana Etli Eğitim Ödül Çubukları 100gr
-            </p>
-
-            <div class="product-rating" data-score="4.8" data-count="52"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">119 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
       </div>
 
-    </div>
-
-    <button class="products-slider-btn products-slider-btn--next" id="viewedNext2">›</button>
-
-  </div>
-
-</div>
-
-
-   <!-- Bunumu aramıstınız -->
-
-
-
-
-<div>
-
-  <div class="section-header">
-    <h2 class="section-title">Bunu Mu Aramıştınız?</h2>
-  </div>
-
-  <div class="products-slider-outer">
-
-    <button class="products-slider-btn products-slider-btn--prev" id="viewedPrevBunu">‹</button>
-
-    <div class="products-slider-wrap">
-
-      <div class="products-track" id="viewedProductsTrackBunu">
-
-        <!-- PRODUCT 1 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <span class="product-card-badge">POPÜLER</span>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=500&auto=format&fit=crop" alt="Köpek Maması"/>
+      <!-- ══ 4 — Ever Clean ══ -->
+      <div class="kamp-card" data-type="indirim kedi" data-discount="10" data-days="14" data-order="4" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?w=600&h=340&auto=format&fit=crop" alt="Kedi Kumu"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--indirim">%10 İNDİRİM</span>
           </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Somonlu Hassas Sindirim Köpek Maması 12kg
-            </p>
-
-            <div class="product-rating" data-score="4.9" data-count="87"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price-old">2.199 TL</span>
-                <span class="product-card-price">1.899 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
+          <span class="kamp-brand-logo">Ever Clean</span>
         </div>
-
-
-        <!-- PRODUCT 2 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?q=80&w=500&auto=format&fit=crop" alt="Kedi Oyuncağı"/>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">İndirim</span>
+            <span class="kamp-card-animal">🐱 Kedi</span>
           </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Tüylü İnteraktif Kedi Oltası Oyuncağı
-            </p>
-
-            <div class="product-rating" data-score="4.5" data-count="21"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">149 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
+          <h3 class="kamp-card-title">Ever Clean Kedi Kumlarında %10 İndirim!</h3>
+          <p class="kamp-card-desc">Koku giderici premium kedi kumlarında avantajlı fiyatlar.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--red">%10 indirim</span>
+            <button class="kamp-cta-btn">İncele →</button>
           </div>
-
         </div>
-
-
-        <!-- PRODUCT 3 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <span class="product-card-badge">%20</span>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=500&auto=format&fit=crop" alt="Kedi Kumu"/>
-          </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Topaklanan Bentonit Kedi Kumu 10L
-            </p>
-
-            <div class="product-rating" data-score="4.7" data-count="63"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price-old">389 TL</span>
-                <span class="product-card-price">309 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- PRODUCT 4 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=500&auto=format&fit=crop" alt="Köpek Tasması"/>
-          </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Reflektörlü Ayarlanabilir Köpek Tasması
-            </p>
-
-            <div class="product-rating" data-score="4.6" data-count="14"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">259 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- PRODUCT 5 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <span class="product-card-badge">YENİ</span>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=500&auto=format&fit=crop" alt="Kedi Yatağı"/>
-          </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Ortopedik Peluş Kedi ve Köpek Yatağı
-            </p>
-
-            <div class="product-rating" data-score="5" data-count="41"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">699 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- PRODUCT 6 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=500&auto=format&fit=crop" alt="Köpek Ödül Maması"/>
-          </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Dana Etli Eğitim Ödül Çubukları 100gr
-            </p>
-
-            <div class="product-rating" data-score="4.8" data-count="52"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">119 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
       </div>
 
-    </div>
-
-    <button class="products-slider-btn products-slider-btn--next" id="viewedNextBunu">›</button>
-
-  </div>
-
-</div>
-
-
-
-   <!-- Bunumu aramıstınız -->
-
-
-
-
-<div>
-
-  <div class="section-header">
-    <h2 class="section-title">Pawco Güvencesiyle</h2>
-  </div>
-
-  <div class="products-slider-outer">
-
-    <button class="products-slider-btn products-slider-btn--prev" id="viewedPrevGuvence">‹</button>
-
-    <div class="products-slider-wrap">
-
-      <div class="products-track" id="viewedProductsTrackGuvence">
-
-        <!-- PRODUCT 1 -->
-        <div class="product-card" >
-
-          <button class="product-fav-btn">♡</button>
-
-          <span class="product-card-badge">POPÜLER</span>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=500&auto=format&fit=crop" alt="Köpek Maması"/>
+      <!-- ══ 5 — Pro Plan Köpek ══ -->
+      <div class="kamp-card" data-type="hediye kopek" data-discount="0" data-days="10" data-order="5" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?w=600&h=340&auto=format&fit=crop" alt="Pro Plan"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--hediye">🎁 HEDİYE</span>
           </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Somonlu Hassas Sindirim Köpek Maması 12kg
-            </p>
-
-            <div class="product-rating" data-score="4.9" data-count="87"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price-old">2.199 TL</span>
-                <span class="product-card-price">1.899 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
+          <span class="kamp-brand-logo">Pro Plan</span>
+        </div>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">Hediyeli</span>
+            <span class="kamp-card-animal">🐶 Köpek</span>
           </div>
-
-        </div>
-
-
-        <!-- PRODUCT 2 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?q=80&w=500&auto=format&fit=crop" alt="Kedi Oyuncağı"/>
+          <h3 class="kamp-card-title">Pro Plan 12 Kg Köpek Mamalarında Hediye!</h3>
+          <p class="kamp-card-desc">Seçili büyük boy Pro Plan alışverişlerinde özel hediye ürün sizi bekliyor.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--green">🎁 Hediyeli</span>
+            <button class="kamp-cta-btn">İncele →</button>
           </div>
+        </div>
+      </div>
 
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Tüylü İnteraktif Kedi Oltası Oyuncağı
-            </p>
-
-            <div class="product-rating" data-score="4.5" data-count="21"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">149 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
+      <!-- ══ 6 — Wanpy Konserve ══ -->
+      <div class="kamp-card" data-type="hediye kedi kopek" data-discount="0" data-days="7" data-order="6" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1589924691995-400dc9eee119?w=600&h=340&auto=format&fit=crop" alt="Wanpy"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--hediye">🎁 KONSERVE HEDİYE</span>
           </div>
-
+          <span class="kamp-badge kamp-badge--sure">⏱ 7 gün kaldı</span>
+          <span class="kamp-brand-logo">Wanpy</span>
         </div>
-
-
-        <!-- PRODUCT 3 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <span class="product-card-badge">%20</span>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=500&auto=format&fit=crop" alt="Kedi Kumu"/>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">Hediyeli</span>
+            <span class="kamp-card-animal">🐱🐶</span>
           </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Topaklanan Bentonit Kedi Kumu 10L
-            </p>
-
-            <div class="product-rating" data-score="4.7" data-count="63"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price-old">389 TL</span>
-                <span class="product-card-price">309 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
+          <h3 class="kamp-card-title">Wanpy'de 1,5 Kg Konserve Hediye Fırsatı!</h3>
+          <p class="kamp-card-desc">Wanpy ürünlerinden belirlenen tutarda alışverişe konserve hediye kampanyası.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--green">🎁 Konserve Hediye</span>
+            <button class="kamp-cta-btn">İncele →</button>
           </div>
-
         </div>
+      </div>
 
-
-        <!-- PRODUCT 4 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=500&auto=format&fit=crop" alt="Köpek Tasması"/>
+      <!-- ══ TAM GENİŞLİK BANNER 1 ══ -->
+      <div class="kamp-full-banner">
+        <img class="kamp-full-banner-bg" src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=1400&h=300&auto=format&fit=crop" alt="Özel Kampanya"/>
+        <div class="kamp-full-banner-overlay">
+          <div class="kamp-full-banner-text">
+            <h2>🐾 Pawco Güvencesiyle Seçtiklerimiz</h2>
+            <p>Veterinerlerle işbirliğiyle hazırlanan özel ürün listeleri &amp; özel indirimler</p>
           </div>
+          <button class="kamp-full-banner-btn">Tümünü İncele →</button>
+        </div>
+      </div>
 
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Reflektörlü Ayarlanabilir Köpek Tasması
-            </p>
-
-            <div class="product-rating" data-score="4.6" data-count="14"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">259 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
+      <!-- ══ 7 — Brit Care ══ -->
+      <div class="kamp-card" data-type="indirim kedi kopek" data-discount="15" data-days="12" data-order="7" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&h=340&auto=format&fit=crop" alt="Brit Care"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--indirim">%15'E VARAN İNDİRİM</span>
           </div>
-
+          <span class="kamp-brand-logo">Brit Care</span>
         </div>
-
-
-        <!-- PRODUCT 5 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <span class="product-card-badge">YENİ</span>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=500&auto=format&fit=crop" alt="Kedi Yatağı"/>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">İndirim</span>
+            <span class="kamp-card-animal">🐱 🐶</span>
           </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Ortopedik Peluş Kedi ve Köpek Yatağı
-            </p>
-
-            <div class="product-rating" data-score="5" data-count="41"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">699 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
+          <h3 class="kamp-card-title">Brit Care Seçili Ürünlerde %15'e Varan İndirim!</h3>
+          <p class="kamp-card-desc">Tahılsız ve doğal içerikli Brit Care serilerinde büyük kampanya.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--red">%15'e varan</span>
+            <button class="kamp-cta-btn">İncele →</button>
           </div>
-
         </div>
+      </div>
 
-
-        <!-- PRODUCT 6 -->
-        <div class="product-card">
-
-          <button class="product-fav-btn">♡</button>
-
-          <div class="product-card-img">
-            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=500&auto=format&fit=crop" alt="Köpek Ödül Maması"/>
+      <!-- ══ 8 — Advance ══ -->
+      <div class="kamp-card" data-type="hediye kedi kopek" data-discount="0" data-days="20" data-order="8" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=340&auto=format&fit=crop" alt="Advance"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--hediye">🎁 HEDİYE SETLERİ</span>
           </div>
-
-          <div class="product-card-info">
-
-            <p class="product-card-name">
-              Dana Etli Eğitim Ödül Çubukları 100gr
-            </p>
-
-            <div class="product-rating" data-score="4.8" data-count="52"></div>
-
-            <div class="product-card-bottom">
-
-              <div class="product-card-prices">
-                <span class="product-card-price">119 TL</span>
-              </div>
-
-              <button class="product-cart-btn">🛒</button>
-
-            </div>
-
+          <span class="kamp-brand-logo">Advance</span>
+        </div>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">Hediyeli</span>
+            <span class="kamp-card-animal">🐱 🐶</span>
           </div>
-
+          <h3 class="kamp-card-title">Advance Seçili Ürünlerde Özel Hediye Setleri!</h3>
+          <p class="kamp-card-desc">Advance ürünleri alan ilk 500 müşteriye özel hediye paketi.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--green">🎁 Hediye Set</span>
+            <button class="kamp-cta-btn">İncele →</button>
+          </div>
         </div>
-
       </div>
 
-    </div>
-
-    <button class="products-slider-btn products-slider-btn--next" id="viewedNextGuvence">›</button>
-
-  </div>
-
-</div>
-
-<!-- BLOG & SORU CEVAP SLIDER -->
-<section class="blog-section">
-  <div class="blog-header">
-    <h2 class="section-title">Blog</h2>
-    <a href="#" class="see-all">Tümünü Gör ›</a>
-  </div>
-  <div class="blog-slider-wrapper">
-    <div class="blog-slider" id="blogSlider">
-      <div class="blog-card">
-        <div class="blog-img"><img src="https://placehold.co/280x160/e8f4f8/555?text=Blog" alt="Blog Görseli"></div>
-        <div class="blog-meta">Veteriner Hekim Uğurcan Yılmaz | 01.05.2026</div>
-        <div class="blog-title">DL-Metiyoninin Kedilerde Önemi</div>
-        <div class="blog-desc">Bu yazıda DL-metiyonin nedir, kullanımının bilimsel temeli hakkında bilgi bulabilirsiniz.</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img"><img src="https://placehold.co/280x160/1a1a2e/ccc?text=Kedi" alt="Blog Görseli"></div>
-        <div class="blog-meta">Deniz Öz | 01.05.2026</div>
-        <div class="blog-title">Rüyada Kedi Görmek: Siyah, Beyaz Kediler ve Kediyle İlgili...</div>
-        <div class="blog-desc">Rüyada kedi görmek ne anlama gelir? Rüyanın anlamı kedinin...</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img"><img src="https://placehold.co/280x160/e8f4f8/555?text=Akvaryum" alt="Blog Görseli"></div>
-        <div class="blog-meta">Deniz Öz | 27.04.2026</div>
-        <div class="blog-title">Evde Bakılabilecek Akvaryum Balıkları: Türler, Bakım ve...</div>
-        <div class="blog-desc">Evde bakılabilecek akvaryum balıkları, tatlı su ve deniz suyu...</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img"><img src="https://placehold.co/280x160/2d4a3e/ccc?text=Köpek" alt="Blog Görseli"></div>
-        <div class="blog-meta">Deniz Öz | 25.04.2026</div>
-        <div class="blog-title">Atatürk'ün Köpeği: İsmi, Türü, Hikâyesi ve Hayatındaki...</div>
-        <div class="blog-desc">Bu içerikte, Atatürk'ün köpekleri arasından en bilineni olan Foks'u...</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img"><img src="https://placehold.co/280x160/f0e6d3/555?text=Blog" alt="Blog Görseli"></div>
-        <div class="blog-meta">Deniz Öz | 20.04.2026</div>
-        <div class="blog-title">Kedi Davranışları Hakkında Bilmeniz Gerekenler</div>
-        <div class="blog-desc">Kedilerin davranışlarını anlamak, onlarla daha sağlıklı bir ilişki kurmanızı sağlar.</div>
-      </div>
-    </div>
-    <button class="slider-btn slider-prev" id="blogPrev" aria-label="Önceki">‹</button>
-    <button class="slider-btn slider-next" id="blogNext" aria-label="Sonraki">›</button>
-  </div>
-</section>
-
-<!-- SORU CEVAP SLIDER -->
-<section class="qa-section">
-  <div class="blog-header">
-    <h2 class="section-title">Soru Cevap</h2>
-    <a href="#" class="see-all">Tümünü Gör ›</a>
-  </div>
-  <div class="blog-slider-wrapper">
-    <div class="blog-slider" id="qaSlider">
-      <div class="qa-card">
-        <div class="qa-top">
-          <img src="https://placehold.co/40x40/e8f4f8/555?text=K" alt="Avatar" class="qa-avatar">
-          <div class="qa-question">Yavru kedinin gozu sulaniyor bir daha...</div>
+      <!-- ══ 9 — GimCat ══ -->
+      <div class="kamp-card" data-type="indirim kedi" data-discount="35" data-days="6" data-order="9" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&h=340&auto=format&fit=crop" alt="GimCat"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--indirim">%35 İNDİRİM</span>
+          </div>
+          <span class="kamp-badge kamp-badge--sure">⏱ 6 gün kaldı</span>
+          <span class="kamp-brand-logo">GimCat</span>
         </div>
-        <div class="qa-stats">
-          <span>👁 1</span><span>👁 156</span><span>💬 22</span>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">İndirim</span>
+            <span class="kamp-card-animal">🐱 Kedi</span>
+          </div>
+          <h3 class="kamp-card-title">GimCat 150 ml Ürünlerde %35 İndirim!</h3>
+          <p class="kamp-card-desc">Kedi atıştırmalıklarında sezonun en büyük indirimi.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--red">%35 indirim</span>
+            <button class="kamp-cta-btn">İncele →</button>
+          </div>
         </div>
-        <div class="qa-user">hilalkocak sordu.</div>
-        <div class="qa-answer">↳ Nihannnnn cevap verdi. E</div>
       </div>
-      <div class="qa-card">
-        <div class="qa-top">
-          <img src="https://placehold.co/40x40/fef3e2/555?text=F" alt="Avatar" class="qa-avatar">
-          <div class="qa-question">Fikirlerinize ihtiyacım var</div>
+
+      <!-- ══ 10 — Reflex Plus ══ -->
+      <div class="kamp-card" data-type="indirim kedi" data-discount="20" data-days="9" data-order="10" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1603232644140-bb47da511b92?w=600&h=340&auto=format&fit=crop" alt="Reflex Plus"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--indirim">%20'YE VARAN İNDİRİM</span>
+          </div>
+          <span class="kamp-brand-logo">Reflex Plus</span>
         </div>
-        <div class="qa-stats">
-          <span>👁 80</span><span>💬 11</span>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">İndirim</span>
+            <span class="kamp-card-animal">🐱 Kedi</span>
+          </div>
+          <h3 class="kamp-card-title">Reflex Plus Kedi Mamalarında %20'ye Varan İndirim!</h3>
+          <p class="kamp-card-desc">Türkiye'nin en çok tercih edilen kedi mamalarında büyük fırsat.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--red">%20'ye varan</span>
+            <button class="kamp-cta-btn">İncele →</button>
+          </div>
         </div>
-        <div class="qa-user">Nihannnnn sordu.</div>
-        <div class="qa-answer">↳ Nihannnnn cevap verdi. E</div>
       </div>
-      <div class="qa-card">
-        <div class="qa-top">
-          <img src="https://placehold.co/40x40/e8f4e8/555?text=K" alt="Avatar" class="qa-avatar">
-          <div class="qa-question">KONTİL İÇ PARAZİT</div>
+
+      <!-- ══ 11 — Wanpy Kaşık Krema ══ -->
+      <div class="kamp-card" data-type="hediye kedi" data-discount="0" data-days="4" data-order="11" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=600&h=340&auto=format&fit=crop" alt="Wanpy Kaşık Krema"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--hediye">🎁 KAŞIK KREMA HEDİYE</span>
+          </div>
+          <span class="kamp-badge kamp-badge--sure">⏱ 4 gün kaldı</span>
+          <span class="kamp-brand-logo">Wanpy</span>
         </div>
-        <div class="qa-stats">
-          <span>👁 1</span><span>👁 73</span><span>💬 6</span>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">Hediyeli</span>
+            <span class="kamp-card-animal">🐱 Kedi</span>
+          </div>
+          <h3 class="kamp-card-title">Wanpy Kedi Ürünlerinde Kaşık Krema Hediye!</h3>
+          <p class="kamp-card-desc">20 adet Wanpy alışverişinde 4 adet kaşık krema hediye sizi bekliyor.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--green">🎁 Kaşık Krema</span>
+            <button class="kamp-cta-btn">İncele →</button>
+          </div>
         </div>
-        <div class="qa-user">masakedi sordu.</div>
-        <div class="qa-answer">↳ masakedi cevap verdi. B</div>
       </div>
-      <div class="qa-card">
-        <div class="qa-top">
-          <img src="https://placehold.co/40x40/f0e6f0/555?text=K" alt="Avatar" class="qa-avatar">
-          <div class="qa-question">Kedi Kumu tavsiye ve secimi</div>
+
+      <!-- ══ 12 — Happy Cat ══ -->
+      <div class="kamp-card" data-type="hediye kedi" data-discount="0" data-days="11" data-order="12" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=600&h=340&auto=format&fit=crop" alt="Happy Cat"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--hediye">🎁 KONSERVE HEDİYE</span>
+          </div>
+          <span class="kamp-brand-logo">Happy Cat</span>
         </div>
-        <div class="qa-stats">
-          <span>👁 8</span><span>💬 0</span>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">Hediyeli</span>
+            <span class="kamp-card-animal">🐱 Kedi</span>
+          </div>
+          <h3 class="kamp-card-title">Happy Cat Kedi Mamalarında Konserve Hediye!</h3>
+          <p class="kamp-card-desc">Alışveriş miktarına göre ücretsiz konserve paketi kazanın.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--green">🎁 Hediye Konserve</span>
+            <button class="kamp-cta-btn">İncele →</button>
+          </div>
         </div>
-        <div class="qa-user">Sabria sordu. Bugün 15:16</div>
-        <div class="qa-answer"></div>
       </div>
-      <div class="qa-card">
-        <div class="qa-top">
-          <img src="https://placehold.co/40x40/e8f4f8/555?text=M" alt="Avatar" class="qa-avatar">
-          <div class="qa-question">Mama geçişi nasıl yapılmalı?</div>
+
+      <!-- ══ TAM GENİŞLİK BANNER 2 ══ -->
+      <div class="kamp-full-banner">
+        <img class="kamp-full-banner-bg" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&h=300&auto=format&fit=crop" alt="Kuş Banner"/>
+        <div class="kamp-full-banner-overlay">
+          <div class="kamp-full-banner-text">
+            <h2>🐦 Tüm Kuş Ürünlerinde %10 İndirim!</h2>
+            <p>Yem, kafes, oyuncak ve bakım ürünlerinde büyük kampanya — sınırlı süreyle</p>
+          </div>
+          <button class="kamp-full-banner-btn">Hemen Keşfet →</button>
         </div>
-        <div class="qa-stats">
-          <span>👁 34</span><span>💬 5</span>
+      </div>
+
+      <!-- ══ 13 — Happy Dog ══ -->
+      <div class="kamp-card" data-type="hediye kopek" data-discount="0" data-days="15" data-order="13" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=340&auto=format&fit=crop" alt="Happy Dog"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--hediye">🎁 ÖDÜLLü MAMA HEDİYE</span>
+          </div>
+          <span class="kamp-brand-logo">Happy Dog</span>
         </div>
-        <div class="qa-user">merakli_patron sordu.</div>
-        <div class="qa-answer">↳ Nihannnnn cevap verdi. E</div>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">Hediyeli</span>
+            <span class="kamp-card-animal">🐶 Köpek</span>
+          </div>
+          <h3 class="kamp-card-title">Happy Dog Köpek Mamalarında Ödüllü Mama Hediye!</h3>
+          <p class="kamp-card-desc">Happy Dog ürün gamında yapılan alışverişlere özel sürpriz hediye ürün.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--green">🎁 Ödüllü Hediye</span>
+            <button class="kamp-cta-btn">İncele →</button>
+          </div>
+        </div>
       </div>
-    </div>
-    <button class="slider-btn slider-prev" id="qaPrev" aria-label="Önceki">‹</button>
-    <button class="slider-btn slider-next" id="qaNext" aria-label="Sonraki">›</button>
-  </div>
-</section>
 
-<!-- SEO METİN -->
-<section class="seo-section">
-  <h2 class="seo-title">Pawco: Online Pet Shop ve Hayvanseverler Kulübü</h2>
-  <p>Kedi, köpek, kuş ve kemirgen ürünleri gibi farklı kategorilerdeki binlerce alternatifiyle evcil hayvanlarınızın tüm ihtiyaçlarını karşılayabileceğiniz Pawco, yalnızca güvenilir bir online pet shop değil aynı zamanda hayvanseverlerin fikir alışverişinde bulunduğu, sahipsiz dostlarının sıcak yuva bulmalarına yardımcı olan bir sosyal topluluktur.</p>
-
-  <h3 class="seo-subtitle">Minik Dostlarımızın İhtiyacı Olan Her Şey Pawco'da!</h3>
-  <p>Hayvanınızın ihtiyaç duyduğu tüm ürünleri bir arada bulmak istiyorsanız, Pawco sizin için en doğru adres! Ürünlerinin <strong>satışını yaptığı tüm markaların yetkili satıcısı olan ve ürünlerin son kullanma tarihi gibi kritik bilgileri şeffaflıkla sunan Pawco, %100 orijinal ürün garantisiyle hizmet veriyor.</strong></p>
-
-  <h3 class="seo-subtitle">Kedinizin Tüm İhtiyaçlarını Karşılayan Kedi Pet Shop Ürünleri</h3>
-  <p>Sağlıklı ve dengeli beslenme için dünyaca ünlü markalardan <a href="#">kedi mamaları</a>, <a href="#">ödül mamaları</a> ve vitaminleri; hijyen ve rahatlık için <a href="#">kedi kumları</a>, <a href="#">tuvaletleri</a>, <a href="#">tırmalama tahtaları</a> ve yatakları; bakım ve sağlık için <a href="#">kedi şampuanları</a> ve tarakları gibi ürünler Pawco'da! <a href="#">Mama ve su kapları</a>, eğlenceli <a href="#">kedi oyuncakları</a> ve <a href="#">kedi taşıma çantaları</a> da Pawco ayrıcalıkları ile bir tık uzağınızda.</p>
-
-  <h3 class="seo-subtitle">Köpek Pet Shop Ürünleri ile Köpeğinizin Konforu Artsın</h3>
-  <div class="seo-expand" id="seoExpand">
-    <p>Pawco'nun köpek kategorisinde 500'den fazla marka, 20.000'den fazla ürün seçeneği ile köpeğinizin ihtiyaç duyabileceği her ürün mevcuttur.</p>
-  </div>
-  <button class="expand-btn" id="expandBtn">Devamını Göster ▾</button>
-</section>
-
-<!-- ÖZELLİKLER -->
-<section class="features-section">
-  <div class="features-grid">
-    <div class="feature-item">
-      <div class="feature-icon">✓</div>
-      <div class="feature-title">%100 Orijinal Ürünler</div>
-      <div class="feature-desc">Ürünlerimizi resmi tedarikçilerden alıyoruz. Güvenle kullanın!</div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">↩</div>
-      <div class="feature-title">Ücretsiz Kolay İade</div>
-      <div class="feature-desc">15 gün içinde iade edin, kargo ücreti yok!</div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">◻</div>
-      <div class="feature-title">Özenli Paketleme</div>
-      <div class="feature-desc">Siparişlerinizi sağlam Pawco kutularına yerleştiriyoruz.</div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">🚚</div>
-      <div class="feature-title">Ücretsiz Hızlı Kargo</div>
-      <div class="feature-desc">799 TL ve üzeri tüm siparişlerde Türkiye'nin her yerine kargo BEDAVA!</div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-  </div><!-- /max-width wrapper -->
-
-
-  <!-- POPÜLER KATEGORİLER & MARKALAR -->
-<section class="popular-section" style="padding:25px">
-  <div class="popular-cols">
-    <div class="popular-col">
-      <h2 class="section-title">Popüler Kategoriler</h2>
-      <div class="popular-links">
-        <a href="#">Kedi Maması</a><a href="#">Yavru Kedi Maması</a><a href="#">Kısırlaştırılmış Kedi Maması</a>
-        <a href="#">Yetişkin Kedi Maması</a><a href="#">Kedi Kumu</a><a href="#">Kedi Konservesi &amp; Yaş Mama</a>
-        <a href="#">Kedi Ödül Maması</a><a href="#">Kedi Taşıma Çantası</a><a href="#">Kedi Oyuncakları</a>
-        <a href="#">Kedi Tuvaleti</a><a href="#">Kedi Tırmalama Tahtası</a><a href="#">Kedi Su Pınarı</a>
-        <a href="#">Bentonit Kedi Kumu</a><a href="#">Kedi Krema Ödülü</a><a href="#">Köpek Krema Ödülü</a>
-        <a href="#">Kedi Mama ve Su Kabı</a><a href="#">Kedi Kumu Koku Giderici</a><a href="#">Kedi Vitamini</a>
-        <a href="#">Kedi Tasması</a><a href="#">Kedi Yatağı</a><a href="#">Kedi Tarağı</a>
-        <a href="#">Kedi Otu</a><a href="#">Kedi Evi</a><a href="#">Kedi Şampuanı</a>
-        <a href="#">Kedi Malti</a><a href="#">Buharlı Kedi Tarağı</a><a href="#">Köpek Maması</a>
-        <a href="#">Yavru Köpek Maması</a><a href="#">Yaşlı Kedi Maması</a><a href="#">Yaşlı Köpek Maması</a>
-        <a href="#">Yetişkin Köpek Maması</a><a href="#">Köpek Konservesi &amp; Yaş Mama</a><a href="#">Köpek Ödül Maması</a>
-        <a href="#">Köpek Taşıma Çantası</a><a href="#">Köpek Oyuncakları</a><a href="#">Köpek Mama Kabı</a>
-        <a href="#">Köpek Tasması</a><a href="#">Köpek Yatağı</a><a href="#">Köpek Şampuanı</a>
-        <a href="#">Kuş Yemleri</a><a href="#">Muhabbet Kuşu Yemi</a><a href="#">Muhabbet Kuşu Oyuncakları</a>
-        <a href="#">Veteriner Kedi Maması</a><a href="#">Veteriner Köpek Maması</a><a href="#">Kedi Lolipop Ödülü</a>
+      <!-- ══ 14 — Pro Plan %10 ══ -->
+      <div class="kamp-card" data-type="indirim kopek" data-discount="10" data-days="18" data-order="14" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=340&auto=format&fit=crop" alt="Pro Plan Köpek"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--indirim">%10 İNDİRİM</span>
+          </div>
+          <span class="kamp-brand-logo">Pro Plan</span>
+        </div>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">İndirim</span>
+            <span class="kamp-card-animal">🐶 Köpek</span>
+          </div>
+          <h3 class="kamp-card-title">Pro Plan 10 Kg Köpek Mamalarında %10 İndirim!</h3>
+          <p class="kamp-card-desc">Yetişkin ve yavru köpeklere özel Pro Plan serilerinde avantajlı fiyat.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--red">%10 indirim</span>
+            <button class="kamp-cta-btn">İncele →</button>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="popular-col">
-      <h2 class="section-title">Popüler Markalar</h2>
-      <div class="popular-links">
-        <a href="#">Pro Plan</a><a href="#">Royal Canin</a><a href="#">Hill's</a><a href="#">N&amp;D</a>
-        <a href="#">Acana</a><a href="#">Brit Care</a><a href="#">Felicia</a><a href="#">Reflex</a>
-        <a href="#">Advance</a><a href="#">Orijen</a><a href="#">Wanpy</a><a href="#">Me-O</a>
-        <a href="#">Ever Clean</a><a href="#">Prolife</a><a href="#">Felix</a>
-        <a href="#">Pro Plan Kedi Maması</a><a href="#">Royal Canin Kedi Maması</a><a href="#">Hill's Kedi Maması</a>
-        <a href="#">N&amp;D Kedi Maması</a><a href="#">Acana Kedi Maması</a><a href="#">Brit Care Kedi Maması</a>
-        <a href="#">Felicia Kedi Maması</a><a href="#">Reflex Kedi Maması</a><a href="#">Orijen Kedi Maması</a>
-        <a href="#">Pro Plan Kısırlaştırılmış Kedi Maması</a><a href="#">Royal Canin Kısırlaştırılmış Kedi Maması</a>
-        <a href="#">Hill's Kısırlaştırılmış Kedi Maması</a><a href="#">N&amp;D Kısırlaştırılmış Kedi Maması</a>
-        <a href="#">Wanpy Kedi Ödülü</a><a href="#">Felix Yaş Kedi Maması</a><a href="#">Pro Choice Kedi Maması</a>
-        <a href="#">Pro Plan Köpek Maması</a><a href="#">Royal Canin Köpek Maması</a><a href="#">Hill's Köpek Maması</a>
-        <a href="#">N&amp;D Köpek Maması</a><a href="#">Acana Köpek Maması</a><a href="#">Brit Care Köpek Maması</a>
-        <a href="#">Felicia Köpek Maması</a><a href="#">Reflex Köpek Maması</a><a href="#">Orijen Köpek Maması</a>
-        <a href="#">Pro Plan Yavru Kedi Maması</a><a href="#">Royal Canin Yavru Kedi Maması</a>
-        <a href="#">Me-O Kedi Ödülü</a><a href="#">Ever Clean Kedi Kumu</a>
+
+      <!-- ══ 15 — Gnawlers ══ -->
+      <div class="kamp-card" data-type="indirim kopek" data-discount="15" data-days="22" data-order="15" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?w=600&h=340&auto=format&fit=crop" alt="Gnawlers"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--indirim">%15 İNDİRİM</span>
+          </div>
+          <span class="kamp-brand-logo">Gnawlers</span>
+        </div>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">İndirim</span>
+            <span class="kamp-card-animal">🐶 Köpek</span>
+          </div>
+          <h3 class="kamp-card-title">Gnawlers Tüm Ürünlerinde %15 İndirim!</h3>
+          <p class="kamp-card-desc">Kemirme oyuncakları ve ödül mamaları serisinde özel indirim.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--red">%15 indirim</span>
+            <button class="kamp-cta-btn">İncele →</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
 
-  <!-- ÖZELLİKLER -->
-  <section class="features-section">
-    <div class="features-grid">
-      <div class="feature-item"><div class="feature-icon">✓</div><div class="feature-title">%100 Orijinal Ürünler</div><div class="feature-desc">Ürünlerimizi resmi tedarikçilerden alıyoruz. Güvenle kullanın!</div></div>
-      <div class="feature-item"><div class="feature-icon">↩</div><div class="feature-title">Ücretsiz Kolay İade</div><div class="feature-desc">15 gün içinde iade edin, kargo ücreti yok!</div></div>
-      <div class="feature-item"><div class="feature-icon">◻</div><div class="feature-title">Özenli Paketleme</div><div class="feature-desc">Siparişlerinizi sağlam Pawco kutularına yerleştiriyoruz.</div></div>
-      <div class="feature-item"><div class="feature-icon">🚚</div><div class="feature-title">Ücretsiz Hızlı Kargo</div><div class="feature-desc">799 TL ve üzeri tüm siparişlerde Türkiye'nin her yerine kargo BEDAVA!</div></div>
-    </div>
-  </section>
+      <!-- ══ 16 — Pedigree ══ -->
+      <div class="kamp-card" data-type="indirim kopek" data-discount="10" data-days="30" data-order="16" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=600&h=340&auto=format&fit=crop" alt="Pedigree"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--indirim">%10 İNDİRİM</span>
+          </div>
+          <span class="kamp-brand-logo">Pedigree</span>
+        </div>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">İndirim</span>
+            <span class="kamp-card-animal">🐶 Köpek</span>
+          </div>
+          <h3 class="kamp-card-title">Pedigree Tüm Ürünlerinde %10 İndirim!</h3>
+          <p class="kamp-card-desc">Köpeğiniz için ihtiyacınız olan her şeyde uygun fiyat fırsatı.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--red">%10 indirim</span>
+            <button class="kamp-cta-btn">İncele →</button>
+          </div>
+        </div>
+      </div>
 
+      <!-- ══ 17 — Whiskas ══ -->
+      <div class="kamp-card" data-type="indirim kedi" data-discount="15" data-days="16" data-order="17" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=600&h=340&auto=format&fit=crop" alt="Whiskas"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--indirim">%15 İNDİRİM</span>
+          </div>
+          <span class="kamp-brand-logo">Whiskas</span>
+        </div>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">İndirim</span>
+            <span class="kamp-card-animal">🐱 Kedi</span>
+          </div>
+          <h3 class="kamp-card-title">Whiskas Kedi Ürünlerinde %15 İndirim!</h3>
+          <p class="kamp-card-desc">Tüm Whiskas mama ve atıştırmalık ürünlerinde avantajlı kampanya.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--red">%15 indirim</span>
+            <button class="kamp-cta-btn">İncele →</button>
+          </div>
+        </div>
+      </div>
 
+      <!-- ══ 18 — Kuş Tüm Ürünler ══ -->
+      <div class="kamp-card" data-type="indirim kus" data-discount="10" data-days="25" data-order="18" onclick="openKampanya(this)">
+        <div class="kamp-card-img">
+          <img src="https://images.unsplash.com/photo-1444464666168-49d633b86797?w=600&h=340&auto=format&fit=crop" alt="Kuş Ürünleri"/>
+          <div class="kamp-card-badges">
+            <span class="kamp-badge kamp-badge--indirim">%10 İNDİRİM</span>
+          </div>
+          <span class="kamp-brand-logo">Tüm Markalar</span>
+        </div>
+        <div class="kamp-card-body">
+          <div class="kamp-card-meta">
+            <span class="kamp-card-type">İndirim</span>
+            <span class="kamp-card-animal">🐦 Kuş</span>
+          </div>
+          <h3 class="kamp-card-title">Tüm Kuş Ürünlerinde %10 İndirim!</h3>
+          <p class="kamp-card-desc">Yem, kafes aksesuarı ve oyuncaklar dahil tüm kuş kategorisinde geçerli.</p>
+          <div class="kamp-card-footer">
+            <span class="kamp-discount-pill kamp-discount-pill--red">%10 indirim</span>
+            <button class="kamp-cta-btn">İncele →</button>
+          </div>
+        </div>
+      </div>
 
+      <!-- DAHA FAZLA -->
+      <div class="kamp-load-more">
+        <button class="kamp-load-more-btn" onclick="alert('Daha fazla kampanya yükleniyor…')">
+          Daha Fazla Kampanya Göster ↓
+        </button>
+      </div>
 
+    </div><!-- /kamp-grid -->
+  </div><!-- /kamp-page -->
 
-
-
-
-
-
+ 
   
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -2345,14 +1313,7 @@
     <p>PAWCO EVCİL HAYVAN ÜRÜNLERİ PAZ. SAN. TİC. LTD. ŞTİ. Kartal/İstanbul</p>
     <p>2026 © pawco.com | sevgiyle yapıldı. ❤</p>
   </div>
-
-  <!-- MOBILE OVERLAY -->
-  <div class="mobile-overlay" id="mobile-overlay"></div>
-
-  <!-- MOBILE NAV DRAWER — JS tarafından doldurulur (mobile menu farklı bir UX, burada kalabilir) -->
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobil Menü"></nav>
-
-  <!-- data.js artık GEREKMİYOR — tüm navbar verisi HTML'de -->
   <script src="js/main.js"></script>
+  <script src="js/kampanyalar.js"></script>
 </body>
 </html>
