@@ -435,7 +435,7 @@ const slides = [
     badge: "Yeni Sezon",
     title: "Dostlarınız İçin <br> <span>En Sağlıklı</span> Seçimler",
     desc: "Özenle seçilmiş içeriklerle hazırlanan mamalar şimdi %20 indirimle.",
-    image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=800",
+       image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800",
     bgColor: "#F3F5F7"
   },
   {
