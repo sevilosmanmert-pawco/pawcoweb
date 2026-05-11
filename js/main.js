@@ -15,7 +15,7 @@ function loadData() {
   setupEventListeners();
 
   if (siteData) {
-    if (document.getElementById('animal-picks'))  renderAnimalPicks();
+  /*  if (document.getElementById('animal-picks'))  renderAnimalPicks();*/
     if (document.getElementById('main-section'))  renderFeaturedSection();
     if (document.getElementById('mobile-nav'))    renderMobileNav();
     if (document.getElementById('hero'))          renderHero();
@@ -36,7 +36,7 @@ function renderHeader() {
   const header = document.getElementById('header');
   header.innerHTML = `
     <div class="header-inner">
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
+      
       <a href="#" class="logo">
         <span class="logo-icon">🐾</span>
         <span class="logo-text">paw<span>co</span></span>
@@ -45,6 +45,7 @@ function renderHeader() {
         <input type="text" id="searchInput" placeholder="Ne aramıştınız?..." autocomplete="off"/>
         <button class="search-btn" onclick="handleSearch()">🔍</button>
       </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
       <div class="header-actions">
         <button class="header-action-btn" onclick="alert('Yardım sayfası açılıyor...')">
           <span class="btn-icon">🎧</span><span>Yardım</span>
@@ -515,45 +516,70 @@ function startHeroAutoplay() {
 // ── MOBILE NAV ─────────────────────────────────────────────
 function renderMobileNav() {
   const mobileNav = document.getElementById('mobile-nav');
+  if (!mobileNav || !siteData) return;
+
   const animals = Object.entries(siteData.animals);
+  if (animals.length === 0) return;
+
+  // İlk hayvanı aktif seç
   mobileActiveAnimal = animals[0][0];
 
   mobileNav.innerHTML = `
     <div class="mobile-nav-header">
       <div class="logo">
-        <span style="font-size:24px">🐾</span>
-        <span class="logo-text" style="color:#fff;font-size:22px">paw<span style="color:var(--accent)">co</span></span>
+        <span class="logo-text" style="color:#fff; font-size:22px; font-weight:bold;">paw<span style="color:var(--accent)">co</span></span>
       </div>
-      <button class="mobile-close-btn" onclick="closeMobileNav()">✕</button>
+      <button class="mobile-close-btn" onclick="closeMobileNav()" style="background:none; border:none; color:white; font-size:24px;">✕</button>
     </div>
-    <div class="mobile-search">
-      <input type="text" placeholder="Ürün ara..." id="mobileSearchInput"/>
+    
+    <div class="mobile-search" style="padding: 10px;">
+      <input type="text" placeholder="Ürün, marka veya kategori ara..." id="mobileSearchInput" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd;"/>
     </div>
-    <div class="mobile-animal-tabs" id="mobile-animal-tabs">
+
+    <div class="mobile-animal-tabs" id="mobile-animal-tabs" style="display:flex; overflow-x:auto; background:#f8f9fa; border-bottom:1px solid #eee;">
       ${animals.map(([id, data], i) => `
-        <button class="mobile-animal-tab ${i === 0 ? 'active' : ''}" data-animal="${id}" onclick="switchMobileAnimal('${id}', this)">
-          <span class="tab-icon">${data.icon}</span>
+        <button class="mobile-animal-tab ${i === 0 ? 'active' : ''}" 
+                data-animal="${id}" 
+                onclick="switchMobileAnimal('${id}', this)"
+                style="padding: 15px; border:none; background:none; white-space:nowrap; font-weight:600;">
           ${data.label}
         </button>
       `).join('')}
     </div>
-    <div class="mobile-menu-items" id="mobile-menu-items">
+
+    <div class="mobile-menu-items" id="mobile-menu-items" style="padding: 10px; background:#fff;">
       ${renderMobileMenuItems(mobileActiveAnimal)}
     </div>
   `;
 }
-
 function renderMobileMenuItems(animalId) {
   const animal = siteData.animals[animalId];
-  return animal.sidebar.map(item => `
-    <div class="mobile-menu-item" onclick="handleCategoryClick('${item.label}'); closeMobileNav()">
-      <div class="mobile-menu-item-left">
-        <span style="font-size:20px">${item.icon}</span>
+  if (!animal) return 'Veri bulunamadı';
+
+  // Eğer veri yapısında 'sidebar' varsa onu kullan, yoksa 'categories' kullan
+  const menuData = animal.sidebar || animal.categories; 
+  
+  if (!menuData) return 'Kategori bulunamadı';
+
+  // Eğer veri bir diziyse (Array)
+  if (Array.isArray(menuData)) {
+    return menuData.map(item => `
+      <div class="mobile-menu-item" style="padding-left:20px;" onclick="window.location.href='search.html?q=${encodeURIComponent(item.label)}'">
         <span>${item.label}</span>
+        <span class="arrow">›</span>
       </div>
-      ${item.hasChildren ? '<span>›</span>' : ''}
-    </div>
-  `).join('');
+    `).join('');
+  } 
+  
+  // Eğer veri bir nesneyse (Object - Kategori başlıkları varsa)
+  return Object.entries(menuData).map(([key, cat]) => `
+    <div class="mobile-category-title" style="padding:10px; font-weight:bold; background:#f0f0f0;">${cat.title || key}</div>
+    ${cat.items ? cat.items.map(sub => `
+      <div class="mobile-menu-item" style="padding-left:20px;" onclick="window.location.href='search.html?q=${encodeURIComponent(sub.label)}'">
+        <span>${sub.label}</span>
+      </div>
+    `).join('') : ''}
+`).join('');
 }
 
 function switchMobileAnimal(animalId, btn) {
