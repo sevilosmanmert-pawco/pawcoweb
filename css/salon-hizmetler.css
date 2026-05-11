@@ -1044,3 +1044,211 @@
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+/* ════════════════════════════════════════════════════
+   GÖRSEL GÜNCELLEME — Resimli kart tasarımı
+   • Sol panel büyütüldü, fontlar artırıldı, ikonlar kaldırıldı
+   • Kart grid 2 sütunlu yapıldı (referans görseldeki gibi)
+   • Her karta üst fotoğraf eklendi
+   ════════════════════════════════════════════════════ */
+
+/* ── SOL KATEGORİ PANELİ: BÜYÜT + FONT ARTIR ── */
+.hizmet-filter-panel {
+  width: 300px !important;
+  min-width: 280px !important;
+}
+
+.hizmet-filter-title {
+  font-size: 11px !important;
+  letter-spacing: 1.2px !important;
+  padding: 18px 20px 12px !important;
+}
+
+/* Kategori butonları: ikon yok, büyük font */
+.hs-cat-btn {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  padding: 14px 20px !important;
+  margin-bottom: 2px !important;
+  border-radius: 8px !important;
+  gap: 0 !important;
+  letter-spacing: 0.1px;
+  line-height: 1.3;
+}
+
+.hs-cat-btn:hover {
+  background: #fff4ef !important;
+  color: #e85d04 !important;
+}
+
+.hs-cat-btn.active {
+  background: #fff4ef !important;
+  color: #e85d04 !important;
+  font-weight: 800 !important;
+  border-left: 3px solid #e85d04;
+  padding-left: 17px !important;
+}
+
+/* ikon span'ı varsa gizle (JS render edilmişse) */
+.hs-cat-icon {
+  display: none !important;
+}
+
+/* Seçim özeti biraz daha geniş */
+.hs-selected-summary {
+  margin: 20px 20px 0 !important;
+}
+
+/* ── KART GRİD: 2 SÜTUN (referans görseldeki gibi) ── */
+.hs-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px !important;
+}
+
+/* ── KART: BÜYÜK RESİM ÜSTTE ── */
+.hs-card {
+  padding: 0 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1.5px solid #e8e8e8 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: border-color .2s, box-shadow .2s, transform .2s !important;
+}
+
+.hs-card:hover {
+  border-color: #e85d04 !important;
+  box-shadow: 0 8px 32px rgba(232,93,4,.13) !important;
+  transform: translateY(-3px) !important;
+}
+
+.hs-card.selected {
+  border-color: #e85d04 !important;
+  background: #fff9f6 !important;
+}
+
+/* Fotoğraf alanı */
+.hs-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #f0f0f0;
+  flex-shrink: 0;
+}
+
+.hs-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+}
+
+.hs-card:hover .hs-card-img {
+  transform: scale(1.05);
+}
+
+/* Hayvan türü rozeti (sağ üst köşe) */
+.hs-card-animal-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,.52);
+  color: #fff;
+  font-size: 13px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  letter-spacing: .5px;
+}
+
+/* Öne çıkan kart rozeti — resim üstünde göster */
+.hs-card-badge-top {
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  right: auto !important;
+  z-index: 2;
+  font-size: 11px !important;
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+}
+
+/* Kart içerik alanı (resmin altı) */
+.hs-card-head {
+  padding: 18px 20px 0 !important;
+  margin-top: 0 !important;
+}
+
+.hs-card--featured .hs-card-head {
+  margin-top: 0 !important;
+  padding-top: 18px !important;
+}
+
+.hs-card-name {
+  font-size: 17px !important;
+  font-weight: 800 !important;
+}
+
+.hs-card-price {
+  font-size: 12px !important;
+  padding: 4px 11px !important;
+}
+
+.hs-card-list {
+  padding: 0 20px !important;
+  margin: 10px 0 14px !important;
+}
+
+.hs-card-list li {
+  font-size: 13px !important;
+  color: #555 !important;
+  line-height: 1.5 !important;
+}
+
+.hs-card-footer {
+  padding: 12px 20px 16px !important;
+  margin: auto 0 0 !important;
+}
+
+.hs-select-btn {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+/* ── PANEL BAŞLIĞI FONT ── */
+.hs-panel-title {
+  font-size: 18px !important;
+  margin-bottom: 22px !important;
+}
+
+/* ── SAYFA BAŞLIĞI FONT ── */
+.hizmet-page-title {
+  font-size: 36px !important;
+  font-weight: 900 !important;
+}
+
+/* ── MOBİL ── */
+@media (max-width: 960px) {
+  .hizmet-filter-panel {
+    width: 100% !important;
+    min-width: unset !important;
+  }
+  .hs-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hs-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hs-card-img-wrap {
+    height: 180px !important;
+  }
+  .hs-cat-btn {
+    font-size: 13px !important;
+    padding: 11px 16px !important;
+  }
+}
