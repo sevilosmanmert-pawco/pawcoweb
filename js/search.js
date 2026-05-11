@@ -2,14 +2,14 @@
    PAWCO — search.js
    Arama sayfası: ürünler, filtreler, sıralama, sayfalama
    ===================================================== */
-
+const brands   = ['Royal Canin','Hill\'s','Pro Plan','Orijen','Acana','Brit Care','Felicia','Reflex','Whiskas','Pedigree','Wanpy','Felix','ND','Pro Choice'];
+const brandIds = ['royal-canin','hills','pro-plan','orijen','acana','brit-care','felicia','reflex','whiskas','pedigree','wanpy','felix','nd','pro-choice'];
+ 
 /* ── MOCK ÜRÜN VERİSİ ──────────────────────────────── */
 const MOCK_PRODUCTS = generateMockProducts();
 
 function generateMockProducts() {
-  const brands   = ['Royal Canin','Hill\'s','Pro Plan','Orijen','Acana','Brit Care','Farmina N&D','Reflex','Whiskas','Pedigree','Wanpy','Felix'];
-  const brandIds = ['royal-canin','hills','pro-plan','orijen','acana','brit-care','farmina','reflex','whiskas','pedigree','wanpy','felix'];
-  const types    = ['kuru-mama','yas-mama','odul','vitamin','oyuncak','aksesuar','bakim','kum'];
+   const types    = ['kuru-mama','yas-mama','odul','vitamin','oyuncak','aksesuar','bakim','kum'];
   const animals  = ['kedi','kopek','kus','balik','kemirgen'];
   const weights  = ['400g','1kg','2kg','4kg','8kg','15kg','85g','200g','400ml'];
 
@@ -146,6 +146,31 @@ document.addEventListener('DOMContentLoaded', () => {
   initBrandSearch();
   render();
 });
+
+const params = new URLSearchParams(window.location.search);
+const brandParam = params.get("brand");
+
+if (brandParam) {
+
+  const checkbox = document.querySelector(
+    `input[data-filter="brand"][value="${brandParam}"]`
+  );
+
+  if (checkbox) {
+
+    // checkbox işaretle
+    checkbox.checked = true;
+
+    // state'e ekle
+    state.filters.brand = [brandParam];
+
+    // event tetikle
+    checkbox.dispatchEvent(new Event("change"));
+
+    // ürünleri yeniden çiz
+    renderProducts();
+  }
+}
 
 /* ── URL PARAMS ─────────────────────────────────────── */
 function readUrlParams() {
@@ -483,6 +508,13 @@ function renderResultsHeader(total) {
   const title = document.getElementById('resultsTitle');
   const count = document.getElementById('resultsCount');
   if (title) title.textContent = state.query ? `"${state.query}" için sonuçlar` : 'Tüm Ürünler';
+  if (brandParam) {
+   const index = brandIds.indexOf(brandParam);
+
+  if (index !== -1) {
+    title.textContent = brands[index];
+  }
+  }
   if (count) count.textContent = `${total.toLocaleString('tr-TR')} ürün bulundu`;
 }
 
