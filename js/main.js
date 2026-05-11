@@ -244,7 +244,7 @@ function renderDropdownContent(animalId, itemId) {
 
 function handleCategoryClick(label) {
   closeAllDropdowns();
-  alert(`"${label}" kategorisi açılıyor...`);
+ 
 }
 
 
@@ -275,7 +275,7 @@ function renderFeaturedSection() {
   section.innerHTML = `
     <div class="section-header">
       <h2 class="section-title">🔥 Popüler <span>Kategoriler</span></h2>
-      <span class="see-all" onclick="alert('Tüm kategoriler açılıyor...')">Tümü ›</span>
+      <span class="see-all" >Tümü ›</span>
     </div>
     <div class="featured-grid" id="featured-grid"></div>
   `;
