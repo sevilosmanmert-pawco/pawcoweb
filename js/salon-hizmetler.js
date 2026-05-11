@@ -78,6 +78,7 @@ function showStep(n) {
 function goToStep(n) {
   state.step = n;
   showStep(n);
+  if (n === 1) applyPetLayout();
   if (n === 3) renderCalendar();
   if (n === 4) fillSummary();
   renderWizardBar();
@@ -171,32 +172,118 @@ function selectPetType(btn, type) {
   state.petType = type;
   document.querySelectorAll('.wiz-pet-type').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  // Step 1 layout'u da güncelle (eğer step 1'deyse)
+  applyPetLayout();
 }
 
-// ── ADIM 1: HİZMET SEÇİMİ ───────────────────────────
-function selectCategory(card, cat) {
+// Kedi/köpek layout'unu göster/gizle
+function applyPetLayout() {
+  const kl = document.getElementById('kedi-layout');
+  const kol = document.getElementById('kopek-layout');
+  if (!kl || !kol) return;
+  if (state.petType === 'kedi') {
+    kl.style.display  = '';
+    kol.style.display = 'none';
+    // Kedi sol menüde ilk kategoriyi aktif et
+    const firstCat = kl.querySelector('.hs-cat-btn');
+    if (firstCat) switchHizmetCat(firstCat, 'kedi', firstCat.dataset.cat);
+  } else {
+    kl.style.display  = 'none';
+    kol.style.display = '';
+    const firstCat = kol.querySelector('.hs-cat-btn');
+    if (firstCat) switchHizmetCat(firstCat, 'kopek', firstCat.dataset.cat);
+  }
+}
+
+// ── ADIM 1: KATEGORİ GEÇİŞİ ─────────────────────────
+function switchHizmetCat(btn, scope, cat) {
+  // Sol menüde aktif buton güncelle (sadece aynı scope içinde)
+  const layout = document.getElementById(scope + '-layout');
+  if (!layout) return;
+  layout.querySelectorAll('.hs-cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Sağdaki panelleri gizle, seçileni göster
+  layout.querySelectorAll('.hs-panel').forEach(p => p.style.display = 'none');
+  const target = document.getElementById(scope + '-panel-' + cat);
+  if (target) target.style.display = '';
+}
+
+// ── ADIM 1: HİZMET KART SEÇİMİ ──────────────────────
+function toggleSvc(card) {
+  const svc = card.dataset.svc;
   if (card.classList.contains('selected')) {
     card.classList.remove('selected');
-    state.services.delete(cat);
+    state.services.delete(svc);
   } else {
     card.classList.add('selected');
-    state.services.add(cat);
+    state.services.add(svc);
   }
-  syncCheckboxes(cat);
   updateStep1UI();
 }
 
 function updateStep1UI() {
+  // Köpek bilgi satırı
   const info     = document.getElementById('selectionInfo');
   const infoText = document.getElementById('selectionText');
-  if (state.services.size > 0) {
-    info.style.display   = 'flex';
-    infoText.textContent = state.services.size + ' hizmet kategorisi se\u00e7ildi';
-  } else {
-    info.style.display = 'none';
+  // Kedi bilgi satırı
+  const infoK    = document.getElementById('selectionInfo-kedi');
+  const infoKTxt = document.getElementById('selectionText-kedi');
+
+  const count = state.services.size;
+  const label = count + ' hizmet seçildi';
+
+  if (info) {
+    info.style.display   = count > 0 ? 'flex' : 'none';
+    if (infoText) infoText.textContent = label;
   }
+  if (infoK) {
+    infoK.style.display   = count > 0 ? 'flex' : 'none';
+    if (infoKTxt) infoKTxt.textContent = label;
+  }
+
+  // Sol özet paneli
+  updateSummaryPanel('kopek');
+  updateSummaryPanel('kedi');
+
   renderWizardBar();
 }
+
+function updateSummaryPanel(scope) {
+  const summary = document.getElementById(scope + '-summary');
+  const list    = document.getElementById(scope + '-summary-list');
+  if (!summary || !list) return;
+
+  // Hangi svc'ler bu scope'a ait? — prefix ile anlıyoruz
+  const prefix = scope === 'kopek' ? 'k-' : 'ke-';
+  const mine   = [...state.services].filter(s => s.startsWith(prefix));
+
+  if (mine.length === 0) {
+    summary.style.display = 'none';
+    return;
+  }
+  summary.style.display = '';
+
+  // Kart isimlerini bul
+  list.innerHTML = mine.map(svc => {
+    const card = document.querySelector(`.hs-card[data-svc="${svc}"]`);
+    const name = card ? card.querySelector('.hs-card-name')?.textContent : svc;
+    return `<div style="display:flex;align-items:center;gap:5px">
+      <span style="color:#e85d04">✓</span>
+      <span>${name}</span>
+    </div>`;
+  }).join('');
+}
+
+function clearSelection() {
+  state.services.clear();
+  document.querySelectorAll('.hs-card.selected').forEach(c => c.classList.remove('selected'));
+  updateStep1UI();
+}
+
+function selectCategory() {} // eski fonksiyon — artık kullanılmıyor, boş bırak
+function syncCheckboxes()  {} // eski — boş
+
 
 function clearSelection() {
   state.services.clear();
@@ -653,7 +740,10 @@ window.filterCity         = filterCity;
 window.selectLocation     = selectLocation;
 window.calShift           = calShift;
 window.confirmAppointment = confirmAppointment;
-// Yeni: kayıtlı hayvan dropdown
+// Kayıtlı hayvan dropdown
 window.togglePetDropdown  = togglePetDropdown;
 window.selectSavedPet     = selectSavedPet;
 window.clearSelectedPet   = clearSelectedPet;
+// Yeni hizmet sistemi
+window.switchHizmetCat    = switchHizmetCat;
+window.toggleSvc          = toggleSvc;
