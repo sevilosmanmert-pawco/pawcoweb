@@ -76,7 +76,7 @@ body {
 }
 
 .header-inner {
-  max-width: 1300px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 14px 20px;
   display: flex;
@@ -217,7 +217,7 @@ body {
   border-bottom: 1px solid var(--border);
 }
 .navbar-inner {
-  max-width: 1300px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
@@ -432,7 +432,7 @@ body {
    HERO / BANNER
    ============================== */
 .hero {
-  max-width: 1300px;
+  max-width: 1500px;
  
   margin: 20px auto;
   padding: 0 15px;
@@ -1165,7 +1165,7 @@ body {
    ANIMAL QUICK PICKS
    ============================== */
 .animal-picks {
-  max-width: 1300px;
+  max-width: 1500px;
   margin: 28px auto 0;
   padding: 0 20px;
   display: grid;
@@ -1218,7 +1218,7 @@ body {
    MAIN CONTENT AREA
    ============================== */
 .main-section {
-  max-width: 1300px;
+  max-width: 1500px;
   margin: 40px auto 60px;
   padding: 0 20px;
 }

@@ -254,6 +254,7 @@ function scrollToSection() {
 }
 
 // ── ANIMAL PICKS ───────────────────────────────────────────
+/*
 function renderAnimalPicks() {
   const container = document.getElementById('animal-picks');
   const animals = Object.entries(siteData.animals);
@@ -267,7 +268,7 @@ function renderAnimalPicks() {
       <div class="animal-pick-arrow">›</div>
     </div>
   `).join('');
-}
+}*/
 
 // ── FEATURED SECTION ───────────────────────────────────────
 function renderFeaturedSection() {
