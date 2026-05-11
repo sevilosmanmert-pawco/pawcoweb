@@ -91,6 +91,9 @@ body {
   text-decoration: none;
   flex-shrink: 0;
 }
+.logo img{
+  max-width: 200px;
+}
 
 .logo-icon {
   font-size: 32px;
