@@ -532,9 +532,7 @@ function renderMobileNav() {
       <button class="mobile-close-btn" onclick="closeMobileNav()" style="background:none; border:none; color:white; font-size:24px;">✕</button>
     </div>
     
-    <div class="mobile-search" style="padding: 10px;">
-      <input type="text" placeholder="Ürün, marka veya kategori ara..." id="mobileSearchInput" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd;"/>
-    </div>
+  
 
     <div class="mobile-animal-tabs" id="mobile-animal-tabs" style="display:flex; overflow-x:auto; background:#f8f9fa; border-bottom:1px solid #eee;">
       ${animals.map(([id, data], i) => `
