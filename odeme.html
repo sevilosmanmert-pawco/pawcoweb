@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Pawco - Güvenli Ödeme"/>
+  <title>Pawco 🐾 - Güvenli Ödeme</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/odeme.css"/>
+</head>
+<body class="checkout-body">
+
+  <!-- ═══ CHECKOUT HEADER (siteyle ayrı, minimal) ═══ -->
+  <header class="checkout-header">
+    <a href="index.html" class="checkout-logo">
+      <span class="logo-icon">🐾</span>
+      <span class="logo-text">paw<span>co</span></span>
+    </a>
+    <div class="checkout-security">
+      <span class="security-icon">🔒</span>
+      <div class="security-text">
+        <strong>Güvenli Ödeme</strong>
+        <span>Bu sayfa 256bit SSL ile şifrelenmiştir.</span>
+      </div>
+    </div>
+    <a href="#" class="checkout-help">Yardım</a>
+  </header>
+
+  <!-- ═══ BREADCRUMB ═══ -->
+  <div class="checkout-breadcrumb">
+    <a href="index.html">🏠</a>
+    <span class="bc-sep">›</span>
+    <span id="bcLabel">Adres ve İletişim Bilgileri</span>
+  </div>
+
+  <!-- ═══ CHECKOUT STEPS ═══ -->
+  <div class="checkout-steps-bar">
+    <div class="checkout-step checkout-step--active" id="stepTab1">
+      <div class="cstep-num">1</div>
+      <div class="cstep-label">Adres Bilgileri</div>
+    </div>
+    <div class="cstep-connector"></div>
+    <div class="checkout-step" id="stepTab2">
+      <div class="cstep-num">2</div>
+      <div class="cstep-label">Ödeme</div>
+    </div>
+  </div>
+
+  <!-- ═══ MAIN LAYOUT ═══ -->
+  <div class="checkout-layout">
+
+    <!-- ── SOL: ADIM İÇERİKLERİ ── -->
+    <div class="checkout-main">
+
+      <!-- ════ ADIM 1: ADRES ════ -->
+      <div class="checkout-step-panel" id="panel-address">
+
+        <!-- Sepetimdeki Ürünler (collapsed, accordion) -->
+        <div class="co-card co-card--accordion" id="cartSummaryAccordion">
+          <div class="co-accordion-head" id="cartAccordionHead">
+            <div class="co-accordion-title">
+              <span class="co-accordion-icon">🛒</span>
+              Sepetimdeki Ürünler <span class="co-item-count">(1)</span>
+            </div>
+            <span class="co-accordion-arrow" id="cartAccordionArrow">▾</span>
+          </div>
+          <div class="co-accordion-body" id="cartAccordionBody" style="display:none">
+            <div class="cart-items-list">
+              <div class="cart-checkout-item">
+                <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=80&auto=format&fit=crop" alt="Ürün"/>
+                <div class="cart-checkout-item-info">
+                  <div class="cart-checkout-item-name">Pro Plan Sterilised Kedi Maması Somon 10kg</div>
+                  <div class="cart-checkout-item-brand">Pro Plan</div>
+                  <div class="cart-checkout-item-qty">1 adet</div>
+                </div>
+                <div class="cart-checkout-item-price">1.529,00 ₺</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teslimat bilgisi -->
+        <div class="co-info-bar">
+          <span class="co-info-icon">📦</span>
+          Siparişinizi <strong>11 Mayıs 2026 18:00'a kadar</strong> kargoya teslim edeceğiz.
+        </div>
+
+        <!-- Para Puan -->
+        <div class="co-info-bar co-info-bar--green">
+          <span class="co-info-icon">🪙</span>
+          Bu alışverişten <strong>30,58 TL değerinde Para Puan</strong> kazanacaksınız.
+        </div>
+
+        <!-- TEMEL BİLGİLER -->
+        <div class="co-card">
+          <h2 class="co-section-title">Temel Bilgiler</h2>
+
+          <div class="co-form-group">
+            <label class="co-label" for="adSoyad">Ad Soyad</label>
+            <input type="text" id="adSoyad" class="co-input" placeholder="Ahmet Yılmaz" autocomplete="name"/>
+          </div>
+
+          <div class="co-form-group">
+            <label class="co-label" for="tcKimlik">TC Kimlik No</label>
+            <input type="text" id="tcKimlik" class="co-input" placeholder="12345678901" maxlength="11" autocomplete="off"/>
+          </div>
+
+          <div class="co-form-group">
+            <label class="co-label" for="cepTelefonu">Cep Telefonu</label>
+            <input type="tel" id="cepTelefonu" class="co-input" placeholder="555 123 45 67" autocomplete="tel"/>
+          </div>
+        </div>
+
+        <!-- KONUM BİLGİLERİ -->
+        <div class="co-card">
+          <h2 class="co-section-title">Konum Bilgileri</h2>
+
+          <div class="co-form-row">
+            <div class="co-form-group">
+              <label class="co-label" for="sehir">Şehir</label>
+              <select id="sehir" class="co-input co-select" onchange="loadDistricts(this.value)">
+                <option value="">Şehir seçin</option>
+                <option value="istanbul">İstanbul</option>
+                <option value="ankara">Ankara</option>
+                <option value="izmir">İzmir</option>
+                <option value="bursa">Bursa</option>
+                <option value="antalya">Antalya</option>
+                <option value="adana">Adana</option>
+                <option value="konya">Konya</option>
+                <option value="gaziantep">Gaziantep</option>
+                <option value="mersin">Mersin</option>
+                <option value="kayseri">Kayseri</option>
+              </select>
+            </div>
+            <div class="co-form-group">
+              <label class="co-label" for="ilce">İlçe</label>
+              <select id="ilce" class="co-input co-select">
+                <option value="">Önce şehir seçin</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="co-form-group">
+            <label class="co-label" for="mahalle">Mahalle</label>
+            <input type="text" id="mahalle" class="co-input" placeholder="Mahalle adı" autocomplete="address-level3"/>
+          </div>
+
+          <div class="co-form-group">
+            <label class="co-label" for="acikAdres">Açık Adres</label>
+            <textarea id="acikAdres" class="co-input co-textarea"
+              placeholder="Mahalle, sokak, apartman adı, apartman no, daire no girmelisiniz."></textarea>
+          </div>
+
+          <div class="co-form-group">
+            <label class="co-label" for="adresBaslik">Adres Başlığı (isteğe bağlı)</label>
+            <input type="text" id="adresBaslik" class="co-input" placeholder="Ev, İş vb."/>
+          </div>
+        </div>
+
+        <!-- ADRES KAYDET ONAY -->
+        <div class="co-form-check">
+          <label class="co-check-label">
+            <input type="checkbox" id="saveAddress" checked/>
+            <span class="co-checkmark"></span>
+            Bu adresi kaydet
+          </label>
+        </div>
+
+        <button class="co-btn-primary" id="btnGoPayment" onclick="goToPayment()">
+          Kaydet ve Devam Et
+        </button>
+
+      </div><!-- /panel-address -->
+
+      <!-- ════ ADIM 2: ÖDEME ════ -->
+      <div class="checkout-step-panel hidden" id="panel-payment">
+
+        <!-- Sepetimdeki Ürünler accordion (tekrar) -->
+        <div class="co-card co-card--accordion" id="cartSummaryAccordion2">
+          <div class="co-accordion-head" id="cartAccordionHead2">
+            <div class="co-accordion-title">
+              <span class="co-accordion-icon">🛒</span>
+              Sepetimdeki Ürünler <span class="co-item-count">(1)</span>
+            </div>
+            <span class="co-accordion-arrow" id="cartAccordionArrow2">▾</span>
+          </div>
+          <div class="co-accordion-body" id="cartAccordionBody2" style="display:none">
+            <div class="cart-items-list">
+              <div class="cart-checkout-item">
+                <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=80&auto=format&fit=crop" alt="Ürün"/>
+                <div class="cart-checkout-item-info">
+                  <div class="cart-checkout-item-name">Pro Plan Sterilised Kedi Maması Somon 10kg</div>
+                  <div class="cart-checkout-item-brand">Pro Plan</div>
+                  <div class="cart-checkout-item-qty">1 adet</div>
+                </div>
+                <div class="cart-checkout-item-price">1.529,00 ₺</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teslimat bilgisi -->
+        <div class="co-info-bar">
+          <span class="co-info-icon">📦</span>
+          Siparişinizi <strong>11 Mayıs 2026 18:00'a kadar</strong> kargoya teslim edeceğiz. 🚚
+        </div>
+
+        <!-- Para Puan -->
+        <div class="co-info-bar co-info-bar--green">
+          <span class="co-info-icon">🪙</span>
+          Bu alışverişten <strong>30,58 TL değerinde Para Puan</strong> kazanacaksınız.
+        </div>
+
+        <!-- TESLİMAT ADRESİ -->
+        <div class="co-card">
+          <div class="co-card-head-row">
+            <h2 class="co-section-title">Teslimat Adresi</h2>
+            <button class="co-link-btn" onclick="goToAddress()">Ekle / Değiştir</button>
+          </div>
+          <div class="co-address-display" id="savedAddressDisplay">
+            <div class="co-address-title" id="displayAdresBaslik">Ev Adresim</div>
+            <div class="co-address-detail" id="displayAcikAdres">Sırasöğütler mah battalgazi cad no:191 kat:5, Adalar / İstanbul</div>
+          </div>
+        </div>
+
+        <!-- ÖDEME SEÇENEKLERİ -->
+        <div class="co-card">
+          <h2 class="co-section-title">Ödeme Seçenekleri</h2>
+
+          <!-- Tab: Kredi Kartı / Havale-EFT -->
+          <div class="co-payment-tabs">
+            <button class="co-payment-tab co-payment-tab--active" id="tabKredi" onclick="switchPaymentTab('kredi')">
+              💳 Kredi Kartı
+            </button>
+            <button class="co-payment-tab" id="tabHavale" onclick="switchPaymentTab('havale')">
+              🏦 Havale / EFT
+            </button>
+          </div>
+
+          <!-- Kredi Kartı Formu -->
+          <div class="co-payment-panel" id="panelKredi">
+            <div class="co-card-visual" id="cardVisual">
+              <div class="card-visual-chip">▪▪▪</div>
+              <div class="card-visual-number" id="visualCardNumber">•••• •••• •••• ••••</div>
+              <div class="card-visual-footer">
+                <div>
+                  <div class="card-visual-label">Kart Sahibi</div>
+                  <div class="card-visual-value" id="visualCardName">AD SOYAD</div>
+                </div>
+                <div>
+                  <div class="card-visual-label">Son Kullanma</div>
+                  <div class="card-visual-value" id="visualCardExp">AA/YY</div>
+                </div>
+                <div class="card-visual-brand" id="visualCardBrand">💳</div>
+              </div>
+            </div>
+
+            <div class="co-form-group">
+              <label class="co-label" for="cardName">Ad Soyad (Kart üzerindeki)</label>
+              <input type="text" id="cardName" class="co-input" placeholder="AHMET YILMAZ"
+                autocomplete="cc-name" oninput="updateCardVisual()"/>
+            </div>
+            <div class="co-form-group">
+              <label class="co-label" for="cardNumber">Kart Numarası</label>
+              <input type="text" id="cardNumber" class="co-input" placeholder="0000 0000 0000 0000"
+                maxlength="19" autocomplete="cc-number" oninput="formatCardNumber(this); updateCardVisual()"/>
+            </div>
+            <div class="co-form-row co-form-row--3">
+              <div class="co-form-group">
+                <label class="co-label" for="cardMonth">Ay</label>
+                <select id="cardMonth" class="co-input co-select" onchange="updateCardVisual()">
+                  <option value="">Ay</option>
+                  <option>01</option><option>02</option><option>03</option><option>04</option>
+                  <option>05</option><option>06</option><option>07</option><option>08</option>
+                  <option>09</option><option>10</option><option>11</option><option>12</option>
+                </select>
+              </div>
+              <div class="co-form-group">
+                <label class="co-label" for="cardYear">Yıl</label>
+                <select id="cardYear" class="co-input co-select" onchange="updateCardVisual()">
+                  <option value="">Yıl</option>
+                  <option>2025</option><option>2026</option><option>2027</option><option>2028</option>
+                  <option>2029</option><option>2030</option><option>2031</option><option>2032</option>
+                </select>
+              </div>
+              <div class="co-form-group">
+                <label class="co-label" for="cardCvv">
+                  Güvenlik Kodu (CVV)
+                  <span class="cvv-hint" title="Kartın arka yüzündeki 3 haneli kod">ℹ️</span>
+                </label>
+                <input type="text" id="cardCvv" class="co-input" placeholder="•••" maxlength="4"
+                  autocomplete="cc-csc" oninput="this.value=this.value.replace(/\D/g,'')"/>
+              </div>
+            </div>
+
+            <label class="co-check-label co-check-label--inline">
+              <input type="checkbox" id="saveCard"/>
+              <span class="co-checkmark"></span>
+              <span>Kart bilgilerimi saklamak istiyorum.</span>
+            </label>
+            <div class="co-card-save-info" id="cardSaveInfo" style="display:none">
+              Kart bilgileriniz, Asseco SEE kuruluşu olan PCI DSS sertifikalı PAYTEN'de saklanır.
+              Kaydettiğiniz kartlar yalnızca sizin tarafınızdan kullanılabilir ve istediğiniz zaman kolayca silebilirsiniz.
+            </div>
+
+            <!-- TAKSİT SEÇENEKLERİ -->
+            <div class="co-installment-section">
+              <h3 class="co-sub-title">Taksit Seçenekleri</h3>
+              <div class="co-installment-list" id="installmentList">
+                <label class="co-installment-item co-installment-item--selected">
+                  <input type="radio" name="installment" value="1" checked/>
+                  <span class="co-install-label">Tek Çekim × <strong>1.529,00 ₺</strong></span>
+                  <span class="co-install-total">1.529,00 ₺</span>
+                </label>
+                <label class="co-installment-item">
+                  <input type="radio" name="installment" value="2"/>
+                  <span class="co-install-label">2 Taksit × <strong>764,50 ₺</strong></span>
+                  <span class="co-install-total">1.529,00 ₺</span>
+                </label>
+                <label class="co-installment-item">
+                  <input type="radio" name="installment" value="3"/>
+                  <span class="co-install-label">3 Taksit × <strong>509,67 ₺</strong></span>
+                  <span class="co-install-total">1.529,00 ₺</span>
+                </label>
+                <label class="co-installment-item">
+                  <input type="radio" name="installment" value="6"/>
+                  <span class="co-install-label">6 Taksit × <strong>254,83 ₺</strong></span>
+                  <span class="co-install-total">1.529,00 ₺</span>
+                </label>
+              </div>
+            </div>
+          </div><!-- /panelKredi -->
+
+          <!-- Havale / EFT Paneli -->
+          <div class="co-payment-panel hidden" id="panelHavale">
+            <div class="co-havale-info">
+              <p>Havale/EFT ile ödemelerinizde siparişiniz, ödemenizin onaylanmasının ardından işleme alınır.</p>
+            </div>
+            <div class="co-banka-list">
+              <div class="co-banka-item">
+                <div class="co-banka-name">🏦 Ziraat Bankası</div>
+                <div class="co-banka-iban">TR12 0001 0012 3456 7890 1234 56</div>
+                <div class="co-banka-hesap">Hesap Sahibi: Pawco Evcil Hayvan Ürünleri Paz. San. Tic. Ltd. Şti.</div>
+              </div>
+              <div class="co-banka-item">
+                <div class="co-banka-name">🏦 İş Bankası</div>
+                <div class="co-banka-iban">TR34 0006 4000 0012 3456 7890 12</div>
+                <div class="co-banka-hesap">Hesap Sahibi: Pawco Evcil Hayvan Ürünleri Paz. San. Tic. Ltd. Şti.</div>
+              </div>
+              <div class="co-banka-item">
+                <div class="co-banka-name">🏦 Garanti BBVA</div>
+                <div class="co-banka-iban">TR66 0006 2000 0008 0000 0000 00</div>
+                <div class="co-banka-hesap">Hesap Sahibi: Pawco Evcil Hayvan Ürünleri Paz. San. Tic. Ltd. Şti.</div>
+              </div>
+            </div>
+            <div class="co-havale-note">
+              ⚠️ Açıklama kısmına lütfen <strong>sipariş numaranızı</strong> yazmayı unutmayın.
+            </div>
+          </div><!-- /panelHavale -->
+        </div><!-- /ödeme seçenekleri card -->
+
+        <!-- SİPARİŞ NOTU -->
+        <div class="co-card co-card--accordion" id="notAccordion">
+          <div class="co-accordion-head" id="notAccordionHead">
+            <div class="co-accordion-title">
+              <span class="co-accordion-icon">📝</span>
+              Sipariş Notu
+            </div>
+            <span class="co-accordion-arrow" id="notAccordionArrow">▾</span>
+          </div>
+          <div class="co-accordion-body" id="notAccordionBody" style="display:none">
+            <div class="co-form-group" style="margin:16px 0 0">
+              <textarea class="co-input co-textarea" id="orderNote"
+                placeholder="Siparişinize eklemek istediğiniz notu buraya yazabilirsiniz..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- SATIŞ SÖZLEŞMELERİ -->
+        <div class="co-card co-card--accordion" id="sozlesmeAccordion">
+          <div class="co-accordion-head" id="sozlesmeHead">
+            <div class="co-accordion-title">
+              <span class="co-accordion-icon">📄</span>
+              Satış Sözleşmeleri
+            </div>
+            <span class="co-accordion-arrow" id="sozlesmeArrow">▲</span>
+          </div>
+          <div class="co-accordion-body" id="sozlesmeBody">
+            <div class="co-sozlesme-content">
+              <div class="co-sozlesme-block">
+                <div class="co-sozlesme-title">ÖN BİLGİLENDİRME FORMU</div>
+                <div class="co-sozlesme-text">
+                  <strong>1. KONU</strong><br/>
+                  İşbu Satış Sözleşmesi Ön Bilgi Formu'nun konusu, SATICI'nın, SİPARİŞ VEREN/ALICI'ya satışını yaptığı,
+                  aşağıda nitelikleri ve satış fiyatı belirtilen ürün/ürünlerin satışı ve teslimi ile ilgili olarak 6502 sayılı
+                  Tüketicilerin Korunması Hakkındaki Kanun-Mesafeli Sözleşmeleri Uygulama Esas ve Usulleri Hakkında
+                  Yönetmelik hükümleri gereğince tarafların hak ve yükümlülüklerini kapsamaktadır.
+                </div>
+              </div>
+              <div class="co-sozlesme-block">
+                <div class="co-sozlesme-title">MESAFELİ SATIŞ SÖZLEŞMESİ</div>
+                <div class="co-sozlesme-text">
+                  <strong>1. TARAFLAR</strong><br/>
+                  İşbu Sözleşme; alıcı ile Alaşarköy Mah. 1. Alaşar Cad. No: 9 Osmangazi/Bursa adresinde mukim
+                  Pawco Evcil Hayvan Ürünleri Paz. San. Tic. Ltd. Şti. (sözleşmede bundan sonra "SATICI" olarak
+                  anılacaktır) arasında aşağıda belirtilen hüküm ve şartlar çerçevesinde imzalanmıştır.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ONAY BUTONU (payment altında) -->
+        <button class="co-btn-primary" id="btnConfirm" onclick="confirmOrder()">
+          Ödemeyi Onayla
+        </button>
+
+        <!-- Geri dön -->
+        <button class="co-btn-back" onclick="goToAddress()">← Adrese Geri Dön</button>
+
+      </div><!-- /panel-payment -->
+
+    </div><!-- /checkout-main -->
+
+    <!-- ── SAĞ: SİPARİŞ ÖZETİ ── -->
+    <aside class="checkout-aside">
+      <div class="co-card co-aside-card">
+        <h2 class="co-aside-title">Sipariş Özeti</h2>
+
+        <div class="co-aside-row">
+          <span>1 Adet Ürün</span>
+          <strong>1.529,00 ₺</strong>
+        </div>
+        <div class="co-aside-row">
+          <span>Kargo Ücreti</span>
+          <div class="co-aside-row-right">
+            <span class="co-old-price">79,00 ₺</span>
+            <span class="co-free-tag">BEDAVA</span>
+          </div>
+        </div>
+        <div class="co-aside-row co-aside-row--discount" id="discountRow" style="display:none">
+          <span>İndirim</span>
+          <span class="co-discount-val" id="discountVal">-0,00 ₺</span>
+        </div>
+
+        <div class="co-aside-divider"></div>
+
+        <div class="co-aside-row co-aside-row--total">
+          <strong>Toplam Tutar</strong>
+          <strong class="co-total-price">1.529,00 ₺</strong>
+        </div>
+
+        <!-- Kupon Kodu -->
+        <div class="co-coupon-wrap">
+          <input type="text" id="couponInput" class="co-coupon-input" placeholder="Kupon kodu girin"/>
+          <button class="co-coupon-btn" onclick="applyCoupon()">Uygula</button>
+        </div>
+        <div class="co-coupon-msg" id="couponMsg"></div>
+
+        <!-- Aside buton: adres adımında farklı, ödeme adımında farklı -->
+        <button class="co-btn-primary co-aside-btn" id="asidePrimaryBtn" onclick="asidePrimaryAction()">
+          Kaydet ve Devam Et
+        </button>
+
+        <!-- Sözleşme onay (ödeme adımında görünür) -->
+        <div class="co-contract-check" id="contractCheck" style="display:none">
+          <label class="co-check-label">
+            <input type="checkbox" id="contractAccept"/>
+            <span class="co-checkmark"></span>
+            <span>
+              <a href="#" class="co-link">Ön Bilgilendirme Formu</a>'nu ve
+              <a href="#" class="co-link">Mesafeli Satış Sözleşmesi</a>'ni okudum ve kabul ediyorum.
+            </span>
+          </label>
+        </div>
+
+        <div class="co-aside-divider"></div>
+
+        <div class="co-security-list">
+          <div class="co-security-item">
+            <span>🔒</span><span>Güvenli Ödeme Altyapısı</span>
+          </div>
+          <div class="co-security-item">
+            <span>🛡️</span><span>Kart Bilgileriniz Şifrelenerek Korunuyor</span>
+          </div>
+          <div class="co-security-item">
+            <span>✅</span><span>%100 Orijinal Ürün Garantisi</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div><!-- /checkout-layout -->
+
+  <!-- ═══ SUCCESS MODAL ═══ -->
+  <div class="co-success-overlay hidden" id="successOverlay">
+    <div class="co-success-modal">
+      <div class="co-success-icon">🎉</div>
+      <h2>Siparişiniz Alındı!</h2>
+      <p>Siparişiniz başarıyla oluşturuldu.<br/>Kargo takibini hesabınızdan yapabilirsiniz.</p>
+      <div class="co-order-num">Sipariş No: <strong>#PW-20260511-004</strong></div>
+      <a href="account.html?tab=orders" class="co-btn-primary" style="text-decoration:none;display:inline-block;margin-top:8px">
+        Siparişlerimi Gör
+      </a>
+      <a href="index.html" class="co-link" style="display:block;margin-top:12px;text-align:center">
+        Alışverişe Devam Et
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="checkout-footer">
+    <span>❤️</span>
+    <p>2014-2026 © pawco.com | Bursa'da sevgiyle yapıldı.</p>
+  </footer>
+
+  <script src="js/odeme.js"></script>
+</body>
+</html>
