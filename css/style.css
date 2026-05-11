@@ -1482,8 +1482,7 @@ body {
   transform: translateY(-2px);
 }
 .brand-card img {
-  width: 100%;
- 
+  width: 100%; 
   object-fit: contain;
   filter: grayscale(20%);
   transition: var(--transition);

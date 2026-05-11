@@ -29,7 +29,7 @@
 
 /* ── SEARCH PAGE LAYOUT ── */
 .search-page {
-  max-width: 1380px;
+  max-width: 1500px;
   margin: 24px auto 60px;
   padding: 0 20px;
   display: flex;
@@ -404,7 +404,7 @@
 /* ── PRODUCTS GRID ── */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(275px,1fr));
   gap: 16px;
   margin-bottom: 32px;
 }
