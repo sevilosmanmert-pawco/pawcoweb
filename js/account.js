@@ -63,6 +63,8 @@ function activateTab(tabId) {
     pets:          'Petlerim',
     listings:      'Sahiplendirme İlanlarım',
     profile:       'Üyelik Bilgilerim',
+    returns:       'İadelerim',
+    appointments:  'Randevularım',
   };
   const bc = document.getElementById('bcActive');
   if (bc) bc.textContent = tabNames[tabId] || tabId;
@@ -198,7 +200,100 @@ function initFormValidation() {
       }
     });
   }
+
+   // Randevu iptal
+  document.querySelectorAll('.appt-card .btn-outline').forEach(btn => {
+    if (btn.textContent.includes('İptal Et')) {
+      btn.addEventListener('click', () => {
+        if (confirm('Randevuyu iptal etmek istediğinizden emin misiniz?')) {
+          const card = btn.closest('.appt-card');
+          card.classList.remove('appt-card--upcoming');
+          card.classList.add('appt-card--cancelled');
+          card.querySelector('.appt-badge').className = 'appt-badge appt-badge--cancelled';
+          card.querySelector('.appt-badge').textContent = 'İptal Edildi';
+          const price = card.querySelector('.appt-price');
+          if (price) price.classList.add('appt-price--cancelled');
+          btn.remove();
+        }
+      });
+    }
+  });
+
+ 
 }
+
+/* ── İADE MODAL ─────────────────────────────────── */
+function openReturnModal() {
+  document.getElementById('returnModalOverlay').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeReturnModal(e) {
+  if (e && e.target !== document.getElementById('returnModalOverlay')) return;
+  document.getElementById('returnModalOverlay').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+function submitReturnForm() {
+  const order  = document.getElementById('rm-order').value;
+  const reason = document.getElementById('rm-reason').value;
+  if (!order || !reason) {
+    alert('Lütfen sipariş ve iade nedenini seçin.');
+    return;
+  }
+  const btn = document.querySelector('.return-modal-foot .btn-primary');
+  const orig = btn.textContent;
+  btn.textContent = '✓ Gönderildi!';
+  btn.style.background = '#2d9e6a';
+  setTimeout(() => {
+    closeReturnModal();
+    document.getElementById('rm-order').value   = '';
+    document.getElementById('rm-reason').value  = '';
+    document.getElementById('rm-note').value    = '';
+    document.getElementById('rm-previews').innerHTML = '';
+    btn.textContent = orig;
+    btn.style.background = '';
+    activateTab('returns');
+  }, 1400);
+}
+
+let rmFiles = [];
+function handleReturnFiles(files) {
+  const remaining = 4 - rmFiles.length;
+  Array.from(files).slice(0, remaining).forEach(file => {
+    if (!file.type.startsWith('image/')) return;
+    rmFiles.push(file);
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      img.className = 'rm-preview-img';
+      document.getElementById('rm-previews').appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function cancelAppointment(btn) {
+  if (!confirm('Randevuyu iptal etmek istediğinizden emin misiniz?')) return;
+  const card = btn.closest('.appt-card');
+  card.classList.remove('appt-card--upcoming');
+  card.classList.add('appt-card--cancelled');
+  const badge = card.querySelector('.appt-badge');
+  badge.className = 'appt-badge appt-badge--cancelled';
+  badge.textContent = 'İptal Edildi';
+  const price = card.querySelector('.appt-price');
+  if (price) price.classList.add('appt-price--cancelled');
+  btn.closest('.order-actions').querySelector('.btn-outline:nth-child(2)')?.remove();
+  btn.closest('.order-actions').querySelector('.btn-primary')?.remove();
+  btn.textContent = 'Tekrar Randevu Al';
+}
+
+window.openReturnModal    = openReturnModal;
+window.closeReturnModal   = closeReturnModal;
+window.submitReturnForm   = submitReturnForm;
+window.handleReturnFiles  = handleReturnFiles;
+window.cancelAppointment  = cancelAppointment;
 
 /* ── GLOBAL ─────────────────────────────────────────── */
 window.activateTab = activateTab;

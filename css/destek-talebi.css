@@ -45,6 +45,9 @@
 }
 
 /* ── FORM KARTI ── */
+.dt-left{
+    width: 100%;
+}
 .dt-form-card {
   background: #fff;
   border: 1px solid #e8e8e8;
