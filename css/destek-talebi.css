@@ -1,0 +1,412 @@
+/* =====================================================
+   PAWCO — destek-talebi.css
+   Destek Talebi & SSS sayfası stilleri
+   ===================================================== */
+
+/* ── BREADCRUMB ── */
+.dt-breadcrumb {
+  background: #f8f8f8;
+  border-bottom: 1px solid #eeeeee;
+}
+.dt-breadcrumb-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #888;
+}
+.dt-breadcrumb-inner a {
+  color: #888;
+  text-decoration: none;
+  transition: color .15s;
+}
+.dt-breadcrumb-inner a:hover { color: var(--primary, #e85d04); }
+.dt-bc-sep { color: #bbb; }
+
+/* ── MAIN LAYOUT ── */
+.dt-main {
+  max-width: 1300px;
+  margin: 32px auto 48px;
+  padding: 0 20px;
+}
+.dt-container {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+@media (max-width: 960px) {
+  .dt-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── FORM KARTI ── */
+.dt-form-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 2px 16px rgba(0,0,0,.04);
+}
+.dt-form-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 24px;
+}
+
+/* ── FORM ALANLARI ── */
+.dt-field {
+  margin-bottom: 14px;
+}
+.dt-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.dt-input::placeholder { color: #aaa; }
+.dt-input:focus {
+  border-color: var(--primary, #e85d04);
+  box-shadow: 0 0 0 3px rgba(232,93,4,.08);
+}
+.dt-textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.6;
+}
+
+/* ── FOTOĞRAF YÜKLEME ── */
+.dt-upload-area {
+  border: 1.5px dashed #ddd;
+  border-radius: 10px;
+  padding: 20px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+  background: #fafafa;
+}
+.dt-upload-area:hover {
+  border-color: var(--primary, #e85d04);
+  background: #fff9f6;
+}
+.dt-upload-icon {
+  color: #bbb;
+  margin-bottom: 8px;
+}
+.dt-upload-text {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.6;
+  margin: 0;
+}
+.dt-upload-previews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.dt-preview-thumb {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1.5px solid #e8e8e8;
+  position: relative;
+}
+.dt-preview-wrap {
+  position: relative;
+  display: inline-block;
+}
+.dt-preview-remove {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+  background: #e85d04;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* ── İLETİŞİM TERCİHİ ── */
+.dt-contact-label {
+  font-size: 13px;
+  color: #555;
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+.dt-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #444;
+  cursor: pointer;
+  margin-bottom: 8px;
+  user-select: none;
+}
+.dt-radio-label input[type="radio"] { display: none; }
+.dt-radio-custom {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color .15s;
+}
+.dt-radio-custom::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary, #e85d04);
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  transition: transform .15s;
+}
+.dt-radio-label input[type="radio"]:checked + .dt-radio-custom {
+  border-color: var(--primary, #e85d04);
+}
+.dt-radio-label input[type="radio"]:checked + .dt-radio-custom::after {
+  transform: translate(-50%,-50%) scale(1);
+}
+
+/* ── CAPTCHA ── */
+.dt-captcha {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: border-color .15s;
+  user-select: none;
+}
+.dt-captcha:hover { border-color: #bbb; }
+.dt-captcha.verified { border-color: #4caf50; }
+.dt-captcha-check {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #bbb;
+  border-radius: 4px;
+  background: #fff;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s;
+}
+.dt-captcha.verified .dt-captcha-check {
+  background: #4caf50;
+  border-color: #4caf50;
+}
+.dt-captcha.verified .dt-captcha-check svg { display: block !important; stroke: #fff; }
+.dt-captcha-text {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+}
+.dt-captcha-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+}
+.dt-recaptcha-icon svg { display: block; }
+.dt-recaptcha-text {
+  font-size: 9px;
+  color: #888;
+  text-align: center;
+  line-height: 1.3;
+}
+.dt-recaptcha-text small { font-size: 8px; }
+
+/* ── GÖNDER BUTONU ── */
+.dt-submit-btn {
+  width: 100%;
+  padding: 13px;
+  background: #ccc;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: not-allowed;
+  transition: background .2s;
+  margin-top: 4px;
+  letter-spacing: .2px;
+}
+.dt-submit-btn:not([disabled]) {
+  background: #1a1a1a;
+  cursor: pointer;
+}
+.dt-submit-btn:not([disabled]):hover {
+  background: var(--primary, #e85d04);
+}
+
+/* ── SSS KARTI ── */
+.dt-faq-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,.04);
+}
+.dt-faq-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 28px 28px 20px;
+}
+
+/* ── SSS TAB ── */
+.dt-faq-tabs {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 2px solid #f0f0f0;
+  padding: 0 28px;
+  gap: 0;
+}
+.dt-faq-tabs::-webkit-scrollbar { display: none; }
+.dt-faq-tab {
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .15s, border-color .15s;
+}
+.dt-faq-tab:hover { color: #444; }
+.dt-faq-tab.active {
+  color: var(--primary, #e85d04);
+  border-bottom-color: var(--primary, #e85d04);
+}
+
+/* ── ACCORDION ── */
+.dt-faq-panels { padding: 8px 0; }
+.dt-faq-panel { display: none; }
+.dt-faq-panel.active { display: block; }
+
+.dt-accordion-item {
+  border-bottom: 1px solid #f4f4f4;
+}
+.dt-accordion-item:last-child { border-bottom: none; }
+
+.dt-accordion-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 28px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+  transition: background .12s;
+}
+.dt-accordion-head:hover { background: #fafafa; }
+.dt-accordion-head.open { color: var(--primary, #e85d04); }
+.dt-accordion-head.open .dt-acc-arrow {
+  transform: rotate(180deg);
+}
+.dt-acc-arrow {
+  flex-shrink: 0;
+  color: #bbb;
+  transition: transform .2s;
+}
+.dt-accordion-head.open .dt-acc-arrow { color: var(--primary, #e85d04); }
+
+.dt-accordion-body {
+  display: none;
+  padding: 0 28px 18px;
+}
+.dt-accordion-body.open { display: block; }
+.dt-accordion-body p {
+  font-size: 13.5px;
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── DEĞER ÖNERMELERİ (TRUST BAR) ── */
+.dt-trust-bar {
+  background: #fff;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 40px 20px;
+  margin-top: 16px;
+}
+.dt-trust-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+@media (max-width: 860px) {
+  .dt-trust-inner { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .dt-trust-inner { grid-template-columns: 1fr; }
+}
+.dt-trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+.dt-trust-icon {
+  color: var(--primary, #e85d04);
+}
+.dt-trust-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.dt-trust-text strong {
+  font-size: 14px;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+.dt-trust-text span {
+  font-size: 12.5px;
+  color: #777;
+  line-height: 1.55;
+}
