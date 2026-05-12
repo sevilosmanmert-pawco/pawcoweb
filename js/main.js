@@ -158,7 +158,7 @@ function closeAllDropdowns() {
   activeSidebarItem = null;
 }
 
-// ── MEGA DROPDOWN ──────────────────────────────────────────
+/*
 function renderDropdown(animalId, container) {
   const animal = siteData.animals[animalId];
   if (!animal) return;
@@ -185,7 +185,7 @@ function renderDropdown(animalId, container) {
       ${renderDropdownContent(animalId, activeSidebarItem)}
     </div>
   `;
-}
+}*/
 
 function handleSidebarClick(animalId, itemId, el) {
   activeSidebarItem = itemId;

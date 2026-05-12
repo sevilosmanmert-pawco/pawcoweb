@@ -291,11 +291,11 @@ width: 90%;
 
 .nav-item.active .mega-dropdown { display: flex; }
 
-/* Right-side dropdowns don't overflow viewport */
+/* Right-side dropdowns don't overflow viewport 
 .nav-item:nth-child(n+4) .mega-dropdown {
   left: auto;
   right: 0;
-}
+}*/
 
 .dropdown-sidebar {
   width: 240px;
