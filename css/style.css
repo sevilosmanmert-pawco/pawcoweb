@@ -664,11 +664,12 @@ width: 90%;
 /* ===== SLIDER WRAPPER ===== */
 .blog-slider-wrapper {
   position: relative;
-  overflow: hidden;
+ 
 }
 
 .blog-slider {
   display: flex;
+   overflow: hidden;
   gap: 16px;
   transition: transform 0.35s ease;
   will-change: transform;
