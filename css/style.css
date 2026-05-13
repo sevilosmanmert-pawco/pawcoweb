@@ -1797,7 +1797,7 @@ width: 90%;
 .hrzv-btn:hover { background: var(--primary, #e85d04); }
 
 /* Mobil: popup kart boyutu */
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
   .hrzv-popup {
 
     position: relative;
@@ -1819,13 +1819,14 @@ width: 90%;
 @media (max-width: 1024px) {
   .promo-banners { grid-template-columns: repeat(2, 1fr); }
   .promo-banners .promo-banner-card:nth-child(3) { display: none; }
+   .search-bar{display: none;}
 }
 @media (max-width: 640px) {
   .promo-banners { grid-template-columns: 1fr; }
   .promo-banners .promo-banner-card:nth-child(3) { display: flex; }
   .product-card  { min-width: 150px; }
   .brand-card    { min-width: 88px; }
-  .search-bar{display: none;}
+ 
 }
 
 /* ==============================
