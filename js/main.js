@@ -32,6 +32,7 @@ function renderTopBar() {
 }
 
 // ── HEADER ─────────────────────────────────────────────────
+/*
 function renderHeader() {
   const header = document.getElementById('header');
   header.innerHTML = `
@@ -61,7 +62,7 @@ function renderHeader() {
     </div>
   `;
 }
-
+*/
 // ── NAVBAR ─────────────────────────────────────────────────
 // Navbar HTML'de yazılıdır. Bu fonksiyon yalnızca
 // mouseenter/mouseleave ve dışarı-tıklama event'lerini bağlar.
@@ -557,6 +558,13 @@ function renderMobileNav() {
     <div class="mobile-menu-items" id="mobile-menu-items" style="padding: 10px; background:#fff;">
       ${renderMobileMenuItems(mobileActiveAnimal)}
     </div>
+
+     <div class="mobile-nav-subnav">
+    <a href="salon-hizmetler.html" class="mobile-nav-subnav-link">Pawco Salon</a>
+    <a href="randevu.html" class="mobile-nav-subnav-link">Randevu</a>
+    <a href="kampanya.html" class="mobile-nav-subnav-link">Kampanyalar</a>
+    <a href="blog.html" class="mobile-nav-subnav-link">Blog</a>
+  </div>
   `;
 }
 function renderMobileMenuItems(animalId) {
