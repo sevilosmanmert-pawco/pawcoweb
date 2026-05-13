@@ -45,7 +45,7 @@ body {
 }
 
 /* ── SCROLLBAR ── */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 2px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
 ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
 
@@ -1985,9 +1985,9 @@ width: 90%;
     background: var(--bg-white);
   }
   .search-bar--mobile {
-    width: 50%;
+    width: 40%;
     display: flex;
-    max-width: 75%;
+    max-width: 60%;
     margin: 0 auto;
   }
 
