@@ -1134,6 +1134,20 @@ width: 90%;
   .qa-card { flex: 0 0 calc(33.33% - 11px); }
   .features-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: repeat(3, 1fr); }
+  .logo img{
+    max-width: 150px;
+  }
+}
+@media (max-width: 480px) {
+  .blog-card,
+  .qa-card { flex: 0 0 calc(100% - 4px); }
+  .features-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .popular-links a { width: 100%; }
+  .logo img{
+  max-width: 125px;
+}
+
 }
 
 @media (max-width: 768px) {
@@ -1146,13 +1160,11 @@ width: 90%;
   .features-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 480px) {
-  .blog-card,
-  .qa-card { flex: 0 0 calc(100% - 4px); }
-  .features-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .popular-links a { width: 100%; }
-}
+
+
+
+
+
 
 
 
@@ -1935,8 +1947,8 @@ width: 90%;
    display: none; /* Linkleri yan yana diz */
    justify-content: center;
     overflow-x: auto; /* Çok fazla link varsa kaydırılabilir yap */
-    padding: 10px 20px;
-    gap: 15px;
+    padding: 10px 0px;
+    
     background: var(--bg-white);
     border-top: 1px solid var(--border);
   }
@@ -1960,9 +1972,7 @@ width: 90%;
   .mega-dropdown { min-width: 700px; }
  
  
-  .logo img{
-    max-width: 150px;
-  }
+  
   .navbar { display: none; }
   .header-subnav-row {
    display: flex; /* Linkleri yan yana diz */
@@ -1988,7 +1998,7 @@ width: 90%;
   .header-inner { gap: 12px; }
   .header-inner .search-bar { display: none; }
   .mobile-menu-btn { display: flex; }
-  .header-actions .btn-icon { display: none; }
+  .header-actions .btn-icon { display: ''; }
  .header-action-btn:nth-child(1) { display: none; }
   .header-action-btn:nth-child(3) { display: none; }
    .header-action-btn:nth-child(4) { display: none; }
@@ -2025,14 +2035,24 @@ width: 90%;
   .featured-grid { grid-template-columns: repeat(2, 1fr); }
   
   .header-inner { padding: 10px 14px; }
+   @keyframes hrzvInMobile {
+    from { opacity: 0; transform: scale(1); }
+    to   { opacity: 1; transform: scale(0.75); }
+  }
+  .header-action-btn:nth-child(2) span:nth-child(2){
+    display: none;
+  }
+  .cart-btn span:nth-child(2){
+    display: none;
+  }
 }
 /* Subnav linkleri — varsayılan gizli, mobilde açılır */
 
 
 .hsubnav-link {
   padding: 10px 14px;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 10px;
+ /* font-weight: 700;*/
   color: #444;
   text-decoration: none;
   white-space: nowrap;
