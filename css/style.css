@@ -1799,7 +1799,10 @@ width: 90%;
 /* Mobil: popup kart boyutu */
 @media (max-width: 600px) {
   .hrzv-popup {
-    margin: 0 auto;
+
+    position: relative;
+    bottom: auto;
+    right: auto;
     width: 100%;
     max-width: 400px;
     transform-origin: center;
@@ -1822,6 +1825,7 @@ width: 90%;
   .promo-banners .promo-banner-card:nth-child(3) { display: flex; }
   .product-card  { min-width: 150px; }
   .brand-card    { min-width: 88px; }
+  .search-bar{display: none;}
 }
 
 /* ==============================
