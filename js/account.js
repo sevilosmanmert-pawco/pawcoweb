@@ -289,6 +289,459 @@ function cancelAppointment(btn) {
   btn.textContent = 'Tekrar Randevu Al';
 }
 
+/* ══════════════════════════════════════════════════
+   GENEL MODAL YARDIMCILARI
+══════════════════════════════════════════════════ */
+function openModal(id) {
+  document.getElementById(id).classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id, e) {
+  if (e && e.target !== document.getElementById(id)) return;
+  document.getElementById(id).classList.add('hidden');
+  document.body.style.overflow = '';
+}
+window.openModal  = openModal;
+window.closeModal = closeModal;
+
+/* ══════════════════════════════════════════════════
+   DEĞERLENDİRME MODAL
+══════════════════════════════════════════════════ */
+let currentRating = 0;
+
+function openReviewModal(btn) {
+  const card = btn.closest('.appt-card');
+  const name = card.querySelector('.appt-service-name')?.textContent || '';
+  const date = card.querySelector('.appt-date-main')?.textContent || '';
+  document.getElementById('revServiceName').textContent = name;
+  document.getElementById('revServiceDate').textContent = date;
+  document.getElementById('revText').value = '';
+  currentRating = 0;
+  setRating(0);
+  openModal('reviewModalOverlay');
+}
+
+function setRating(val) {
+  currentRating = val;
+  const labels = ['Seçilmedi','Çok Kötü','Kötü','Orta','İyi','Mükemmel'];
+  document.getElementById('revRatingText').textContent = labels[val] || 'Seçilmedi';
+  document.querySelectorAll('.rev-star').forEach(s => {
+    s.classList.toggle('active', parseInt(s.dataset.val) <= val);
+  });
+}
+
+function submitReview() {
+  if (!currentRating) { alert('Lütfen bir puan seçin.'); return; }
+  const btn = document.querySelector('#reviewModalOverlay .ac-modal-foot .btn-primary');
+  btn.textContent = '✓ Gönderildi!';
+  btn.style.background = '#2d9e6a';
+  setTimeout(() => {
+    closeModal('reviewModalOverlay');
+    btn.textContent = 'Gönder';
+    btn.style.background = '';
+    currentRating = 0;
+  }, 1200);
+}
+
+window.openReviewModal = openReviewModal;
+window.setRating       = setRating;
+window.submitReview    = submitReview;
+
+/* ══════════════════════════════════════════════════
+   RANDEVU DÜZENLE MODAL
+══════════════════════════════════════════════════ */
+let editApptCard = null;
+
+function openEditApptModal(btn) {
+  editApptCard = btn.closest('.appt-card');
+  // Tarih alanına bugünden 7 gün sonrasını varsayılan yaz
+  const d = new Date();
+  d.setDate(d.getDate() + 7);
+  document.getElementById('editApptDate').value = d.toISOString().split('T')[0];
+  document.getElementById('editApptNote').value = '';
+  openModal('editApptModalOverlay');
+}
+
+function submitEditAppt() {
+  const chips    = document.querySelectorAll('.edit-svc-chip');
+  const location = document.getElementById('editApptLocation').value;
+  const date     = document.getElementById('editApptDate').value;
+  const time     = document.getElementById('editApptTime').value;
+
+  if (!chips.length) { alert('Lütfen en az bir hizmet ekleyin.'); return; }
+  if (!date)         { alert('Lütfen tarih seçin.'); return; }
+
+  if (editApptCard) {
+    const nameEl = editApptCard.querySelector('.appt-service-name');
+    const subEl  = editApptCard.querySelector('.appt-service-sub');
+    const dateEl = editApptCard.querySelector('.appt-date-main');
+    const priceEl = editApptCard.querySelector('.appt-price');
+
+    // Hizmet isimlerini birleştir
+    const names = Array.from(chips).map(c => c.dataset.name);
+    if (nameEl) nameEl.textContent = names.join(' + ');
+    if (subEl)  subEl.textContent  = 'Pawco Grooming Salonu — ' + location;
+    if (dateEl) {
+      const [y,m,day] = date.split('-');
+      dateEl.textContent = `${day}.${m}.${y} — ${time}`;
+    }
+    if (priceEl) priceEl.textContent = document.getElementById('editSvcTotal').textContent;
+  }
+
+  const btn = document.querySelector('#editApptModalOverlay .ac-modal-foot .btn-primary');
+  btn.textContent = '✓ Kaydedildi!';
+  btn.style.background = '#2d9e6a';
+  setTimeout(() => {
+    closeModal('editApptModalOverlay');
+    btn.textContent = 'Kaydet';
+    btn.style.background = '';
+    editApptCard = null;
+    clearServiceChips();
+  }, 1100);
+}
+
+function addSelectedService() {
+  const select = document.getElementById('editApptService');
+  const val    = select.value;
+  if (!val) return;
+
+  const [name, price] = val.split('|');
+  const chipId = 'chip-' + val.replace(/[^a-zA-Z0-9]/g, '');
+
+  // Zaten ekliyse tekrar ekleme
+  if (document.getElementById(chipId)) {
+    select.value = '';
+    return;
+  }
+
+  const chip = document.createElement('div');
+  chip.className   = 'edit-svc-chip';
+  chip.id          = chipId;
+  chip.dataset.name  = name;
+  chip.dataset.price = price;
+
+  const nameSpan  = document.createElement('span');
+  nameSpan.textContent = name;
+
+  const priceSpan = document.createElement('span');
+  priceSpan.className = 'edit-svc-chip-price';
+  priceSpan.textContent = price;
+
+  const removeBtn = document.createElement('button');
+  removeBtn.className = 'edit-svc-chip-remove';
+  removeBtn.type = 'button';
+  removeBtn.textContent = '✕';
+  removeBtn.onclick = () => {
+    chip.remove();
+    // Seçeneği dropdown'a geri aç
+    const opt = select.querySelector(`option[value="${CSS.escape(val)}"]`);
+    if (opt) opt.disabled = false;
+    updateSvcTotal();
+  };
+
+  chip.appendChild(nameSpan);
+  chip.appendChild(priceSpan);
+  chip.appendChild(removeBtn);
+  document.getElementById('editSvcChips').appendChild(chip);
+
+  // Dropdown'da seçeneği devre dışı bırak
+  const opt = select.querySelector(`option[value="${CSS.escape(val)}"]`);
+  if (opt) opt.disabled = true;
+  select.value = '';
+
+  updateSvcTotal();
+}
+
+function updateSvcTotal() {
+  const chips = document.querySelectorAll('.edit-svc-chip');
+  const totalRow = document.getElementById('editSvcTotalRow');
+
+  if (!chips.length) {
+    totalRow.style.display = 'none';
+    return;
+  }
+
+  let total = 0;
+  chips.forEach(chip => {
+    const raw = chip.dataset.price.replace(/\./g, '').replace(',', '.');
+    total += parseFloat(raw) || 0;
+  });
+
+  // Türkçe format: 1.250,00 ₺
+  const formatted = total.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
+  document.getElementById('editSvcTotal').textContent = formatted;
+  totalRow.style.display = 'flex';
+}
+
+function clearServiceChips() {
+  const chips  = document.querySelectorAll('.edit-svc-chip');
+  const select = document.getElementById('editApptService');
+  chips.forEach(chip => {
+    const val = chip.id.replace('chip-', '');
+    chip.remove();
+  });
+  // Tüm disabled option'ları tekrar aktif et
+  select.querySelectorAll('option[disabled]').forEach(o => o.disabled = false);
+  select.value = '';
+  document.getElementById('editSvcTotalRow').style.display = 'none';
+}
+
+window.addSelectedService = addSelectedService;
+window.updateSvcTotal     = updateSvcTotal;
+
+window.openEditApptModal = openEditApptModal;
+window.submitEditAppt    = submitEditAppt;
+
+/* ══════════════════════════════════════════════════
+   İADE DETAY MODAL
+══════════════════════════════════════════════════ */
+function openReturnDetail(id, date, orderNo, reason, method, amount, txn, status) {
+  document.getElementById('rdId').textContent      = 'İade #' + id;
+  document.getElementById('rdDate').textContent    = date;
+  document.getElementById('rdOrderNo').textContent = orderNo;
+  document.getElementById('rdReason').textContent  = reason;
+  document.getElementById('rdMethod').textContent  = method;
+  document.getElementById('rdAmount').textContent  = amount;
+  document.getElementById('rdTxn').textContent     = txn;
+
+  // İncelenen iade için track bar'ı kısmen aktif yap
+  const trackLines = document.querySelectorAll('#rdTrackBar .track-line');
+  const trackSteps = document.querySelectorAll('#rdTrackBar .track-step');
+  if (status === 'progress') {
+    trackSteps[0].classList.add('done');    trackSteps[1].classList.add('done');
+    trackSteps[2].classList.remove('done'); trackSteps[2].classList.add('active');
+    trackSteps[3].classList.remove('done', 'active');
+    trackLines[0].classList.add('done');    trackLines[1].classList.remove('done');
+    trackLines[2].classList.remove('done');
+    document.getElementById('rdStatus').className  = 'order-status status-shipping';
+    document.getElementById('rdStatus').textContent = '⏳ İnceleniyor';
+  } else {
+    trackSteps.forEach(s => { s.classList.add('done'); s.classList.remove('active'); });
+    trackLines.forEach(l => l.classList.add('done'));
+    document.getElementById('rdStatus').className  = 'order-status status-delivered';
+    document.getElementById('rdStatus').textContent = '✓ Tamamlandı';
+  }
+
+  openModal('returnDetailModalOverlay');
+}
+
+function cancelReturn(btn) {
+  if (!confirm('İade talebini iptal etmek istediğinizden emin misiniz?')) return;
+  const card = btn.closest('.return-card');
+  card.style.transition = 'opacity .3s, transform .3s';
+  card.style.opacity = '0';
+  card.style.transform = 'scale(.97)';
+  setTimeout(() => {
+    card.remove();
+    // Hiç return-card kalmadıysa boş durumu göster
+    const remaining = document.querySelectorAll('#tab-returns .return-card');
+    if (!remaining.length) {
+      document.getElementById('returns-empty').style.display = '';
+    }
+  }, 300);
+}
+
+window.openReturnDetail = openReturnDetail;
+window.cancelReturn     = cancelReturn;
+
+/* ══════════════════════════════════════════════════
+   DESTEK TALEBİ MODAL
+══════════════════════════════════════════════════ */
+function submitSupport() {
+  const subject = document.getElementById('suppSubject').value;
+  const message = document.getElementById('suppMessage').value.trim();
+  if (!subject || !message) { alert('Lütfen konu ve mesaj alanlarını doldurun.'); return; }
+
+  const btn = document.querySelector('#newSupportModalOverlay .ac-modal-foot .btn-primary');
+  btn.textContent = '✓ Gönderildi!';
+  btn.style.background = '#2d9e6a';
+  setTimeout(() => {
+    closeModal('newSupportModalOverlay');
+    btn.textContent = 'Gönder';
+    btn.style.background = '';
+    document.getElementById('suppSubject').value  = '';
+    document.getElementById('suppOrderNo').value  = '';
+    document.getElementById('suppMessage').value  = '';
+    // Mesajlar sekmesine geç
+    activateTab('messages');
+  }, 1200);
+}
+window.submitSupport = submitSupport;
+
+/* ══════════════════════════════════════════════════
+   PET EKLE MODAL
+══════════════════════════════════════════════════ */
+let petModalType = 'kedi';
+
+function petModalSelectType(type) {
+  petModalType = type;
+  document.getElementById('petModalTypeCat').classList.toggle('active', type === 'kedi');
+  document.getElementById('petModalTypeDog').classList.toggle('active', type === 'kopek');
+}
+
+function submitAddPet() {
+  const name     = document.getElementById('petModalName').value.trim();
+  const breed    = document.getElementById('petModalBreed').value.trim();
+  const age      = document.getElementById('petModalAge').value.trim();
+  const gender   = document.getElementById('petModalGender').value;
+  const neutered = document.getElementById('petModalNeutered').value;
+  if (!name) { alert('Lütfen pet adı girin.'); return; }
+
+  const avatar   = petModalType === 'kedi' ? 'cat' : 'dog';
+  const emoji    = petModalType === 'kedi' ? '🐱' : '🐶';
+  const typeText = petModalType === 'kedi' ? 'Kedi' : 'Köpek';
+
+  // Yeni pet kartı HTML'ini oluştur ve grid'e ekle (add kartından önce)
+  const grid    = document.querySelector('.pets-grid');
+  const addCard = document.querySelector('.pet-card--add');
+  const newCard = document.createElement('div');
+  newCard.className = 'pet-card';
+  newCard.innerHTML = `
+    <div class="pet-avatar pet-avatar--${avatar}">${emoji}</div>
+    <div class="pet-info">
+      <div class="pet-name">${name}</div>
+      <div class="pet-detail"><span>Tür:</span> ${typeText}</div>
+      ${breed    ? `<div class="pet-detail"><span>Irk:</span> ${breed}</div>` : ''}
+      ${age      ? `<div class="pet-detail"><span>Yaş:</span> ${age}</div>` : ''}
+      <div class="pet-detail"><span>Cinsiyet:</span> ${gender}</div>
+      <div class="pet-detail"><span>Kısırlaştırıldı:</span> ${neutered}</div>
+    </div>
+    <div class="pet-actions">
+      <button class="btn-outline btn-sm">✏️ Düzenle</button>
+      <button class="btn-outline btn-sm btn-del">🗑️ Sil</button>
+    </div>
+  `;
+
+  // Sil butonunu dinle
+  newCard.querySelector('.btn-del').addEventListener('click', () => {
+    if (confirm('Bu peti silmek istediğinizden emin misiniz?')) {
+      newCard.style.transition = 'opacity .3s, transform .3s';
+      newCard.style.opacity = '0';
+      newCard.style.transform = 'scale(.95)';
+      setTimeout(() => newCard.remove(), 300);
+    }
+  });
+
+  grid.insertBefore(newCard, addCard);
+
+  const btn = document.querySelector('#addPetModalOverlay .ac-modal-foot .btn-primary');
+  btn.textContent = '✓ Eklendi!';
+  btn.style.background = '#2d9e6a';
+  setTimeout(() => {
+    closeModal('addPetModalOverlay');
+    btn.textContent = 'Ekle';
+    btn.style.background = '';
+    document.getElementById('petModalName').value = '';
+    document.getElementById('petModalBreed').value = '';
+    document.getElementById('petModalAge').value = '';
+    petModalType = 'kedi';
+    petModalSelectType('kedi');
+  }, 1000);
+}
+
+/* ══════════════════════════════════════════════════
+   PET DÜZENLE MODAL
+══════════════════════════════════════════════════ */
+let editPetCard = null;
+let editPetType = 'kedi';
+
+function openEditPetModal(btn) {
+  editPetCard = btn.closest('.pet-card');
+
+  // Mevcut verileri oku ve forma doldur
+  const details = editPetCard.querySelectorAll('.pet-detail');
+  const getName   = () => editPetCard.querySelector('.pet-name')?.textContent.trim() || '';
+  const getDetail = (label) => {
+    for (const d of details) {
+      if (d.querySelector('span')?.textContent.includes(label)) {
+        return d.textContent.replace(d.querySelector('span').textContent, '').trim();
+      }
+    }
+    return '';
+  };
+
+  const isKedi = editPetCard.querySelector('.pet-avatar--cat') !== null;
+  editPetType = isKedi ? 'kedi' : 'kopek';
+  editPetSelectType(editPetType);
+
+  document.getElementById('editPetName').value  = getName();
+  document.getElementById('editPetBreed').value = getDetail('Irk:');
+  document.getElementById('editPetAge').value   = getDetail('Yaş:');
+
+  const gender   = getDetail('Cinsiyet:');
+  const neutered = getDetail('Kısırlaştırıldı:');
+  const genderSel   = document.getElementById('editPetGender');
+  const neuteredSel = document.getElementById('editPetNeutered');
+  for (const opt of genderSel.options)   opt.selected = gender.includes('Erkek') ? opt.value.includes('Erkek') : opt.value.includes('Dişi');
+  for (const opt of neuteredSel.options) opt.selected = opt.value === neutered;
+
+  openModal('editPetModalOverlay');
+}
+
+function editPetSelectType(type) {
+  editPetType = type;
+  document.getElementById('editPetTypeCat').classList.toggle('active', type === 'kedi');
+  document.getElementById('editPetTypeDog').classList.toggle('active', type === 'kopek');
+}
+
+function submitEditPet() {
+  const name     = document.getElementById('editPetName').value.trim();
+  const breed    = document.getElementById('editPetBreed').value.trim();
+  const age      = document.getElementById('editPetAge').value.trim();
+  const gender   = document.getElementById('editPetGender').value;
+  const neutered = document.getElementById('editPetNeutered').value;
+  if (!name) { alert('Lütfen pet adı girin.'); return; }
+  if (!editPetCard) return;
+
+  // Kart üzerindeki verileri güncelle
+  const nameEl = editPetCard.querySelector('.pet-name');
+  if (nameEl) nameEl.textContent = name;
+
+  // Avatar türünü güncelle
+  const avatarEl = editPetCard.querySelector('.pet-avatar');
+  if (avatarEl) {
+    avatarEl.className = `pet-avatar pet-avatar--${editPetType === 'kedi' ? 'cat' : 'dog'}`;
+    avatarEl.textContent = editPetType === 'kedi' ? '🐱' : '🐶';
+  }
+
+  // Detail satırlarını güncelle
+  const detailMap = {
+    'Tür:':            editPetType === 'kedi' ? 'Kedi' : 'Köpek',
+    'Irk:':            breed,
+    'Yaş:':            age,
+    'Cinsiyet:':       gender,
+    'Kısırlaştırıldı:': neutered
+  };
+  const details = editPetCard.querySelectorAll('.pet-detail');
+  details.forEach(d => {
+    const labelEl = d.querySelector('span');
+    if (!labelEl) return;
+    const label = labelEl.textContent;
+    if (detailMap[label] !== undefined) {
+      d.textContent = '';
+      d.appendChild(labelEl);
+      d.append(' ' + detailMap[label]);
+    }
+  });
+
+  const btn = document.querySelector('#editPetModalOverlay .ac-modal-foot .btn-primary');
+  btn.textContent = '✓ Kaydedildi!';
+  btn.style.background = '#2d9e6a';
+  setTimeout(() => {
+    closeModal('editPetModalOverlay');
+    btn.textContent = 'Kaydet';
+    btn.style.background = '';
+    editPetCard = null;
+  }, 1000);
+}
+
+window.openEditPetModal  = openEditPetModal;
+window.editPetSelectType = editPetSelectType;
+window.submitEditPet     = submitEditPet;
+
+window.petModalSelectType = petModalSelectType;
+window.submitAddPet       = submitAddPet;
+
 window.openReturnModal    = openReturnModal;
 window.closeReturnModal   = closeReturnModal;
 window.submitReturnForm   = submitReturnForm;

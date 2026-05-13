@@ -812,7 +812,12 @@
         <section class="tab-section hidden" id="tab-messages">
           <div class="tab-header">
             <h2 class="tab-title">Mesajlarım</h2>
-            <button class="btn-primary">+ Yeni Destek Talebi</button>
+            <button
+              class="btn-primary"
+              onclick="openModal('newSupportModalOverlay')"
+            >
+              + Yeni Destek Talebi
+            </button>
           </div>
           <div class="messages-list">
             <div class="message-thread message-thread--open">
@@ -936,7 +941,12 @@
         <section class="tab-section hidden" id="tab-pets">
           <div class="tab-header">
             <h2 class="tab-title">Petlerim</h2>
-            <button class="btn-primary">+ Pet Ekle</button>
+            <button
+              class="btn-primary"
+              onclick="openModal('addPetModalOverlay')"
+            >
+              + Pet Ekle
+            </button>
           </div>
           <div class="pets-grid">
             <div class="pet-card">
@@ -952,7 +962,13 @@
                 </div>
               </div>
               <div class="pet-actions">
-                <button class="btn-outline btn-sm">✏️ Düzenle</button>
+                <button
+                  class="btn-outline btn-sm"
+                  onclick="openEditPetModal(this)"
+                >
+                  ✏️ Düzenle
+                </button>
+
                 <button class="btn-outline btn-sm btn-del">🗑️ Sil</button>
               </div>
             </div>
@@ -970,7 +986,12 @@
                 </div>
               </div>
               <div class="pet-actions">
-                <button class="btn-outline btn-sm">✏️ Düzenle</button>
+                <button
+                  class="btn-outline btn-sm"
+                  onclick="openEditPetModal(this)"
+                >
+                  ✏️ Düzenle
+                </button>
                 <button class="btn-outline btn-sm btn-del">🗑️ Sil</button>
               </div>
             </div>
@@ -978,9 +999,13 @@
             <div class="pet-card pet-card--add">
               <div class="add-pet-inner">
                 <div class="add-icon">+</div>
-                <div class="add-text">Yeni Pet Ekle</div>
-                <div class="add-sub">
-                  Evcil hayvanınızı ekleyerek kişiselleştirilmiş öneriler alın
+                <div
+                  class="pet-card pet-card--add"
+                  onclick="openModal('addPetModalOverlay')"
+                >
+                  <div class="add-sub">
+                    Evcil hayvanınızı ekleyerek kişiselleştirilmiş öneriler alın
+                  </div>
                 </div>
               </div>
             </div>
@@ -1247,7 +1272,23 @@
                 İade tutarı: <strong>389,00 ₺</strong> — Kart iadesi yapıldı
               </div>
               <div class="order-actions">
-                <button class="btn-outline">İade Detayı</button>
+                <button
+                  class="btn-outline"
+                  onclick="
+                    openReturnDetail(
+                      'RT-20240520-001',
+                      '20 Mayıs 2024',
+                      '#PW-20240518-001',
+                      'Ürün hasarlı geldi',
+                      'Karta İade',
+                      '389,00 ₺',
+                      'TXN-8821-4432',
+                      'done',
+                    )
+                  "
+                >
+                  İade Detayı
+                </button>
               </div>
             </div>
             <div class="order-track-bar">
@@ -1307,8 +1348,26 @@
                 Beklenen iade: <strong>1.249,00 ₺</strong>
               </div>
               <div class="order-actions">
-                <button class="btn-outline">Talebi İptal Et</button>
-                <button class="btn-primary">İade Detayı</button>
+                <button class="btn-outline" onclick="cancelReturn(this)">
+                  Talebi İptal Et
+                </button>
+                <button
+                  class="btn-primary"
+                  onclick="
+                    openReturnDetail(
+                      'RT-20240602-002',
+                      '2 Haziran 2024',
+                      '#PW-20240601-002',
+                      'Yanlış ürün gönderildi',
+                      'Karta İade',
+                      '1.249,00 ₺',
+                      '—',
+                      'progress',
+                    )
+                  "
+                >
+                  İade Detayı
+                </button>
               </div>
             </div>
             <div class="order-track-bar">
@@ -1335,7 +1394,7 @@
           </div>
 
           <!-- Boş durum (iade yok) — başlangıçta gizli, JS ile toggle edilir -->
-          <div class="empty-state hidden" id="returns-empty">
+          <div class="empty-state" id="returns-empty" style="display: none">
             <div class="empty-icon">↩️</div>
             <h3>Henüz iade talebiniz yok</h3>
             <p>
@@ -1388,7 +1447,9 @@
                 <button class="btn-outline" onclick="cancelAppointment(this)">
                   İptal Et
                 </button>
-                <button class="btn-outline">Tarihi Değiştir</button>
+                <button class="btn-outline" onclick="openEditApptModal(this)">
+                  Düzenle
+                </button>
                 <button class="btn-primary">Yol Tarifi</button>
               </div>
             </div>
@@ -1427,7 +1488,9 @@
               <div class="appt-price">280,00 ₺</div>
               <div class="order-actions">
                 <button class="btn-outline">Tekrar Randevu Al</button>
-                <button class="btn-primary">Değerlendirme Yap</button>
+                <button class="btn-primary" onclick="openReviewModal(this)">
+                  Değerlendirme Yap
+                </button>
               </div>
             </div>
           </div>
@@ -1610,6 +1673,624 @@
           </div>
         </div>
       </main>
+    </div>
+
+    <!-- ════ DEĞERLENDİRME MODAL ════ -->
+    <div
+      class="ac-modal-overlay hidden"
+      id="reviewModalOverlay"
+      onclick="closeModal('reviewModalOverlay', event)"
+    >
+      <div class="ac-modal">
+        <div class="ac-modal-head">
+          <h3>Hizmet Değerlendirmesi</h3>
+          <button
+            class="ac-modal-close"
+            onclick="closeModal('reviewModalOverlay')"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="ac-modal-body">
+          <div class="rev-service-info" id="revServiceInfo">
+            <div class="rev-service-name" id="revServiceName">
+              Tırnak Bakımı + Kulak Temizliği
+            </div>
+            <div class="rev-service-date" id="revServiceDate">
+              16 Mayıs 2024 — Kadıköy
+            </div>
+          </div>
+          <div class="rev-stars-wrap">
+            <p class="ac-modal-label">Puanınız</p>
+            <div class="rev-stars" id="revStars">
+              <button class="rev-star" data-val="1" onclick="setRating(1)">
+                ★
+              </button>
+              <button class="rev-star" data-val="2" onclick="setRating(2)">
+                ★
+              </button>
+              <button class="rev-star" data-val="3" onclick="setRating(3)">
+                ★
+              </button>
+              <button class="rev-star" data-val="4" onclick="setRating(4)">
+                ★
+              </button>
+              <button class="rev-star" data-val="5" onclick="setRating(5)">
+                ★
+              </button>
+            </div>
+            <span class="rev-rating-text" id="revRatingText">Seçilmedi</span>
+          </div>
+          <div class="ac-modal-field">
+            <label class="ac-modal-label"
+              >Yorumunuz <span class="rm-optional">(isteğe bağlı)</span></label
+            >
+            <textarea
+              class="rm-textarea"
+              id="revText"
+              rows="4"
+              placeholder="Deneyiminizi paylaşın..."
+            ></textarea>
+          </div>
+        </div>
+        <div class="ac-modal-foot">
+          <button
+            class="btn-outline"
+            onclick="closeModal('reviewModalOverlay')"
+          >
+            Vazgeç
+          </button>
+          <button class="btn-primary" onclick="submitReview()">Gönder</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ RANDEVU DÜZENLE MODAL ════ -->
+    <div
+      class="ac-modal-overlay hidden"
+      id="editApptModalOverlay"
+      onclick="closeModal('editApptModalOverlay', event)"
+    >
+      <div class="ac-modal ac-modal--wide">
+        <div class="ac-modal-head">
+          <h3>Randevuyu Düzenle</h3>
+          <button
+            class="ac-modal-close"
+            onclick="closeModal('editApptModalOverlay')"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="ac-modal-body">
+          <div class="ac-modal-field">
+            <label class="ac-modal-label">Hizmet Ekle</label>
+            <div class="edit-svc-row">
+              <select class="rm-select" id="editApptService">
+                <option value="">— Hizmet seçin —</option>
+                <optgroup label="🐶 Köpek — Akıllı Bakım Paketleri">
+                  <option value="Pawco İmza|3.500,00 ₺">
+                    Pawco İmza — 3.500,00 ₺
+                  </option>
+                  <option value="Yavru İlk Tanışma|1.200,00 ₺">
+                    Yavru İlk Tanışma — 1.200,00 ₺
+                  </option>
+                </optgroup>
+                <optgroup label="🐶 Köpek — Profesyonel Kesim">
+                  <option value="Makas Tıraşı|2.500,00 ₺">
+                    Makas Tıraşı — 2.500,00 ₺
+                  </option>
+                  <option value="Makine Tıraşı|1.950,00 ₺">
+                    Makine Tıraşı — 1.950,00 ₺
+                  </option>
+                  <option value="Hijyenik Kesim|950,00 ₺">
+                    Hijyenik Kesim — 950,00 ₺
+                  </option>
+                </optgroup>
+                <optgroup label="🐶 Köpek — Terapi &amp; SPA">
+                  <option value="Ozon Terapi &amp; Masaj|1.500,00 ₺">
+                    Ozon Terapi &amp; Masaj — 1.500,00 ₺
+                  </option>
+                  <option value="Milky Terapi|1.250,00 ₺">
+                    Milky Terapi — 1.250,00 ₺
+                  </option>
+                  <option value="Ozon Terapi|1.100,00 ₺">
+                    Ozon Terapi — 1.100,00 ₺
+                  </option>
+                  <option value="Ozon + Milky Terapi|1.800,00 ₺">
+                    Ozon + Milky Terapi — 1.800,00 ₺
+                  </option>
+                  <option value="Yoğun Kıtık Açma &amp; Tüy Bakımı|1.950,00 ₺">
+                    Yoğun Kıtık Açma &amp; Tüy Bakımı — 1.950,00 ₺
+                  </option>
+                </optgroup>
+                <optgroup label="🐶 Köpek — Hijyen">
+                  <option value="Tırnak Kesimi &amp; Törpüleme|350,00 ₺">
+                    Tırnak Kesimi &amp; Törpüleme — 350,00 ₺
+                  </option>
+                  <option value="Pati Temizliği|200,00 ₺">
+                    Pati Temizliği — 200,00 ₺
+                  </option>
+                  <option value="Göz Çevresi Temizliği|180,00 ₺">
+                    Göz Çevresi Temizliği — 180,00 ₺
+                  </option>
+                  <option value="Kulak Temizliği|200,00 ₺">
+                    Kulak Temizliği — 200,00 ₺
+                  </option>
+                  <option value="Genital Bölge Temizliği|250,00 ₺">
+                    Genital Bölge Temizliği — 250,00 ₺
+                  </option>
+                  <option value="Diş Fırçalama|280,00 ₺">
+                    Diş Fırçalama — 280,00 ₺
+                  </option>
+                </optgroup>
+                <optgroup label="🐶 Köpek — Banyo &amp; Tarama">
+                  <option value="Banyo &amp; Fön|1.250,00 ₺">
+                    Banyo &amp; Fön — 1.250,00 ₺
+                  </option>
+                  <option value="Yoğun Tarama|1.950,00 ₺">
+                    Yoğun Tarama — 1.950,00 ₺
+                  </option>
+                </optgroup>
+                <optgroup label="🐶 Köpek — Avantajlı Paketler">
+                  <option value="Bakım Paketi|1.950,00 ₺">
+                    Bakım Paketi — 1.950,00 ₺
+                  </option>
+                  <option value="SPA Paketi|1.500,00 ₺">
+                    SPA Paketi — 1.500,00 ₺
+                  </option>
+                  <option value="Hijyen Paketi|1.000,00 ₺">
+                    Hijyen Paketi — 1.000,00 ₺
+                  </option>
+                  <option value="Makine Tıraşı Paketi|1.950,00 ₺">
+                    Makine Tıraşı Paketi — 1.950,00 ₺
+                  </option>
+                </optgroup>
+                <optgroup label="🐱 Kedi — Profesyonel Kesim">
+                  <option value="Kedi Tıraşı (Sedasyonsuz)|1.800,00 ₺">
+                    Kedi Tıraşı (Sedasyonsuz) — 1.800,00 ₺
+                  </option>
+                </optgroup>
+                <optgroup label="🐱 Kedi — Tarama">
+                  <option value="Kedi Yoğun Tarama|1.950,00 ₺">
+                    Kedi Yoğun Tarama — 1.950,00 ₺
+                  </option>
+                  <option value="Kedi Makine Tıraşı|1.950,00 ₺">
+                    Kedi Makine Tıraşı — 1.950,00 ₺
+                  </option>
+                </optgroup>
+                <optgroup label="🐱 Kedi — Hijyen">
+                  <option value="Kedi Tırnak Kesimi|300,00 ₺">
+                    Kedi Tırnak Kesimi — 300,00 ₺
+                  </option>
+                </optgroup>
+                <optgroup label="🐱 Kedi — Avantajlı Paketler">
+                  <option value="Kedi Yoğun Tarama Paketi|1.950,00 ₺">
+                    Kedi Yoğun Tarama Paketi — 1.950,00 ₺
+                  </option>
+                  <option value="Kedi Makine Tıraşı Paketi|1.950,00 ₺">
+                    Kedi Makine Tıraşı Paketi — 1.950,00 ₺
+                  </option>
+                </optgroup>
+              </select>
+              <button
+                class="edit-svc-add-btn"
+                type="button"
+                onclick="addSelectedService()"
+              >
+                Ekle
+              </button>
+            </div>
+            <!-- Seçilen hizmetler -->
+            <div class="edit-svc-chips" id="editSvcChips"></div>
+            <div
+              class="edit-svc-total-row"
+              id="editSvcTotalRow"
+              style="display: none"
+            >
+              <span class="edit-svc-total-label">Toplam</span>
+              <span class="edit-svc-total-val" id="editSvcTotal">0,00 ₺</span>
+            </div>
+          </div>
+
+          <div class="ac-modal-field">
+            <label class="ac-modal-label">Mağaza</label>
+            <select class="rm-select" id="editApptLocation">
+              <option value="Kadıköy">Sahrayı Cedit Şubesi</option>
+              <option value="Beşiktaş">Acıbadem Şubesi</option>
+            </select>
+          </div>
+
+          <div class="ac-modal-row">
+            <div class="ac-modal-field">
+              <label class="ac-modal-label">Tarih</label>
+              <input type="date" class="rm-select" id="editApptDate" />
+            </div>
+            <div class="ac-modal-field">
+              <label class="ac-modal-label">Saat</label>
+              <select class="rm-select" id="editApptTime">
+                <option>09:00</option>
+                <option>09:30</option>
+                <option>10:00</option>
+                <option>10:30</option>
+                <option>11:00</option>
+                <option>11:30</option>
+                <option>12:00</option>
+                <option>13:00</option>
+                <option>13:30</option>
+                <option>14:00</option>
+                <option selected>14:30</option>
+                <option>15:00</option>
+                <option>15:30</option>
+                <option>16:00</option>
+                <option>16:30</option>
+                <option>17:00</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="ac-modal-field">
+            <label class="ac-modal-label"
+              >Not <span class="rm-optional">(isteğe bağlı)</span></label
+            >
+            <textarea
+              class="rm-textarea"
+              id="editApptNote"
+              rows="2"
+              placeholder="Özel istek veya notunuz..."
+            ></textarea>
+          </div>
+        </div>
+        <div class="ac-modal-foot">
+          <button
+            class="btn-outline"
+            onclick="closeModal('editApptModalOverlay')"
+          >
+            Vazgeç
+          </button>
+          <button class="btn-primary" onclick="submitEditAppt()">Kaydet</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ İADE DETAY MODAL ════ -->
+    <div
+      class="ac-modal-overlay hidden"
+      id="returnDetailModalOverlay"
+      onclick="closeModal('returnDetailModalOverlay', event)"
+    >
+      <div class="ac-modal">
+        <div class="ac-modal-head">
+          <h3>İade Detayı</h3>
+          <button
+            class="ac-modal-close"
+            onclick="closeModal('returnDetailModalOverlay')"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="ac-modal-body">
+          <div class="rd-status-row">
+            <span class="order-status" id="rdStatus">✓ Tamamlandı</span>
+            <span class="rd-id" id="rdId">İade #RT-20240520-001</span>
+          </div>
+          <div class="rd-info-grid">
+            <div class="rd-info-item">
+              <span class="rd-info-label">Sipariş No</span
+              ><span class="rd-info-val" id="rdOrderNo">#PW-20240518-001</span>
+            </div>
+            <div class="rd-info-item">
+              <span class="rd-info-label">İade Tarihi</span
+              ><span class="rd-info-val" id="rdDate">20 Mayıs 2024</span>
+            </div>
+            <div class="rd-info-item">
+              <span class="rd-info-label">İade Nedeni</span
+              ><span class="rd-info-val" id="rdReason">Ürün hasarlı geldi</span>
+            </div>
+            <div class="rd-info-item">
+              <span class="rd-info-label">İade Yöntemi</span
+              ><span class="rd-info-val" id="rdMethod">Karta İade</span>
+            </div>
+            <div class="rd-info-item">
+              <span class="rd-info-label">İade Tutarı</span
+              ><span class="rd-info-val" id="rdAmount">389,00 ₺</span>
+            </div>
+            <div class="rd-info-item">
+              <span class="rd-info-label">Banka İşlem No</span
+              ><span class="rd-info-val" id="rdTxn">TXN-8821-4432</span>
+            </div>
+          </div>
+          <div class="rd-track-label">Süreç</div>
+          <div class="order-track-bar" id="rdTrackBar">
+            <div class="track-step done">
+              <div class="track-dot"></div>
+              <div class="track-label">Talep Oluşturuldu</div>
+            </div>
+            <div class="track-line done"></div>
+            <div class="track-step done">
+              <div class="track-dot"></div>
+              <div class="track-label">Onaylandı</div>
+            </div>
+            <div class="track-line done"></div>
+            <div class="track-step done">
+              <div class="track-dot"></div>
+              <div class="track-label">Ürün Alındı</div>
+            </div>
+            <div class="track-line done"></div>
+            <div class="track-step done">
+              <div class="track-dot"></div>
+              <div class="track-label">İade Edildi</div>
+            </div>
+          </div>
+        </div>
+        <div class="ac-modal-foot">
+          <button
+            class="btn-outline"
+            onclick="closeModal('returnDetailModalOverlay')"
+          >
+            Kapat
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ DESTEK TALEBİ MODAL ════ -->
+    <div
+      class="ac-modal-overlay hidden"
+      id="newSupportModalOverlay"
+      onclick="closeModal('newSupportModalOverlay', event)"
+    >
+      <div class="ac-modal">
+        <div class="ac-modal-head">
+          <h3>Yeni Destek Talebi</h3>
+          <button
+            class="ac-modal-close"
+            onclick="closeModal('newSupportModalOverlay')"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="ac-modal-body">
+          <div class="ac-modal-field">
+            <label class="ac-modal-label">Konu</label>
+            <select class="rm-select" id="suppSubject">
+              <option value="">— Konu seçin —</option>
+              <option value="Sipariş Sorunu">Sipariş Sorunu</option>
+              <option value="Kargo Takibi">Kargo Takibi</option>
+              <option value="İade / Değişim">İade / Değişim</option>
+              <option value="Ürün Şikayeti">Ürün Şikayeti</option>
+              <option value="Ödeme Sorunu">Ödeme Sorunu</option>
+              <option value="Diğer">Diğer</option>
+            </select>
+          </div>
+          <div class="ac-modal-field">
+            <label class="ac-modal-label"
+              >Sipariş No <span class="rm-optional">(isteğe bağlı)</span></label
+            >
+            <input
+              type="text"
+              class="rm-select"
+              id="suppOrderNo"
+              placeholder="#PW-..."
+            />
+          </div>
+          <div class="ac-modal-field">
+            <label class="ac-modal-label">Mesajınız</label>
+            <textarea
+              class="rm-textarea"
+              id="suppMessage"
+              rows="4"
+              placeholder="Sorununuzu veya talebinizi açıklayın..."
+            ></textarea>
+          </div>
+        </div>
+        <div class="ac-modal-foot">
+          <button
+            class="btn-outline"
+            onclick="closeModal('newSupportModalOverlay')"
+          >
+            Vazgeç
+          </button>
+          <button class="btn-primary" onclick="submitSupport()">Gönder</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ PET EKLE MODAL ════ -->
+    <div
+      class="ac-modal-overlay hidden"
+      id="addPetModalOverlay"
+      onclick="closeModal('addPetModalOverlay', event)"
+    >
+      <div class="ac-modal">
+        <div class="ac-modal-head">
+          <h3 id="addPetModalTitle">Yeni Pet Ekle</h3>
+          <button
+            class="ac-modal-close"
+            onclick="closeModal('addPetModalOverlay')"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="ac-modal-body">
+          <div class="ac-modal-field">
+            <label class="ac-modal-label">Hayvan Türü</label>
+            <div class="wiz-pet-type-tabs" style="max-width: 280px">
+              <button
+                class="wiz-pet-type active"
+                id="petModalTypeCat"
+                onclick="petModalSelectType('kedi')"
+              >
+                🐱 Kedi
+              </button>
+              <button
+                class="wiz-pet-type"
+                id="petModalTypeDog"
+                onclick="petModalSelectType('kopek')"
+              >
+                🐶 Köpek
+              </button>
+            </div>
+          </div>
+
+          <div class="ac-modal-row">
+            <div class="ac-modal-field">
+              <label class="ac-modal-label"
+                >İsim <span class="wiz-required">*</span></label
+              >
+              <input
+                type="text"
+                class="rm-select"
+                id="petModalName"
+                placeholder="örn. Pamuk"
+              />
+            </div>
+            <div class="ac-modal-field">
+              <label class="ac-modal-label">Cinsi</label>
+              <input
+                type="text"
+                class="rm-select"
+                id="petModalBreed"
+                placeholder="örn. Van Kedisi"
+              />
+            </div>
+          </div>
+
+          <div class="ac-modal-row">
+            <div class="ac-modal-field">
+              <label class="ac-modal-label">Yaş</label>
+              <input
+                type="text"
+                class="rm-select"
+                id="petModalAge"
+                placeholder="örn. 3 yaş"
+              />
+            </div>
+            <div class="ac-modal-field">
+              <label class="ac-modal-label">Cinsiyet</label>
+              <select class="rm-select" id="petModalGender">
+                <option value="Dişi ♀">Dişi</option>
+                <option value="Erkek ♂">Erkek</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="ac-modal-field">
+            <label class="ac-modal-label">Kısırlaştırıldı mı?</label>
+            <select class="rm-select" id="petModalNeutered">
+              <option value="Evet ✓">Evet</option>
+              <option value="Hayır">Hayır</option>
+            </select>
+          </div>
+        </div>
+        <div class="ac-modal-foot">
+          <button
+            class="btn-outline"
+            onclick="closeModal('addPetModalOverlay')"
+          >
+            Vazgeç
+          </button>
+          <button class="btn-primary" onclick="submitAddPet()">Ekle</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ PET DÜZENLE MODAL ════ -->
+    <div
+      class="ac-modal-overlay hidden"
+      id="editPetModalOverlay"
+      onclick="closeModal('editPetModalOverlay', event)"
+    >
+      <div class="ac-modal">
+        <div class="ac-modal-head">
+          <h3>Pet Düzenle</h3>
+          <button
+            class="ac-modal-close"
+            onclick="closeModal('editPetModalOverlay')"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="ac-modal-body">
+          <div class="ac-modal-field">
+            <label class="ac-modal-label">Hayvan Türü</label>
+            <div class="wiz-pet-type-tabs" style="max-width: 280px">
+              <button
+                class="wiz-pet-type active"
+                id="editPetTypeCat"
+                onclick="editPetSelectType('kedi')"
+              >
+                🐱 Kedi
+              </button>
+              <button
+                class="wiz-pet-type"
+                id="editPetTypeDog"
+                onclick="editPetSelectType('kopek')"
+              >
+                🐶 Köpek
+              </button>
+            </div>
+          </div>
+
+          <div class="ac-modal-row">
+            <div class="ac-modal-field">
+              <label class="ac-modal-label"
+                >İsim <span class="wiz-required">*</span></label
+              >
+              <input
+                type="text"
+                class="rm-select"
+                id="editPetName"
+                placeholder="örn. Pamuk"
+              />
+            </div>
+            <div class="ac-modal-field">
+              <label class="ac-modal-label">Cinsi</label>
+              <input
+                type="text"
+                class="rm-select"
+                id="editPetBreed"
+                placeholder="örn. Van Kedisi"
+              />
+            </div>
+          </div>
+
+          <div class="ac-modal-row">
+            <div class="ac-modal-field">
+              <label class="ac-modal-label">Yaş</label>
+              <input
+                type="text"
+                class="rm-select"
+                id="editPetAge"
+                placeholder="örn. 3 yaş"
+              />
+            </div>
+            <div class="ac-modal-field">
+              <label class="ac-modal-label">Cinsiyet</label>
+              <select class="rm-select" id="editPetGender">
+                <option value="Dişi ♀">Dişi</option>
+                <option value="Erkek ♂">Erkek</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="ac-modal-field">
+            <label class="ac-modal-label">Kısırlaştırıldı mı?</label>
+            <select class="rm-select" id="editPetNeutered">
+              <option value="Evet ✓">Evet</option>
+              <option value="Hayır">Hayır</option>
+            </select>
+          </div>
+        </div>
+        <div class="ac-modal-foot">
+          <button
+            class="btn-outline"
+            onclick="closeModal('editPetModalOverlay')"
+          >
+            Vazgeç
+          </button>
+          <button class="btn-primary" onclick="submitEditPet()">Kaydet</button>
+        </div>
+      </div>
     </div>
 
     <!-- FOOTER (kısa) -->
