@@ -765,7 +765,7 @@ function initCartButtons() {
    // if (sessionStorage.getItem(STORAGE_KEY)) return;
 
     setTimeout(() => {
-      const isMobile = window.innerWidth <= 600;
+      const isMobile = window.innerWidth <= 1024;
       overlay.classList.remove('hrzv-hidden');
       if (isMobile) {
         overlay.classList.add('hrzv-show-mobile');
