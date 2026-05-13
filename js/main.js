@@ -739,6 +739,47 @@ function initCartButtons() {
     });
   });
 }
+/* ══════════════════════════════════════
+   HIZLI RANDEVU POPUP
+══════════════════════════════════════ */
+(function () {
+  const STORAGE_KEY = 'hrzv_closed';
+  const DELAY_MS    = 0; // Sayfa açıldıktan kaç ms sonra çıksın
+
+  function initHrzvPopup() {
+    const popup    = document.getElementById('hrzvPopup');
+    const closeBtn = document.getElementById('hrzvClose');
+    if (!popup) return;
+
+    /* Bu oturumda kapatıldıysa gösterme
+    if (sessionStorage.getItem(STORAGE_KEY)) {
+      popup.style.display = 'none';
+      return;
+    }*/
+
+    // Gecikmeli göster
+     popup.style.display = 'none';
+    setTimeout(() => {
+      popup.style.display = '';
+    }, DELAY_MS);
+
+    closeBtn.addEventListener('click', closeHrzvPopup);
+  }
+
+  function closeHrzvPopup() {
+    const popup = document.getElementById('hrzvPopup');
+    if (!popup) return;
+    popup.classList.add('hrzv-hidden');
+    sessionStorage.setItem(STORAGE_KEY, '1');
+    setTimeout(() => { popup.style.display = 'none'; }, 220);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHrzvPopup);
+  } else {
+    initHrzvPopup();
+  }
+})();
 
 // ── INIT ───────────────────────────────
 // DOMContentLoaded zaten main.js tarafından bekleniyor.

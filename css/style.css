@@ -1661,6 +1661,126 @@ width: 90%;
 .product-cart-btn:hover       { background: var(--accent); transform: scale(1.1); }
 .product-cart-btn.added       { background: #22C55E; }
 
+
+/* ══════════════════════════════════════
+   HIZLI RANDEVU POPUP
+══════════════════════════════════════ */
+.hrzv-popup {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 300px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 12px 48px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.08);
+  overflow: hidden;
+  z-index: 8888;
+  animation: hrzvIn .35s cubic-bezier(.34,1.56,.64,1) both;
+  transform-origin: bottom right;
+}
+@keyframes hrzvIn {
+  from { opacity: 0; transform: scale(.75) translateY(20px); }
+  to   { opacity: 1; transform: scale(1)  translateY(0); }
+}
+.hrzv-popup.hrzv-hidden {
+  animation: hrzvOut .22s ease forwards;
+}
+@keyframes hrzvOut {
+  to { opacity: 0; transform: scale(.8) translateY(16px); pointer-events: none; }
+}
+
+/* Kapat butonu */
+.hrzv-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  border: none;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: background .14s;
+  line-height: 1;
+  padding: 0;
+}
+.hrzv-close:hover { background: rgba(0,0,0,.6); }
+
+/* Resim */
+.hrzv-img-wrap {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+.hrzv-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* İçerik */
+.hrzv-body {
+  padding: 16px 18px 20px;
+}
+.hrzv-label {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--primary, #e85d04);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin: 0 0 5px;
+}
+.hrzv-title {
+  font-size: 17px;
+  font-weight: 900;
+  color: #1a1a1a;
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+.hrzv-desc {
+  font-size: 12.5px;
+  color: #888;
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+.hrzv-btn {
+  display: block;
+  width: 100%;
+  padding: 11px;
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 800;
+  transition: background .18s;
+  box-sizing: border-box;
+}
+.hrzv-btn:hover { background: var(--primary, #e85d04); }
+
+/* ── Mobil: tam ekran ── */
+@media (max-width: 600px) {
+  .hrzv-popup {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    transform-origin: bottom center;
+  }
+  .hrzv-img-wrap { height: 200px; }
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .promo-banners { grid-template-columns: repeat(2, 1fr); }
