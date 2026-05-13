@@ -742,53 +742,49 @@ function initCartButtons() {
 /* ══════════════════════════════════════
    HIZLI RANDEVU POPUP
 ══════════════════════════════════════ */
+/* ══════════════════════════════════════
+   HIZLI RANDEVU POPUP
+══════════════════════════════════════ */
 (function () {
   const STORAGE_KEY = 'hrzv_closed';
-  const DELAY_MS    = 0; // Sayfa açıldıktan kaç ms sonra çıksın
+  const DELAY_MS    = 0;
 
   function initHrzvPopup() {
-  const overlay  = document.getElementById('hrzvPopup');
-  const closeBtn = document.getElementById('hrzvClose');
-  if (!overlay) return;
-/*
-  if (sessionStorage.getItem(STORAGE_KEY)) {
-    overlay.style.display = 'none';
-    return;
-  }*/
+    const overlay  = document.getElementById('hrzvOverlay');
+    const closeBtn = document.getElementById('hrzvClose');
+    if (!overlay) return;
 
-  overlay.style.display = 'none';
-  setTimeout(() => {
- if (window.innerWidth > 600) {
-    overlay.style.display = 'block';
-    overlay.style.background = 'transparent';
-    overlay.style.backdropFilter = 'none';
-    overlay.style.pointerEvents = 'none';
-    const inner = document.getElementById('hrzvInner');
-    if (inner) inner.style.pointerEvents = 'auto';
-  } else {
-    overlay.style.removeProperty('background');
-    overlay.style.removeProperty('backdrop-filter');
-    overlay.style.removeProperty('pointer-events');
-    overlay.style.display = 'flex';
+   // if (sessionStorage.getItem(STORAGE_KEY)) return;
+
+    setTimeout(() => {
+      const isMobile = window.innerWidth <= 600;
+      overlay.classList.remove('hrzv-hidden');
+      if (isMobile) {
+        overlay.classList.add('hrzv-show-mobile');
+      } else {
+        overlay.classList.add('hrzv-show-desktop');
+      }
+    }, DELAY_MS);
+
+    closeBtn.addEventListener('click', closeHrzvPopup);
+
+    // Mobilde overlay karanlık alana tıklayınca kapat
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeHrzvPopup();
+    });
   }
-}, DELAY_MS);
 
-  closeBtn.addEventListener('click', closeHrzvPopup);
-
-  // Mobilde overlay'e tıklayınca kapat
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeHrzvPopup();
-  });
-}
-
-function closeHrzvPopup() {
-  const overlay = document.getElementById('hrzvPopup');
-  const popup   = document.getElementById('hrzvInner');
-  if (!overlay) return;
-  if (popup) popup.classList.add('hrzv-hidden');
-  sessionStorage.setItem(STORAGE_KEY, '1');
-  setTimeout(() => { overlay.style.display = 'none'; }, 220);
-}
+  function closeHrzvPopup() {
+    const overlay = document.getElementById('hrzvOverlay');
+    const popup   = document.getElementById('hrzvPopup');
+    if (!overlay) return;
+    popup.classList.add('hrzv-card-out');
+    sessionStorage.setItem(STORAGE_KEY, '1');
+    setTimeout(() => {
+      overlay.classList.add('hrzv-hidden');
+      overlay.classList.remove('hrzv-show-mobile', 'hrzv-show-desktop');
+    }, 200);
+  }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initHrzvPopup);

@@ -1665,17 +1665,39 @@ width: 90%;
 /* ══════════════════════════════════════
    HIZLI RANDEVU POPUP
 ══════════════════════════════════════ */
+/* ══════════════════════════════════════
+   HIZLI RANDEVU POPUP
+══════════════════════════════════════ */
 .hrzv-overlay {
-  display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.5);
   z-index: 8888;
+  pointer-events: none;
+}
+
+/* Masaüstü: sadece popup görünür, overlay şeffaf */
+.hrzv-overlay.hrzv-show-desktop {
+  background: transparent;
+  backdrop-filter: none;
+  pointer-events: none;
+}
+
+/* Mobil: tam ekran karartma */
+.hrzv-overlay.hrzv-show-mobile {
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(3px);
+  pointer-events: auto;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  backdrop-filter: blur(2px);
 }
+
+.hrzv-overlay.hrzv-hidden {
+  display: none !important;
+}
+
+/* Popup kartı */
 .hrzv-popup {
   position: fixed;
   bottom: 28px;
@@ -1685,22 +1707,21 @@ width: 90%;
   border-radius: 18px;
   box-shadow: 0 12px 48px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.08);
   overflow: hidden;
-  z-index: 8889;
+  pointer-events: auto;
   animation: hrzvIn .35s cubic-bezier(.34,1.56,.64,1) both;
   transform-origin: bottom right;
 }
+.hrzv-popup.hrzv-card-out {
+  animation: hrzvOut .2s ease forwards;
+}
 @keyframes hrzvIn {
   from { opacity: 0; transform: scale(.75) translateY(20px); }
-  to   { opacity: 1; transform: scale(1)  translateY(0); }
-}
-.hrzv-popup.hrzv-hidden {
-  animation: hrzvOut .22s ease forwards;
+  to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 @keyframes hrzvOut {
-  to { opacity: 0; transform: scale(.8) translateY(16px); pointer-events: none; }
+  to { opacity: 0; transform: scale(.8) translateY(16px); }
 }
 
-/* Kapat butonu */
 .hrzv-close {
   position: absolute;
   top: 10px;
@@ -1719,12 +1740,11 @@ width: 90%;
   justify-content: center;
   z-index: 1;
   transition: background .14s;
-  line-height: 1;
   padding: 0;
+  line-height: 1;
 }
 .hrzv-close:hover { background: rgba(0,0,0,.6); }
 
-/* Resim */
 .hrzv-img-wrap {
   width: 100%;
   height: 160px;
@@ -1738,10 +1758,7 @@ width: 90%;
   display: block;
 }
 
-/* İçerik */
-.hrzv-body {
-  padding: 16px 18px 20px;
-}
+.hrzv-body { padding: 16px 18px 20px; }
 .hrzv-label {
   font-size: 10.5px;
   font-weight: 800;
@@ -1777,29 +1794,22 @@ width: 90%;
   transition: background .18s;
   box-sizing: border-box;
 }
-
 .hrzv-btn:hover { background: var(--primary, #e85d04); }
 
-/* ── Mobil: tam ekran ── */
+/* Mobil: popup kart boyutu */
 @media (max-width: 600px) {
-  .hrzv-overlay {
-    display: flex;
-  }
   .hrzv-popup {
-    position: relative;
-    bottom: auto;
-    right: auto;
+    margin: 0 auto;
     width: 100%;
-    max-width: 420px;
-    border-radius: 18px;
-    transform-origin: center center;
+    max-width: 400px;
+    transform-origin: center;
     animation: hrzvInMobile .3s cubic-bezier(.34,1.3,.64,1) both;
   }
   @keyframes hrzvInMobile {
-    from { opacity: 0; transform: scale(.9); }
+    from { opacity: 0; transform: scale(.92); }
     to   { opacity: 1; transform: scale(1); }
   }
-  .hrzv-img-wrap { height: 220px; }
+  .hrzv-img-wrap { height: 200px; }
 }
 
 /* ── RESPONSIVE ── */
