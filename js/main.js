@@ -271,6 +271,15 @@ function renderAnimalPicks() {
   `).join('');
 }*/
 
+document.getElementById('searchBtn').addEventListener('click', function() {
+    // Input içindeki değeri alıyoruz
+    const searchTerm = document.getElementById('searchInput').value;
+
+  
+    window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
+    
+});
+
 // ── FEATURED SECTION ───────────────────────────────────────
 function renderFeaturedSection() {
   const section = document.getElementById('main-section');

@@ -184,11 +184,12 @@ function initFormValidation() {
   }
 
   // Add address / add pet kartları
+  /*
   document.querySelectorAll('.address-card--add, .pet-card--add').forEach(card => {
     card.addEventListener('click', () => {
       alert('Ekleme formu açılıyor... (Backend entegrasyonu gerektirir)');
     });
-  });
+  });*/
 
   // Çıkış yap
   const logoutBtn = document.querySelector('.logout-btn');
