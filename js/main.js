@@ -747,32 +747,48 @@ function initCartButtons() {
   const DELAY_MS    = 0; // Sayfa açıldıktan kaç ms sonra çıksın
 
   function initHrzvPopup() {
-    const popup    = document.getElementById('hrzvPopup');
-    const closeBtn = document.getElementById('hrzvClose');
-    if (!popup) return;
+  const overlay  = document.getElementById('hrzvPopup');
+  const closeBtn = document.getElementById('hrzvClose');
+  if (!overlay) return;
+/*
+  if (sessionStorage.getItem(STORAGE_KEY)) {
+    overlay.style.display = 'none';
+    return;
+  }*/
 
-    /* Bu oturumda kapatıldıysa gösterme
-    if (sessionStorage.getItem(STORAGE_KEY)) {
-      popup.style.display = 'none';
-      return;
-    }*/
-
-    // Gecikmeli göster
-     popup.style.display = 'none';
-    setTimeout(() => {
-      popup.style.display = '';
-    }, DELAY_MS);
-
-    closeBtn.addEventListener('click', closeHrzvPopup);
+  overlay.style.display = 'none';
+  setTimeout(() => {
+ if (window.innerWidth > 600) {
+    overlay.style.display = 'block';
+    overlay.style.background = 'transparent';
+    overlay.style.backdropFilter = 'none';
+    overlay.style.pointerEvents = 'none';
+    const inner = document.getElementById('hrzvInner');
+    if (inner) inner.style.pointerEvents = 'auto';
+  } else {
+    overlay.style.removeProperty('background');
+    overlay.style.removeProperty('backdrop-filter');
+    overlay.style.removeProperty('pointer-events');
+    overlay.style.display = 'flex';
   }
+}, DELAY_MS);
 
-  function closeHrzvPopup() {
-    const popup = document.getElementById('hrzvPopup');
-    if (!popup) return;
-    popup.classList.add('hrzv-hidden');
-    sessionStorage.setItem(STORAGE_KEY, '1');
-    setTimeout(() => { popup.style.display = 'none'; }, 220);
-  }
+  closeBtn.addEventListener('click', closeHrzvPopup);
+
+  // Mobilde overlay'e tıklayınca kapat
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeHrzvPopup();
+  });
+}
+
+function closeHrzvPopup() {
+  const overlay = document.getElementById('hrzvPopup');
+  const popup   = document.getElementById('hrzvInner');
+  if (!overlay) return;
+  if (popup) popup.classList.add('hrzv-hidden');
+  sessionStorage.setItem(STORAGE_KEY, '1');
+  setTimeout(() => { overlay.style.display = 'none'; }, 220);
+}
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initHrzvPopup);
