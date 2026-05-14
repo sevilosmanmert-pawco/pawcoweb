@@ -16,30 +16,51 @@
   </div>
 
   <!-- ═══ PAWCO ANA HEADER ═══ -->
-  <header class="header">
-    <div class="header-inner">
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
-   <a href="index.html" class="logo">
-       <img src="resimler/logo.png">
-      </a>
-      <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Ne aramıştınız?..." autocomplete="off"/>
-        <button class="search-btn" onclick="window.location.href='search.html?q='+document.getElementById('searchInput').value">🔍</button>
-      </div>
-      <div class="header-actions">
-        <button class="header-action-btn" onclick="alert('Yardım sayfası açılıyor...')">
-          <span class="btn-icon">🎧</span><span>Yardım</span>
-        </button>
-        <button class="header-action-btn" onclick="window.location.href='account.html'">
-          <span class="btn-icon">👤</span><span>Hesabım</span>
-        </button>
-        <button class="header-action-btn cart-btn">
-          <span class="btn-icon">🛒</span><span>Sepetim</span>
-          <span class="cart-count">0</span>
-        </button>
-      </div>
+   <header class="header">
+  <!-- Satır 1: hamburger + logo + aksiyonlar -->
+  <div class="header-inner">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
+    <a href="index.html" class="logo">
+      <img src="resimler/logo.png"/>
+    </a>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Ne aramıştınız?..." autocomplete="off"/>
+      <button class="search-btn" id="searchBtn">🔍</button>
     </div>
-  </header>
+    <div class="header-actions">
+      <button class="header-action-btn" id="helpBtn" onclick="window.location.href='destek.html'">
+        <span class="btn-icon">🎧</span><span>Yardım</span>
+      </button>
+      <button class="header-action-btn" onclick="window.location.href='account.html'">
+        <span class="btn-icon">👤</span><span>Hesabım</span>
+      </button>
+      <button class="header-action-btn" onclick="window.location.href='giris.html#giris'">
+        <span>Giriş Yap</span>
+      </button>
+      <button class="header-action-btn" onclick="window.location.href='giris.html'">
+        <span>Üye Ol</span>
+      </button>
+      <button class="header-action-btn cart-btn" id="cartBtn" onclick="window.location.href='sepet.html'">
+        <span class="btn-icon">🛒</span><span>Sepetim</span>
+        <span class="cart-count">0</span>
+      </button>
+    </div>
+  </div>
+  <!-- Satır 2: arama (sadece mobil) -->
+  <div class="header-search-row">
+    <div class="search-bar search-bar--mobile">
+      <input type="text" id="searchInputMobile" placeholder="Ne aramıştınız?..." autocomplete="off"/>
+      <button class="search-btn" onclick="window.location.href='search.html?q='+document.getElementById('searchInputMobile').value">🔍</button>
+    </div>
+  </div>
+  <!-- Satır 3: subnav (sadece mobil) -->
+  <div class="header-subnav-row">
+    <a href="salon-hizmetler.html" class="hsubnav-link">Pawco Salon</a>
+    <a href="randevu.html" class="hsubnav-link">Randevu</a>
+    <a href="kampanya.html" class="hsubnav-link">Kampanyalar</a>
+    <a href="blog.html" class="hsubnav-link">Blog</a>
+  </div>
+</header>
 
   <!-- ═══ PAWCO ANA NAVBAR ═══ -->
   <nav class="navbar" id="navbar" role="navigation" aria-label="Ana Menü">

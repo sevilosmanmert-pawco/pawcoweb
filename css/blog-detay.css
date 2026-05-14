@@ -39,7 +39,21 @@
 }
 @media (max-width: 1024px) {
   .bd-page { grid-template-columns: 1fr; gap: 40px; }
-  .bd-sidebar { order: -1; }
+/*  .bd-sidebar { order: -1; }*/
+  #tocCard{
+    display: none;
+  }
+  .bd-sidebar-card{
+    display: none;
+    
+  }
+  .bd-newsletter{
+    display: block;
+    
+  }
+  .bd-sidebar{
+    position: relative;
+  }
 }
 @media (max-width: 600px) { .bd-page { padding: 24px 16px 60px; } }
 
