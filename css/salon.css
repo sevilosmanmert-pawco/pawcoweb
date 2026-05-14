@@ -7,7 +7,7 @@
 .salon-subnav {
   background: #1a1a1a;
   border-bottom: 3px solid #e85d04;
-  position: sticky;
+ 
   top: 56px; /* header yüksekliğine göre ayarla */
   z-index: 90;
 }
