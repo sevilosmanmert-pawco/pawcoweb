@@ -87,8 +87,8 @@
           </div>
         </div>
 
-        <!-- ALIŞVERİŞLERİM -->
-        <div class="sidebar-section-title">ALIŞVERİŞLERİM</div>
+        <!-- sidebar -->
+      
         <ul class="sidebar-nav">
           <li>
             <a href="#" class="sidebar-link active" data-tab="orders">
@@ -137,11 +137,11 @@
               <span class="sl-badge sl-badge--gold">248</span>
             </a>
           </li>
-        </ul>
+        
 
         <!-- ÜYELİĞİM -->
-        <div class="sidebar-section-title">ÜYELİĞİM</div>
-        <ul class="sidebar-nav">
+   
+      
           <li>
             <a href="#" class="sidebar-link" data-tab="notifications">
               <span class="sl-icon">🔔</span>
@@ -522,7 +522,12 @@
         <section class="tab-section hidden" id="tab-addresses">
           <div class="tab-header">
             <h2 class="tab-title">Teslimat Adreslerim</h2>
-            <button class="btn-primary">+ Yeni Adres Ekle</button>
+            <button
+              class="btn-primary"
+              onclick="openModal('addAddressModalOverlay')"
+            >
+              + Yeni Adres Ekle
+            </button>
           </div>
           <div class="addresses-grid">
             <div class="address-card address-card--default">
@@ -536,7 +541,12 @@
                 Kadıköy Mah. Sahrayı Cedit Cad. No:12 D:5, Kartal / İstanbul
               </div>
               <div class="address-card-actions">
-                <button class="btn-outline btn-sm">✏️ Düzenle</button>
+                <button
+                  class="btn-outline btn-sm"
+                  onclick="openEditAddressModal(this)"
+                >
+                  ✏️ Düzenle
+                </button>
                 <button class="btn-outline btn-sm btn-del">🗑️ Sil</button>
               </div>
             </div>
@@ -552,13 +562,21 @@
                 İstanbul
               </div>
               <div class="address-card-actions">
-                <button class="btn-outline btn-sm">✏️ Düzenle</button>
+                <button
+                  class="btn-outline btn-sm"
+                  onclick="openEditAddressModal(this)"
+                >
+                  ✏️ Düzenle
+                </button>
                 <button class="btn-outline btn-sm btn-del">🗑️ Sil</button>
                 <button class="btn-outline btn-sm">⭐ Varsayılan Yap</button>
               </div>
             </div>
 
-            <div class="address-card address-card--add">
+            <div
+              class="address-card address-card--add"
+              onclick="openModal('addAddressModalOverlay')"
+            >
               <div class="add-address-inner">
                 <div class="add-icon">+</div>
                 <div class="add-text">Yeni Adres Ekle</div>
@@ -571,7 +589,12 @@
         <section class="tab-section hidden" id="tab-cards">
           <div class="tab-header">
             <h2 class="tab-title">Kayıtlı Kartlarım</h2>
-            <button class="btn-primary">+ Yeni Kart Ekle</button>
+            <button
+              class="btn-primary"
+              onclick="openModal('addCardModalOverlay')"
+            >
+              + Yeni Kart Ekle
+            </button>
           </div>
           <div class="cards-list">
             <div class="saved-card">
@@ -2292,7 +2315,371 @@
         </div>
       </div>
     </div>
+    <!-- ════ YENİ ADRES EKLE MODAL ════ -->
+    <div
+      class="ac-modal-overlay hidden"
+      id="addAddressModalOverlay"
+      onclick="closeModal('addAddressModalOverlay', event)"
+    >
+      <div class="ac-modal">
+        <div class="ac-modal-head">
+          <h3>Yeni Adres Ekle</h3>
+          <button
+            class="ac-modal-close"
+            onclick="closeModal('addAddressModalOverlay')"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="ac-modal-body">
+          <div class="ac-modal-field">
+            <label class="ac-modal-label">Adres Başlığı</label>
+            <div class="addr-type-tabs">
+              <button
+                class="addr-type-btn active"
+                data-type="🏠 Ev"
+                onclick="selectAddrType(this)"
+              >
+                🏠 Ev
+              </button>
+              <button
+                class="addr-type-btn"
+                data-type="💼 İş"
+                onclick="selectAddrType(this)"
+              >
+                💼 İş
+              </button>
+              <button
+                class="addr-type-btn"
+                data-type="📦 Diğer"
+                onclick="selectAddrType(this)"
+              >
+                📦 Diğer
+              </button>
+            </div>
+          </div>
 
+          <div class="ac-modal-row">
+            <div class="ac-modal-field">
+              <label class="ac-modal-label"
+                >Ad Soyad <span class="wiz-required">*</span></label
+              >
+              <input
+                type="text"
+                class="rm-select"
+                id="addrName"
+                placeholder="Ad Soyad"
+              />
+            </div>
+            <div class="ac-modal-field">
+              <label class="ac-modal-label"
+                >Telefon <span class="wiz-required">*</span></label
+              >
+              <input
+                type="tel"
+                class="rm-select"
+                id="addrPhone"
+                placeholder="05XX XXX XX XX"
+              />
+            </div>
+          </div>
+
+          <div class="ac-modal-row">
+            <div class="ac-modal-field">
+              <label class="ac-modal-label"
+                >İl <span class="wiz-required">*</span></label
+              >
+              <input
+                type="text"
+                class="rm-select"
+                id="addrCity"
+                placeholder="İstanbul"
+              />
+            </div>
+            <div class="ac-modal-field">
+              <label class="ac-modal-label"
+                >İlçe <span class="wiz-required">*</span></label
+              >
+              <input
+                type="text"
+                class="rm-select"
+                id="addrDistrict"
+                placeholder="Kadıköy"
+              />
+            </div>
+          </div>
+
+          <div class="ac-modal-field">
+            <label class="ac-modal-label"
+              >Açık Adres <span class="wiz-required">*</span></label
+            >
+            <textarea
+              class="rm-textarea"
+              id="addrFull"
+              rows="3"
+              placeholder="Mahalle, cadde, sokak, kapı no, daire..."
+            ></textarea>
+          </div>
+
+          <div class="ac-modal-field">
+            <label class="ac-modal-label addr-check-label">
+              <input type="checkbox" id="addrDefault" />
+              <span>Varsayılan adres olarak kaydet</span>
+            </label>
+          </div>
+        </div>
+        <div class="ac-modal-foot">
+          <button
+            class="btn-outline"
+            onclick="closeModal('addAddressModalOverlay')"
+          >
+            Vazgeç
+          </button>
+          <button class="btn-primary" onclick="submitAddAddress()">
+            Kaydet
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ ADRES DÜZENLE MODAL ════ -->
+    <div
+      class="ac-modal-overlay hidden"
+      id="editAddressModalOverlay"
+      onclick="closeModal('editAddressModalOverlay', event)"
+    >
+      <div class="ac-modal">
+        <div class="ac-modal-head">
+          <h3>Adresi Düzenle</h3>
+          <button
+            class="ac-modal-close"
+            onclick="closeModal('editAddressModalOverlay')"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="ac-modal-body">
+          <div class="ac-modal-field">
+            <label class="ac-modal-label">Adres Başlığı</label>
+            <div class="addr-type-tabs">
+              <button
+                class="addr-type-btn active"
+                data-type="🏠 Ev"
+                onclick="selectEditAddrType(this)"
+              >
+                🏠 Ev
+              </button>
+              <button
+                class="addr-type-btn"
+                data-type="💼 İş"
+                onclick="selectEditAddrType(this)"
+              >
+                💼 İş
+              </button>
+              <button
+                class="addr-type-btn"
+                data-type="📦 Diğer"
+                onclick="selectEditAddrType(this)"
+              >
+                📦 Diğer
+              </button>
+            </div>
+          </div>
+
+          <div class="ac-modal-row">
+            <div class="ac-modal-field">
+              <label class="ac-modal-label"
+                >Ad Soyad <span class="wiz-required">*</span></label
+              >
+              <input
+                type="text"
+                class="rm-select"
+                id="editAddrName"
+                placeholder="Ad Soyad"
+              />
+            </div>
+            <div class="ac-modal-field">
+              <label class="ac-modal-label"
+                >Telefon <span class="wiz-required">*</span></label
+              >
+              <input
+                type="tel"
+                class="rm-select"
+                id="editAddrPhone"
+                placeholder="05XX XXX XX XX"
+              />
+            </div>
+          </div>
+
+          <div class="ac-modal-row">
+            <div class="ac-modal-field">
+              <label class="ac-modal-label"
+                >İl <span class="wiz-required">*</span></label
+              >
+              <input
+                type="text"
+                class="rm-select"
+                id="editAddrCity"
+                placeholder="İstanbul"
+              />
+            </div>
+            <div class="ac-modal-field">
+              <label class="ac-modal-label"
+                >İlçe <span class="wiz-required">*</span></label
+              >
+              <input
+                type="text"
+                class="rm-select"
+                id="editAddrDistrict"
+                placeholder="Kadıköy"
+              />
+            </div>
+          </div>
+
+          <div class="ac-modal-field">
+            <label class="ac-modal-label"
+              >Açık Adres <span class="wiz-required">*</span></label
+            >
+            <textarea
+              class="rm-textarea"
+              id="editAddrFull"
+              rows="3"
+              placeholder="Mahalle, cadde, sokak, kapı no, daire..."
+            ></textarea>
+          </div>
+        </div>
+        <div class="ac-modal-foot">
+          <button
+            class="btn-outline"
+            onclick="closeModal('editAddressModalOverlay')"
+          >
+            Vazgeç
+          </button>
+          <button class="btn-primary" onclick="submitEditAddress()">
+            Kaydet
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ YENİ KART EKLE MODAL ════ -->
+    <div
+      class="ac-modal-overlay hidden"
+      id="addCardModalOverlay"
+      onclick="closeModal('addCardModalOverlay', event)"
+    >
+      <div class="ac-modal">
+        <div class="ac-modal-head">
+          <h3>Yeni Kart Ekle</h3>
+          <button
+            class="ac-modal-close"
+            onclick="closeModal('addCardModalOverlay')"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="ac-modal-body">
+          <!-- Kart Önizleme -->
+          <div class="card-preview" id="cardPreview">
+            <div class="card-chip">▪▪▪</div>
+            <div class="card-number card-preview-num" id="previewNumber">
+              •••• •••• •••• ••••
+            </div>
+            <div class="card-footer-row">
+              <div>
+                <div class="card-label">Kart Sahibi</div>
+                <div class="card-value card-preview-val" id="previewName">
+                  AD SOYAD
+                </div>
+              </div>
+              <div>
+                <div class="card-label">Son Kullanma</div>
+                <div class="card-value card-preview-val" id="previewExp">
+                  MM/YY
+                </div>
+              </div>
+              <div class="card-brand-logo" id="previewBrand">?</div>
+            </div>
+          </div>
+
+          <div class="ac-modal-field">
+            <label class="ac-modal-label"
+              >Kart Numarası <span class="wiz-required">*</span></label
+            >
+            <input
+              type="text"
+              class="rm-select"
+              id="cardNumber"
+              placeholder="•••• •••• •••• ••••"
+              maxlength="19"
+              oninput="formatCardNumber(this)"
+              onkeyup="updateCardPreview()"
+            />
+          </div>
+
+          <div class="ac-modal-field">
+            <label class="ac-modal-label"
+              >Kart Üzerindeki İsim <span class="wiz-required">*</span></label
+            >
+            <input
+              type="text"
+              class="rm-select"
+              id="cardName"
+              placeholder="AD SOYAD"
+              oninput="updateCardPreview()"
+              style="text-transform: uppercase"
+            />
+          </div>
+
+          <div class="ac-modal-row">
+            <div class="ac-modal-field">
+              <label class="ac-modal-label"
+                >Son Kullanma <span class="wiz-required">*</span></label
+              >
+              <input
+                type="text"
+                class="rm-select"
+                id="cardExp"
+                placeholder="MM/YY"
+                maxlength="5"
+                oninput="formatCardExp(this)"
+                onkeyup="updateCardPreview()"
+              />
+            </div>
+            <div class="ac-modal-field">
+              <label class="ac-modal-label"
+                >CVV <span class="wiz-required">*</span></label
+              >
+              <input
+                type="password"
+                class="rm-select"
+                id="cardCvv"
+                placeholder="•••"
+                maxlength="3"
+              />
+            </div>
+          </div>
+
+          <div class="ac-modal-field">
+            <label class="ac-modal-label addr-check-label">
+              <input type="checkbox" id="cardDefault" />
+              <span>Varsayılan kart olarak kaydet</span>
+            </label>
+          </div>
+        </div>
+        <div class="ac-modal-foot">
+          <button
+            class="btn-outline"
+            onclick="closeModal('addCardModalOverlay')"
+          >
+            Vazgeç
+          </button>
+          <button class="btn-primary" onclick="submitAddCard()">
+            Kartı Kaydet
+          </button>
+        </div>
+      </div>
+    </div>
     <!-- FOOTER (kısa) -->
     <footer class="site-footer" style="margin-top: 40px">
       <div class="footer-grid">

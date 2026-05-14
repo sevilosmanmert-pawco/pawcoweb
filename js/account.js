@@ -735,6 +735,382 @@ function submitEditPet() {
     editPetCard = null;
   }, 1000);
 }
+/* ══════════════════════════════════════════════════
+   ADRES EKLE
+══════════════════════════════════════════════════ */
+let addAddrType = '🏠 Ev';
+
+function selectAddrType(btn) {
+  document.querySelectorAll('#addAddressModalOverlay .addr-type-btn')
+    .forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  addAddrType = btn.dataset.type;
+}
+
+function submitAddAddress() {
+  const name     = document.getElementById('addrName').value.trim();
+  const phone    = document.getElementById('addrPhone').value.trim();
+  const city     = document.getElementById('addrCity').value.trim();
+  const district = document.getElementById('addrDistrict').value.trim();
+  const full     = document.getElementById('addrFull').value.trim();
+  const isDefault = document.getElementById('addrDefault').checked;
+
+  if (!name || !phone || !city || !district || !full) {
+    alert('Lütfen zorunlu alanları doldurun.');
+    return;
+  }
+
+  // Yeni address-card DOM'a ekle
+  const grid    = document.querySelector('.addresses-grid');
+  const addCard = document.querySelector('.address-card--add');
+  const card    = document.createElement('div');
+  card.className = isDefault ? 'address-card address-card--default' : 'address-card';
+
+  // Başlık satırı
+  const head = document.createElement('div');
+  head.className = 'address-card-head';
+
+  const badge = document.createElement('div');
+  badge.className = 'address-type-badge';
+  badge.textContent = addAddrType;
+  head.appendChild(badge);
+
+  if (isDefault) {
+    const defBadge = document.createElement('span');
+    defBadge.className = 'default-badge';
+    defBadge.textContent = 'Varsayılan';
+    head.appendChild(defBadge);
+  }
+
+  const nameEl = document.createElement('div');
+  nameEl.className = 'address-name';
+  nameEl.textContent = name;
+
+  const phoneEl = document.createElement('div');
+  phoneEl.className = 'address-phone';
+  phoneEl.textContent = phone;
+
+  const textEl = document.createElement('div');
+  textEl.className = 'address-text';
+  textEl.textContent = full + ', ' + district + ' / ' + city;
+
+  const actions = document.createElement('div');
+  actions.className = 'address-card-actions';
+
+  const editBtn = document.createElement('button');
+  editBtn.className = 'btn-outline btn-sm';
+  editBtn.textContent = '✏️ Düzenle';
+  editBtn.onclick = function() { openEditAddressModal(editBtn); };
+
+  const delBtn = document.createElement('button');
+  delBtn.className = 'btn-outline btn-sm btn-del';
+  delBtn.textContent = '🗑️ Sil';
+  delBtn.onclick = function() {
+    if (confirm('Bu adresi silmek istediğinizden emin misiniz?')) {
+      card.style.transition = 'opacity .3s, transform .3s';
+      card.style.opacity = '0';
+      card.style.transform = 'scale(.95)';
+      setTimeout(() => card.remove(), 300);
+    }
+  };
+
+  if (!isDefault) {
+    const defBtn = document.createElement('button');
+    defBtn.className = 'btn-outline btn-sm';
+    defBtn.textContent = '⭐ Varsayılan Yap';
+    actions.appendChild(editBtn);
+    actions.appendChild(delBtn);
+    actions.appendChild(defBtn);
+  } else {
+    actions.appendChild(editBtn);
+    actions.appendChild(delBtn);
+  }
+
+  card.appendChild(head);
+  card.appendChild(nameEl);
+  card.appendChild(phoneEl);
+  card.appendChild(textEl);
+  card.appendChild(actions);
+  grid.insertBefore(card, addCard);
+
+  // Formu temizle ve kapat
+  const btn = document.querySelector('#addAddressModalOverlay .ac-modal-foot .btn-primary');
+  btn.textContent = '✓ Kaydedildi!';
+  btn.style.background = '#2d9e6a';
+  setTimeout(() => {
+    closeModal('addAddressModalOverlay');
+    btn.textContent = 'Kaydet';
+    btn.style.background = '';
+    document.getElementById('addrName').value = '';
+    document.getElementById('addrPhone').value = '';
+    document.getElementById('addrCity').value = '';
+    document.getElementById('addrDistrict').value = '';
+    document.getElementById('addrFull').value = '';
+    document.getElementById('addrDefault').checked = false;
+    addAddrType = '🏠 Ev';
+    document.querySelectorAll('#addAddressModalOverlay .addr-type-btn')
+      .forEach((b,i) => b.classList.toggle('active', i === 0));
+  }, 1000);
+}
+
+window.selectAddrType   = selectAddrType;
+window.submitAddAddress = submitAddAddress;
+
+/* ══════════════════════════════════════════════════
+   ADRES DÜZENLE
+══════════════════════════════════════════════════ */
+let editAddrCard = null;
+let editAddrType = '🏠 Ev';
+
+function openEditAddressModal(btn) {
+  editAddrCard = btn.closest('.address-card');
+
+  // Mevcut değerleri oku
+  const typeBadge = editAddrCard.querySelector('.address-type-badge')?.textContent.trim() || '🏠 Ev';
+  const name      = editAddrCard.querySelector('.address-name')?.textContent.trim() || '';
+  const phone     = editAddrCard.querySelector('.address-phone')?.textContent.trim() || '';
+  const fullText  = editAddrCard.querySelector('.address-text')?.textContent.trim() || '';
+
+  // Şehir/ilçe parse et (son kısım "İlçe / Şehir")
+  const parts    = fullText.split(',');
+  const lastPart = parts[parts.length - 1]?.trim() || '';
+  const cityParts = lastPart.split('/');
+  const district  = cityParts[0]?.trim() || '';
+  const city      = cityParts[1]?.trim() || '';
+  const addrBody  = parts.slice(0, -1).join(',').trim();
+
+  editAddrType = typeBadge;
+
+  // Tip butonlarını senkronize et
+  document.querySelectorAll('#editAddressModalOverlay .addr-type-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.type === typeBadge);
+  });
+
+  document.getElementById('editAddrName').value     = name;
+  document.getElementById('editAddrPhone').value    = phone;
+  document.getElementById('editAddrCity').value     = city;
+  document.getElementById('editAddrDistrict').value = district;
+  document.getElementById('editAddrFull').value     = addrBody;
+
+  openModal('editAddressModalOverlay');
+}
+
+function selectEditAddrType(btn) {
+  document.querySelectorAll('#editAddressModalOverlay .addr-type-btn')
+    .forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  editAddrType = btn.dataset.type;
+}
+
+function submitEditAddress() {
+  const name     = document.getElementById('editAddrName').value.trim();
+  const phone    = document.getElementById('editAddrPhone').value.trim();
+  const city     = document.getElementById('editAddrCity').value.trim();
+  const district = document.getElementById('editAddrDistrict').value.trim();
+  const full     = document.getElementById('editAddrFull').value.trim();
+
+  if (!name || !phone || !city || !district || !full) {
+    alert('Lütfen zorunlu alanları doldurun.');
+    return;
+  }
+
+  if (editAddrCard) {
+    editAddrCard.querySelector('.address-type-badge').textContent = editAddrType;
+    editAddrCard.querySelector('.address-name').textContent       = name;
+    editAddrCard.querySelector('.address-phone').textContent      = phone;
+    editAddrCard.querySelector('.address-text').textContent       = full + ', ' + district + ' / ' + city;
+  }
+
+  const btn = document.querySelector('#editAddressModalOverlay .ac-modal-foot .btn-primary');
+  btn.textContent = '✓ Kaydedildi!';
+  btn.style.background = '#2d9e6a';
+  setTimeout(() => {
+    closeModal('editAddressModalOverlay');
+    btn.textContent = 'Kaydet';
+    btn.style.background = '';
+    editAddrCard = null;
+  }, 1000);
+}
+
+window.openEditAddressModal  = openEditAddressModal;
+window.selectEditAddrType    = selectEditAddrType;
+window.submitEditAddress     = submitEditAddress;
+
+/* ══════════════════════════════════════════════════
+   KART EKLE
+══════════════════════════════════════════════════ */
+function formatCardNumber(input) {
+  let v = input.value.replace(/\D/g, '').substring(0, 16);
+  input.value = v.replace(/(.{4})/g, '$1 ').trim();
+}
+
+function formatCardExp(input) {
+  let v = input.value.replace(/\D/g, '').substring(0, 4);
+  if (v.length >= 2) v = v.substring(0,2) + '/' + v.substring(2);
+  input.value = v;
+}
+
+function updateCardPreview() {
+  const num  = document.getElementById('cardNumber').value || '';
+  const name = document.getElementById('cardName').value.trim().toUpperCase() || 'AD SOYAD';
+  const exp  = document.getElementById('cardExp').value || '';
+  const preview = document.getElementById('cardPreview');
+
+  // Numara
+  const padded = num.padEnd(19, '•').replace(/ /g, '').replace(/(.{4})/g, '$1 ').trim();
+  document.getElementById('previewNumber').textContent = padded || '•••• •••• •••• ••••';
+  document.getElementById('previewName').textContent   = name;
+  document.getElementById('previewExp').textContent    = exp || 'MM/YY';
+
+  // Marka algıla
+  const raw = num.replace(/\s/g, '');
+  const brandEl = document.getElementById('previewBrand');
+  if (raw.startsWith('4')) {
+    brandEl.textContent = 'VISA';
+    preview.className = 'card-preview preview--visa';
+  } else if (raw.startsWith('5') || raw.startsWith('2')) {
+    brandEl.textContent = 'MC';
+    preview.className = 'card-preview preview--mc';
+  } else {
+    brandEl.textContent = '?';
+    preview.className = 'card-preview';
+  }
+}
+
+function submitAddCard() {
+  const num  = document.getElementById('cardNumber').value.trim();
+  const name = document.getElementById('cardName').value.trim();
+  const exp  = document.getElementById('cardExp').value.trim();
+  const cvv  = document.getElementById('cardCvv').value.trim();
+  const isDefault = document.getElementById('cardDefault').checked;
+
+  if (!num || !name || !exp || !cvv) {
+    alert('Lütfen tüm kart bilgilerini doldurun.');
+    return;
+  }
+  if (num.replace(/\s/g,'').length < 16) {
+    alert('Geçerli bir kart numarası girin.');
+    return;
+  }
+
+  // Son 4 hane
+  const last4 = num.replace(/\s/g,'').slice(-4);
+  const raw   = num.replace(/\s/g,'');
+  const isMC  = raw.startsWith('5') || raw.startsWith('2');
+  const brand = raw.startsWith('4') ? 'VISA' : (isMC ? 'MC' : '?');
+  const visClass = raw.startsWith('4') ? 'card-visual--visa' : (isMC ? 'card-visual--mc' : '');
+
+  // Yeni kart DOM elemanı oluştur
+  const list    = document.querySelector('.cards-list');
+  const newCard = document.createElement('div');
+  newCard.className = 'saved-card';
+
+  const visual = document.createElement('div');
+  visual.className = 'card-visual ' + visClass;
+
+  const chip = document.createElement('div');
+  chip.className = 'card-chip';
+  chip.textContent = '▪▪▪';
+
+  const number = document.createElement('div');
+  number.className = 'card-number';
+  number.textContent = '•••• •••• •••• ' + last4;
+
+  const footRow = document.createElement('div');
+  footRow.className = 'card-footer-row';
+
+  const ownerDiv = document.createElement('div');
+  const ownerLabel = document.createElement('div');
+  ownerLabel.className = 'card-label';
+  ownerLabel.textContent = 'Kart Sahibi';
+  const ownerVal = document.createElement('div');
+  ownerVal.className = 'card-value';
+  ownerVal.textContent = name.toUpperCase();
+  ownerDiv.appendChild(ownerLabel);
+  ownerDiv.appendChild(ownerVal);
+
+  const expDiv = document.createElement('div');
+  const expLabel = document.createElement('div');
+  expLabel.className = 'card-label';
+  expLabel.textContent = 'Son Kullanma';
+  const expVal = document.createElement('div');
+  expVal.className = 'card-value';
+  expVal.textContent = exp;
+  expDiv.appendChild(expLabel);
+  expDiv.appendChild(expVal);
+
+  const brandDiv = document.createElement('div');
+  brandDiv.className = 'card-brand-logo' + (isMC ? ' mc-logo' : '');
+  brandDiv.textContent = brand;
+
+  footRow.appendChild(ownerDiv);
+  footRow.appendChild(expDiv);
+  footRow.appendChild(brandDiv);
+
+  visual.appendChild(chip);
+  visual.appendChild(number);
+  visual.appendChild(footRow);
+
+  const meta = document.createElement('div');
+  meta.className = 'saved-card-meta';
+
+  if (isDefault) {
+    const defBadge = document.createElement('span');
+    defBadge.className = 'default-badge';
+    defBadge.textContent = 'Varsayılan';
+    meta.appendChild(defBadge);
+  }
+
+  const metaActions = document.createElement('div');
+  metaActions.className = 'saved-card-actions';
+
+  if (!isDefault) {
+    const defBtn = document.createElement('button');
+    defBtn.className = 'btn-outline btn-sm';
+    defBtn.textContent = '⭐ Varsayılan Yap';
+    metaActions.appendChild(defBtn);
+  }
+
+  const delBtn = document.createElement('button');
+  delBtn.className = 'btn-outline btn-sm btn-del';
+  delBtn.textContent = '🗑️ Sil';
+  delBtn.onclick = function() {
+    if (confirm('Bu kartı silmek istediğinizden emin misiniz?')) {
+      newCard.style.transition = 'opacity .3s, transform .3s';
+      newCard.style.opacity = '0';
+      newCard.style.transform = 'scale(.95)';
+      setTimeout(() => newCard.remove(), 300);
+    }
+  };
+
+  metaActions.appendChild(delBtn);
+  meta.appendChild(metaActions);
+
+  newCard.appendChild(visual);
+  newCard.appendChild(meta);
+  list.appendChild(newCard);
+
+  // Temizle ve kapat
+  const btn = document.querySelector('#addCardModalOverlay .ac-modal-foot .btn-primary');
+  btn.textContent = '✓ Kaydedildi!';
+  btn.style.background = '#2d9e6a';
+  setTimeout(() => {
+    closeModal('addCardModalOverlay');
+    btn.textContent = 'Kartı Kaydet';
+    btn.style.background = '';
+    document.getElementById('cardNumber').value = '';
+    document.getElementById('cardName').value   = '';
+    document.getElementById('cardExp').value    = '';
+    document.getElementById('cardCvv').value    = '';
+    document.getElementById('cardDefault').checked = false;
+    updateCardPreview();
+  }, 1000);
+}
+
+window.formatCardNumber = formatCardNumber;
+window.formatCardExp    = formatCardExp;
+window.updateCardPreview = updateCardPreview;
+window.submitAddCard    = submitAddCard;
 
 window.openEditPetModal  = openEditPetModal;
 window.editPetSelectType = editPetSelectType;
