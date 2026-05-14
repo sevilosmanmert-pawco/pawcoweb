@@ -178,18 +178,27 @@ function selectPetType(btn, type) {
 
 // Kedi/köpek layout'unu göster/gizle
 function applyPetLayout() {
-  const kl = document.getElementById('kedi-layout');
+  const kl  = document.getElementById('kedi-layout');
   const kol = document.getElementById('kopek-layout');
+  // ── EKLE: mobil chip şeritleri ──
+  const kediChips  = document.getElementById('kedi-mobile-cats');
+  const kopekChips = document.getElementById('kopek-mobile-cats');
   if (!kl || !kol) return;
+
   if (state.petType === 'kedi') {
     kl.style.display  = '';
     kol.style.display = 'none';
-    // Kedi sol menüde ilk kategoriyi aktif et
+    // ── EKLE ──
+    if (kediChips)  kediChips.style.display  = '';
+    if (kopekChips) kopekChips.style.display = 'none';
     const firstCat = kl.querySelector('.hs-cat-btn');
     if (firstCat) switchHizmetCat(firstCat, 'kedi', firstCat.dataset.cat);
   } else {
     kl.style.display  = 'none';
     kol.style.display = '';
+    // ── EKLE ──
+    if (kediChips)  kediChips.style.display  = 'none';
+    if (kopekChips) kopekChips.style.display = '';
     const firstCat = kol.querySelector('.hs-cat-btn');
     if (firstCat) switchHizmetCat(firstCat, 'kopek', firstCat.dataset.cat);
   }
@@ -343,11 +352,7 @@ function initFilterCheckboxes() {
 function initMobileFilter() {
   document.getElementById('hizmetFilterOverlay')?.addEventListener('click', closeMobileFilter);
 }
-function openMobileFilter() {
-  document.querySelector('.hizmet-filter-panel')?.classList.add('mobile-open');
-  document.getElementById('hizmetFilterOverlay')?.classList.add('visible');
-  document.body.style.overflow = 'hidden';
-}
+
 function closeMobileFilter() {
   document.querySelector('.hizmet-filter-panel')?.classList.remove('mobile-open');
   document.getElementById('hizmetFilterOverlay')?.classList.remove('visible');

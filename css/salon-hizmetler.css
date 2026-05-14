@@ -473,34 +473,6 @@
 }
 .sel-clear-btn:hover { background: #e85d04; color: #fff; }
 
-/* ── MOBİL FİLTRE ── */
-.hizmet-mobile-filter-btn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-  background: #1a1a1a;
-  color: #fff;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0,0,0,.25);
-  transition: background .15s;
-}
-.hizmet-mobile-filter-btn:hover { background: #e85d04; }
-
-.hizmet-filter-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.5);
-  z-index: 199;
-}
 .hizmet-filter-overlay.visible { display: block; }
 
 /* ── RESPONSIVE ── */
@@ -519,7 +491,7 @@
     box-shadow: 4px 0 24px rgba(0,0,0,.15);
   }
   .hizmet-filter-panel.mobile-open { display: block; }
-  .hizmet-mobile-filter-btn { display: block; }
+
 }
 
 @media (max-width: 700px) {

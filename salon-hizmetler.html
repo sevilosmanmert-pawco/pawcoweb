@@ -3815,6 +3815,53 @@
         <!-- ════════════════════════════════════════
          KEDİ İÇİN PANEL
     ════════════════════════════════════════ -->
+        <!-- MOBİL KATEGORİ ŞERİDİ — kedi -->
+        <div class="hizmet-mobile-cats" id="kedi-mobile-cats">
+          <button
+            class="hizmet-mobile-cat-chip active"
+            data-scope="kedi"
+            data-cat="kesim"
+            onclick="
+              switchHizmetCat(this, 'kedi', 'kesim');
+              syncMobileChip('kedi-mobile-cats', this);
+            "
+          >
+            Profesyonel Kesim
+          </button>
+          <button
+            class="hizmet-mobile-cat-chip"
+            data-scope="kedi"
+            data-cat="tarama"
+            onclick="
+              switchHizmetCat(this, 'kedi', 'tarama');
+              syncMobileChip('kedi-mobile-cats', this);
+            "
+          >
+            Tarama
+          </button>
+          <button
+            class="hizmet-mobile-cat-chip"
+            data-scope="kedi"
+            data-cat="hijyen"
+            onclick="
+              switchHizmetCat(this, 'kedi', 'hijyen');
+              syncMobileChip('kedi-mobile-cats', this);
+            "
+          >
+            Hijyen
+          </button>
+          <button
+            class="hizmet-mobile-cat-chip"
+            data-scope="kedi"
+            data-cat="avantajli"
+            onclick="
+              switchHizmetCat(this, 'kedi', 'avantajli');
+              syncMobileChip('kedi-mobile-cats', this);
+            "
+          >
+            Avantajlı Paketler
+          </button>
+        </div>
         <div class="hizmet-layout" id="kedi-layout" style="display: none">
           <!-- SOL: KEDİ KATEGORİ MENÜsü -->
           <aside class="hizmet-filter-panel">
@@ -4279,9 +4326,7 @@
       id="hizmetFilterOverlay"
       onclick="closeMobileFilter()"
     ></div>
-    <button class="hizmet-mobile-filter-btn" onclick="openMobileFilter()">
-      ⚙️ Filtrele
-    </button>
+  
 
     <!-- FOOTER -->
     <footer class="site-footer">

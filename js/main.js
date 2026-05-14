@@ -560,8 +560,8 @@ function renderMobileNav() {
     </div>
 
      <div class="mobile-nav-subnav">
-    <a href="salon-hizmetler.html" class="mobile-nav-subnav-link">Pawco Salon</a>
-    <a href="randevu.html" class="mobile-nav-subnav-link">Randevu</a>
+    <a href="salon.html" class="mobile-nav-subnav-link">Pawco Salon</a>
+    <a href="salon-hizmetler.html" class="mobile-nav-subnav-link">Randevu</a>
     <a href="kampanya.html" class="mobile-nav-subnav-link">Kampanyalar</a>
     <a href="blog.html" class="mobile-nav-subnav-link">Blog</a>
   </div>
