@@ -25,50 +25,88 @@
 
     <!-- HEADER -->
     <header class="header">
-  <!-- Satır 1: hamburger + logo + aksiyonlar -->
-  <div class="header-inner">
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
-    <a href="index.html" class="logo">
-      <img src="resimler/logo.png"/>
-    </a>
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Ne aramıştınız?..." autocomplete="off"/>
-      <button class="search-btn" id="searchBtn">🔍</button>
-    </div>
-    <div class="header-actions">
-      <button class="header-action-btn" id="helpBtn" onclick="window.location.href='destek.html'">
-        <span class="btn-icon">🎧</span><span>Yardım</span>
-      </button>
-      <button class="header-action-btn" onclick="window.location.href='account.html'">
-        <span class="btn-icon">👤</span><span>Hesabım</span>
-      </button>
-      <button class="header-action-btn" onclick="window.location.href='giris.html#giris'">
-        <span>Giriş Yap</span>
-      </button>
-      <button class="header-action-btn" onclick="window.location.href='giris.html'">
-        <span>Üye Ol</span>
-      </button>
-      <button class="header-action-btn cart-btn" id="cartBtn" onclick="window.location.href='sepet.html'">
-        <span class="btn-icon">🛒</span><span>Sepetim</span>
-        <span class="cart-count">0</span>
-      </button>
-    </div>
-  </div>
-  <!-- Satır 2: arama (sadece mobil) -->
-  <div class="header-search-row">
-    <div class="search-bar search-bar--mobile">
-      <input type="text" id="searchInputMobile" placeholder="Ne aramıştınız?..." autocomplete="off"/>
-      <button class="search-btn" onclick="window.location.href='search.html?q='+document.getElementById('searchInputMobile').value">🔍</button>
-    </div>
-  </div>
-  <!-- Satır 3: subnav (sadece mobil) -->
-  <div class="header-subnav-row">
-    <a href="salon.html" class="hsubnav-link">Pawco Salon</a>
-    <a href="salon-hizmetler.html" class="hsubnav-link">Randevu</a>
-    <a href="kampanya.html" class="hsubnav-link">Kampanyalar</a>
-    <a href="blog.html" class="hsubnav-link">Blog</a>
-  </div>
-</header>
+      <!-- Satır 1: hamburger + logo + aksiyonlar -->
+      <div class="header-inner">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
+          ☰
+        </button>
+        <a href="index.html" class="logo">
+          <img src="resimler/logo.png" />
+        </a>
+        <div class="search-bar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Ne aramıştınız?..."
+            autocomplete="off"
+          />
+          <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+        <div class="header-actions">
+          <button
+            class="header-action-btn"
+            id="helpBtn"
+            onclick="window.location.href = 'destek.html'"
+          >
+            <span class="btn-icon">🎧</span><span>Yardım</span>
+          </button>
+          <button
+            class="header-action-btn"
+            onclick="window.location.href = 'account.html'"
+          >
+            <span class="btn-icon">👤</span><span>Hesabım</span>
+          </button>
+          <button
+            class="header-action-btn"
+            onclick="window.location.href = 'giris.html#giris'"
+          >
+            <span>Giriş Yap</span>
+          </button>
+          <button
+            class="header-action-btn"
+            onclick="window.location.href = 'giris.html'"
+          >
+            <span>Üye Ol</span>
+          </button>
+          <button
+            class="header-action-btn cart-btn"
+            id="cartBtn"
+            onclick="window.location.href = 'sepet.html'"
+          >
+            <span class="btn-icon">🛒</span><span>Sepetim</span>
+            <span class="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+      <!-- Satır 2: arama (sadece mobil) -->
+      <div class="header-search-row">
+        <div class="search-bar search-bar--mobile">
+          <input
+            type="text"
+            id="searchInputMobile"
+            placeholder="Ne aramıştınız?..."
+            autocomplete="off"
+          />
+          <button
+            class="search-btn"
+            onclick="
+              window.location.href =
+                'search.html?q=' +
+                document.getElementById('searchInputMobile').value
+            "
+          >
+            🔍
+          </button>
+        </div>
+      </div>
+      <!-- Satır 3: subnav (sadece mobil) -->
+      <div class="header-subnav-row">
+        <a href="salon.html" class="hsubnav-link">Pawco Salon</a>
+        <a href="salon-hizmetler.html" class="hsubnav-link">Randevu</a>
+        <a href="kampanya.html" class="hsubnav-link">Kampanyalar</a>
+        <a href="blog.html" class="hsubnav-link">Blog</a>
+      </div>
+    </header>
     <!-- ═══════════════════════════════════════════════════════
        NAVBAR 
   ═══════════════════════════════════════════════════════ -->
@@ -4738,7 +4776,6 @@
         <div class="footer-col">
           <h4 class="footer-heading">Yardım Merkezi</h4>
           <ul>
-            <li><a href="#">Sık Sorulan Sorular</a></li>
             <li><a href="#">Mesafeli Satış Sözleşmesi</a></li>
             <li><a href="#">Teslimat Koşulları</a></li>
             <li><a href="#">Garanti ve İade Süreci</a></li>
@@ -4748,16 +4785,16 @@
         </div>
         <div class="footer-col">
           <h4 class="footer-heading">Müşteri Hizmetleri</h4>
-          <div class="footer-phone">0850 255 10 01</div>
-          <div class="footer-hours">Pazartesi - Cumartesi 09:00 - 18:00</div>
+          <div class="footer-phone">0212 444 2 795</div>
+          <div class="footer-hours">Pazartesi - Cuma 08:00 - 18:00</div>
           <div class="footer-support-label">Yardıma mı ihtiyacınız var?</div>
           <a href="#" class="support-btn">Destek Talebi Oluştur</a>
         </div>
-        <div class="footer-col">
+        <!--  <div class="footer-col">
           <h4 class="footer-heading">Mobil Uygulamalar</h4>
           <a href="#" class="app-btn">Google Play'den İndirin</a
           ><a href="#" class="app-btn">App Store'dan İndirin</a>
-        </div>
+        </div>-->
       </div>
       <div class="footer-bottom">
         <div class="footer-bottom-col">
@@ -4792,26 +4829,27 @@
 
     <!-- ════ HIZLI RANDEVU POPUP ════ -->
     <!-- ════ HIZLI RANDEVU POPUP ════ -->
-<div class="hrzv-overlay hrzv-hidden" id="hrzvOverlay">
-  <div class="hrzv-popup" id="hrzvPopup">
-    <button class="hrzv-close" id="hrzvClose" aria-label="Kapat">✕</button>
-    <div class="hrzv-img-wrap">
-      <img src="resimler/popup.png" alt="Hızlı Randevu" class="hrzv-img"/>
+    <div class="hrzv-overlay hrzv-hidden" id="hrzvOverlay">
+      <div class="hrzv-popup" id="hrzvPopup">
+        <button class="hrzv-close" id="hrzvClose" aria-label="Kapat">✕</button>
+        <div class="hrzv-img-wrap">
+          <img src="resimler/popup.png" alt="Hızlı Randevu" class="hrzv-img" />
+        </div>
+        <div class="hrzv-body">
+          <p class="hrzv-label">Pawco Kuaför & Bakım Salonu</p>
+          <h3 class="hrzv-title">Hızlı Randevu Al</h3>
+          <p class="hrzv-desc">
+            Evcil dostunuz için uygun saati seçin, gerisini biz halledelim.
+          </p>
+          <a href="salon-hizmetler.html" class="hrzv-btn">Randevu Al</a>
+        </div>
+      </div>
     </div>
-    <div class="hrzv-body">
-      <p class="hrzv-label">Pawco Grooming</p>
-      <h3 class="hrzv-title">Hızlı Randevu Al</h3>
-      <p class="hrzv-desc">Evcil dostunuz için uygun saati seçin, gerisini biz halledelim.</p>
-      <a href="salon-hizmetler.html" class="hrzv-btn">Randevu Al</a>
-    </div>
-  </div>
-</div>
     <!-- MOBILE OVERLAY -->
     <div class="mobile-overlay" id="mobile-overlay"></div>
 
     <!-- MOBILE NAV DRAWER — JS tarafından doldurulur  -->
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobil Menü"></nav>
-
 
     <script src="js/main.js"></script>
   </body>
