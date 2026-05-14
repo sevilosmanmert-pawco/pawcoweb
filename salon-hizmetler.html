@@ -1,82 +1,129 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pawco Salon ✂️ - Hizmet Listesi</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>"/>
-  <link rel="stylesheet" href="css/style.css"/>
-  <link rel="stylesheet" href="css/salon.css"/>
-  <link rel="stylesheet" href="css/salon-hizmetler.css"/>
-</head>
-<body class="salon-page">
-
-  <!-- TOP BAR -->
-  <div class="top-bar">
-    <span>🚚 <strong>150 TL ve üzeri</strong> ücretsiz kargo &nbsp;|&nbsp; 📞 Müşteri Hizmetleri: <strong>0850 123 45 67</strong></span>
-  </div>
-
-  <!-- HEADER -->
-   <header class="header">
-  <!-- Satır 1: hamburger + logo + aksiyonlar -->
-  <div class="header-inner">
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">☰</button>
-    <a href="index.html" class="logo">
-      <img src="resimler/logo.png"/>
-    </a>
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Ne aramıştınız?..." autocomplete="off"/>
-      <button class="search-btn" id="searchBtn">🔍</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pawco Salon ✂️ - Hizmet Listesi</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/salon.css" />
+    <link rel="stylesheet" href="css/salon-hizmetler.css" />
+  </head>
+  <body class="salon-page">
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <span
+        >🚚 <strong>150 TL ve üzeri</strong> ücretsiz kargo &nbsp;|&nbsp; 📞
+        Müşteri Hizmetleri: <strong>0850 123 45 67</strong></span
+      >
     </div>
-    <div class="header-actions">
-      <button class="header-action-btn" id="helpBtn" onclick="window.location.href='destek.html'">
-        <span class="btn-icon">🎧</span><span>Yardım</span>
-      </button>
-      <button class="header-action-btn" onclick="window.location.href='account.html'">
-        <span class="btn-icon">👤</span><span>Hesabım</span>
-      </button>
-      <button class="header-action-btn" onclick="window.location.href='giris.html#giris'">
-        <span>Giriş Yap</span>
-      </button>
-      <button class="header-action-btn" onclick="window.location.href='giris.html'">
-        <span>Üye Ol</span>
-      </button>
-      <button class="header-action-btn cart-btn" id="cartBtn" onclick="window.location.href='sepet.html'">
-        <span class="btn-icon">🛒</span><span>Sepetim</span>
-        <span class="cart-count">0</span>
-      </button>
-    </div>
-  </div>
-  <!-- Satır 2: arama (sadece mobil) -->
-  <div class="header-search-row">
-    <div class="search-bar search-bar--mobile">
-      <input type="text" id="searchInputMobile" placeholder="Ne aramıştınız?..." autocomplete="off"/>
-      <button class="search-btn" onclick="window.location.href='search.html?q='+document.getElementById('searchInputMobile').value">🔍</button>
-    </div>
-  </div>
-  <!-- Satır 3: subnav (sadece mobil) -->
-  <div class="header-subnav-row">
-    <a href="salon-hizmetler.html" class="hsubnav-link">Pawco Salon</a>
-    <a href="randevu.html" class="hsubnav-link">Randevu</a>
-    <a href="kampanya.html" class="hsubnav-link">Kampanyalar</a>
-    <a href="blog.html" class="hsubnav-link">Blog</a>
-  </div>
-</header>
 
-  <!-- SALON ALT NAVBAR -->
-  <nav class="salon-subnav">
-    <div class="salon-subnav-inner">
-      <a href="salon.html" class="salon-subnav-link">Ana Sayfa</a>
-      <a href="salon.html#hizmetler" class="salon-subnav-link">Hizmetler</a>
-      <a href="salon.html#magazalar" class="salon-subnav-link">Mağazalar</a>
-      <a href="salon-hizmetler.html" class="salon-subnav-link active">Randevu Al</a>
-      <a href="salon.html#galeri" class="salon-subnav-link">Galeri</a>
-      <a href="salon.html#reels" class="salon-subnav-link">Videolar</a>
-      <a href="salon.html#neden" class="salon-subnav-link">Neden Pawco Salon?</a>
-    </div>
-  </nav>
+    <!-- HEADER -->
+    <header class="header">
+      <!-- Satır 1: hamburger + logo + aksiyonlar -->
+      <div class="header-inner">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
+          ☰
+        </button>
+        <a href="index.html" class="logo">
+          <img src="resimler/logo.png" />
+        </a>
+        <div class="search-bar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Ne aramıştınız?..."
+            autocomplete="off"
+          />
+          <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+        <div class="header-actions">
+          <button
+            class="header-action-btn"
+            id="helpBtn"
+            onclick="window.location.href = 'destek.html'"
+          >
+            <span class="btn-icon">🎧</span><span>Yardım</span>
+          </button>
+          <button
+            class="header-action-btn"
+            onclick="window.location.href = 'account.html'"
+          >
+            <span class="btn-icon">👤</span><span>Hesabım</span>
+          </button>
+          <button
+            class="header-action-btn"
+            onclick="window.location.href = 'giris.html#giris'"
+          >
+            <span>Giriş Yap</span>
+          </button>
+          <button
+            class="header-action-btn"
+            onclick="window.location.href = 'giris.html'"
+          >
+            <span>Üye Ol</span>
+          </button>
+          <button
+            class="header-action-btn cart-btn"
+            id="cartBtn"
+            onclick="window.location.href = 'sepet.html'"
+          >
+            <span class="btn-icon">🛒</span><span>Sepetim</span>
+            <span class="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+      <!-- Satır 2: arama (sadece mobil) -->
+      <div class="header-search-row">
+        <div class="search-bar search-bar--mobile">
+          <input
+            type="text"
+            id="searchInputMobile"
+            placeholder="Ne aramıştınız?..."
+            autocomplete="off"
+          />
+          <button
+            class="search-btn"
+            onclick="
+              window.location.href =
+                'search.html?q=' +
+                document.getElementById('searchInputMobile').value
+            "
+          >
+            🔍
+          </button>
+        </div>
+      </div>
+      <!-- Satır 3: subnav (sadece mobil) -->
+      <div class="header-subnav-row">
+        <a href="salon.html" class="hsubnav-link">Pawco Salon</a>
+        <a href="salon-hizmetler.html" class="hsubnav-link">Randevu</a>
+        <a href="kampanya.html" class="hsubnav-link">Kampanyalar</a>
+        <a href="blog.html" class="hsubnav-link">Blog</a>
+      </div>
+    </header>
 
-      <!-- ═══════════════════════════════════════════════════════
+    <!-- SALON ALT NAVBAR -->
+    <nav class="salon-subnav">
+      <div class="salon-subnav-inner">
+        <a href="salon.html" class="salon-subnav-link">Ana Sayfa</a>
+        <a href="salon.html#hizmetler" class="salon-subnav-link">Hizmetler</a>
+        <a href="salon.html#magazalar" class="salon-subnav-link">Mağazalar</a>
+        <a href="salon-hizmetler.html" class="salon-subnav-link active"
+          >Randevu Al</a
+        >
+        <a href="salon.html#galeri" class="salon-subnav-link">Galeri</a>
+        <a href="salon.html#reels" class="salon-subnav-link">Videolar</a>
+        <a href="salon.html#neden" class="salon-subnav-link"
+          >Neden Pawco Salon?</a
+        >
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════
        NAVBAR 
   ═══════════════════════════════════════════════════════ -->
     <nav class="navbar" id="navbar" role="navigation" aria-label="Ana Menü">
@@ -2690,1113 +2737,1670 @@
     </nav>
     <!-- /NAVBAR -->
 
-  <!-- ═══ RANDEVU ADIM ÇUBUĞU ═══ -->
-  <div class="appt-wizard-bar" id="wizardBar">
-    <div class="appt-wizard-inner">
-      <button class="appt-back-btn" id="wizBackBtn" onclick="wizBack()">← Geri Dön</button>
+    <!-- ═══ RANDEVU ADIM ÇUBUĞU ═══ -->
+    <div class="appt-wizard-bar" id="wizardBar">
+      <div class="appt-wizard-inner">
+        <button class="appt-back-btn" id="wizBackBtn" onclick="wizBack()">
+          ← Geri Dön
+        </button>
 
-      <div class="appt-steps">
-        <div class="appt-step appt-step--active" id="wiz-step-dot-0">
-          <div class="appt-step-num">1</div>
-          <div class="appt-step-label">Evcil Dost</div>
+        <div class="appt-steps">
+          <div class="appt-step appt-step--active" id="wiz-step-dot-0">
+            <div class="appt-step-num">1</div>
+            <div class="appt-step-label">Evcil Dost</div>
+          </div>
+          <div class="appt-step-arrow">→</div>
+          <div class="appt-step" id="wiz-step-dot-1">
+            <div class="appt-step-num">2</div>
+            <div class="appt-step-label">Hizmet</div>
+          </div>
+          <div class="appt-step-arrow">→</div>
+          <div class="appt-step" id="wiz-step-dot-2">
+            <div class="appt-step-num">3</div>
+            <div class="appt-step-label">Lokasyon</div>
+          </div>
+          <div class="appt-step-arrow">→</div>
+          <div class="appt-step" id="wiz-step-dot-3">
+            <div class="appt-step-num">4</div>
+            <div class="appt-step-label">Zaman</div>
+          </div>
+          <div class="appt-step-arrow">→</div>
+          <div class="appt-step" id="wiz-step-dot-4">
+            <div class="appt-step-num">5</div>
+            <div class="appt-step-label">Onay</div>
+          </div>
         </div>
-        <div class="appt-step-arrow">→</div>
-        <div class="appt-step" id="wiz-step-dot-1">
-          <div class="appt-step-num">2</div>
-          <div class="appt-step-label">Hizmet</div>
-        </div>
-        <div class="appt-step-arrow">→</div>
-        <div class="appt-step" id="wiz-step-dot-2">
-          <div class="appt-step-num">3</div>
-          <div class="appt-step-label">Lokasyon</div>
-        </div>
-        <div class="appt-step-arrow">→</div>
-        <div class="appt-step" id="wiz-step-dot-3">
-          <div class="appt-step-num">4</div>
-          <div class="appt-step-label">Zaman</div>
-        </div>
-        <div class="appt-step-arrow">→</div>
-        <div class="appt-step" id="wiz-step-dot-4">
-          <div class="appt-step-num">5</div>
-          <div class="appt-step-label">Onay</div>
-        </div>
+
+        <button
+          class="appt-continue-btn"
+          id="continueBtn"
+          onclick="wizNext()"
+          disabled
+        >
+          Devam Et →
+        </button>
       </div>
-
-      <button class="appt-continue-btn" id="continueBtn" onclick="wizNext()" disabled>Devam Et →</button>
     </div>
-  </div>
 
-  <!-- ═══ SAYFA GÖVDE ═══ -->
-  <div class="hizmet-page">
-
-  <!-- ══════════════════════════════════════════════════
+    <!-- ═══ SAYFA GÖVDE ═══ -->
+    <div class="hizmet-page">
+      <!-- ══════════════════════════════════════════════════
        ADIM 0 — EVCİL DOST BİLGİLERİ
   ══════════════════════════════════════════════════ -->
-  <div id="step-0" class="wizard-step">
-    <div class="hizmet-page-header">
-      <h1 class="hizmet-page-title">Dostunuzu Tanıtalım</h1>
-      <p class="hizmet-quick-note">Randevu için evcil dostunuzun bilgilerini girin.</p>
-    </div>
-
-    <div class="wizard-pet-wrap">
-
-      <!-- ── KAYITLI EVCIL HAYVAN SEÇİCİ ── -->
-      <div class="saved-pet-selector" id="savedPetSelector">
-        <div class="saved-pet-label">
-          <span class="saved-pet-label-icon">🐾</span>
-          <span>Kayıtlı Dostlarım</span>
-          <span class="saved-pet-count" id="savedPetCount">2 dost</span>
+      <div id="step-0" class="wizard-step">
+        <div class="hizmet-page-header">
+          <h1 class="hizmet-page-title">Dostunuzu Tanıtalım</h1>
+          <p class="hizmet-quick-note">
+            Randevu için evcil dostunuzun bilgilerini girin.
+          </p>
         </div>
 
-        <!-- Özel Dropdown -->
-        <div class="pet-dropdown-wrap" id="petDropdownWrap">
-          <button class="pet-dropdown-trigger" id="petDropdownTrigger" onclick="togglePetDropdown()" type="button">
-            <span class="pet-dropdown-trigger-icon" id="petDropdownIcon">🐾</span>
-            <span class="pet-dropdown-trigger-text" id="petDropdownText">Kayıtlı bir dost seçin veya yeni ekleyin…</span>
-            <span class="pet-dropdown-arrow" id="petDropdownArrow">▾</span>
-          </button>
+        <div class="wizard-pet-wrap">
+          <!-- ── KAYITLI EVCIL HAYVAN SEÇİCİ ── -->
+          <div class="saved-pet-selector" id="savedPetSelector">
+            <div class="saved-pet-label">
+              <span class="saved-pet-label-icon">🐾</span>
+              <span>Kayıtlı Dostlarım</span>
+              <span class="saved-pet-count" id="savedPetCount">2 dost</span>
+            </div>
 
-          <div class="pet-dropdown-menu" id="petDropdownMenu">
-            <!-- "Yeni Ekle" her zaman en üstte -->
-            <button class="pet-dropdown-item pet-dropdown-item--new" onclick="selectSavedPet('__new__')" type="button">
-              <span class="pdi-icon">➕</span>
-              <div class="pdi-info">
-                <span class="pdi-name">Yeni Dost Ekle</span>
-                <span class="pdi-sub">Formu doldurarak yeni kayıt oluştur</span>
+            <!-- Özel Dropdown -->
+            <div class="pet-dropdown-wrap" id="petDropdownWrap">
+              <button
+                class="pet-dropdown-trigger"
+                id="petDropdownTrigger"
+                onclick="togglePetDropdown()"
+                type="button"
+              >
+                <span class="pet-dropdown-trigger-icon" id="petDropdownIcon"
+                  >🐾</span
+                >
+                <span class="pet-dropdown-trigger-text" id="petDropdownText"
+                  >Kayıtlı bir dost seçin veya yeni ekleyin…</span
+                >
+                <span class="pet-dropdown-arrow" id="petDropdownArrow">▾</span>
+              </button>
+
+              <div class="pet-dropdown-menu" id="petDropdownMenu">
+                <!-- "Yeni Ekle" her zaman en üstte -->
+                <button
+                  class="pet-dropdown-item pet-dropdown-item--new"
+                  onclick="selectSavedPet('__new__')"
+                  type="button"
+                >
+                  <span class="pdi-icon">➕</span>
+                  <div class="pdi-info">
+                    <span class="pdi-name">Yeni Dost Ekle</span>
+                    <span class="pdi-sub"
+                      >Formu doldurarak yeni kayıt oluştur</span
+                    >
+                  </div>
+                </button>
+
+                <div class="pet-dropdown-divider"></div>
+
+                <!-- Kayıtlı hayvanlar JS tarafından buraya render edilir -->
+                <div id="savedPetList"></div>
               </div>
-            </button>
+            </div>
+          </div>
+          <!-- / saved-pet-selector -->
 
-            <div class="pet-dropdown-divider"></div>
+          <!-- ── PET FORMU ── -->
+          <div class="wiz-pet-form wiz-pet-form--standalone" id="petFormCard">
+            <!-- Seçili hayvan bannerı -->
+            <div
+              class="selected-pet-banner"
+              id="selectedPetBanner"
+              style="display: none"
+            >
+              <div class="spb-avatar" id="spbAvatar">🐱</div>
+              <div class="spb-info">
+                <div class="spb-name" id="spbName">Pamuk</div>
+                <div class="spb-sub" id="spbSub">Kedi · Van · 2 yaş</div>
+              </div>
+              <button
+                class="spb-change-btn"
+                onclick="clearSelectedPet()"
+                type="button"
+              >
+                Değiştir
+              </button>
+            </div>
 
-            <!-- Kayıtlı hayvanlar JS tarafından buraya render edilir -->
-            <div id="savedPetList"></div>
+            <div class="wiz-pet-fields" id="petFormFields">
+              <div class="wiz-field">
+                <label>Hayvan Türü</label>
+                <div class="wiz-pet-type-tabs">
+                  <button
+                    class="wiz-pet-type active"
+                    data-pet="kedi"
+                    onclick="selectPetType(this, 'kedi')"
+                  >
+                    🐱 Kedi
+                  </button>
+                  <button
+                    class="wiz-pet-type"
+                    data-pet="kopek"
+                    onclick="selectPetType(this, 'kopek')"
+                  >
+                    🐶 Köpek
+                  </button>
+                </div>
+              </div>
+
+              <div class="wiz-field">
+                <label for="petName0"
+                  >Dostunuzun Adı <span class="wiz-required">*</span></label
+                >
+                <input
+                  type="text"
+                  id="petName0"
+                  class="wiz-input"
+                  placeholder="örn. Pamuk"
+                  oninput="onPetFormInput()"
+                />
+              </div>
+
+              <div class="wiz-field">
+                <label for="petBreed0">Cinsi</label>
+                <input
+                  type="text"
+                  id="petBreed0"
+                  class="wiz-input"
+                  placeholder="örn. Golden Retriever"
+                />
+              </div>
+
+              <div class="wiz-field">
+                <label for="petAge0">Yaşı</label>
+                <input
+                  type="text"
+                  id="petAge0"
+                  class="wiz-input"
+                  placeholder="örn. 3 yaş"
+                />
+              </div>
+
+              <div class="wiz-field">
+                <label for="petWeight0">Ağırlığı (kg)</label>
+                <input
+                  type="number"
+                  id="petWeight0"
+                  class="wiz-input"
+                  placeholder="örn. 4.5"
+                  min="0.1"
+                  max="120"
+                  step="0.1"
+                />
+              </div>
+
+              <div class="wiz-field wiz-field--full">
+                <label for="ownerPhone0"
+                  >İletişim Numaranız <span class="wiz-required">*</span></label
+                >
+                <input
+                  type="tel"
+                  id="ownerPhone0"
+                  class="wiz-input"
+                  placeholder="05xx xxx xx xx"
+                  oninput="onPetFormInput()"
+                />
+              </div>
+
+              <div class="wiz-field wiz-field--full">
+                <label for="petNote0"
+                  >Özel Not
+                  <span style="font-weight: 400; color: #888"
+                    >(isteğe bağlı)</span
+                  ></label
+                >
+                <textarea
+                  id="petNote0"
+                  class="wiz-input wiz-textarea"
+                  rows="3"
+                  placeholder="Alerjisi, korkusu veya dikkat edilmesini istediğiniz bir şey var mı?"
+                ></textarea>
+              </div>
+
+              <!-- Kaydet checkbox'ı — sadece yeni eklemede göster -->
+              <div
+                class="wiz-field wiz-field--full"
+                id="savePetRow"
+                style="display: none"
+              >
+                <label class="wiz-save-check">
+                  <input type="checkbox" id="savePetCheck" checked />
+                  <span
+                    >Bu dostu hesabıma kaydet (bir dahakine hızlıca seç)</span
+                  >
+                </label>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <!-- / saved-pet-selector -->
+      <!-- / #step-0 -->
 
-      <!-- ── PET FORMU ── -->
-      <div class="wiz-pet-form wiz-pet-form--standalone" id="petFormCard">
-        <!-- Seçili hayvan bannerı -->
-        <div class="selected-pet-banner" id="selectedPetBanner" style="display:none">
-          <div class="spb-avatar" id="spbAvatar">🐱</div>
-          <div class="spb-info">
-            <div class="spb-name" id="spbName">Pamuk</div>
-            <div class="spb-sub" id="spbSub">Kedi · Van · 2 yaş</div>
-          </div>
-          <button class="spb-change-btn" onclick="clearSelectedPet()" type="button">Değiştir</button>
+      <!-- ══════════════════════════════════════════════════
+       ADIM 1 — HİZMET SEÇİMİ
+  ══════════════════════════════════════════════════ -->
+      <div id="step-1" class="wizard-step">
+        <div class="hizmet-page-header">
+          <h1 class="hizmet-page-title">Hizmet seçiniz</h1>
+          <p class="hizmet-quick-note">
+            Bir yada birden fazla hizmet seçebilirsiniz
+          </p>
         </div>
 
-        <div class="wiz-pet-fields" id="petFormFields">
+        <!-- ════════════════════════════════════════
+         KÖPEKİÇİN PANEL
+    ════════════════════════════════════════ -->
+        <!-- MOBİL KATEGORİ ŞERİDİ — köpek -->
+        <div class="hizmet-mobile-cats" id="kopek-mobile-cats">
+          <button
+            class="hizmet-mobile-cat-chip active"
+            data-scope="kopek"
+            data-cat="paket"
+            onclick="
+              switchHizmetCat(this, 'kopek', 'paket');
+              syncMobileChip('kopek-mobile-cats', this);
+            "
+          >
+            Akıllı Bakım Paketleri
+          </button>
+          <button
+            class="hizmet-mobile-cat-chip"
+            data-scope="kopek"
+            data-cat="kesim"
+            onclick="
+              switchHizmetCat(this, 'kopek', 'kesim');
+              syncMobileChip('kopek-mobile-cats', this);
+            "
+          >
+            Profesyonel Kesim
+          </button>
+          <button
+            class="hizmet-mobile-cat-chip"
+            data-scope="kopek"
+            data-cat="terapi"
+            onclick="
+              switchHizmetCat(this, 'kopek', 'terapi');
+              syncMobileChip('kopek-mobile-cats', this);
+            "
+          >
+            Terapi & SPA
+          </button>
+          <button
+            class="hizmet-mobile-cat-chip"
+            data-scope="kopek"
+            data-cat="hijyen"
+            onclick="
+              switchHizmetCat(this, 'kopek', 'hijyen');
+              syncMobileChip('kopek-mobile-cats', this);
+            "
+          >
+            Hijyen
+          </button>
+          <button
+            class="hizmet-mobile-cat-chip"
+            data-scope="kopek"
+            data-cat="banyo"
+            onclick="
+              switchHizmetCat(this, 'kopek', 'banyo');
+              syncMobileChip('kopek-mobile-cats', this);
+            "
+          >
+            Banyo & Tarama
+          </button>
+          <button
+            class="hizmet-mobile-cat-chip"
+            data-scope="kopek"
+            data-cat="avantajli"
+            onclick="
+              switchHizmetCat(this, 'kopek', 'avantajli');
+              syncMobileChip('kopek-mobile-cats', this);
+            "
+          >
+            Avantajlı Paketler
+          </button>
+        </div>
+        <div class="hizmet-layout" id="kopek-layout">
+          <!-- SOL: KÖPEK KATEGORİ MENÜsü -->
+          <aside class="hizmet-filter-panel">
+            <div class="hizmet-filter-title">Kategoriler</div>
 
-          <div class="wiz-field">
-            <label>Hayvan Türü</label>
-            <div class="wiz-pet-type-tabs">
-              <button class="wiz-pet-type active" data-pet="kedi" onclick="selectPetType(this,'kedi')">🐱 Kedi</button>
-              <button class="wiz-pet-type" data-pet="kopek" onclick="selectPetType(this,'kopek')">🐶 Köpek</button>
+            <button
+              class="hs-cat-btn active"
+              data-scope="kopek"
+              data-cat="paket"
+              onclick="switchHizmetCat(this, 'kopek', 'paket')"
+            >
+              Akıllı Bakım Paketleri
+            </button>
+            <button
+              class="hs-cat-btn"
+              data-scope="kopek"
+              data-cat="kesim"
+              onclick="switchHizmetCat(this, 'kopek', 'kesim')"
+            >
+              Profesyonel Kesim
+            </button>
+            <button
+              class="hs-cat-btn"
+              data-scope="kopek"
+              data-cat="terapi"
+              onclick="switchHizmetCat(this, 'kopek', 'terapi')"
+            >
+              Terapi &amp; SPA
+            </button>
+            <button
+              class="hs-cat-btn"
+              data-scope="kopek"
+              data-cat="hijyen"
+              onclick="switchHizmetCat(this, 'kopek', 'hijyen')"
+            >
+              Hijyen
+            </button>
+            <button
+              class="hs-cat-btn"
+              data-scope="kopek"
+              data-cat="banyo"
+              onclick="switchHizmetCat(this, 'kopek', 'banyo')"
+            >
+              Banyo &amp; Tarama
+            </button>
+            <button
+              class="hs-cat-btn"
+              data-scope="kopek"
+              data-cat="avantajli"
+              onclick="switchHizmetCat(this, 'kopek', 'avantajli')"
+            >
+              Avantajlı Paketler
+            </button>
+
+            <!-- Seçim özeti -->
+            <div
+              class="hs-selected-summary"
+              id="kopek-summary"
+              style="display: none"
+            >
+              <div class="hss-title">Seçilenler</div>
+              <div class="hss-list" id="kopek-summary-list"></div>
+              <button class="hss-clear" onclick="clearSelection()">
+                Temizle
+              </button>
+            </div>
+          </aside>
+
+          <!-- SAĞ: KÖPEK HİZMET KARTLARI -->
+          <div class="hizmet-content">
+            <!-- ── AKILLI BAKIM PAKETLERİ ── -->
+            <div class="hs-panel" id="kopek-panel-paket">
+              <div class="hs-panel-title">Akıllı Bakım Paketleri</div>
+              <div class="hs-grid">
+                <div
+                  class="hs-card"
+                  data-svc="k-pawco-imza"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=300&auto=format&fit=crop"
+                      alt="Pawco İmza Paketi"
+                      class="hs-card-img"
+                    />
+                    <span class="hs-card-animal-badge">🐶 🐱</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Pawco İmza</span>
+                    <span class="hs-card-price">3.500,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Banyo &amp; Fön</li>
+                    <li>Profesyonel Makas veya Makine Kesimi</li>
+                    <li>Ozon Terapi &amp; Masaj (20–40 dk)</li>
+                    <li>Tırnak Kesimi &amp; Törpüleme</li>
+                    <li>Kulak / Göz / Pati Temizliği</li>
+                    <li>Esansiyel Yağ Tüy Bakımı</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card"
+                  data-svc="k-yavru-tanis"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=300&auto=format&fit=crop"
+                      alt="Yavru İlk Tanışma"
+                      class="hs-card-img"
+                    />
+                    <span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Yavru İlk Tanışma</span>
+                    <span class="hs-card-price">1.200,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Hafif Banyo &amp; Nazik Kurulama</li>
+                    <li>Tırnak Kesimi (kısa)</li>
+                    <li>Kulak &amp; Göz Kontrolü</li>
+                    <li>Stressiz Tanışma Protokolü</li>
+                    <li>6 ay altı yavrular için özel</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── PROFESYONEL KESİM ── -->
+            <div class="hs-panel" id="kopek-panel-kesim" style="display: none">
+              <div class="hs-panel-title">Profesyonel Kesim</div>
+              <div class="hs-grid">
+                <div
+                  class="hs-card"
+                  data-svc="k-makas"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&h=300&auto=format&fit=crop"
+                      alt="Makas Tıraşı"
+                      class="hs-card-img"
+                    />
+                    <span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Makas Tıraşı</span>
+                    <span class="hs-card-price">2.500,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Stil Kesim (ırka özel model)</li>
+                    <li>Banyo &amp; Fön</li>
+                    <li>Kulak / Göz / Pati Temizliği</li>
+                    <li>Tırnak Kesimi</li>
+                    <li>Hijyen bölgesi bakımı</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card"
+                  data-svc="k-makine"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=300&auto=format&fit=crop"
+                      alt="Makine Tıraşı"
+                      class="hs-card-img"
+                    />
+                    <span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Makine Tıraşı</span>
+                    <span class="hs-card-price">1.950,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Vücut Tıraşı</li>
+                    <li>Banyo &amp; Fön</li>
+                    <li>Kulak / Göz / Pati Temizliği</li>
+                    <li>Tırnak Kesimi</li>
+                    <li>Hijyen bölgesi bakımı</li>
+                    <li>Makas Rötuşu</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card"
+                  data-svc="k-hijyenik-kesim"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&h=300&auto=format&fit=crop"
+                      alt="Hijyenik Kesim"
+                      class="hs-card-img"
+                    />
+                    <span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Hijyenik Kesim</span>
+                    <span class="hs-card-price">950,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Pati arası tıraş</li>
+                    <li>Göz çevresi tıraş</li>
+                    <li>Genital bölge tıraş</li>
+                    <li>Kulak iç tüy alımı</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── TERAPİ & SPA ── -->
+            <div class="hs-panel" id="kopek-panel-terapi" style="display: none">
+              <div class="hs-panel-title">Terapi &amp; SPA</div>
+              <div class="hs-grid">
+                <div
+                  class="hs-card"
+                  data-svc="k-ozon-masaj"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=600&h=300&auto=format&fit=crop"
+                      alt="k-ozon-masaj"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Ozon Terapi &amp; Masaj</span>
+                    <span class="hs-card-price">1.500,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Banyo &amp; Fön</li>
+                    <li>20–40 dk Ozon Terapisi</li>
+                    <li>Rahatlatıcı Masaj</li>
+                    <li>Esansiyel Yağ Bakımı</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card"
+                  data-svc="k-milky"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&h=300&auto=format&fit=crop"
+                      alt="k-milky"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Milky Terapi</span>
+                    <span class="hs-card-price">1.250,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Bitkisel / Premium kozmetikler</li>
+                    <li>Sütlü derin nemlendirme</li>
+                    <li>Banyo &amp; Fön</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card"
+                  data-svc="k-ozon"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=300&auto=format&fit=crop"
+                      alt="k-ozon"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Ozon Terapi</span>
+                    <span class="hs-card-price">1.100,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>20–40 dk Ozon Tedavisi</li>
+                    <li>Deri enfeksiyonlarını önler</li>
+                    <li>Banyo &amp; Fön</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card"
+                  data-svc="k-ozon-milky"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=600&h=300&auto=format&fit=crop"
+                      alt="k-ozon-milky"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Ozon + Milky Terapi</span>
+                    <span class="hs-card-price">1.800,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Ozon Terapisi (20–40 dk)</li>
+                    <li>Milky Nemlendirme Maskesi</li>
+                    <li>Banyo &amp; Fön</li>
+                    <li>Esansiyel Yağ Bitirme</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card"
+                  data-svc="k-kitik"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&h=300&auto=format&fit=crop"
+                      alt="k-kitik"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name"
+                      >Yoğun Kıtık Açma &amp; Tüy Bakımı</span
+                    >
+                    <span class="hs-card-price">1.950,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Banyo &amp; Fön</li>
+                    <li>Profesyonel Tarak ile Yoğun Tarama (40–60 dk)</li>
+                    <li>Kulak / Göz / Pati Temizliği</li>
+                    <li>Kuru Şampuan ile Ferahlama</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── HİJYEN ── -->
+            <div class="hs-panel" id="kopek-panel-hijyen" style="display: none">
+              <div class="hs-panel-title">Hijyen</div>
+              <div class="hs-grid">
+                <div
+                  class="hs-card"
+                  data-svc="k-tirnak"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=300&auto=format&fit=crop"
+                      alt="k-tirnak"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name"
+                      >Tırnak Kesimi &amp; Törpüleme</span
+                    >
+                    <span class="hs-card-price">350,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>4 pençe tırnak kesimi</li>
+                    <li>Tırnak ucu törpüleme</li>
+                    <li>UV destekli siyah tırnak tekniği</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card"
+                  data-svc="k-pati"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&h=300&auto=format&fit=crop"
+                      alt="k-pati"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Pati Temizliği</span>
+                    <span class="hs-card-price">200,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Pati arası tüy temizliği</li>
+                    <li>Pati derisi nemlendirme</li>
+                    <li>Pati tıraşı</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div class="hs-card" data-svc="k-goz" onclick="toggleSvc(this)">
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&h=300&auto=format&fit=crop"
+                      alt="k-goz"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Göz Çevresi Temizliği</span>
+                    <span class="hs-card-price">180,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Göz akıntısı leke giderimi</li>
+                    <li>Göz çevresi nazik tıraş</li>
+                    <li>Steril solüsyon uygulaması</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card"
+                  data-svc="k-kulak"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=300&auto=format&fit=crop"
+                      alt="k-kulak"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Kulak Temizliği</span>
+                    <span class="hs-card-price">200,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Kulak kanalı solüsyonla temizlik</li>
+                    <li>Kulak içi tüy alımı</li>
+                    <li>Enfeksiyon önleyici bakım</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card"
+                  data-svc="k-genital"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=300&auto=format&fit=crop"
+                      alt="k-genital"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Genital Bölge Temizliği</span>
+                    <span class="hs-card-price">250,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Hijyenik bölge tıraşı</li>
+                    <li>Steril temizlik uygulaması</li>
+                    <li>Koku önleyici bakım</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div class="hs-card" data-svc="k-dis" onclick="toggleSvc(this)">
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=600&h=300&auto=format&fit=crop"
+                      alt="k-dis"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Diş Fırçalama</span>
+                    <span class="hs-card-price">280,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Enzymatik diş macunu</li>
+                    <li>Plak ve kötü koku giderimi</li>
+                    <li>Taş önleyici jel uygulaması</li>
+                    <li>Sadece Köpek</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── BANYO & TARAMA ── -->
+            <div class="hs-panel" id="kopek-panel-banyo" style="display: none">
+              <div class="hs-panel-title">Banyo &amp; Tarama</div>
+              <div class="hs-grid">
+                <div
+                  class="hs-card"
+                  data-svc="k-banyo-fon"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&h=300&auto=format&fit=crop"
+                      alt="k-banyo-fon"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Banyo &amp; Fön</span>
+                    <span class="hs-card-price">1.250,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Bitkisel / Premium kozmetikler ile yıkama</li>
+                    <li>Tam kurulama &amp; Fön</li>
+                    <li>Hafif parfüm spreyi</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card"
+                  data-svc="k-yogun-tarama"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&h=300&auto=format&fit=crop"
+                      alt="k-yogun-tarama"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Yoğun Tarama</span>
+                    <span class="hs-card-price">1.950,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Kulak / Göz / Pati Temizliği</li>
+                    <li>Tırnak Kesimi</li>
+                    <li>
+                      Profesyonel Tarak ile Yoğun Tarama (40–60 dk boyunca)
+                    </li>
+                    <li>Kuru Şampuan ile Ferahlama</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── AVANTAJLI PAKETLER (KÖPEK) ── -->
+            <div
+              class="hs-panel"
+              id="kopek-panel-avantajli"
+              style="display: none"
+            >
+              <div class="hs-panel-title">Avantajlı Paketler</div>
+              <div class="hs-grid">
+                <div
+                  class="hs-card hs-card--featured"
+                  data-svc="k-av-bakim"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=300&auto=format&fit=crop"
+                      alt="k-av-bakim"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶 ⭐</span>
+                  </div>
+                  <div class="hs-card-badge-top">⭐ Çok Tercih Edilen</div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Bakım Paketi</span>
+                    <span class="hs-card-price">1.950,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Detaylı Tarama</li>
+                    <li>Banyo &amp; Fön</li>
+                    <li>Tırnak Kesimi</li>
+                    <li>Kulak / Göz / Diş Temizliği</li>
+                    <li>Makas Rötuşlarıyla Yüz Hatlarını Belirginleştirme</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card hs-card--featured"
+                  data-svc="k-av-spa"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=600&h=300&auto=format&fit=crop"
+                      alt="k-av-spa"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶 🌿</span>
+                  </div>
+                  <div class="hs-card-badge-top">🌿 SPA</div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">SPA Paketi</span>
+                    <span class="hs-card-price">1.500,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Banyo &amp; Fön</li>
+                    <li>20–40 dk Ozon Terapisi</li>
+                    <li>Esansiyel Yağ Bakımı</li>
+                    <li>Rahatlatıcı Masaj</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card hs-card--featured"
+                  data-svc="k-av-hijyen"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&h=300&auto=format&fit=crop"
+                      alt="k-av-hijyen"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶 🧼</span>
+                  </div>
+                  <div class="hs-card-badge-top">🧼 Hijyen</div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Hijyen Paketi</span>
+                    <span class="hs-card-price">1.000,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Kulak / Göz / Diş / Pati Temizliği</li>
+                    <li>Tırnak Kesimi</li>
+                    <li>Hijyen bölgesi bakımı</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card hs-card--featured"
+                  data-svc="k-av-makine"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=300&auto=format&fit=crop"
+                      alt="k-av-makine"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐶 ✂️</span>
+                  </div>
+                  <div class="hs-card-badge-top">✂️ Kesim</div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Makine Tıraşı Paketi</span>
+                    <span class="hs-card-price">1.950,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Vücut Tıraşı</li>
+                    <li>Tırnak Kesimi</li>
+                    <li>Kuru Şampuan ile Ferahlama</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Seçim bilgi satırı -->
+            <div
+              class="hizmet-selection-info"
+              id="selectionInfo"
+              style="display: none"
+            >
+              <span class="sel-icon">✓</span>
+              <span id="selectionText">0 hizmet seçildi</span>
+              <button class="sel-clear-btn" onclick="clearSelection()">
+                Temizle
+              </button>
+            </div>
+          </div>
+          <!-- / hizmet-content köpek -->
+        </div>
+        <!-- / köpek-layout -->
+
+        <!-- ════════════════════════════════════════
+         KEDİ İÇİN PANEL
+    ════════════════════════════════════════ -->
+        <div class="hizmet-layout" id="kedi-layout" style="display: none">
+          <!-- SOL: KEDİ KATEGORİ MENÜsü -->
+          <aside class="hizmet-filter-panel">
+            <div class="hizmet-filter-title">Kategoriler</div>
+
+            <button
+              class="hs-cat-btn active"
+              data-scope="kedi"
+              data-cat="kesim"
+              onclick="switchHizmetCat(this, 'kedi', 'kesim')"
+            >
+              Profesyonel Kesim
+            </button>
+            <button
+              class="hs-cat-btn"
+              data-scope="kedi"
+              data-cat="tarama"
+              onclick="switchHizmetCat(this, 'kedi', 'tarama')"
+            >
+              Tarama
+            </button>
+            <button
+              class="hs-cat-btn"
+              data-scope="kedi"
+              data-cat="hijyen"
+              onclick="switchHizmetCat(this, 'kedi', 'hijyen')"
+            >
+              Hijyen
+            </button>
+            <button
+              class="hs-cat-btn"
+              data-scope="kedi"
+              data-cat="avantajli"
+              onclick="switchHizmetCat(this, 'kedi', 'avantajli')"
+            >
+              Avantajlı Paketler
+            </button>
+
+            <!-- Seçim özeti -->
+            <div
+              class="hs-selected-summary"
+              id="kedi-summary"
+              style="display: none"
+            >
+              <div class="hss-title">Seçilenler</div>
+              <div class="hss-list" id="kedi-summary-list"></div>
+              <button class="hss-clear" onclick="clearSelection()">
+                Temizle
+              </button>
+            </div>
+          </aside>
+
+          <!-- SAĞ: KEDİ HİZMET KARTLARI -->
+          <div class="hizmet-content">
+            <!-- ── KEDİ PROFESYONEl KESİM ── -->
+            <div class="hs-panel" id="kedi-panel-kesim">
+              <div class="hs-panel-title">Profesyonel Kesim</div>
+              <div class="hs-grid">
+                <div
+                  class="hs-card"
+                  data-svc="ke-tirasi"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=300&auto=format&fit=crop"
+                      alt="ke-tirasi"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐱</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Kedi Tıraşı (Sedasyonsuz)</span>
+                    <span class="hs-card-price">1.800,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Lion Cut (Aslan Kesimi) veya Hijyen Tıraşı</li>
+                    <li>Stres azaltıcı ortamda uygulama</li>
+                    <li>Sakinleştirici feromon spreyi</li>
+                    <li>Uzman groomer eşliğinde</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── KEDİ TARAMA ── -->
+            <div class="hs-panel" id="kedi-panel-tarama" style="display: none">
+              <div class="hs-panel-title">Tarama</div>
+              <div class="hs-grid">
+                <div
+                  class="hs-card"
+                  data-svc="ke-yogun-tarama"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&h=300&auto=format&fit=crop"
+                      alt="ke-yogun-tarama"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐱</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Yoğun Tarama</span>
+                    <span class="hs-card-price">1.950,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Kulak / Göz / Pati Temizliği</li>
+                    <li>Tırnak Kesimi</li>
+                    <li>
+                      Profesyonel Tarak ile Yoğun Tarama (40–60 dk boyunca)
+                    </li>
+                    <li>Kuru Şampuan ile Ferahlama</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card"
+                  data-svc="ke-makine-tirasi"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&h=300&auto=format&fit=crop"
+                      alt="ke-makine-tirasi"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐱</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Makine Tıraşı</span>
+                    <span class="hs-card-price">1.950,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Vücut Tıraşı</li>
+                    <li>Tırnak Kesimi</li>
+                    <li>Kuru Şampuan ile Ferahlama</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── KEDİ HİJYEN ── -->
+            <div class="hs-panel" id="kedi-panel-hijyen" style="display: none">
+              <div class="hs-panel-title">Hijyen</div>
+              <div class="hs-grid">
+                <div
+                  class="hs-card"
+                  data-svc="ke-tirnak"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=600&h=300&auto=format&fit=crop"
+                      alt="ke-tirnak"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐱</span>
+                  </div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Kedi Tırnak Kesimi</span>
+                    <span class="hs-card-price">300,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>4 pençe tırnak kesimi</li>
+                    <li>Tırnak ucu törpüleme</li>
+                    <li>Stressiz nazik uygulama</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── KEDİ AVANTAJLI PAKETLER ── -->
+            <div
+              class="hs-panel"
+              id="kedi-panel-avantajli"
+              style="display: none"
+            >
+              <div class="hs-panel-title">Avantajlı Paketler</div>
+              <div class="hs-grid">
+                <div
+                  class="hs-card hs-card--featured"
+                  data-svc="ke-av-tarama"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&h=300&auto=format&fit=crop"
+                      alt="ke-av-tarama"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐱 🪮</span>
+                  </div>
+                  <div class="hs-card-badge-top">🪮 Tarama</div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Yoğun Tarama Paketi</span>
+                    <span class="hs-card-price">1.950,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Kulak / Göz / Pati Temizliği</li>
+                    <li>Tırnak Kesimi</li>
+                    <li>
+                      Profesyonel Tarak ile Yoğun Tarama (40–60 dk boyunca)
+                    </li>
+                    <li>Kuru Şampuan ile Ferahlama</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+
+                <div
+                  class="hs-card hs-card--featured"
+                  data-svc="ke-av-makine"
+                  onclick="toggleSvc(this)"
+                >
+                  <div class="hs-card-img-wrap">
+                    <img
+                      src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=300&auto=format&fit=crop"
+                      alt="ke-av-makine"
+                      class="hs-card-img"
+                    /><span class="hs-card-animal-badge">🐱 ✂️</span>
+                  </div>
+                  <div class="hs-card-badge-top">✂️ Tıraş</div>
+                  <div class="hs-card-head">
+                    <span class="hs-card-name">Makine Tıraşı Paketi</span>
+                    <span class="hs-card-price">1.950,00 ₺</span>
+                  </div>
+                  <ul class="hs-card-list">
+                    <li>Vücut Tıraşı</li>
+                    <li>Tırnak Kesimi</li>
+                    <li>Kuru Şampuan ile Ferahlama</li>
+                  </ul>
+                  <div class="hs-card-footer">
+                    <div class="hs-radio"></div>
+                    <button class="hs-select-btn">Seçin</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Seçim bilgi satırı (kedi) -->
+            <div
+              class="hizmet-selection-info"
+              id="selectionInfo-kedi"
+              style="display: none"
+            >
+              <span class="sel-icon">✓</span>
+              <span id="selectionText-kedi">0 hizmet seçildi</span>
+              <button class="sel-clear-btn" onclick="clearSelection()">
+                Temizle
+              </button>
+            </div>
+          </div>
+          <!-- / hizmet-content kedi -->
+        </div>
+        <!-- / kedi-layout -->
+      </div>
+      <!-- / #step-1 -->
+
+      <!-- ══════════════════════════════════════════════════
+       ADIM 2 — LOKASYON SEÇİMİ
+  ══════════════════════════════════════════════════ -->
+      <div id="step-2" class="wizard-step" style="display: none">
+        <div class="hizmet-page-header">
+          <h1 class="hizmet-page-title">Mağaza Seçin</h1>
+          <p class="hizmet-quick-note">
+            Randevunuzu almak istediğiniz Pawco Salon şubesini seçin.
+          </p>
+        </div>
+
+        <div class="wizard-location-wrap">
+          <div class="wiz-city-tabs" id="cityTabs">
+            <button
+              class="wiz-city-tab active"
+              data-city="all"
+              onclick="filterCity(this, 'all')"
+            >
+              Tümü
+            </button>
+            <button
+              class="wiz-city-tab"
+              data-city="istanbul"
+              onclick="filterCity(this, 'istanbul')"
+            >
+              İstanbul
+            </button>
+          </div>
+
+          <div class="wiz-location-grid" id="locationGrid">
+            <div
+              class="wiz-loc-card"
+              data-city="istanbul"
+              onclick="selectLocation(this, 'İstanbul — Kadıköy')"
+            >
+              <div class="wiz-loc-icon">📍</div>
+              <div class="wiz-loc-info">
+                <div class="wiz-loc-name">Pawco Salon — Sahrayıcedit</div>
+                <div class="wiz-loc-addr">
+                  Sahrayıcedit Cad. No:14, Kadıköy / İstanbul
+                </div>
+                <div class="wiz-loc-meta">
+                  <span class="wiz-loc-badge wiz-loc-badge--open">🟢 Açık</span>
+                  <span>Pzt–Paz 09:00–20:00</span>
+                </div>
+              </div>
+              <span class="wiz-loc-check">✓</span>
+            </div>
+
+            <div
+              class="wiz-loc-card"
+              data-city="istanbul"
+              onclick="selectLocation(this, 'İstanbul — Şişli')"
+            >
+              <div class="wiz-loc-icon">📍</div>
+              <div class="wiz-loc-info">
+                <div class="wiz-loc-name">Pawco Salon — Acıbadem</div>
+                <div class="wiz-loc-addr">
+                  Acıbadem Cad. No:92, Kadıköy / İstanbul
+                </div>
+                <div class="wiz-loc-meta">
+                  <span class="wiz-loc-badge wiz-loc-badge--open">🟢 Açık</span>
+                  <span>Pzt–Paz 09:00–20:00</span>
+                </div>
+              </div>
+              <span class="wiz-loc-check">✓</span>
+            </div>
+          </div>
+          <!-- / wiz-location-grid -->
+        </div>
+        <!-- / wizard-location-wrap -->
+      </div>
+      <!-- / #step-2 -->
+
+      <!-- ══════════════════════════════════════════════════
+       ADIM 3 — TARİH & SAAT
+  ══════════════════════════════════════════════════ -->
+      <div id="step-3" class="wizard-step" style="display: none">
+        <div class="hizmet-page-header">
+          <h1 class="hizmet-page-title">Tarih & Saat Seçin</h1>
+          <p class="hizmet-quick-note">Uygun olduğunuz gün ve saati seçin.</p>
+        </div>
+
+        <div class="wizard-time-wrap">
+          <div class="wiz-calendar">
+            <div class="wiz-cal-header">
+              <button class="wiz-cal-nav" id="calPrev" onclick="calShift(-1)">
+                ‹
+              </button>
+              <span class="wiz-cal-month" id="calMonthLabel"></span>
+              <button class="wiz-cal-nav" id="calNext" onclick="calShift(1)">
+                ›
+              </button>
+            </div>
+            <div class="wiz-cal-days-row">
+              <span>Pzt</span><span>Sal</span><span>Çar</span> <span>Per</span
+              ><span>Cum</span><span>Cmt</span><span>Paz</span>
+            </div>
+            <div class="wiz-cal-grid" id="calGrid"></div>
+          </div>
+
+          <div class="wiz-time-slots">
+            <div class="wiz-time-label" id="timeSlotsLabel">
+              Lütfen önce bir gün seçin
+            </div>
+            <div class="wiz-slots-grid" id="slotsGrid"></div>
+          </div>
+        </div>
+        <!-- / wizard-time-wrap -->
+      </div>
+      <!-- / #step-3 -->
+
+      <!-- ══════════════════════════════════════════════════
+       ADIM 4 — RANDEVU ONAY
+  ══════════════════════════════════════════════════ -->
+      <div id="step-4" class="wizard-step" style="display: none">
+        <div class="hizmet-page-header">
+          <h1 class="hizmet-page-title">Randevunuzu Onaylayın</h1>
+          <p class="hizmet-quick-note">Bilgileri kontrol edip onaylayın.</p>
+        </div>
+
+        <div class="wizard-confirm-wrap">
+          <div class="wiz-summary-card">
+            <div class="wiz-summary-row">
+              <span class="wiz-summary-icon">🐾</span>
+              <div>
+                <div class="wiz-summary-label">Evcil Dost</div>
+                <div class="wiz-summary-val" id="sumPet">—</div>
+              </div>
+            </div>
+            <div class="wiz-summary-row">
+              <span class="wiz-summary-icon">✂️</span>
+              <div>
+                <div class="wiz-summary-label">Seçilen Hizmetler</div>
+                <div class="wiz-summary-val" id="sumServices">—</div>
+              </div>
+            </div>
+            <div class="wiz-summary-row">
+              <span class="wiz-summary-icon">📍</span>
+              <div>
+                <div class="wiz-summary-label">Mağaza</div>
+                <div class="wiz-summary-val" id="sumLocation">—</div>
+              </div>
+            </div>
+            <div class="wiz-summary-row">
+              <span class="wiz-summary-icon">📅</span>
+              <div>
+                <div class="wiz-summary-label">Tarih & Saat</div>
+                <div class="wiz-summary-val" id="sumDateTime">—</div>
+              </div>
             </div>
           </div>
 
-          <div class="wiz-field">
-            <label for="petName0">Dostunuzun Adı <span class="wiz-required">*</span></label>
-            <input type="text" id="petName0" class="wiz-input" placeholder="örn. Pamuk" oninput="onPetFormInput()"/>
-          </div>
-
-          <div class="wiz-field">
-            <label for="petBreed0">Cinsi</label>
-            <input type="text" id="petBreed0" class="wiz-input" placeholder="örn. Golden Retriever"/>
-          </div>
-
-          <div class="wiz-field">
-            <label for="petAge0">Yaşı</label>
-            <input type="text" id="petAge0" class="wiz-input" placeholder="örn. 3 yaş"/>
-          </div>
-
-          <div class="wiz-field">
-            <label for="petWeight0">Ağırlığı (kg)</label>
-            <input type="number" id="petWeight0" class="wiz-input" placeholder="örn. 4.5" min="0.1" max="120" step="0.1"/>
-          </div>
-
-          <div class="wiz-field wiz-field--full">
-            <label for="ownerPhone0">İletişim Numaranız <span class="wiz-required">*</span></label>
-            <input type="tel" id="ownerPhone0" class="wiz-input" placeholder="05xx xxx xx xx" oninput="onPetFormInput()"/>
-          </div>
-
-          <div class="wiz-field wiz-field--full">
-            <label for="petNote0">Özel Not <span style="font-weight:400;color:#888">(isteğe bağlı)</span></label>
-            <textarea id="petNote0" class="wiz-input wiz-textarea" rows="3" placeholder="Alerjisi, korkusu veya dikkat edilmesini istediğiniz bir şey var mı?"></textarea>
-          </div>
-
-          <!-- Kaydet checkbox'ı — sadece yeni eklemede göster -->
-          <div class="wiz-field wiz-field--full" id="savePetRow" style="display:none">
-            <label class="wiz-save-check">
-              <input type="checkbox" id="savePetCheck" checked/>
-              <span>Bu dostu hesabıma kaydet (bir dahakine hızlıca seç)</span>
+          <div class="wiz-confirm-note">
+            <label class="wiz-kvkk">
+              <input type="checkbox" id="kvkkCheck" />
+              <span
+                ><a href="#" target="_blank">KVKK Aydınlatma Metni</a>'ni okudum
+                ve kabul ediyorum.</span
+              >
             </label>
           </div>
 
+          <button
+            class="wiz-confirm-btn"
+            id="confirmBtn"
+            onclick="confirmAppointment()"
+          >
+            🎉 Randevuyu Onayla
+          </button>
+
+          <div class="wiz-success" id="wizSuccess" style="display: none">
+            <div class="wiz-success-icon">🐾</div>
+            <h2>Randevunuz Alındı!</h2>
+            <p id="wizSuccessDetail"></p>
+            <a href="salon.html" class="wiz-success-btn"
+              >Salon Ana Sayfasına Dön</a
+            >
+          </div>
+        </div>
+        <!-- / wizard-confirm-wrap -->
+      </div>
+      <!-- / #step-4 -->
+    </div>
+    <!-- / hizmet-page -->
+
+    <!-- MOBİL FİLTRE OVERLAY -->
+    <div
+      class="hizmet-filter-overlay"
+      id="hizmetFilterOverlay"
+      onclick="closeMobileFilter()"
+    ></div>
+    <button class="hizmet-mobile-filter-btn" onclick="openMobileFilter()">
+      ⚙️ Filtrele
+    </button>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 class="footer-heading">İletişim Bilgileri</h4>
+          <ul>
+            <li><a href="#">📍 Pawco Mağazacılık</a></li>
+            <li><a href="#">✉️ info@pawco.com</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Banyo & Fön</h4>
+          <ul>
+            <li><a href="#">Temel Banyo</a></li>
+            <li><a href="#">Premium Banyo</a></li>
+            <li><a href="#">Kedi Özel</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Tırnak Bakımı</h4>
+          <ul>
+            <li><a href="#">Tırnak Kesimi</a></li>
+            <li><a href="#">Törpüleme</a></li>
+            <li><a href="#">Softpaw Kaplama</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Saç Kesimi & Tıraş</h4>
+          <ul>
+            <li><a href="#">Küçük Irk</a></li>
+            <li><a href="#">Orta Irk</a></li>
+            <li><a href="#">Büyük Irk</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Kulak & Göz</h4>
+          <ul>
+            <li><a href="#">Kulak Temizliği</a></li>
+            <li><a href="#">Göz Çevresi</a></li>
+            <li><a href="#">Kombo Bakım</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Diş Bakımı</h4>
+          <ul>
+            <li><a href="#">Diş Fırçalama</a></li>
+            <li><a href="#">Taş Önleyici</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Tüy Bakımı</h4>
+          <ul>
+            <li><a href="#">Tüy Tarama</a></li>
+            <li><a href="#">Dökülme Önleyici</a></li>
+            <li><a href="#">Parlatma Maskesi</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Full Paketler</h4>
+          <ul>
+            <li><a href="#">Temel Paket</a></li>
+            <li><a href="#">Full Paket</a></li>
+            <li><a href="#">VIP Paket</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Özel Bakımlar</h4>
+          <ul>
+            <li><a href="#">Softpaw</a></li>
+            <li><a href="#">Spa & Masaj</a></li>
+            <li><a href="#">Parfüm</a></li>
+          </ul>
         </div>
       </div>
-    </div>
-  </div><!-- / #step-0 -->
-
-  <!-- ══════════════════════════════════════════════════
-       ADIM 1 — HİZMET SEÇİMİ
-  ══════════════════════════════════════════════════ -->
-  <div id="step-1" class="wizard-step">
-
-    <div class="hizmet-page-header">
-      <h1 class="hizmet-page-title">Hizmet seçiniz</h1>
-      <p class="hizmet-quick-note">Bir yada birden fazla hizmet seçebilirsiniz</p>
-    </div>
-
-    <!-- ════════════════════════════════════════
-         KÖPEKİÇİN PANEL
-    ════════════════════════════════════════ -->
-    <div class="hizmet-layout" id="kopek-layout">
-
-      <!-- SOL: KÖPEK KATEGORİ MENÜsü -->
-      <aside class="hizmet-filter-panel">
-        <div class="hizmet-filter-title">Kategoriler</div>
-
-        <button class="hs-cat-btn active" data-scope="kopek" data-cat="paket" onclick="switchHizmetCat(this,'kopek','paket')">
-          Akıllı Bakım Paketleri
-        </button>
-        <button class="hs-cat-btn" data-scope="kopek" data-cat="kesim" onclick="switchHizmetCat(this,'kopek','kesim')">
-          Profesyonel Kesim
-        </button>
-        <button class="hs-cat-btn" data-scope="kopek" data-cat="terapi" onclick="switchHizmetCat(this,'kopek','terapi')">
-          Terapi &amp; SPA
-        </button>
-        <button class="hs-cat-btn" data-scope="kopek" data-cat="hijyen" onclick="switchHizmetCat(this,'kopek','hijyen')">
-          Hijyen
-        </button>
-        <button class="hs-cat-btn" data-scope="kopek" data-cat="banyo" onclick="switchHizmetCat(this,'kopek','banyo')">
-          Banyo &amp; Tarama
-        </button>
-        <button class="hs-cat-btn" data-scope="kopek" data-cat="avantajli" onclick="switchHizmetCat(this,'kopek','avantajli')">
-          Avantajlı Paketler
-        </button>
-
-        <!-- Seçim özeti -->
-        <div class="hs-selected-summary" id="kopek-summary" style="display:none">
-          <div class="hss-title">Seçilenler</div>
-          <div class="hss-list" id="kopek-summary-list"></div>
-          <button class="hss-clear" onclick="clearSelection()">Temizle</button>
+      <div class="footer-bottom">
+        <div
+          class="footer-bottom-col"
+          style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap"
+        >
+          <a
+            href="#"
+            style="color: #888; font-size: 13px; text-decoration: none"
+            >Gizlilik ve Çerez</a
+          >
+          <a
+            href="#"
+            style="color: #888; font-size: 13px; text-decoration: none"
+            >Üyelik Sözleşmesi</a
+          >
+          <a
+            href="#"
+            style="color: #888; font-size: 13px; text-decoration: none"
+            >Aydınlatma Metni</a
+          >
         </div>
-      </aside>
-
-      <!-- SAĞ: KÖPEK HİZMET KARTLARI -->
-      <div class="hizmet-content">
-
-        <!-- ── AKILLI BAKIM PAKETLERİ ── -->
-        <div class="hs-panel" id="kopek-panel-paket">
-          <div class="hs-panel-title">Akıllı Bakım Paketleri</div>
-          <div class="hs-grid">
-
-            <div class="hs-card" data-svc="k-pawco-imza" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap">
-                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=300&auto=format&fit=crop" alt="Pawco İmza Paketi" class="hs-card-img"/>
-                <span class="hs-card-animal-badge">🐶 🐱</span>
-              </div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Pawco İmza</span>
-                <span class="hs-card-price">3.500,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Banyo &amp; Fön</li>
-                <li>Profesyonel Makas veya Makine Kesimi</li>
-                <li>Ozon Terapi &amp; Masaj (20–40 dk)</li>
-                <li>Tırnak Kesimi &amp; Törpüleme</li>
-                <li>Kulak / Göz / Pati Temizliği</li>
-                <li>Esansiyel Yağ Tüy Bakımı</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="k-yavru-tanis" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap">
-                <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=300&auto=format&fit=crop" alt="Yavru İlk Tanışma" class="hs-card-img"/>
-                <span class="hs-card-animal-badge">🐶</span>
-              </div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Yavru İlk Tanışma</span>
-                <span class="hs-card-price">1.200,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Hafif Banyo &amp; Nazik Kurulama</li>
-                <li>Tırnak Kesimi (kısa)</li>
-                <li>Kulak &amp; Göz Kontrolü</li>
-                <li>Stressiz Tanışma Protokolü</li>
-                <li>6 ay altı yavrular için özel</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
+        <div class="footer-bottom-col">
+          <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">X</a>
+            <a href="#">YouTube</a>
+            <a href="#">TikTok</a>
           </div>
         </div>
-
-        <!-- ── PROFESYONEL KESİM ── -->
-        <div class="hs-panel" id="kopek-panel-kesim" style="display:none">
-          <div class="hs-panel-title">Profesyonel Kesim</div>
-          <div class="hs-grid">
-
-            <div class="hs-card" data-svc="k-makas" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap">
-                <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&h=300&auto=format&fit=crop" alt="Makas Tıraşı" class="hs-card-img"/>
-                <span class="hs-card-animal-badge">🐶</span>
-              </div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Makas Tıraşı</span>
-                <span class="hs-card-price">2.500,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Stil Kesim (ırka özel model)</li>
-                <li>Banyo &amp; Fön</li>
-                <li>Kulak / Göz / Pati Temizliği</li>
-                <li>Tırnak Kesimi</li>
-                <li>Hijyen bölgesi bakımı</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="k-makine" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap">
-                <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=300&auto=format&fit=crop" alt="Makine Tıraşı" class="hs-card-img"/>
-                <span class="hs-card-animal-badge">🐶</span>
-              </div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Makine Tıraşı</span>
-                <span class="hs-card-price">1.950,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Vücut Tıraşı</li>
-                <li>Banyo &amp; Fön</li>
-                <li>Kulak / Göz / Pati Temizliği</li>
-                <li>Tırnak Kesimi</li>
-                <li>Hijyen bölgesi bakımı</li>
-                <li>Makas Rötuşu</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="k-hijyenik-kesim" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap">
-                <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&h=300&auto=format&fit=crop" alt="Hijyenik Kesim" class="hs-card-img"/>
-                <span class="hs-card-animal-badge">🐶</span>
-              </div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Hijyenik Kesim</span>
-                <span class="hs-card-price">950,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Pati arası tıraş</li>
-                <li>Göz çevresi tıraş</li>
-                <li>Genital bölge tıraş</li>
-                <li>Kulak iç tüy alımı</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ── TERAPİ & SPA ── -->
-        <div class="hs-panel" id="kopek-panel-terapi" style="display:none">
-          <div class="hs-panel-title">Terapi &amp; SPA</div>
-          <div class="hs-grid">
-
-            <div class="hs-card" data-svc="k-ozon-masaj" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=600&h=300&auto=format&fit=crop" alt="k-ozon-masaj" class="hs-card-img"/><span class="hs-card-animal-badge">🐶</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Ozon Terapi &amp; Masaj</span>
-                <span class="hs-card-price">1.500,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Banyo &amp; Fön</li>
-                <li>20–40 dk Ozon Terapisi</li>
-                <li>Rahatlatıcı Masaj</li>
-                <li>Esansiyel Yağ Bakımı</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="k-milky" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&h=300&auto=format&fit=crop" alt="k-milky" class="hs-card-img"/><span class="hs-card-animal-badge">🐶</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Milky Terapi</span>
-                <span class="hs-card-price">1.250,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Bitkisel / Premium kozmetikler</li>
-                <li>Sütlü derin nemlendirme</li>
-                <li>Banyo &amp; Fön</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="k-ozon" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=300&auto=format&fit=crop" alt="k-ozon" class="hs-card-img"/><span class="hs-card-animal-badge">🐶</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Ozon Terapi</span>
-                <span class="hs-card-price">1.100,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>20–40 dk Ozon Tedavisi</li>
-                <li>Deri enfeksiyonlarını önler</li>
-                <li>Banyo &amp; Fön</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="k-ozon-milky" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=600&h=300&auto=format&fit=crop" alt="k-ozon-milky" class="hs-card-img"/><span class="hs-card-animal-badge">🐶</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Ozon + Milky Terapi</span>
-                <span class="hs-card-price">1.800,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Ozon Terapisi (20–40 dk)</li>
-                <li>Milky Nemlendirme Maskesi</li>
-                <li>Banyo &amp; Fön</li>
-                <li>Esansiyel Yağ Bitirme</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="k-kitik" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&h=300&auto=format&fit=crop" alt="k-kitik" class="hs-card-img"/><span class="hs-card-animal-badge">🐶</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Yoğun Kıtık Açma &amp; Tüy Bakımı</span>
-                <span class="hs-card-price">1.950,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Banyo &amp; Fön</li>
-                <li>Profesyonel Tarak ile Yoğun Tarama (40–60 dk)</li>
-                <li>Kulak / Göz / Pati Temizliği</li>
-                <li>Kuru Şampuan ile Ferahlama</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ── HİJYEN ── -->
-        <div class="hs-panel" id="kopek-panel-hijyen" style="display:none">
-          <div class="hs-panel-title">Hijyen</div>
-          <div class="hs-grid">
-
-            <div class="hs-card" data-svc="k-tirnak" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=300&auto=format&fit=crop" alt="k-tirnak" class="hs-card-img"/><span class="hs-card-animal-badge">🐶</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Tırnak Kesimi &amp; Törpüleme</span>
-                <span class="hs-card-price">350,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>4 pençe tırnak kesimi</li>
-                <li>Tırnak ucu törpüleme</li>
-                <li>UV destekli siyah tırnak tekniği</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="k-pati" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&h=300&auto=format&fit=crop" alt="k-pati" class="hs-card-img"/><span class="hs-card-animal-badge">🐶</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Pati Temizliği</span>
-                <span class="hs-card-price">200,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Pati arası tüy temizliği</li>
-                <li>Pati derisi nemlendirme</li>
-                <li>Pati tıraşı</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="k-goz" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&h=300&auto=format&fit=crop" alt="k-goz" class="hs-card-img"/><span class="hs-card-animal-badge">🐶</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Göz Çevresi Temizliği</span>
-                <span class="hs-card-price">180,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Göz akıntısı leke giderimi</li>
-                <li>Göz çevresi nazik tıraş</li>
-                <li>Steril solüsyon uygulaması</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="k-kulak" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=300&auto=format&fit=crop" alt="k-kulak" class="hs-card-img"/><span class="hs-card-animal-badge">🐶</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Kulak Temizliği</span>
-                <span class="hs-card-price">200,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Kulak kanalı solüsyonla temizlik</li>
-                <li>Kulak içi tüy alımı</li>
-                <li>Enfeksiyon önleyici bakım</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="k-genital" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=300&auto=format&fit=crop" alt="k-genital" class="hs-card-img"/><span class="hs-card-animal-badge">🐶</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Genital Bölge Temizliği</span>
-                <span class="hs-card-price">250,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Hijyenik bölge tıraşı</li>
-                <li>Steril temizlik uygulaması</li>
-                <li>Koku önleyici bakım</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="k-dis" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=600&h=300&auto=format&fit=crop" alt="k-dis" class="hs-card-img"/><span class="hs-card-animal-badge">🐶</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Diş Fırçalama</span>
-                <span class="hs-card-price">280,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Enzymatik diş macunu</li>
-                <li>Plak ve kötü koku giderimi</li>
-                <li>Taş önleyici jel uygulaması</li>
-                <li>Sadece Köpek</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ── BANYO & TARAMA ── -->
-        <div class="hs-panel" id="kopek-panel-banyo" style="display:none">
-          <div class="hs-panel-title">Banyo &amp; Tarama</div>
-          <div class="hs-grid">
-
-            <div class="hs-card" data-svc="k-banyo-fon" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&h=300&auto=format&fit=crop" alt="k-banyo-fon" class="hs-card-img"/><span class="hs-card-animal-badge">🐶</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Banyo &amp; Fön</span>
-                <span class="hs-card-price">1.250,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Bitkisel / Premium kozmetikler ile yıkama</li>
-                <li>Tam kurulama &amp; Fön</li>
-                <li>Hafif parfüm spreyi</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="k-yogun-tarama" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&h=300&auto=format&fit=crop" alt="k-yogun-tarama" class="hs-card-img"/><span class="hs-card-animal-badge">🐶</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Yoğun Tarama</span>
-                <span class="hs-card-price">1.950,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Kulak / Göz / Pati Temizliği</li>
-                <li>Tırnak Kesimi</li>
-                <li>Profesyonel Tarak ile Yoğun Tarama (40–60 dk boyunca)</li>
-                <li>Kuru Şampuan ile Ferahlama</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ── AVANTAJLI PAKETLER (KÖPEK) ── -->
-        <div class="hs-panel" id="kopek-panel-avantajli" style="display:none">
-          <div class="hs-panel-title">Avantajlı Paketler</div>
-          <div class="hs-grid">
-
-            <div class="hs-card hs-card--featured" data-svc="k-av-bakim" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=300&auto=format&fit=crop" alt="k-av-bakim" class="hs-card-img"/><span class="hs-card-animal-badge">🐶 ⭐</span></div>
-              <div class="hs-card-badge-top">⭐ Çok Tercih Edilen</div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Bakım Paketi</span>
-                <span class="hs-card-price">1.950,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Detaylı Tarama</li>
-                <li>Banyo &amp; Fön</li>
-                <li>Tırnak Kesimi</li>
-                <li>Kulak / Göz / Diş Temizliği</li>
-                <li>Makas Rötuşlarıyla Yüz Hatlarını Belirginleştirme</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card hs-card--featured" data-svc="k-av-spa" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=600&h=300&auto=format&fit=crop" alt="k-av-spa" class="hs-card-img"/><span class="hs-card-animal-badge">🐶 🌿</span></div>
-              <div class="hs-card-badge-top">🌿 SPA</div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">SPA Paketi</span>
-                <span class="hs-card-price">1.500,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Banyo &amp; Fön</li>
-                <li>20–40 dk Ozon Terapisi</li>
-                <li>Esansiyel Yağ Bakımı</li>
-                <li>Rahatlatıcı Masaj</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card hs-card--featured" data-svc="k-av-hijyen" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&h=300&auto=format&fit=crop" alt="k-av-hijyen" class="hs-card-img"/><span class="hs-card-animal-badge">🐶 🧼</span></div>
-              <div class="hs-card-badge-top">🧼 Hijyen</div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Hijyen Paketi</span>
-                <span class="hs-card-price">1.000,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Kulak / Göz / Diş / Pati Temizliği</li>
-                <li>Tırnak Kesimi</li>
-                <li>Hijyen bölgesi bakımı</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card hs-card--featured" data-svc="k-av-makine" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=300&auto=format&fit=crop" alt="k-av-makine" class="hs-card-img"/><span class="hs-card-animal-badge">🐶 ✂️</span></div>
-              <div class="hs-card-badge-top">✂️ Kesim</div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Makine Tıraşı Paketi</span>
-                <span class="hs-card-price">1.950,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Vücut Tıraşı</li>
-                <li>Tırnak Kesimi</li>
-                <li>Kuru Şampuan ile Ferahlama</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Seçim bilgi satırı -->
-        <div class="hizmet-selection-info" id="selectionInfo" style="display:none">
-          <span class="sel-icon">✓</span>
-          <span id="selectionText">0 hizmet seçildi</span>
-          <button class="sel-clear-btn" onclick="clearSelection()">Temizle</button>
-        </div>
-
-      </div><!-- / hizmet-content köpek -->
-    </div><!-- / köpek-layout -->
-
-    <!-- ════════════════════════════════════════
-         KEDİ İÇİN PANEL
-    ════════════════════════════════════════ -->
-    <div class="hizmet-layout" id="kedi-layout" style="display:none">
-
-      <!-- SOL: KEDİ KATEGORİ MENÜsü -->
-      <aside class="hizmet-filter-panel">
-        <div class="hizmet-filter-title">Kategoriler</div>
-
-        <button class="hs-cat-btn active" data-scope="kedi" data-cat="kesim" onclick="switchHizmetCat(this,'kedi','kesim')">
-          Profesyonel Kesim
-        </button>
-        <button class="hs-cat-btn" data-scope="kedi" data-cat="tarama" onclick="switchHizmetCat(this,'kedi','tarama')">
-          Tarama
-        </button>
-        <button class="hs-cat-btn" data-scope="kedi" data-cat="hijyen" onclick="switchHizmetCat(this,'kedi','hijyen')">
-          Hijyen
-        </button>
-        <button class="hs-cat-btn" data-scope="kedi" data-cat="avantajli" onclick="switchHizmetCat(this,'kedi','avantajli')">
-          Avantajlı Paketler
-        </button>
-
-        <!-- Seçim özeti -->
-        <div class="hs-selected-summary" id="kedi-summary" style="display:none">
-          <div class="hss-title">Seçilenler</div>
-          <div class="hss-list" id="kedi-summary-list"></div>
-          <button class="hss-clear" onclick="clearSelection()">Temizle</button>
-        </div>
-      </aside>
-
-      <!-- SAĞ: KEDİ HİZMET KARTLARI -->
-      <div class="hizmet-content">
-
-        <!-- ── KEDİ PROFESYONEl KESİM ── -->
-        <div class="hs-panel" id="kedi-panel-kesim">
-          <div class="hs-panel-title">Profesyonel Kesim</div>
-          <div class="hs-grid">
-
-            <div class="hs-card" data-svc="ke-tirasi" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=300&auto=format&fit=crop" alt="ke-tirasi" class="hs-card-img"/><span class="hs-card-animal-badge">🐱</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Kedi Tıraşı (Sedasyonsuz)</span>
-                <span class="hs-card-price">1.800,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Lion Cut (Aslan Kesimi) veya Hijyen Tıraşı</li>
-                <li>Stres azaltıcı ortamda uygulama</li>
-                <li>Sakinleştirici feromon spreyi</li>
-                <li>Uzman groomer eşliğinde</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ── KEDİ TARAMA ── -->
-        <div class="hs-panel" id="kedi-panel-tarama" style="display:none">
-          <div class="hs-panel-title">Tarama</div>
-          <div class="hs-grid">
-
-            <div class="hs-card" data-svc="ke-yogun-tarama" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&h=300&auto=format&fit=crop" alt="ke-yogun-tarama" class="hs-card-img"/><span class="hs-card-animal-badge">🐱</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Yoğun Tarama</span>
-                <span class="hs-card-price">1.950,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Kulak / Göz / Pati Temizliği</li>
-                <li>Tırnak Kesimi</li>
-                <li>Profesyonel Tarak ile Yoğun Tarama (40–60 dk boyunca)</li>
-                <li>Kuru Şampuan ile Ferahlama</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card" data-svc="ke-makine-tirasi" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&h=300&auto=format&fit=crop" alt="ke-makine-tirasi" class="hs-card-img"/><span class="hs-card-animal-badge">🐱</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Makine Tıraşı</span>
-                <span class="hs-card-price">1.950,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Vücut Tıraşı</li>
-                <li>Tırnak Kesimi</li>
-                <li>Kuru Şampuan ile Ferahlama</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ── KEDİ HİJYEN ── -->
-        <div class="hs-panel" id="kedi-panel-hijyen" style="display:none">
-          <div class="hs-panel-title">Hijyen</div>
-          <div class="hs-grid">
-
-            <div class="hs-card" data-svc="ke-tirnak" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?w=600&h=300&auto=format&fit=crop" alt="ke-tirnak" class="hs-card-img"/><span class="hs-card-animal-badge">🐱</span></div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Kedi Tırnak Kesimi</span>
-                <span class="hs-card-price">300,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>4 pençe tırnak kesimi</li>
-                <li>Tırnak ucu törpüleme</li>
-                <li>Stressiz nazik uygulama</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ── KEDİ AVANTAJLI PAKETLER ── -->
-        <div class="hs-panel" id="kedi-panel-avantajli" style="display:none">
-          <div class="hs-panel-title">Avantajlı Paketler</div>
-          <div class="hs-grid">
-
-            <div class="hs-card hs-card--featured" data-svc="ke-av-tarama" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&h=300&auto=format&fit=crop" alt="ke-av-tarama" class="hs-card-img"/><span class="hs-card-animal-badge">🐱 🪮</span></div>
-              <div class="hs-card-badge-top">🪮 Tarama</div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Yoğun Tarama Paketi</span>
-                <span class="hs-card-price">1.950,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Kulak / Göz / Pati Temizliği</li>
-                <li>Tırnak Kesimi</li>
-                <li>Profesyonel Tarak ile Yoğun Tarama (40–60 dk boyunca)</li>
-                <li>Kuru Şampuan ile Ferahlama</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-            <div class="hs-card hs-card--featured" data-svc="ke-av-makine" onclick="toggleSvc(this)">
-              <div class="hs-card-img-wrap"><img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=300&auto=format&fit=crop" alt="ke-av-makine" class="hs-card-img"/><span class="hs-card-animal-badge">🐱 ✂️</span></div>
-              <div class="hs-card-badge-top">✂️ Tıraş</div>
-              <div class="hs-card-head">
-                <span class="hs-card-name">Makine Tıraşı Paketi</span>
-                <span class="hs-card-price">1.950,00 ₺</span>
-              </div>
-              <ul class="hs-card-list">
-                <li>Vücut Tıraşı</li>
-                <li>Tırnak Kesimi</li>
-                <li>Kuru Şampuan ile Ferahlama</li>
-              </ul>
-              <div class="hs-card-footer">
-                <div class="hs-radio"></div>
-                <button class="hs-select-btn">Seçin</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Seçim bilgi satırı (kedi) -->
-        <div class="hizmet-selection-info" id="selectionInfo-kedi" style="display:none">
-          <span class="sel-icon">✓</span>
-          <span id="selectionText-kedi">0 hizmet seçildi</span>
-          <button class="sel-clear-btn" onclick="clearSelection()">Temizle</button>
-        </div>
-
-      </div><!-- / hizmet-content kedi -->
-    </div><!-- / kedi-layout -->
-
-  </div><!-- / #step-1 -->
-
-
-  <!-- ══════════════════════════════════════════════════
-       ADIM 2 — LOKASYON SEÇİMİ
-  ══════════════════════════════════════════════════ -->
-  <div id="step-2" class="wizard-step" style="display:none">
-    <div class="hizmet-page-header">
-      <h1 class="hizmet-page-title">Mağaza Seçin</h1>
-      <p class="hizmet-quick-note">Randevunuzu almak istediğiniz Pawco Salon şubesini seçin.</p>
+      </div>
+    </footer>
+    <div class="footer-legal">
+      <p>
+        PAWCO EVCİL HAYVAN ÜRÜNLERİ PAZ. SAN. TİC. LTD. ŞTİ. Alaşehir Mah. 1.
+        Alaşar Cad. No: 9 Osmangazi/Bursa
+      </p>
+      <p>2014-2026 © pawco.com &nbsp;|&nbsp; Bursa'da sevgiyle yapıldı. ❤</p>
     </div>
 
-    <div class="wizard-location-wrap">
-      <div class="wiz-city-tabs" id="cityTabs">
-        <button class="wiz-city-tab active" data-city="all" onclick="filterCity(this,'all')">Tümü</button>
-        <button class="wiz-city-tab" data-city="istanbul" onclick="filterCity(this,'istanbul')">İstanbul</button>
-        
-      </div>
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    <nav class="mobile-nav" id="mobile-nav"></nav>
 
-      <div class="wiz-location-grid" id="locationGrid">
-
-        <div class="wiz-loc-card" data-city="istanbul" onclick="selectLocation(this,'İstanbul — Kadıköy')">
-          <div class="wiz-loc-icon">📍</div>
-          <div class="wiz-loc-info">
-            <div class="wiz-loc-name">Pawco Salon — Sahrayıcedit</div>
-            <div class="wiz-loc-addr">Sahrayıcedit Cad. No:14, Kadıköy / İstanbul</div>
-            <div class="wiz-loc-meta">
-              <span class="wiz-loc-badge wiz-loc-badge--open">🟢 Açık</span>
-              <span>Pzt–Paz 09:00–20:00</span>
-            </div>
-          </div>
-          <span class="wiz-loc-check">✓</span>
-        </div>
-
-        <div class="wiz-loc-card" data-city="istanbul" onclick="selectLocation(this,'İstanbul — Şişli')">
-          <div class="wiz-loc-icon">📍</div>
-          <div class="wiz-loc-info">
-            <div class="wiz-loc-name">Pawco Salon — Acıbadem</div>
-            <div class="wiz-loc-addr">Acıbadem Cad. No:92, Kadıköy / İstanbul</div>
-            <div class="wiz-loc-meta">
-              <span class="wiz-loc-badge wiz-loc-badge--open">🟢 Açık</span>
-              <span>Pzt–Paz 09:00–20:00</span>
-            </div>
-          </div>
-          <span class="wiz-loc-check">✓</span>
-        </div>
-
-        
-
-      </div><!-- / wiz-location-grid -->
-    </div><!-- / wizard-location-wrap -->
-  </div><!-- / #step-2 -->
-
-
-  <!-- ══════════════════════════════════════════════════
-       ADIM 3 — TARİH & SAAT
-  ══════════════════════════════════════════════════ -->
-  <div id="step-3" class="wizard-step" style="display:none">
-    <div class="hizmet-page-header">
-      <h1 class="hizmet-page-title">Tarih & Saat Seçin</h1>
-      <p class="hizmet-quick-note">Uygun olduğunuz gün ve saati seçin.</p>
-    </div>
-
-    <div class="wizard-time-wrap">
-
-      <div class="wiz-calendar">
-        <div class="wiz-cal-header">
-          <button class="wiz-cal-nav" id="calPrev" onclick="calShift(-1)">‹</button>
-          <span class="wiz-cal-month" id="calMonthLabel"></span>
-          <button class="wiz-cal-nav" id="calNext" onclick="calShift(1)">›</button>
-        </div>
-        <div class="wiz-cal-days-row">
-          <span>Pzt</span><span>Sal</span><span>Çar</span>
-          <span>Per</span><span>Cum</span><span>Cmt</span><span>Paz</span>
-        </div>
-        <div class="wiz-cal-grid" id="calGrid"></div>
-      </div>
-
-      <div class="wiz-time-slots">
-        <div class="wiz-time-label" id="timeSlotsLabel">Lütfen önce bir gün seçin</div>
-        <div class="wiz-slots-grid" id="slotsGrid"></div>
-      </div>
-
-    </div><!-- / wizard-time-wrap -->
-  </div><!-- / #step-3 -->
-
-
-  <!-- ══════════════════════════════════════════════════
-       ADIM 4 — RANDEVU ONAY
-  ══════════════════════════════════════════════════ -->
-  <div id="step-4" class="wizard-step" style="display:none">
-    <div class="hizmet-page-header">
-      <h1 class="hizmet-page-title">Randevunuzu Onaylayın</h1>
-      <p class="hizmet-quick-note">Bilgileri kontrol edip onaylayın.</p>
-    </div>
-
-    <div class="wizard-confirm-wrap">
-
-      <div class="wiz-summary-card">
-        <div class="wiz-summary-row">
-          <span class="wiz-summary-icon">🐾</span>
-          <div>
-            <div class="wiz-summary-label">Evcil Dost</div>
-            <div class="wiz-summary-val" id="sumPet">—</div>
-          </div>
-        </div>
-        <div class="wiz-summary-row">
-          <span class="wiz-summary-icon">✂️</span>
-          <div>
-            <div class="wiz-summary-label">Seçilen Hizmetler</div>
-            <div class="wiz-summary-val" id="sumServices">—</div>
-          </div>
-        </div>
-        <div class="wiz-summary-row">
-          <span class="wiz-summary-icon">📍</span>
-          <div>
-            <div class="wiz-summary-label">Mağaza</div>
-            <div class="wiz-summary-val" id="sumLocation">—</div>
-          </div>
-        </div>
-        <div class="wiz-summary-row">
-          <span class="wiz-summary-icon">📅</span>
-          <div>
-            <div class="wiz-summary-label">Tarih & Saat</div>
-            <div class="wiz-summary-val" id="sumDateTime">—</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="wiz-confirm-note">
-        <label class="wiz-kvkk">
-          <input type="checkbox" id="kvkkCheck"/>
-          <span><a href="#" target="_blank">KVKK Aydınlatma Metni</a>'ni okudum ve kabul ediyorum.</span>
-        </label>
-      </div>
-
-      <button class="wiz-confirm-btn" id="confirmBtn" onclick="confirmAppointment()">
-        🎉 Randevuyu Onayla
-      </button>
-
-      <div class="wiz-success" id="wizSuccess" style="display:none">
-        <div class="wiz-success-icon">🐾</div>
-        <h2>Randevunuz Alındı!</h2>
-        <p id="wizSuccessDetail"></p>
-        <a href="salon.html" class="wiz-success-btn">Salon Ana Sayfasına Dön</a>
-      </div>
-
-    </div><!-- / wizard-confirm-wrap -->
-  </div><!-- / #step-4 -->
-
-  </div><!-- / hizmet-page -->
-
-  <!-- MOBİL FİLTRE OVERLAY -->
-  <div class="hizmet-filter-overlay" id="hizmetFilterOverlay" onclick="closeMobileFilter()"></div>
-  <button class="hizmet-mobile-filter-btn" onclick="openMobileFilter()">⚙️ Filtrele</button>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4 class="footer-heading">İletişim Bilgileri</h4>
-        <ul>
-          <li><a href="#">📍 Pawco Mağazacılık</a></li>
-          <li><a href="#">✉️ info@pawco.com</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-heading">Banyo & Fön</h4>
-        <ul>
-          <li><a href="#">Temel Banyo</a></li>
-          <li><a href="#">Premium Banyo</a></li>
-          <li><a href="#">Kedi Özel</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-heading">Tırnak Bakımı</h4>
-        <ul>
-          <li><a href="#">Tırnak Kesimi</a></li>
-          <li><a href="#">Törpüleme</a></li>
-          <li><a href="#">Softpaw Kaplama</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-heading">Saç Kesimi & Tıraş</h4>
-        <ul>
-          <li><a href="#">Küçük Irk</a></li>
-          <li><a href="#">Orta Irk</a></li>
-          <li><a href="#">Büyük Irk</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-heading">Kulak & Göz</h4>
-        <ul>
-          <li><a href="#">Kulak Temizliği</a></li>
-          <li><a href="#">Göz Çevresi</a></li>
-          <li><a href="#">Kombo Bakım</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-heading">Diş Bakımı</h4>
-        <ul>
-          <li><a href="#">Diş Fırçalama</a></li>
-          <li><a href="#">Taş Önleyici</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-heading">Tüy Bakımı</h4>
-        <ul>
-          <li><a href="#">Tüy Tarama</a></li>
-          <li><a href="#">Dökülme Önleyici</a></li>
-          <li><a href="#">Parlatma Maskesi</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-heading">Full Paketler</h4>
-        <ul>
-          <li><a href="#">Temel Paket</a></li>
-          <li><a href="#">Full Paket</a></li>
-          <li><a href="#">VIP Paket</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 class="footer-heading">Özel Bakımlar</h4>
-        <ul>
-          <li><a href="#">Softpaw</a></li>
-          <li><a href="#">Spa & Masaj</a></li>
-          <li><a href="#">Parfüm</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-bottom-col" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
-        <a href="#" style="color:#888;font-size:13px;text-decoration:none">Gizlilik ve Çerez</a>
-        <a href="#" style="color:#888;font-size:13px;text-decoration:none">Üyelik Sözleşmesi</a>
-        <a href="#" style="color:#888;font-size:13px;text-decoration:none">Aydınlatma Metni</a>
-      </div>
-      <div class="footer-bottom-col">
-        <div class="social-links">
-          <a href="#">Instagram</a>
-          <a href="#">Facebook</a>
-          <a href="#">X</a>
-          <a href="#">YouTube</a>
-          <a href="#">TikTok</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <div class="footer-legal">
-    <p>PAWCO EVCİL HAYVAN ÜRÜNLERİ PAZ. SAN. TİC. LTD. ŞTİ. Alaşehir Mah. 1. Alaşar Cad. No: 9 Osmangazi/Bursa</p>
-    <p>2014-2026 © pawco.com &nbsp;|&nbsp; Bursa'da sevgiyle yapıldı. ❤</p>
-  </div>
-
-  <div class="mobile-overlay" id="mobile-overlay"></div>
-  <nav class="mobile-nav" id="mobile-nav"></nav>
-
-  <script src="js/main.js" defer></script>
-  <script src="js/salon-hizmetler.js" defer></script>
-</body>
+    <script src="js/main.js" defer></script>
+    <script src="js/salon-hizmetler.js" defer></script>
+  </body>
 </html>

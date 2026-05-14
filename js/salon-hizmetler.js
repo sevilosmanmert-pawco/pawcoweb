@@ -207,6 +207,7 @@ function switchHizmetCat(btn, scope, cat) {
   layout.querySelectorAll('.hs-panel').forEach(p => p.style.display = 'none');
   const target = document.getElementById(scope + '-panel-' + cat);
   if (target) target.style.display = '';
+  
 }
 
 // ── ADIM 1: HİZMET KART SEÇİMİ ──────────────────────
@@ -720,6 +721,30 @@ function setNewPetMode() {
 
   renderSavedPetList();
   renderWizardBar();
+}
+// Mobil chip şeridini sidebar ile senkron tutar
+function syncMobileChip(stripId, clickedChip) {
+  const strip = document.getElementById(stripId);
+  if (!strip) return;
+  strip.querySelectorAll('.hizmet-mobile-cat-chip')
+       .forEach(c => c.classList.remove('active'));
+  clickedChip.classList.add('active');
+
+  // Tıklanan chip'i görünür alana kaydır
+  clickedChip.scrollIntoView({ inline: 'nearest', behavior: 'smooth' });
+}
+
+// Sidebar'daki hs-cat-btn'lar tıklanınca mobil chip'i de güncelle
+// Mevcut switchHizmetCat fonksiyonunun içine SONUNA ekle:
+// syncSidebarToChip(scope, cat);
+function syncSidebarToChip(scope, cat) {
+  const strip = document.getElementById(scope + '-mobile-cats');
+  if (!strip) return;
+  strip.querySelectorAll('.hizmet-mobile-cat-chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.cat === cat);
+  });
+  syncSidebarToChip(scope, cat);
+
 }
 
 function clearSelectedPet() {
