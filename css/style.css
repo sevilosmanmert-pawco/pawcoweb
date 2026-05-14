@@ -731,6 +731,21 @@ width: 90%;
   overflow: hidden;
 }
 
+
+.hsubnav-link {
+  padding: 10px 14px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #444;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color .15s, border-color .15s;
+  font-family: var(--font-main);
+  flex-shrink: 0;
+}
+
+
 /* ===== SLIDER BUTTONS ===== */
 .slider-btn {
   position: absolute;
@@ -1971,7 +1986,6 @@ width: 90%;
   .animal-picks { grid-template-columns: repeat(2, 1fr); }
   .mega-dropdown { min-width: 700px; }
  
- 
   
   .navbar { display: none; }
   .header-subnav-row {
@@ -1990,10 +2004,14 @@ width: 90%;
     max-width: 60%;
     margin: 0 auto;
   }
+   .hsubnav-link{
+    font-size: 20px;
+  }
 
 }
 
 @media (max-width: 768px) {
+ 
  
   .header-inner { gap: 12px; }
   .header-inner .search-bar { display: none; }
@@ -2049,18 +2067,7 @@ width: 90%;
 /* Subnav linkleri — varsayılan gizli, mobilde açılır */
 
 
-.hsubnav-link {
-  padding: 10px 14px;
-  font-size: 10px;
- /* font-weight: 700;*/
-  color: #444;
-  text-decoration: none;
-  white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  transition: color .15s, border-color .15s;
-  font-family: var(--font-main);
-  flex-shrink: 0;
-}
+
 .hsubnav-link:hover {
   color: var(--primary);
   border-bottom-color: var(--primary);

@@ -559,7 +559,7 @@
   .salon-hero-title { font-size: 26px; }
   .salon-hero-offer { min-width: unset; }
   .salon-about-title, .salon-appointment-title, .salon-why-title { font-size: 24px; }
-  .salon-subnav-link { padding: 12px 14px; font-size: 12px; }
+ .salon-subnav{display: none;}
   .gallery-grid { grid-template-columns: 1fr; }
   .appt-form-grid { grid-template-columns: 1fr; }
   .salon-why-gallery { grid-template-columns: 1fr 1fr; }
