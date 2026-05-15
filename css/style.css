@@ -1145,6 +1145,10 @@ width: 90%;
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
+  
+
+  
+   .mobile-menu-btn { display: flex; }
   .blog-card,
   .qa-card { flex: 0 0 calc(33.33% - 11px); }
   .features-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1823,6 +1827,18 @@ width: 90%;
 }
 .hrzv-btn:hover { background: var(--primary, #e85d04); }
 
+@media (max-width:1400px){
+
+  .nav-btn{
+    padding:7px 9px;
+    font-size: smaller;
+  }
+  #dropdown-rodent,#dropdown-bird{
+    left: -300px;
+  }
+  
+}
+
 /* Mobil: popup kart boyutu */
 @media (max-width: 1024px) {
   .hrzv-popup {
@@ -1835,6 +1851,7 @@ width: 90%;
     transform-origin: center;
     animation: hrzvInMobile .3s cubic-bezier(.34,1.3,.64,1) both;
   }
+ 
   @keyframes hrzvInMobile {
     from { opacity: 0; transform: scale(.92); }
     to   { opacity: 1; transform: scale(1.5); }
@@ -2017,7 +2034,7 @@ width: 90%;
   }
   .header-inner { gap: 12px; }
   .header-inner .search-bar { display: none; }
-  .mobile-menu-btn { display: flex; }
+ 
   .header-actions .btn-icon { display: ''; }
  .header-action-btn:nth-child(1) { display: none; }
   .header-action-btn:nth-child(3) { display: none; }
