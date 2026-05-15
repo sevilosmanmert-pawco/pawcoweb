@@ -3,7 +3,7 @@
    Üyelik Paneli stilleri
    ===================================================== */
 
-/* ── BREADCRUMB (search.css'ten tekrar etmemesi için) ── */
+/* ── BREADCRUMB  ── */
 .breadcrumb-bar {
   background: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
@@ -923,7 +923,7 @@
     margin: 0;
   }
 
-  /* Sidebar tam genişlik, sticky üstte */
+  /* Sidebar tam genişlik, */
   .panel-sidebar {
     width: 100%;
     min-width: unset;
