@@ -1827,7 +1827,7 @@ width: 90%;
 }
 .hrzv-btn:hover { background: var(--primary, #e85d04); }
 
-@media (max-width:1400px){
+@media (max-width:1600px){
 
   .nav-btn{
     padding:7px 9px;
