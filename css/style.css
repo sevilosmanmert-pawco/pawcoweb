@@ -1202,7 +1202,7 @@ width: 90%;
   margin: 28px auto 0;
   padding: 0 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 16px;
   position: relative;
   z-index: 10;
