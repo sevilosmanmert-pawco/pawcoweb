@@ -1,0 +1,3219 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hakkımızda | Pawco 🐾</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/hakkimizda.css"/>
+</head>
+<body>
+
+     <!-- TOP BAR -->
+    <div class="top-bar">
+      <span
+        >🚚 <strong>350 TL ve üzeri</strong> ücretsiz kargo &nbsp;|&nbsp; 📞
+        Müşteri Hizmetleri: <strong>0212 444 2 795</strong></span
+      >
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+      <!-- Satır 1: hamburger + logo + aksiyonlar -->
+      <div class="header-inner">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
+          ☰
+        </button>
+        <a href="index.html" class="logo">
+          <img src="resimler/logo.png" />
+        </a>
+        <div class="search-bar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Ne aramıştınız?..."
+            autocomplete="off"
+          />
+          <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+        <div class="header-actions">
+          <button
+            class="header-action-btn"
+            id="helpBtn"
+            onclick="window.location.href = 'destek.html'"
+          >
+            <span class="btn-icon">🎧</span><span>Yardım</span>
+          </button>
+          <button
+            class="header-action-btn"
+            onclick="window.location.href = 'account.html'"
+          >
+            <span class="btn-icon">👤</span><span>Hesabım</span>
+          </button>
+          <button
+            class="header-action-btn"
+            onclick="window.location.href = 'giris.html#giris'"
+          >
+            <span>Giriş Yap</span>
+          </button>
+          <button
+            class="header-action-btn"
+            onclick="window.location.href = 'giris.html'"
+          >
+            <span>Üye Ol</span>
+          </button>
+          <button
+            class="header-action-btn cart-btn"
+            id="cartBtn"
+            onclick="window.location.href = 'sepet.html'"
+          >
+            <span class="btn-icon">🛒</span><span>Sepetim</span>
+            <span class="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+      <!-- Satır 2: arama (sadece mobil) -->
+      <div class="header-search-row">
+        <div class="search-bar search-bar--mobile">
+          <input
+            type="text"
+            id="searchInputMobile"
+            placeholder="Ne aramıştınız?..."
+            autocomplete="off"
+          />
+          <button
+            class="search-btn"
+            onclick="
+              window.location.href =
+                'search.html?q=' +
+                document.getElementById('searchInputMobile').value
+            "
+          >
+            🔍
+          </button>
+        </div>
+      </div>
+      <!-- Satır 3: subnav (sadece mobil) -->
+      <div class="header-subnav-row">
+        <a href="salon.html" class="hsubnav-link">Pawco Salon</a>
+        <a href="salon-hizmetler.html" class="hsubnav-link">Randevu</a>
+        <a href="kampanya.html" class="hsubnav-link">Kampanyalar</a>
+        <a href="blog.html" class="hsubnav-link">Blog</a>
+      </div>
+    </header>
+<!-- ═══════════════════════════════════════════════════════
+       NAVBAR 
+═══════════════════════════════════════════════════════ -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Ana Menü">
+      <div class="navbar-inner">
+
+        <!-- ── KEDİ ÜRÜNLERİ ── -->
+
+        <div
+          class="nav-item"
+          id="nav-cat"
+          data-animal="cat"
+          onclick="window.location.href = 'kediurunler.html'"
+        >
+          <button
+            class="nav-btn"
+            data-id="cat"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Kedi Ürünleri <span class="nav-arrow">▼</span>
+          </button>
+          <div
+            class="mega-dropdown"
+            id="dropdown-cat"
+            role="region"
+            aria-label="Kedi Ürünleri Menüsü"
+          >
+            <div class="dropdown-sidebar" id="sidebar-cat">
+              <div
+                class="sidebar-item active"
+                data-id="cat-food"
+                data-animal="cat"
+              >
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🥣</span><span>Kedi Maması</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="cat-wet" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🥫</span
+                  ><span>Mama ve Su Kapları</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="cat-treat" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🎁</span
+                  ><span>Oyuncaklar</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="cat-litter" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🪣</span><span>Sağlık ve Bakım</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="cat-vitamin" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">💊</span
+                  ><span>Tasmalar ve Aksesuarlar</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="cat-toy" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🧶</span><span>Taşımalar</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="cat-care" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">✂️</span
+                  ><span>Yatak Kıyafet Aksesuar</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="cat-bowl" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🍽️</span
+                  ><span>Kedi Mama ve Su Kabı</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="cat-toilet" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🚽</span
+                  ><span>Kedi Tuvaletleri ve Ekipmanları</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="cat-brush" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🪮</span
+                  ><span>Kedi Tarağı ve Fırçası</span>
+                </div>
+              </div>
+              <div class="sidebar-item" data-id="cat-scratch" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🪵</span
+                  ><span>Tırmalama Tahtası</span>
+                </div>
+              </div>
+              <div class="sidebar-item" data-id="cat-collar" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">📿</span><span>Kedi Tasması</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="cat-carrier" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">👜</span
+                  ><span>Kedi Taşıma Ekipmanları</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="cat-bed" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🏠</span
+                  ><span>Kedi Evleri ve Yatakları</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="cat-door" data-animal="cat">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🚪</span
+                  ><span>Kedi Kapıları ve Güvenlik Ürünleri</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+            </div>
+            <!-- /sidebar-cat -->
+
+            <div class="dropdown-content" id="content-cat">
+       
+              <!-- Her kategori için gizli panel: -->
+
+              <div class="cat-panel" data-panel="cat-food">
+                <div class="cat-section-title">Kedi Maması Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🐱</span>
+                    </div>
+                    <span class="category-label"
+                      >Kısırlaştırılmış Kedi Maması</span
+                    ></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🐈</span>
+                    </div>
+                    <span class="category-label">Yetişkin Kedi Maması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🐱</span>
+                    </div>
+                    <span class="category-label">Yavru Kedi Maması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">💚</span>
+                    </div>
+                    <span class="category-label">Light Kedi Maması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🏥</span>
+                    </div>
+                    <span class="category-label"
+                      >Veteriner Diyet Maması</span
+                    ></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🧓</span>
+                    </div>
+                    <span class="category-label">Yaşlı Kedi Maması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🏆</span>
+                    </div>
+                    <span class="category-label">Özel Irk Kedi Maması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🧪</span>
+                    </div>
+                    <span class="category-label">Tester Kedi Mamaları</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🥫</span
+                      ><span>Kedi Konserve Maması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">💊</span
+                      ><span>Vitaminler ve Ek Besinler</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🎁</span
+                      ><span>Kedi Ödül Maması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🍽️</span
+                      ><span>Kedi Mama ve Su Kabı</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="cat-panel" data-panel="cat-wet" hidden>
+                <div class="cat-section-title">Kedi Konserve Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🐈</span>
+                    </div>
+                    <span class="category-label">Yetişkin Konserve</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🐱</span>
+                    </div>
+                    <span class="category-label">Yavru Konserve</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🧓</span>
+                    </div>
+                    <span class="category-label">Yaşlı Konserve</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🏥</span>
+                    </div>
+                    <span class="category-label">Veteriner Diyet</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🐟</span>
+                    </div>
+                    <span class="category-label">Ton Balıklı</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🍗</span>
+                    </div>
+                    <span class="category-label">Tavuklu</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🥣</span
+                      ><span>Kedi Maması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🎁</span
+                      ><span>Kedi Ödül Maması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🍽️</span
+                      ><span>Kedi Mama ve Su Kabı</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="cat-panel" data-panel="cat-treat" hidden>
+                <div class="cat-section-title">
+                  Kedi Ödül Maması Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🥢</span>
+                    </div>
+                    <span class="category-label">Stick Ödüller</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🍦</span>
+                    </div>
+                    <span class="category-label">Krem Ödüller</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🍪</span>
+                    </div>
+                    <span class="category-label">Çıtır Ödüller</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🦷</span>
+                    </div>
+                    <span class="category-label">Dental Ödüller</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🥣</span
+                      ><span>Kedi Maması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🥫</span
+                      ><span>Kedi Konserve Maması</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="cat-panel" data-panel="cat-litter" hidden>
+                <div class="cat-section-title">Kedi Kumu Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🪨</span>
+                    </div>
+                    <span class="category-label">Topaklanan Kum</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">💎</span>
+                    </div>
+                    <span class="category-label">Kristal Kum</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🌿</span>
+                    </div>
+                    <span class="category-label">Bitkisel Kum</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🌲</span>
+                    </div>
+                    <span class="category-label">Çam Pellet</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🌸</span>
+                    </div>
+                    <span class="category-label">Kokulu Kum</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🚽</span
+                      ><span>Kedi Tuvaletleri</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">✂️</span
+                      ><span>Bakım ve Temizlik</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="cat-panel" data-panel="cat-vitamin" hidden>
+                <div class="cat-section-title">
+                  Vitamin ve Ek Besin Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🧴</span>
+                    </div>
+                    <span class="category-label">Malt ve Pasta</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">💊</span>
+                    </div>
+                    <span class="category-label">Tablet Vitaminler</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">💧</span>
+                    </div>
+                    <span class="category-label">Sıvı Vitaminler</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🐟</span>
+                    </div>
+                    <span class="category-label"
+                      >Omega 3 &amp; Yağ Asitleri</span
+                    ></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🦴</span>
+                    </div>
+                    <span class="category-label">Eklem Destekleri</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🥣</span
+                      ><span>Kedi Maması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🏥</span
+                      ><span>Veteriner Diyet Maması</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="cat-panel" data-panel="cat-toy" hidden>
+                <div class="cat-section-title">Kedi Oyuncağı Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🪶</span>
+                    </div>
+                    <span class="category-label">Tüylü Oyuncaklar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🔴</span>
+                    </div>
+                    <span class="category-label">Lazer Oyuncaklar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🎪</span>
+                    </div>
+                    <span class="category-label">Tünel ve Çadırlar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🐭</span>
+                    </div>
+                    <span class="category-label">Fare Oyuncaklar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">⚽</span>
+                    </div>
+                    <span class="category-label">Top Oyuncaklar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🎣</span>
+                    </div>
+                    <span class="category-label">Olta Oyuncaklar</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🪵</span
+                      ><span>Tırmalama Tahtası</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🏠</span
+                      ><span>Kedi Evleri ve Yatakları</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="cat-panel" data-panel="cat-care" hidden>
+                <div class="cat-section-title">
+                  Bakım ve Temizlik Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🧴</span>
+                    </div>
+                    <span class="category-label">Kedi Şampuanı</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🧻</span>
+                    </div>
+                    <span class="category-label">Islak Mendil</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🦷</span>
+                    </div>
+                    <span class="category-label">Diş Bakımı</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">👁️</span>
+                    </div>
+                    <span class="category-label">Göz ve Kulak</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🪲</span>
+                    </div>
+                    <span class="category-label">Pire ve Kene</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🪮</span
+                      ><span>Kedi Tarağı ve Fırçası</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🪣</span
+                      ><span>Kedi Kumu</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="cat-panel" data-panel="cat-bowl" hidden>
+                <div class="cat-section-title">
+                  Mama ve Su Kabı Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🏺</span>
+                    </div>
+                    <span class="category-label">Seramik Kaplar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">⚙️</span>
+                    </div>
+                    <span class="category-label">Paslanmaz Çelik</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🪣</span>
+                    </div>
+                    <span class="category-label">Plastik Kaplar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">⛲</span>
+                    </div>
+                    <span class="category-label">Su Çeşmesi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🤖</span>
+                    </div>
+                    <span class="category-label">Otomatik Besleyici</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🥣</span
+                      ><span>Kedi Maması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🥫</span
+                      ><span>Kedi Konserve Maması</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="cat-panel" data-panel="cat-toilet" hidden>
+                <div class="cat-section-title">
+                  Tuvalet ve Ekipman Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🟫</span>
+                    </div>
+                    <span class="category-label">Açık Tuvalet</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🏠</span>
+                    </div>
+                    <span class="category-label">Kapalı Tuvalet</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🤖</span>
+                    </div>
+                    <span class="category-label">Otomatik Tuvalet</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🥄</span>
+                    </div>
+                    <span class="category-label">Kürek ve Aksesuar</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🪣</span
+                      ><span>Kedi Kumu</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">✂️</span
+                      ><span>Bakım ve Temizlik</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="cat-panel" data-panel="cat-collar" hidden>
+                <div class="cat-section-title">Kedi Tasması Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">📿</span>
+                    </div>
+                    <span class="category-label">Standart Tasma</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🔒</span>
+                    </div>
+                    <span class="category-label">Emniyet Tasması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">📍</span>
+                    </div>
+                    <span class="category-label">GPS Takip</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🪲</span>
+                    </div>
+                    <span class="category-label">Pire Tasması</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">👜</span
+                      ><span>Kedi Taşıma Ekipmanları</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">✂️</span
+                      ><span>Bakım ve Temizlik</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="cat-panel" data-panel="cat-carrier" hidden>
+                <div class="cat-section-title">
+                  Taşıma Ekipmanları Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🧳</span>
+                    </div>
+                    <span class="category-label">Sert Taşıma Çantası</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">👜</span>
+                    </div>
+                    <span class="category-label">Kumaş Taşıma Çantası</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🎒</span>
+                    </div>
+                    <span class="category-label">Sırt Çantası</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🛒</span>
+                    </div>
+                    <span class="category-label">Puset ve Araba</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">📿</span
+                      ><span>Kedi Tasması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🏠</span
+                      ><span>Kedi Evleri ve Yatakları</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="cat-panel" data-panel="cat-bed" hidden>
+                <div class="cat-section-title">Ev ve Yatak Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🛏️</span>
+                    </div>
+                    <span class="category-label">Kedi Yatakları</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🏠</span>
+                    </div>
+                    <span class="category-label">Kedi Evleri</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🌳</span>
+                    </div>
+                    <span class="category-label">Kedi Tırmalama Ağacı</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🪢</span>
+                    </div>
+                    <span class="category-label">Hamak</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🕳️</span>
+                    </div>
+                    <span class="category-label">Kedi Mağarası</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🪵</span
+                      ><span>Tırmalama Tahtası</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🧶</span
+                      ><span>Kedi Oyuncağı</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="cat-panel" data-panel="cat-door" hidden>
+                <div class="cat-section-title">Kapı ve Güvenlik Ürünleri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🚪</span>
+                    </div>
+                    <span class="category-label">Kedi Kapısı</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🕸️</span>
+                    </div>
+                    <span class="category-label">Balkon Filesi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🔒</span>
+                    </div>
+                    <span class="category-label">Güvenlik Çiti</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">👜</span
+                      ><span>Kedi Taşıma Ekipmanları</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">📿</span
+                      ><span>Kedi Tasması</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- cat-brush / cat-scratch: no mainCategory, fallback panel -->
+              <div class="cat-panel" data-panel="cat-brush" hidden>
+                <div class="cat-section-title">Kedi Tarağı ve Fırçası</div>
+                <div
+                  style="
+                    padding: 40px;
+                    text-align: center;
+                    color: var(--text-light);
+                  "
+                >
+                  <div style="font-size: 48px; margin-bottom: 12px">🪮</div>
+                  <div
+                    style="
+                      font-weight: 700;
+                      font-size: 15px;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    Kedi Tarağı ve Fırçası
+                  </div>
+                  <div style="font-size: 13px">
+                    Bu kategorideki ürünler yüklenecek...
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="cat-scratch" hidden>
+                <div class="cat-section-title">Tırmalama Tahtası</div>
+                <div
+                  style="
+                    padding: 40px;
+                    text-align: center;
+                    color: var(--text-light);
+                  "
+                >
+                  <div style="font-size: 48px; margin-bottom: 12px">🪵</div>
+                  <div
+                    style="
+                      font-weight: 700;
+                      font-size: 15px;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    Tırmalama Tahtası
+                  </div>
+                  <div style="font-size: 13px">
+                    Bu kategorideki ürünler yüklenecek...
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /content-cat -->
+          </div>
+          <!-- /dropdown-cat -->
+        </div>
+        <!-- /nav-item cat -->
+
+        <!-- ── KÖPEK ÜRÜNLERİ ── -->
+        <div
+          class="nav-item"
+          id="nav-dog"
+          data-animal="dog"
+          onclick="window.location.href = 'kopekurunler.html'"
+        >
+          <button
+            class="nav-btn"
+            data-id="dog"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Köpek Ürünleri <span class="nav-arrow">▼</span>
+          </button>
+          <div
+            class="mega-dropdown"
+            id="dropdown-dog"
+            role="region"
+            aria-label="Köpek Ürünleri Menüsü"
+          >
+            <div class="dropdown-sidebar" id="sidebar-dog">
+              <div
+                class="sidebar-item active"
+                data-id="dog-food"
+                data-animal="dog"
+              >
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🥣</span><span>Köpek Maması</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="dog-wet" data-animal="dog">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🥫</span
+                  ><span>Köpek Konserve Maması</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="dog-treat" data-animal="dog">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🦴</span
+                  ><span>Köpek Ödül Maması</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="dog-vitamin" data-animal="dog">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">💊</span
+                  ><span>Vitaminler ve Ek Besinler</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="dog-toy" data-animal="dog">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🎾</span
+                  ><span>Köpek Oyuncağı</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="dog-care" data-animal="dog">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">✂️</span
+                  ><span>Bakım ve Temizlik</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="dog-bowl" data-animal="dog">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🍽️</span
+                  ><span>Köpek Mama ve Su Kabı</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="dog-brush" data-animal="dog">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🪮</span
+                  ><span>Köpek Tarağı ve Fırçası</span>
+                </div>
+              </div>
+              <div class="sidebar-item" data-id="dog-collar" data-animal="dog">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">📿</span
+                  ><span>Köpek Tasması ve Gezdirme</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="dog-carrier" data-animal="dog">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">👜</span
+                  ><span>Köpek Taşıma Ekipmanları</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="dog-bed" data-animal="dog">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🏠</span
+                  ><span>Köpek Yatakları ve Evleri</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="dog-clothes" data-animal="dog">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">👕</span
+                  ><span>Köpek Kıyafetleri</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="dog-health" data-animal="dog">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🏥</span
+                  ><span>Sağlık ve Hijyen</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+            </div>
+            <div class="dropdown-content" id="content-dog">
+              <div class="cat-panel" data-panel="dog-food">
+                <div class="cat-section-title">Köpek Maması Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🐕</span>
+                    </div>
+                    <span class="category-label">Yetişkin Köpek Maması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🐶</span>
+                    </div>
+                    <span class="category-label">Yavru Köpek Maması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🧓</span>
+                    </div>
+                    <span class="category-label">Yaşlı Köpek Maması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🐩</span>
+                    </div>
+                    <span class="category-label">Küçük Irk Maması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🦮</span>
+                    </div>
+                    <span class="category-label">Büyük Irk Maması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🏥</span>
+                    </div>
+                    <span class="category-label"
+                      >Veteriner Diyet Maması</span
+                    ></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">💚</span>
+                    </div>
+                    <span class="category-label">Light Köpek Maması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🌾</span>
+                    </div>
+                    <span class="category-label">Tahılsız Mama</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🥫</span
+                      ><span>Köpek Konserve Maması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🦴</span
+                      ><span>Köpek Ödül Maması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">💊</span
+                      ><span>Vitaminler ve Ek Besinler</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🍽️</span
+                      ><span>Köpek Mama ve Su Kabı</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="dog-wet" hidden>
+                <div class="cat-section-title">Köpek Konserve Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🐕</span>
+                    </div>
+                    <span class="category-label">Yetişkin Konserve</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🐶</span>
+                    </div>
+                    <span class="category-label">Yavru Konserve</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🧓</span>
+                    </div>
+                    <span class="category-label">Yaşlı Konserve</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🥩</span>
+                    </div>
+                    <span class="category-label">Biftekli</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🍗</span>
+                    </div>
+                    <span class="category-label">Tavuklu</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🐑</span>
+                    </div>
+                    <span class="category-label">Kuzulu</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🥣</span
+                      ><span>Köpek Maması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🦴</span
+                      ><span>Köpek Ödül Maması</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="dog-treat" hidden>
+                <div class="cat-section-title">
+                  Köpek Ödül Maması Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🦴</span>
+                    </div>
+                    <span class="category-label">Kemik Ödüller</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🥩</span>
+                    </div>
+                    <span class="category-label">Et Şeritler</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🍪</span>
+                    </div>
+                    <span class="category-label">Bisküvi Ödüller</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🦷</span>
+                    </div>
+                    <span class="category-label">Dental Ödüller</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🏆</span>
+                    </div>
+                    <span class="category-label">Eğitim Ödülleri</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🥣</span
+                      ><span>Köpek Maması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🎾</span
+                      ><span>Köpek Oyuncağı</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="dog-vitamin" hidden>
+                <div class="cat-section-title">
+                  Vitamin ve Ek Besin Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🧴</span>
+                    </div>
+                    <span class="category-label">Malt ve Pasta</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">💊</span>
+                    </div>
+                    <span class="category-label">Tablet Vitaminler</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">💧</span>
+                    </div>
+                    <span class="category-label">Sıvı Vitaminler</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🐟</span>
+                    </div>
+                    <span class="category-label"
+                      >Omega 3 &amp; Yağ Asitleri</span
+                    ></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🦴</span>
+                    </div>
+                    <span class="category-label">Eklem Destekleri</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🥣</span
+                      ><span>Köpek Maması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🏥</span
+                      ><span>Sağlık ve Hijyen</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="dog-toy" hidden>
+                <div class="cat-section-title">Köpek Oyuncağı Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🎾</span>
+                    </div>
+                    <span class="category-label">Top Oyuncaklar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🧵</span>
+                    </div>
+                    <span class="category-label">İp Oyuncaklar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🦴</span>
+                    </div>
+                    <span class="category-label">Çiğneme Oyuncakları</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🔊</span>
+                    </div>
+                    <span class="category-label">Sesli Oyuncaklar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🥏</span>
+                    </div>
+                    <span class="category-label">Getir Oyuncakları</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🧩</span>
+                    </div>
+                    <span class="category-label">Zeka Oyuncakları</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">📿</span
+                      ><span>Köpek Tasması ve Gezdirme</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">✂️</span
+                      ><span>Bakım ve Temizlik</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="dog-care" hidden>
+                <div class="cat-section-title">
+                  Bakım ve Temizlik Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🧴</span>
+                    </div>
+                    <span class="category-label">Köpek Şampuanı</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🧻</span>
+                    </div>
+                    <span class="category-label">Islak Mendil</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🦷</span>
+                    </div>
+                    <span class="category-label">Diş Bakımı</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">👁️</span>
+                    </div>
+                    <span class="category-label">Göz ve Kulak</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🪲</span>
+                    </div>
+                    <span class="category-label">Pire ve Kene</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🪮</span
+                      ><span>Köpek Tarağı ve Fırçası</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🏥</span
+                      ><span>Sağlık ve Hijyen</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="dog-bowl" hidden>
+                <div class="cat-section-title">
+                  Mama ve Su Kabı Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🏺</span>
+                    </div>
+                    <span class="category-label">Seramik Kaplar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">⚙️</span>
+                    </div>
+                    <span class="category-label">Paslanmaz Çelik</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🪣</span>
+                    </div>
+                    <span class="category-label">Plastik Kaplar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">⛲</span>
+                    </div>
+                    <span class="category-label">Su Çeşmesi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🤖</span>
+                    </div>
+                    <span class="category-label">Otomatik Besleyici</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🥣</span
+                      ><span>Köpek Maması</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🥫</span
+                      ><span>Köpek Konserve Maması</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="dog-collar" hidden>
+                <div class="cat-section-title">
+                  Tasma ve Gezdirme Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">📿</span>
+                    </div>
+                    <span class="category-label">Köpek Tasması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🔗</span>
+                    </div>
+                    <span class="category-label">Gezdirme Kayışı</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🦺</span>
+                    </div>
+                    <span class="category-label">Göğüs Tasması</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">📏</span>
+                    </div>
+                    <span class="category-label">Uzayan Kayış</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">📍</span>
+                    </div>
+                    <span class="category-label">GPS Takip</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">✂️</span
+                      ><span>Bakım ve Temizlik</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">👜</span
+                      ><span>Köpek Taşıma Ekipmanları</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="dog-carrier" hidden>
+                <div class="cat-section-title">
+                  Taşıma Ekipmanları Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🧳</span>
+                    </div>
+                    <span class="category-label">Sert Taşıma Çantası</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">👜</span>
+                    </div>
+                    <span class="category-label">Kumaş Taşıma Çantası</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🎒</span>
+                    </div>
+                    <span class="category-label">Sırt Çantası</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🛒</span>
+                    </div>
+                    <span class="category-label">Puset ve Araba</span></a
+                  >
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="dog-bed" hidden>
+                <div class="cat-section-title">Yatak ve Ev Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🛏️</span>
+                    </div>
+                    <span class="category-label">Köpek Yatakları</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🏠</span>
+                    </div>
+                    <span class="category-label">Köpek Kulübesi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">📦</span>
+                    </div>
+                    <span class="category-label">Kafes ve Kasa</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🪣</span>
+                    </div>
+                    <span class="category-label">Paspas ve Mat</span></a
+                  >
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="dog-clothes" hidden>
+                <div class="cat-section-title">
+                  Köpek Kıyafetleri Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🧥</span>
+                    </div>
+                    <span class="category-label">Kazak ve Süveter</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🌂</span>
+                    </div>
+                    <span class="category-label">Yağmurluk</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">👟</span>
+                    </div>
+                    <span class="category-label">Köpek Ayakkabısı</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🎭</span>
+                    </div>
+                    <span class="category-label">Kostüm</span></a
+                  >
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="dog-health" hidden>
+                <div class="cat-section-title">
+                  Sağlık ve Hijyen Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🟦</span>
+                    </div>
+                    <span class="category-label">Tuvalet Pedi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🛍️</span>
+                    </div>
+                    <span class="category-label">Kaka Torbası</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🪲</span>
+                    </div>
+                    <span class="category-label">Pire ve Kene</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🦷</span>
+                    </div>
+                    <span class="category-label">Diş Bakımı</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🌸</span>
+                    </div>
+                    <span class="category-label">Koku Giderici</span></a
+                  >
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="dog-brush" hidden>
+                <div class="cat-section-title">Köpek Tarağı ve Fırçası</div>
+                <div
+                  style="
+                    padding: 40px;
+                    text-align: center;
+                    color: var(--text-light);
+                  "
+                >
+                  <div style="font-size: 48px; margin-bottom: 12px">🪮</div>
+                  <div
+                    style="
+                      font-weight: 700;
+                      font-size: 15px;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    Köpek Tarağı ve Fırçası
+                  </div>
+                  <div style="font-size: 13px">
+                    Bu kategorideki ürünler yüklenecek...
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /nav-item dog -->
+        <!--Balık Ürünleri-->
+        <div
+          class="nav-item"
+          id="nav-cat"
+          data-animal="cat"
+          onclick="window.location.href = 'kediurunler.html'"
+        >
+       <button
+            class="nav-btn"
+            data-id="cat"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Balık Ürünleri <span class="nav-arrow">▼</span>
+          </button>
+      </div>
+
+      <!--Elektronik-->
+      <div
+          class="nav-item"
+          id="nav-cat"
+          data-animal="cat"
+          onclick="window.location.href = 'kediurunler.html'"
+        >
+       <button
+            class="nav-btn"
+            data-id="cat"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Akıllı Ürünler<span class="nav-arrow">▼</span>
+          </button>
+      </div>
+
+
+        <!-- ── KUŞ ÜRÜNLERİ ── -->
+        <div
+          class="nav-item"
+          id="nav-bird"
+          data-animal="bird"
+          onclick="window.location.href = 'kusurunler.html'"
+        >
+          <button
+            class="nav-btn"
+            data-id="bird"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Kuş Ürünleri <span class="nav-arrow">▼</span>
+          </button>
+          <div
+            class="mega-dropdown"
+            id="dropdown-bird"
+            role="region"
+            aria-label="Kuş Ürünleri Menüsü"
+          >
+            <div class="dropdown-sidebar" id="sidebar-bird">
+              <div
+                class="sidebar-item active"
+                data-id="bird-food"
+                data-animal="bird"
+              >
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🌾</span><span>Kuş Yemi</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="bird-treat" data-animal="bird">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🎁</span><span>Kuş Ödül Yemi</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="bird-cage" data-animal="bird">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🏠</span
+                  ><span>Kafes ve Aksesuarlar</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="bird-toy" data-animal="bird">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🎠</span><span>Kuş Oyuncağı</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div
+                class="sidebar-item"
+                data-id="bird-vitamin"
+                data-animal="bird"
+              >
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">💊</span
+                  ><span>Vitamin ve Mineraller</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="bird-perch" data-animal="bird">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🎋</span
+                  ><span>Tünek ve Duraklar</span>
+                </div>
+              </div>
+              <div class="sidebar-item" data-id="bird-bath" data-animal="bird">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🛁</span><span>Kuş Banyosu</span>
+                </div>
+              </div>
+              <div class="sidebar-item" data-id="bird-care" data-animal="bird">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">✂️</span
+                  ><span>Bakım Ürünleri</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="bird-nest" data-animal="bird">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🪺</span
+                  ><span>Yuva ve Barınak</span>
+                </div>
+              </div>
+              <div class="sidebar-item" data-id="bird-sand" data-animal="bird">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🪨</span
+                  ><span>Kum ve Zemin Malzemeleri</span>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-content" id="content-bird">
+              <div class="cat-panel" data-panel="bird-food">
+                <div class="cat-section-title">Kuş Yemi Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🐤</span>
+                    </div>
+                    <span class="category-label">Kanarya Yemi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🐦</span>
+                    </div>
+                    <span class="category-label">Muhabbet Kuşu Yemi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🦜</span>
+                    </div>
+                    <span class="category-label">Papağan Yemi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🐦</span>
+                    </div>
+                    <span class="category-label">İspinoz Yemi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🌾</span>
+                    </div>
+                    <span class="category-label">Karışık Yem</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">⚫</span>
+                    </div>
+                    <span class="category-label">Pelet Yem</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🎁</span
+                      ><span>Kuş Ödül Yemi</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">💊</span
+                      ><span>Vitamin ve Mineraller</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🏠</span
+                      ><span>Kafes ve Aksesuarlar</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="bird-treat" hidden>
+                <div class="cat-section-title">Kuş Ödül Yemi Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🍯</span>
+                    </div>
+                    <span class="category-label">Ballı Stick</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🪨</span>
+                    </div>
+                    <span class="category-label">Mineral Taşı</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🦑</span>
+                    </div>
+                    <span class="category-label"
+                      >Mürekkep Balığı Kemiği</span
+                    ></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🍎</span>
+                    </div>
+                    <span class="category-label">Meyve Ödüller</span></a
+                  >
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="bird-cage" hidden>
+                <div class="cat-section-title">
+                  Kafes ve Aksesuar Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🏠</span>
+                    </div>
+                    <span class="category-label">Küçük Kafesler</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🏛️</span>
+                    </div>
+                    <span class="category-label">Büyük Kafesler</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🍽️</span>
+                    </div>
+                    <span class="category-label">Yemlik ve Suluklar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🛏️</span>
+                    </div>
+                    <span class="category-label">Kafes Örtüleri</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🪑</span>
+                    </div>
+                    <span class="category-label">Kafes Ayakları</span></a
+                  >
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="bird-toy" hidden>
+                <div class="cat-section-title">Kuş Oyuncağı Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🎡</span>
+                    </div>
+                    <span class="category-label">Salıncak</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🪞</span>
+                    </div>
+                    <span class="category-label">Ayna Oyuncaklar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🔔</span>
+                    </div>
+                    <span class="category-label">Çıngıraklı Oyuncaklar</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🪜</span>
+                    </div>
+                    <span class="category-label">Merdiven</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🧵</span>
+                    </div>
+                    <span class="category-label">İp Oyuncaklar</span></a
+                  >
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="bird-vitamin" hidden>
+                <div class="cat-section-title">
+                  Vitamin ve Mineral Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">💧</span>
+                    </div>
+                    <span class="category-label">Sıvı Vitamin</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🧂</span>
+                    </div>
+                    <span class="category-label">Toz Vitamin</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🦴</span>
+                    </div>
+                    <span class="category-label">Kalsiyum</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🪶</span>
+                    </div>
+                    <span class="category-label">Tüy Sağlığı</span></a
+                  >
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="bird-care" hidden>
+                <div class="cat-section-title">Bakım Ürünleri Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">💦</span>
+                    </div>
+                    <span class="category-label">Tüy Spreyi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🪨</span>
+                    </div>
+                    <span class="category-label">Gaga Bakımı</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">✂️</span>
+                    </div>
+                    <span class="category-label">Tırnak Bakımı</span></a
+                  >
+                </div>
+              </div>
+              <!-- fallback panels -->
+              <div class="cat-panel" data-panel="bird-perch" hidden>
+                <div class="cat-section-title">Tünek ve Duraklar</div>
+                <div
+                  style="
+                    padding: 40px;
+                    text-align: center;
+                    color: var(--text-light);
+                  "
+                >
+                  <div style="font-size: 48px; margin-bottom: 12px">🎋</div>
+                  <div style="font-weight: 700">Tünek ve Duraklar</div>
+                  <div style="font-size: 13px; margin-top: 6px">
+                    Bu kategorideki ürünler yüklenecek...
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="bird-bath" hidden>
+                <div class="cat-section-title">Kuş Banyosu</div>
+                <div
+                  style="
+                    padding: 40px;
+                    text-align: center;
+                    color: var(--text-light);
+                  "
+                >
+                  <div style="font-size: 48px; margin-bottom: 12px">🛁</div>
+                  <div style="font-weight: 700">Kuş Banyosu</div>
+                  <div style="font-size: 13px; margin-top: 6px">
+                    Bu kategorideki ürünler yüklenecek...
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="bird-nest" hidden>
+                <div class="cat-section-title">Yuva ve Barınak</div>
+                <div
+                  style="
+                    padding: 40px;
+                    text-align: center;
+                    color: var(--text-light);
+                  "
+                >
+                  <div style="font-size: 48px; margin-bottom: 12px">🪺</div>
+                  <div style="font-weight: 700">Yuva ve Barınak</div>
+                  <div style="font-size: 13px; margin-top: 6px">
+                    Bu kategorideki ürünler yüklenecek...
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="bird-sand" hidden>
+                <div class="cat-section-title">Kum ve Zemin Malzemeleri</div>
+                <div
+                  style="
+                    padding: 40px;
+                    text-align: center;
+                    color: var(--text-light);
+                  "
+                >
+                  <div style="font-size: 48px; margin-bottom: 12px">🪨</div>
+                  <div style="font-weight: 700">Kum ve Zemin Malzemeleri</div>
+                  <div style="font-size: 13px; margin-top: 6px">
+                    Bu kategorideki ürünler yüklenecek...
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /nav-item bird -->
+
+        <!-- ── KEMİRGEN ÜRÜNLERİ ── -->
+        <div
+          class="nav-item"
+          id="nav-rodent"
+          data-animal="rodent"
+          onclick="window.location.href = 'kemirgenurunler.html'"
+        >
+          <button
+            class="nav-btn"
+            data-id="rodent"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Kemirgen Ürünleri <span class="nav-arrow">▼</span>
+          </button>
+          <div
+            class="mega-dropdown"
+            id="dropdown-rodent"
+            role="region"
+            aria-label="Kemirgen Ürünleri Menüsü"
+          >
+            <div class="dropdown-sidebar" id="sidebar-rodent">
+              <div
+                class="sidebar-item active"
+                data-id="rod-food"
+                data-animal="rodent"
+              >
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🌾</span><span>Kemirgen Yemi</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div
+                class="sidebar-item"
+                data-id="rod-treat"
+                data-animal="rodent"
+              >
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🎁</span><span>Ödül Yemi</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="rod-cage" data-animal="rodent">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🏠</span
+                  ><span>Kafes ve Teraryum</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div class="sidebar-item" data-id="rod-toy" data-animal="rodent">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🎡</span
+                  ><span>Oyuncak ve Aktivite</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div
+                class="sidebar-item"
+                data-id="rod-bedding"
+                data-animal="rodent"
+              >
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🪵</span
+                  ><span>Altlık ve Talaş</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div
+                class="sidebar-item"
+                data-id="rod-vitamin"
+                data-animal="rodent"
+              >
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">💊</span
+                  ><span>Vitamin ve Mineral</span>
+                </div>
+                <span class="sidebar-arrow">›</span>
+              </div>
+              <div
+                class="sidebar-item"
+                data-id="rod-wheel"
+                data-animal="rodent"
+              >
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">⭕</span><span>Koşu Tekeri</span>
+                </div>
+              </div>
+              <div class="sidebar-item" data-id="rod-nest" data-animal="rodent">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🪺</span
+                  ><span>Yuva ve Barınak</span>
+                </div>
+              </div>
+              <div class="sidebar-item" data-id="rod-tube" data-animal="rodent">
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">🔄</span
+                  ><span>Tünel ve Borular</span>
+                </div>
+              </div>
+              <div
+                class="sidebar-item"
+                data-id="rod-water"
+                data-animal="rodent"
+              >
+                <div class="sidebar-item-left">
+                  <span class="sidebar-icon">💧</span
+                  ><span>Su Şişesi ve Besleyici</span>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-content" id="content-rodent">
+              <div class="cat-panel" data-panel="rod-food">
+                <div class="cat-section-title">Kemirgen Yemi Kategorileri</div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🐹</span>
+                    </div>
+                    <span class="category-label">Hamster Yemi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🐰</span>
+                    </div>
+                    <span class="category-label">Tavşan Yemi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🐾</span>
+                    </div>
+                    <span class="category-label">Guinea Pig Yemi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🐭</span>
+                    </div>
+                    <span class="category-label">Rat ve Fare Yemi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🦔</span>
+                    </div>
+                    <span class="category-label">Çinçilla Yemi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🌿</span>
+                    </div>
+                    <span class="category-label">Saman ve Ot</span></a
+                  >
+                </div>
+                <div class="related-section">
+                  <div class="related-title">İlgili Kategoriler</div>
+                  <div class="related-grid">
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🎁</span
+                      ><span>Ödül Yemi</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">🪵</span
+                      ><span>Altlık ve Talaş</span></a
+                    >
+                    <a class="related-card" href="#"
+                      ><span class="related-card-icon">💊</span
+                      ><span>Vitamin ve Mineral</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="rod-treat" hidden>
+                <div class="cat-section-title">
+                  Kemirgen Ödül Yemi Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🌾</span>
+                    </div>
+                    <span class="category-label">Tahıl Çubukları</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🍎</span>
+                    </div>
+                    <span class="category-label">Kurutulmuş Meyve</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🪨</span>
+                    </div>
+                    <span class="category-label">Mineral Taşı</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🍪</span>
+                    </div>
+                    <span class="category-label">Bisküvi Ödüller</span></a
+                  >
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="rod-cage" hidden>
+                <div class="cat-section-title">
+                  Kafes ve Teraryum Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🏠</span>
+                    </div>
+                    <span class="category-label">Hamster Kafesi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🐰</span>
+                    </div>
+                    <span class="category-label">Tavşan Kafesi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🐾</span>
+                    </div>
+                    <span class="category-label">Guinea Pig Kafesi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">🌿</span>
+                    </div>
+                    <span class="category-label">Teraryum</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">📦</span>
+                    </div>
+                    <span class="category-label">Başlangıç Kitleri</span></a
+                  >
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="rod-toy" hidden>
+                <div class="cat-section-title">
+                  Oyuncak ve Aktivite Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">⭕</span>
+                    </div>
+                    <span class="category-label">Koşu Tekeri</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">⚽</span>
+                    </div>
+                    <span class="category-label">Yürüme Topu</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🔄</span>
+                    </div>
+                    <span class="category-label">Tünel ve Boru</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🪵</span>
+                    </div>
+                    <span class="category-label">Çiğneme Oyuncakları</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f8d7da">
+                      <span style="font-size: 26px">🎡</span>
+                    </div>
+                    <span class="category-label">Salıncak</span></a
+                  >
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="rod-bedding" hidden>
+                <div class="cat-section-title">
+                  Altlık ve Talaş Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #fff3cd">
+                      <span style="font-size: 26px">🪵</span>
+                    </div>
+                    <span class="category-label">Ahşap Talaş</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">📄</span>
+                    </div>
+                    <span class="category-label">Kağıt Altlık</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🌿</span>
+                    </div>
+                    <span class="category-label">Kenevir Altlık</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">☁️</span>
+                    </div>
+                    <span class="category-label">Pamuk Yuva</span></a
+                  >
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="rod-vitamin" hidden>
+                <div class="cat-section-title">
+                  Vitamin ve Mineral Kategorileri
+                </div>
+                <div class="category-grid">
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #f0f0f0">
+                      <span style="font-size: 26px">🔢</span>
+                    </div>
+                    <span class="category-label">Tümünü Gör</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #cce5ff">
+                      <span style="font-size: 26px">💧</span>
+                    </div>
+                    <span class="category-label">Sıvı Vitamin</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d4edda">
+                      <span style="font-size: 26px">🦴</span>
+                    </div>
+                    <span class="category-label">Kalsiyum Takviyesi</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #d1ecf1">
+                      <span style="font-size: 26px">🦠</span>
+                    </div>
+                    <span class="category-label">Probiyotik</span></a
+                  >
+                  <a class="category-card" href="#"
+                    ><div class="cat-icon-wrap" style="background: #e2e3e5">
+                      <span style="font-size: 26px">🪨</span>
+                    </div>
+                    <span class="category-label">Mineral Taşı</span></a
+                  >
+                </div>
+              </div>
+              <!-- fallback panels -->
+              <div class="cat-panel" data-panel="rod-wheel" hidden>
+                <div class="cat-section-title">Koşu Tekeri</div>
+                <div
+                  style="
+                    padding: 40px;
+                    text-align: center;
+                    color: var(--text-light);
+                  "
+                >
+                  <div style="font-size: 48px; margin-bottom: 12px">⭕</div>
+                  <div style="font-weight: 700">Koşu Tekeri</div>
+                  <div style="font-size: 13px; margin-top: 6px">
+                    Bu kategorideki ürünler yüklenecek...
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="rod-nest" hidden>
+                <div class="cat-section-title">Yuva ve Barınak</div>
+                <div
+                  style="
+                    padding: 40px;
+                    text-align: center;
+                    color: var(--text-light);
+                  "
+                >
+                  <div style="font-size: 48px; margin-bottom: 12px">🪺</div>
+                  <div style="font-weight: 700">Yuva ve Barınak</div>
+                  <div style="font-size: 13px; margin-top: 6px">
+                    Bu kategorideki ürünler yüklenecek...
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="rod-tube" hidden>
+                <div class="cat-section-title">Tünel ve Borular</div>
+                <div
+                  style="
+                    padding: 40px;
+                    text-align: center;
+                    color: var(--text-light);
+                  "
+                >
+                  <div style="font-size: 48px; margin-bottom: 12px">🔄</div>
+                  <div style="font-weight: 700">Tünel ve Borular</div>
+                  <div style="font-size: 13px; margin-top: 6px">
+                    Bu kategorideki ürünler yüklenecek...
+                  </div>
+                </div>
+              </div>
+              <div class="cat-panel" data-panel="rod-water" hidden>
+                <div class="cat-section-title">Su Şişesi ve Besleyici</div>
+                <div
+                  style="
+                    padding: 40px;
+                    text-align: center;
+                    color: var(--text-light);
+                  "
+                >
+                  <div style="font-size: 48px; margin-bottom: 12px">💧</div>
+                  <div style="font-weight: 700">Su Şişesi ve Besleyici</div>
+                  <div style="font-size: 13px; margin-top: 6px">
+                    Bu kategorideki ürünler yüklenecek...
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /nav-item rodent -->
+
+        <!-- ── STATIK LINKLER (dropdown yok) ── -->
+        <div class="nav-item" id="nav-campaigns">
+          <button
+            class="nav-btn"
+            data-id="campaigns"
+            onclick="window.location.href = 'kampanya.html'"
+          >
+            Kampanyalar
+          </button>
+        </div>
+        <div class="nav-item" id="nav-club">
+          <button
+            class="nav-btn"
+            data-id="club"
+            onclick="window.location.href = 'salon.html'"
+          >
+            Pawco Salon
+          </button>
+        </div>
+        <div class="nav-item" id="nav-Rezervation">
+          <button
+            class="nav-btn"
+            data-id="Rezervation"
+            onclick="window.location.href = 'salon-hizmetler.html'"
+          >
+            Randevu
+          </button>
+        </div>
+
+        <div class="nav-item" id="nav-Blog">
+          <button
+            class="nav-btn"
+            data-id="Blog"
+            onclick="window.location.href = 'blog.html'"
+          >
+            Blog
+          </button>
+        </div>
+      </div>
+      <!-- /navbar-inner -->
+    </nav>
+    <!-- /NAVBAR -->
+
+  <!-- ════════════════════════════════════════
+       HERO — Biz Kimiz
+  ════════════════════════════════════════ -->
+  <section class="hk-hero">
+    <div class="hk-hero-bg">
+      <div class="hk-hero-blob hk-hero-blob--1"></div>
+      <div class="hk-hero-blob hk-hero-blob--2"></div>
+      <div class="hk-hero-blob hk-hero-blob--3"></div>
+    </div>
+    <div class="hk-hero-inner">
+      <div class="hk-hero-text">
+        <span class="hk-hero-eyebrow">🐾 Pawco Hakkında</span>
+        <h1 class="hk-hero-title">
+          Evcil dostlarınız için<br>
+          <span class="hk-hero-highlight">en iyi seçim</span>
+        </h1>
+        <p class="hk-hero-desc">
+          2018'den bu yana Türkiye'nin dört bir yanındaki evcil hayvan sahiplerine
+          ulaşıyor, milyonlarca ürünü güvenle kapılarına taşıyoruz. Çünkü bir
+          patiyi mutlu etmek, bizim için de mutluluk demek.
+        </p>
+        <div class="hk-hero-actions">
+          <a href="kediurunler.html" class="hk-btn-primary">Ürünleri Keşfet</a>
+          <a href="#hk-story" class="hk-btn-ghost">Hikayemizi Oku</a>
+        </div>
+      </div>
+      <div class="hk-hero-visual">
+        <div class="hk-hero-img-wrap">
+          <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80"
+               alt="Mutlu kedi" class="hk-hero-img hk-hero-img--1"/>
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=400&q=80"
+               alt="Mutlu köpek" class="hk-hero-img hk-hero-img--2"/>
+          <div class="hk-hero-badge">
+            <span class="hk-hero-badge-num">6+</span>
+            <span class="hk-hero-badge-txt">Yıllık<br>Deneyim</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       RAKAMLAR
+  ════════════════════════════════════════ -->
+  <section class="hk-stats">
+    <div class="hk-stats-inner">
+      <div class="hk-stat-item">
+        <div class="hk-stat-num" data-target="2000000">0</div>
+        <div class="hk-stat-label">Mutlu Müşteri</div>
+      </div>
+      <div class="hk-stat-divider"></div>
+      <div class="hk-stat-item">
+        <div class="hk-stat-num" data-target="50000">0</div>
+        <div class="hk-stat-label">Ürün Çeşidi</div>
+      </div>
+      <div class="hk-stat-divider"></div>
+      <div class="hk-stat-item">
+        <div class="hk-stat-num" data-target="500">0</div>
+        <div class="hk-stat-label">Marka</div>
+      </div>
+      <div class="hk-stat-divider"></div>
+      <div class="hk-stat-item">
+        <div class="hk-stat-num" data-target="81">0</div>
+        <div class="hk-stat-label">İle Teslimat</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       HİKAYEMİZ
+  ════════════════════════════════════════ -->
+  <section class="hk-story" id="hk-story">
+    <div class="hk-story-inner">
+      <div class="hk-story-img-col">
+        <div class="hk-story-img-stack">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=500&q=80"
+               alt="Kuruluş hikayesi" class="hk-story-img hk-story-img--main"/>
+          <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=280&q=80"
+               alt="Pawco ekibi" class="hk-story-img hk-story-img--small"/>
+          <div class="hk-story-year-tag">2018</div>
+        </div>
+      </div>
+      <div class="hk-story-text-col">
+        <span class="hk-section-eyebrow">Nereden Geldik</span>
+        <h2 class="hk-section-title">Bir kedinin <br>ilham verdiği hikaye</h2>
+        <p>
+          Pawco'nun hikayesi, bir kedi maması çantasıyla başladı. Kurucularımız
+          Ahmet ve Selin, kendi kedileri için kaliteli ürün bulmakta yaşadıkları
+          güçlüğü görünce şunu fark etti: Bu sorun sadece onlara özgü değil.
+        </p>
+        <p>
+          2018'de İstanbul'daki küçük bir depodan yola çıktılar. İlk ay sadece
+          47 sipariş aldılar. Bugün ise günde binlerce siparişi Türkiye'nin
+          her köşesine ulaştırıyoruz.
+        </p>
+        <p>
+          Büyüdük, ama değişmeyen tek şey var: Her siparişin arkasında bir
+          evcil dostun mutluluğu olduğunu biliyoruz.
+        </p>
+        <div class="hk-story-founders">
+          <div class="hk-founder">
+            <div class="hk-founder-avatar">A</div>
+            <div>
+              <div class="hk-founder-name">Ahmet Yılmaz</div>
+              <div class="hk-founder-role">Kurucu & CEO</div>
+            </div>
+          </div>
+          <div class="hk-founder">
+            <div class="hk-founder-avatar hk-founder-avatar--2">S</div>
+            <div>
+              <div class="hk-founder-name">Selin Kaya</div>
+              <div class="hk-founder-role">Kurucu & COO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       DEĞERLER
+  ════════════════════════════════════════ -->
+  <section class="hk-values">
+    <div class="hk-values-inner">
+      <div class="hk-values-header">
+        <span class="hk-section-eyebrow">Neden Pawco</span>
+        <h2 class="hk-section-title">Bizi biz yapan değerler</h2>
+      </div>
+      <div class="hk-values-grid">
+
+        <div class="hk-value-card hk-value-card--orange">
+          <div class="hk-value-icon">🛡️</div>
+          <h3>%100 Orijinal Ürün</h3>
+          <p>Tüm ürünlerimiz yetkili distribütörlerden temin ediliyor. Sahte ya da muadil ürün satmıyoruz, satmayacağız.</p>
+        </div>
+
+        <div class="hk-value-card hk-value-card--navy">
+          <div class="hk-value-icon">🚀</div>
+          <h3>Hızlı & Güvenli Teslimat</h3>
+          <p>Siparişlerin %94'ü 24 saat içinde kargoda. 799 TL üzeri Türkiye'nin her yerine ücretsiz.</p>
+        </div>
+
+        <div class="hk-value-card hk-value-card--green">
+          <div class="hk-value-icon">💚</div>
+          <h3>Barınak Desteği</h3>
+          <p>Her satıştan elde ettiğimiz kârın bir kısmını anlaşmalı barınaklara mama ve malzeme olarak bağışlıyoruz.</p>
+        </div>
+
+        <div class="hk-value-card hk-value-card--warm">
+          <div class="hk-value-icon">🎧</div>
+          <h3>Uzman Müşteri Hizmetleri</h3>
+          <p>Ekibimizin tamamı evcil hayvan sahibi. Sorularınıza sadece bilgi değil, deneyimle cevap veriyoruz.</p>
+        </div>
+
+        <div class="hk-value-card hk-value-card--blue">
+          <div class="hk-value-icon">↩️</div>
+          <h3>Kolay İade</h3>
+          <p>15 gün içinde, kargo ücreti olmadan iade. Memnun kalmadıysanız hiçbir soru sormadan geri alıyoruz.</p>
+        </div>
+
+        <div class="hk-value-card hk-value-card--purple">
+          <div class="hk-value-icon">🌱</div>
+          <h3>Sürdürülebilirlik</h3>
+          <p>Ambalajlarımızı geri dönüştürülebilir malzemelerden üretiyoruz. 2026'ya kadar karbon nötr olmayı hedefliyoruz.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       ZAMAN ÇİZGİSİ
+  ════════════════════════════════════════ -->
+  <section class="hk-timeline">
+    <div class="hk-timeline-inner">
+      <div class="hk-timeline-header">
+        <span class="hk-section-eyebrow hk-section-eyebrow--light">Yolculuğumuz</span>
+        <h2 class="hk-section-title hk-section-title--light">6 yılda neler oldu?</h2>
+      </div>
+      <div class="hk-tl-list">
+
+        <div class="hk-tl-item hk-tl-item--right">
+          <div class="hk-tl-dot"></div>
+          <div class="hk-tl-card">
+            <div class="hk-tl-year">2018</div>
+            <h4>Kuruluş</h4>
+            <p>İstanbul'da 2 kişilik ekip ve 300 ürünle başladık. İlk ayımızda 47 siparişimiz vardı.</p>
+          </div>
+        </div>
+
+        <div class="hk-tl-item hk-tl-item--left">
+          <div class="hk-tl-dot"></div>
+          <div class="hk-tl-card">
+            <div class="hk-tl-year">2019</div>
+            <h4>İlk 10.000 Müşteri</h4>
+            <p>Yıl sonunda 10.000 aktif müşteriye ulaştık. Ürün çeşidimizi 5.000'e çıkardık.</p>
+          </div>
+        </div>
+
+        <div class="hk-tl-item hk-tl-item--right">
+          <div class="hk-tl-dot"></div>
+          <div class="hk-tl-card">
+            <div class="hk-tl-year">2020</div>
+            <h4>Mobil Uygulama</h4>
+            <p>iOS ve Android uygulamalarımızı yayına aldık. Pandemi döneminde evcil hayvan sahiplerine kesintisiz hizmet verdik.</p>
+          </div>
+        </div>
+
+        <div class="hk-tl-item hk-tl-item--left">
+          <div class="hk-tl-dot"></div>
+          <div class="hk-tl-card">
+            <div class="hk-tl-year">2021</div>
+            <h4>Pawco Salon</h4>
+            <p>İstanbul'da ilk fiziksel mağazamızı ve tımar salonumuzu açtık. Hizmet anlayışımızı online'dan offline'a taşıdık.</p>
+          </div>
+        </div>
+
+        <div class="hk-tl-item hk-tl-item--right">
+          <div class="hk-tl-dot"></div>
+          <div class="hk-tl-card">
+            <div class="hk-tl-year">2023</div>
+            <h4>500+ Marka</h4>
+            <p>Platform üzerindeki marka sayısı 500'ü geçti. Türkiye'nin en geniş evcil hayvan ürünleri kataloğuna ulaştık.</p>
+          </div>
+        </div>
+
+        <div class="hk-tl-item hk-tl-item--left">
+          <div class="hk-tl-dot hk-tl-dot--accent"></div>
+          <div class="hk-tl-card hk-tl-card--accent">
+            <div class="hk-tl-year">2024–</div>
+            <h4>Büyümeye Devam</h4>
+            <p>2 milyon müşteriye ulaştık. Barınak desteği programımızı Türkiye genelinde 50 barınağa yaydık.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       EKİP
+  ════════════════════════════════════════ -->
+  <section class="hk-team">
+    <div class="hk-team-inner">
+      <div class="hk-team-header">
+        <span class="hk-section-eyebrow">Arkamızdaki İnsanlar</span>
+        <h2 class="hk-section-title">Ekibimiz</h2>
+        <p class="hk-section-sub">Hepimiz birer evcil hayvan sahibiyiz. Bu yüzden ne yaptığımızı gerçekten biliyoruz.</p>
+      </div>
+      <div class="hk-team-grid">
+
+        <div class="hk-team-card">
+          <div class="hk-team-img-wrap">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&h=300&q=80" alt="Ahmet Yılmaz"/>
+            <div class="hk-team-pet">🐱</div>
+          </div>
+          <div class="hk-team-info">
+            <div class="hk-team-name">Ahmet Yılmaz</div>
+            <div class="hk-team-role">Kurucu & CEO</div>
+            <p class="hk-team-pet-note">Pamuk'un babası</p>
+          </div>
+        </div>
+
+        <div class="hk-team-card">
+          <div class="hk-team-img-wrap">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&h=300&q=80" alt="Selin Kaya"/>
+            <div class="hk-team-pet">🐶</div>
+          </div>
+          <div class="hk-team-info">
+            <div class="hk-team-name">Selin Kaya</div>
+            <div class="hk-team-role">Kurucu & COO</div>
+            <p class="hk-team-pet-note">Fıstık'ın annesi</p>
+          </div>
+        </div>
+
+        <div class="hk-team-card">
+          <div class="hk-team-img-wrap">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&h=300&q=80" alt="Mert Demir"/>
+            <div class="hk-team-pet">🐰</div>
+          </div>
+          <div class="hk-team-info">
+            <div class="hk-team-name">Mert Demir</div>
+            <div class="hk-team-role">CTO</div>
+            <p class="hk-team-pet-note">Ceviz'in babası</p>
+          </div>
+        </div>
+
+        <div class="hk-team-card">
+          <div class="hk-team-img-wrap">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&h=300&q=80" alt="Zeynep Arslan"/>
+            <div class="hk-team-pet">🐱</div>
+          </div>
+          <div class="hk-team-info">
+            <div class="hk-team-name">Zeynep Arslan</div>
+            <div class="hk-team-role">Müşteri Deneyimi</div>
+            <p class="hk-team-pet-note">Boncuk ve Tarçın'ın annesi</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="hk-team-cta">
+        <p>Siz de ekibimize katılmak ister misiniz?</p>
+        <a href="#" class="hk-btn-primary">Açık Pozisyonlar →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       BASIN
+  ════════════════════════════════════════ -->
+  <section class="hk-press">
+    <div class="hk-press-inner">
+      <span class="hk-section-eyebrow" style="text-align:center;display:block">Basında Pawco</span>
+      <div class="hk-press-logos">
+        <div class="hk-press-logo">Hürriyet</div>
+        <div class="hk-press-logo">Milliyet</div>
+        <div class="hk-press-logo">TechCrunch TR</div>
+        <div class="hk-press-logo">Webrazzi</div>
+        <div class="hk-press-logo">ShiftDelete</div>
+        <div class="hk-press-logo">Para Dergisi</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       BARINAK DESTEK
+  ════════════════════════════════════════ -->
+  <section class="hk-shelter">
+    <div class="hk-shelter-inner">
+      <div class="hk-shelter-text">
+        <span class="hk-section-eyebrow">Sosyal Sorumluluk</span>
+        <h2 class="hk-section-title">Her alışverişte<br>bir patiye destek</h2>
+        <p>
+          Pawco Barınak Destek Programı kapsamında Türkiye genelinde
+          50'den fazla barınakla ortaklık kuruyoruz. 2024'te 120 ton
+          mama ve 30.000'den fazla ürünü barınaklara ulaştırdık.
+        </p>
+        <div class="hk-shelter-stats">
+          <div class="hk-shelter-stat">
+            <span class="hk-shelter-stat-num">50+</span>
+            <span>Ortak Barınak</span>
+          </div>
+          <div class="hk-shelter-stat">
+            <span class="hk-shelter-stat-num">120t</span>
+            <span>Mama Bağışı</span>
+          </div>
+          <div class="hk-shelter-stat">
+            <span class="hk-shelter-stat-num">8.400</span>
+            <span>Sahiplendirme</span>
+          </div>
+        </div>
+        <a href="#" class="hk-btn-primary">Programa Katıl</a>
+      </div>
+      <div class="hk-shelter-img-col">
+        <img src="https://images.unsplash.com/photo-1601758174114-e711c0cbaa69?auto=format&fit=crop&w=560&q=80"
+             alt="Barınak desteği"/>
+        <div class="hk-shelter-quote">
+          <span>"</span>
+          Pawco'nun desteği olmadan barınağımızı bu kadar büyütemezdik.
+          <cite>— Ayşe H., Barınak Koordinatörü</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       İLETİŞİM CTA
+  ════════════════════════════════════════ -->
+  <section class="hk-cta">
+    <div class="hk-cta-inner">
+      <div class="hk-cta-blob"></div>
+      <span class="hk-cta-emoji">🐾</span>
+      <h2 class="hk-cta-title">Hâlâ sorunuz mu var?</h2>
+      <p class="hk-cta-sub">Ekibimiz size yardımcı olmaktan mutluluk duyar.</p>
+      <div class="hk-cta-actions">
+        <a href="destek.html" class="hk-btn-primary hk-btn-primary--light">Destek Talebi Oluştur</a>
+        <a href="blog.html" class="hk-btn-ghost hk-btn-ghost--light">Blog'u Keşfet</a>
+      </div>
+      <div class="hk-cta-contact">
+        <span>📞 0850 123 45 67</span>
+        <span>·</span>
+        <span>✉️ destek@pawco.com</span>
+        <span>·</span>
+        <span>Pzt–Cmt 09:00–18:00</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 class="footer-heading">Kurumsal</h4>
+          <ul>
+            <li><a href="#">Hakkımızda</a></li>
+            <li><a href="#">Orijinal Ürün Garantisi</a></li>
+            <li><a href="#">Pawco Partner Fırsatları</a></li>
+            <li><a href="#">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Kuaför & Bakım Salonu</h4>
+          <ul>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="destek.html">Soru Cevap</a></li>
+            <li><a href="salon-hizmetler.html">Randevu</a></li>
+            <li><a href="salon.html">Pawco Salon</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Yardım Merkezi</h4>
+          <ul>
+            <li><a href="#">Mesafeli Satış Sözleşmesi</a></li>
+            <li><a href="#">Teslimat Koşulları</a></li>
+            <li><a href="#">Garanti ve İade Süreci</a></li>
+            <li><a href="#">Kişisel Verilerin Korunması</a></li>
+            <li><a href="#">Gizlilik ve Çerez Politikası</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Müşteri Hizmetleri</h4>
+          <div class="footer-phone">0212 444 2 795</div>
+          <div class="footer-hours">Pazartesi - Cuma 08:00 - 18:00</div>
+          <div class="footer-support-label">Yardıma mı ihtiyacınız var?</div>
+          <a href="#" class="support-btn">Destek Talebi Oluştur</a>
+        </div>
+        <!--  <div class="footer-col">
+          <h4 class="footer-heading">Mobil Uygulamalar</h4>
+          <a href="#" class="app-btn">Google Play'den İndirin</a
+          ><a href="#" class="app-btn">App Store'dan İndirin</a>
+        </div>-->
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-col">
+          <h5 class="footer-sub-heading">Güvenli Alışveriş</h5>
+          <div class="payment-logos">
+            <span class="pay-logo">VISA</span><span class="pay-logo">MC</span
+            ><span class="pay-logo">troy</span>
+          </div>
+        </div>
+        <div class="footer-bottom-col">
+          <h5 class="footer-sub-heading">Güvenlik Sertifikası</h5>
+          <div class="cert-logos">
+            <span class="cert-badge">TR<br />GÜ</span>
+          </div>
+        </div>
+        <div class="footer-bottom-col">
+          <h5 class="footer-sub-heading">Bizi Takip Edin</h5>
+          <div class="social-links">
+            <a href="#">Instagram</a><a href="#">Facebook</a><a href="#">X</a
+            ><a href="#">Youtube</a><a href="#">LinkedIn</a
+            ><a href="#">Pinterest</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="footer-legal">
+      <p>
+        PAWCO EVCİL HAYVAN ÜRÜNLERİ PAZ. SAN. TİC. LTD. ŞTİ. Kartal/İstanbul
+      </p>
+      <p>2026 © pawco.com | sevgiyle yapıldı. ❤</p>
+    </div>
+
+  <script src="js/hakkimizda.js"></script>
+</body>
+</html>
