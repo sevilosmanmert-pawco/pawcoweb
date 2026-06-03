@@ -446,21 +446,21 @@ const slides = [
     badge: "Yeni Sezon",
     title: "Dostlarınız İçin <br> <span>En Sağlıklı</span> Seçimler",
     desc: "Özenle seçilmiş içeriklerle hazırlanan mamalar şimdi %20 indirimle.",
-       image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800",
+       image: "resimler/pawco-banner-gecici-1.jpg",
     bgColor: "#F3F5F7"
   },
   {
     badge: "Popüler",
     title: "Konforlu Bir <br> <span>Uyku</span> Deneyimi",
     desc: "Yumuşacık yataklar ve dinlenme alanlarında büyük fırsatları kaçırmayın.",
-    image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&q=80&w=800",
+    image: "resimler/pawco-banner-gecici-2.jpg",
     bgColor: "#E9F0F4"
   },
   {
     badge: "Pawco Güvencesi",
     title: "Oyun Zamanı <br> <span>Eğlence</span> Garantili",
     desc: "En sevilen oyuncaklar ve aksesuarlar tek adreste, hızlı teslimatla kapınızda.",
-    image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800",
+    image: "resimler/pawco-banner-gecici-3.jpg",
     bgColor: "#EDF5F0"
   }
 ];
