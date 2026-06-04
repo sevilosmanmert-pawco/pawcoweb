@@ -659,17 +659,18 @@ width: 90%;
 .blog-section {
   padding: 32px 0 24px;
   border-bottom: 1px solid var(--border);
+  position: relative;
 }
 
 /* ===== SLIDER WRAPPER ===== */
 .blog-slider-wrapper {
-  position: relative;
+     overflow: hidden;
  
 }
 
 .blog-slider {
   display: flex;
-   overflow: hidden;
+
   gap: 16px;
   transition: transform 0.35s ease;
   will-change: transform;
