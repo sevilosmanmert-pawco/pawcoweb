@@ -665,7 +665,6 @@ width: 90%;
 /* ===== SLIDER WRAPPER ===== */
 .blog-slider-wrapper {
      overflow: hidden;
- 
 }
 
 .blog-slider {
@@ -844,8 +843,12 @@ width: 90%;
 
 /* ===== SEO SECTION ===== */
 .seo-section {
-  padding: 32px 0;
+  padding: 32px 0px;
   border-bottom: 1px solid var(--border);
+  width: 90%;
+  margin: 0 auto;
+          max-width: 1500px;
+
 }
 
 .seo-title {
@@ -903,6 +906,8 @@ width: 90%;
 .features-section {
   padding: 36px 0;
   border-bottom: 1px solid var(--border);
+  width: 90%;
+  margin: 0 auto;
 }
 
 .features-grid {
